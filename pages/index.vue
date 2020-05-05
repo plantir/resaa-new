@@ -37,4 +37,3 @@ export default class YourComponent extends Vue {
 }
 </script>
 
-<style lang="scss" scope></style>

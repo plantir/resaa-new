@@ -14,12 +14,10 @@ export default {}
   width: 100%;
   height: 400px;
   background-image: linear-gradient(270deg, #13d1f3, #35d6c1);
-  -webkit-clip-path: ellipse(100% 100% at 50% 100%);
-  clip-path: ellipse(100% 100% at 50% 100%);
+  clip-path: ellipse(200% 100% at 50% 100%);
   z-index: -1;
-  @media only screen and (max-width: 599px) {
-    -webkit-clip-path: ellipse(200% 100% at 50% 100%);
-    clip-path: ellipse(200% 100% at 50% 100%);
+  @include media(sm) {
+    clip-path: ellipse(100% 100% at 50% 100%);
   }
 }
 </style>

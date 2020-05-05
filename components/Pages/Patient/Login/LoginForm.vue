@@ -1,30 +1,25 @@
 <template>
-  <div class="auth-form">
+  <div class="auth-form" ref="wrapper">
     <v-card class="d-flex flex-column">
       <div class="icon mt-10 d-flex justify-center">
         <Icon fileName="ic_mobile_number.png" />
       </div>
       <form class="pa-6" @submit.prevent="onSubmit">
-        <p class="desc font-weight-medium">
-          برای ورود به رسا، شماره موبایل خود را وارد کنید.
-        </p>
+        <p class="desc font-weight-medium">برای ورود به رسا، شماره موبایل خود را وارد کنید.</p>
         <v-text-field
           v-model="form.mobile"
           class="ltr-input"
           placeholder="شماره موبایل"
-          :error-messages="errors.collect('موبایل')"
+          name="mobile"
           v-validate="'required|mobile'"
-          data-vv-name="موبایل"
+          :error-messages="errors.collect('mobile')"
+          data-vv-as="نام"
           outlined
         />
-        <v-btn block @click="onSubmit" :disabled="!formValidated">
-          تایید و ادامه
-        </v-btn>
+        <v-btn block @click="onSubmit">تایید و ادامه</v-btn>
       </form>
     </v-card>
-    <p
-      class="help-block font-weight-medium d-flex align-start text-justify mt-2"
-    >
+    <p class="help-block font-weight-medium d-flex align-start text-justify mt-2">
       <Icon v-if="$device.isMobile" class="ml-2" fileName="ic_info.svg" />
       <span>
         شماره موبایل شما نزد رسا امانت است و برای برقراری ارتباط با پزشک استفاده
@@ -62,16 +57,15 @@ export default class LoginForm extends Vue {
   onSubmit() {
     this.$validator.validate().then(valid => {
       if (valid) {
-        this.$emit('submit')
+        let loader = this.$loader.show(this.$refs.wrapper)
+        // loader.hide()
+        console.log(this.form)
+        setTimeout(() => {
+          this.$emit('submit')
+          loader.hide()
+        }, 2000)
       }
     })
-  }
-
-  get formValidated() {
-    return (
-      Object.keys(this.fields).some(key => this.fields[key].validated) &&
-      Object.keys(this.fields).some(key => this.fields[key].valid)
-    )
   }
 }
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <img src="/images/logo.png" :alt="$t('mainTitle')" />
+  <img src="/images/logo.png" />
 </template>
 
 <style lang="scss" scoped>
-img{
+img {
   height: 45px;
   width: auto;
 }

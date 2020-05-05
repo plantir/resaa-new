@@ -7,41 +7,41 @@ export default {
   mode: 'universal',
   server: {
     port: process.env.PORT || 3000,
-    host: process.env.HOST || '0.0.0.0' // default: localhost
+    host: process.env.HOST || '0.0.0.0', // default: localhost
   },
-  router: {
-    middleware: 'nuxti18n'
-  },
+  // router: {
+  //   middleware: 'nuxti18n',
+  // },
   robots: [
     {
       UserAgent: '*',
-      Disallow: () => '/auth'
+      Disallow: () => '/auth',
     },
     {
-      Sitemap: process.env.BASE_URL + '/sitemap.xml'
-    }
+      Sitemap: process.env.BASE_URL + '/sitemap.xml',
+    },
   ],
   sitemap: {
     hostname: process.env.BASE_URL,
     gzip: true,
-    exclude: ['/login']
+    exclude: ['/login'],
   },
   /*
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: '%s - ' + 'رسا سامانه سلامت ایرانیان',
+    title: 'رسا سامانه سلامت ایرانیان',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -57,8 +57,8 @@ export default {
   styleResources: {
     scss: [
       './assets/styles/styles.scss',
-      'vrwebdesign-nuxt/assets/style/tools/_responsive.scss'
-    ]
+      'vrwebdesign-nuxt/assets/style/tools/_responsive.scss',
+    ],
   },
   plugins: ['@/plugins/lazy-load.js'],
   /*
@@ -66,7 +66,7 @@ export default {
    */
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
     // '@nuxtjs/google-analytics',
     // '@nuxtjs/gtm'
   ],
@@ -104,24 +104,25 @@ export default {
     'vrwebdesign-nuxt/modules/nuxt-axios',
     'vrwebdesign-nuxt/modules/nuxt-loader',
     'vrwebdesign-nuxt/modules/nuxt-scroll-bar',
-    'vrwebdesign-nuxt/modules/nuxt-i18n',
+    // 'vrwebdesign-nuxt/modules/nuxt-i18n',
     'vrwebdesign-nuxt/modules/nuxt-date-picker',
+    'vrwebdesign-nuxt/modules/nuxt-validate',
     'vrwebdesign-nuxt/modules/nuxt-enums',
     'vrwebdesign-nuxt/modules/nuxt-navbar',
     'vrwebdesign-nuxt/modules/nuxt-form-generator',
-    'vrwebdesign-nuxt/modules/nuxt-data-grid'
+    'vrwebdesign-nuxt/modules/nuxt-data-grid',
   ],
   sentry: {},
   googleAnalytics: {
-    id: process.env.GOOGLE_ANALITICS
+    id: process.env.GOOGLE_ANALITICS,
   },
   gtm: {
-    id: process.env.GTM
+    id: process.env.GTM,
   },
   recaptcha: {
     hideBadge: true, // Hide badge element (v3)
     siteKey: process.env.RECAPTCHA_SITEKEY, // Site key for requests
-    version: 3 // Version
+    version: 3, // Version
   },
   /*
    ** AUth module configuration
@@ -130,7 +131,7 @@ export default {
   auth: {
     redirect: {
       login: '/login',
-      home: '/'
+      home: '/',
     },
     strategies: {
       local: {
@@ -138,15 +139,15 @@ export default {
           login: {
             url: 'auth/login',
             method: 'post',
-            propertyName: 'token'
+            propertyName: 'token',
           },
           logout: { url: 'auth/logout', method: 'post' },
-          user: false
+          user: false,
         },
         tokenRequired: true,
-        tokenType: 'Bearer'
-      }
-    }
+        tokenType: 'Bearer',
+      },
+    },
   },
   /*
    ** Axios module configuration
@@ -154,15 +155,15 @@ export default {
    */
   axios: {
     proxy: true, // Can be also an object with default options
-    prefix: '/api/'
+    prefix: '/api/',
   },
   proxy: {
     '/api/': {
       target: process.env.API_URL || 'http://localhost:3333',
       pathRewrite: {
-        '^/api/': ''
-      }
-    }
+        '^/api/': '',
+      },
+    },
   },
   /*
    ** vuetify module configuration
@@ -174,11 +175,11 @@ export default {
     customVariables: ['~/assets/styles/setting/_variables.scss'],
     defaultAssets: {
       icons: 'md',
-      font: undefined
+      font: undefined,
     },
     lang: {
       locales: { fa: require('vuetify/src/locale/fa').default },
-      current: 'fa'
+      current: 'fa',
     },
     theme: {
       dark: false,
@@ -193,23 +194,20 @@ export default {
           info: colors.blue.base,
           warning: colors.orange.darken1,
           error: colors.deepOrange.accent2,
-          success: colors.green.base
-        }
-      }
-    }
+          success: colors.green.base,
+        },
+      },
+    },
   },
-  i18n: {
-    seo: false,
-    strategy: 'no_prefix',
-    locales: [
-      { code: 'en', iso: 'en-US', file: 'en.js' },
-      { code: 'fa', iso: 'fa-IR', file: 'fa.js' }
-    ],
-    lazy: true,
-    langDir: 'locales/',
-    baseUrl: process.env.BASE_URL,
-    defaultLocale: 'fa'
-  },
+  // i18n: {
+  //   seo: false,
+  //   strategy: 'no_prefix',
+  //   locales: [{ code: 'fa', iso: 'fa-IR', file: 'fa.js' }],
+  //   lazy: true,
+  //   langDir: 'locales/',
+  //   baseUrl: process.env.BASE_URL,
+  //   defaultLocale: 'fa',
+  // },
   watch: ['services', 'enums'],
   /*
    ** Build configuration
@@ -222,8 +220,8 @@ export default {
     // extractCSS: true,
     plugins: [
       new webpack.DefinePlugin({
-        'process.VERSION': version
-      })
+        'process.VERSION': version,
+      }),
     ],
     extend(config, ctx) {
       const svgRule = config.module.rules.find(rule => {
@@ -237,19 +235,19 @@ export default {
             resourceQuery: /inline/,
             use: [
               {
-                loader: 'vue-svg-loader'
-              }
-            ]
+                loader: 'vue-svg-loader',
+              },
+            ],
           },
           {
             loader: 'file-loader',
             query: {
-              name: 'assets/[name].[hash:8].[ext]'
-            }
-          }
-        ]
+              name: 'assets/[name].[hash:8].[ext]',
+            },
+          },
+        ],
       })
       //   '@/modules/vue-class-component'
-    }
-  }
+    },
+  },
 }
