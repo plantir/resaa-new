@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { MainMenu } from '@/models/MainMenu'
+import { MainMenu as MainMenuModel } from '@/models/MainMenu'
 import MenuItem from './MenuItem.vue'
 
 @Component({
@@ -16,9 +16,9 @@ import MenuItem from './MenuItem.vue'
     MenuItem,
   },
 })
-export default class extends Vue {
+export default class MainMenu extends Vue {
   @Prop({ type: Array, required: true })
-  readonly mainMenu!: MainMenu[]
+  readonly mainMenu!: MainMenuModel[]
 }
 </script>
 

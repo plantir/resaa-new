@@ -44,7 +44,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
     Icon,
   },
 })
-export default class extends Vue {
+export default class LoginForm extends Vue {
   @Prop({
     type: Object,
     required: true,

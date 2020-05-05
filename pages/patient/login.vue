@@ -22,7 +22,7 @@ Component.registerHooks(['fetch', 'head'])
     BottomBackground,
   },
 })
-export default class YourComponent extends Vue {
+export default class LoginPage extends Vue {
   form = {}
 
   public head() {

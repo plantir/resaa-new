@@ -11,7 +11,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 import { MainMenu } from '@/models/MainMenu'
 
 @Component
-export default class extends Vue {
+export default class MenuItem extends Vue {
   @Prop({ type: Object, required: true })
   readonly menu!: MainMenu
 }
