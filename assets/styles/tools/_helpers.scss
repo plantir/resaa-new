@@ -1,0 +1,9 @@
+.ltr-input {
+  ::placeholder {
+    direction: rtl;
+  }
+
+  input {
+    direction: ltr;
+  }
+}

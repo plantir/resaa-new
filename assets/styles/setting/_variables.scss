@@ -1,0 +1,15 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+$body-font-family: 'IranSans';
+$font-size-root: 14px;
+$material-light: (
+    'background': #fff,
+);
+
+$utilities: (
+    'overflow-y': auto,
+);
+
+$btn-border-radius: 8px;
+
+@import '~vuetify/src/styles/styles.sass';
+@import '../plugins/index';
