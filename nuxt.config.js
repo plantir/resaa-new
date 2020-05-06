@@ -1,8 +1,8 @@
-import webpack from 'webpack'
-import colors from 'vuetify/es5/util/colors'
-require('dotenv').config({})
-import { version } from './package.json'
 import 'vrwebdesign-nuxt/modules/nuxt-i18n'
+import colors from 'vuetify/es5/util/colors'
+import webpack from 'webpack'
+import { version } from './package.json'
+require('dotenv').config({})
 export default {
   mode: 'universal',
   server: {
@@ -137,7 +137,7 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'auth/login',
+            url: '/oauth2/token',
             method: 'post',
             propertyName: 'token',
           },

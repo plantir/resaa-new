@@ -41,7 +41,7 @@
           name="mobile"
           v-validate="'required|mobile'"
           :error-messages="errors.collect('mobile')"
-          data-vv-as="نام"
+          data-vv-as="موبایل"
           outlined
         />
         <v-btn block @click="onSubmit">تایید و ادامه</v-btn>
@@ -85,13 +85,7 @@ export default class LoginForm extends Vue {
   onSubmit() {
     this.$validator.validate().then(valid => {
       if (valid) {
-        let loader = this.$loader.show(this.$refs.wrapper)
-        // loader.hide()
-        console.log(this.form)
-        setTimeout(() => {
-          this.$emit('submit')
-          loader.hide()
-        }, 2000)
+        this.$emit('submit')
       }
     })
   }

@@ -27,14 +27,15 @@
 <template>
   <div class="auth mt-5">
     <v-container class="d-flex align-center">
-      <LoginForm class="login-wrap" v-model="form" @submit="onSubmit" />
+      <VerifyForm class="login-wrap" v-model="form" @submit="onSubmit" />
     </v-container>
     <BottomBackground v-if="$device.isMobile" />
   </div>
 </template>
+
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import LoginForm from '@/components/Pages/Patient/Login/LoginForm.vue'
+import VerifyForm from '@/components/Pages/Patient/Login/VerifyForm/VerifyForm.vue'
 import BottomBackground from '@/components/Common/BottomBackground/BottomBackground.vue'
 
 Component.registerHooks(['fetch', 'head'])
@@ -43,7 +44,7 @@ Component.registerHooks(['fetch', 'head'])
   layout: ctx =>
     ctx.isMobile ? 'mobileWithoutFooter' : 'desktopWithoutFooter',
   components: {
-    LoginForm,
+    VerifyForm,
     BottomBackground,
   },
 })
@@ -59,7 +60,16 @@ export default class LoginPage extends Vue {
     }
   }
 
-  onSubmit() {}
+  async onSubmit() {
+    const payload = {
+      username: '09136000415',
+      password: '3104',
+      grant_type: 'password',
+    }
+
+    try {
+      const res = await this.$auth.loginWith('local', { data: payload })
+    } catch (error) {}
+  }
 }
 </script>
-
