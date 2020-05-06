@@ -1,5 +1,6 @@
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .v-application {
+  background: red;
   .auth {
     background: url('/images/auth/bg.png') no-repeat;
     background-position: bottom;
@@ -60,13 +61,9 @@ export default class LoginPage extends Vue {
     }
   }
 
-  async onSubmit() {
-    const payload = {
-      username: '09136000415',
-      password: '3104',
-      grant_type: 'password',
-    }
-
+  async onSubmit(formData: Object) {
+    console.log(formData)
+    const payload = `username=09136000415&password=3104&grant_type=password`
     try {
       const res = await this.$auth.loginWith('local', { data: payload })
     } catch (error) {}

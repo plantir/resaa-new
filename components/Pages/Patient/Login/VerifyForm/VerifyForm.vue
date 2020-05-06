@@ -31,9 +31,9 @@
         <Icon fileName="ic_password.svg" />
       </div>
       <form class="pa-6" @submit.prevent="onSubmit">
-        <p class="desc font-weight-medium">
-          شماره شما قبلا در رسا ثبت شده است. لطفا رمز عبود خود را وارد کنید.
-        </p>
+        <p
+          class="desc font-weight-medium"
+        >شماره شما قبلا در رسا ثبت شده است. لطفا رمز عبود خود را وارد کنید.</p>
         <EditMobile />
         <v-text-field
           v-model="form.password"
@@ -47,9 +47,7 @@
         />
         <div class="forgot-password font-weight-medium">
           <span>رمز عبور را فراموش کرده‌اید؟</span>
-          <nuxt-link to="/">
-            بازیابی رمز عبور
-          </nuxt-link>
+          <nuxt-link to="/">بازیابی رمز عبور</nuxt-link>
         </div>
         <v-btn class="mt-8" block @click="onSubmit">تایید و ادامه</v-btn>
       </form>
@@ -86,13 +84,7 @@ export default class LoginForm extends Vue {
   onSubmit() {
     this.$validator.validate().then(valid => {
       if (valid) {
-        let loader = this.$loader.show(this.$refs.wrapper)
-        // loader.hide()
-        console.log(this.form)
-        setTimeout(() => {
-          this.$emit('submit')
-          loader.hide()
-        }, 2000)
+        this.$emit('submit', this.form)
       }
     })
   }

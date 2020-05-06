@@ -137,9 +137,10 @@ export default {
       local: {
         endpoints: {
           login: {
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             url: '/oauth2/token',
             method: 'post',
-            propertyName: 'token',
+            propertyName: 'data.access_token',
           },
           logout: { url: 'auth/logout', method: 'post' },
           user: false,
@@ -150,6 +151,8 @@ export default {
     },
   },
   /*
+  09382158220
+  2417
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
