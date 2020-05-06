@@ -8,6 +8,10 @@
   "Vue Single File Component with Class based Typescript format": {
     "prefix": "vbase-ts-class",
     "body": [
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>",
+      "",
       "<template>",
       "\t<div>",
       "",
@@ -21,11 +25,8 @@
       "\texport default class ${0} extends Vue {",
       "\t\t",
       "\t}",
+      "",
       "</script>",
-      "",
-      "<style lang=\"scss\" scoped>",
-      "",
-      "</style>"
     ],
     "description": "Base for Vue File with Class based Typescript format"
   }
