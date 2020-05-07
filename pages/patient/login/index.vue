@@ -34,12 +34,13 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import LoginForm from '@/components/Pages/Patient/Login/LoginForm.vue'
+import LoginForm from '@/components/Pages/Patient/Login/LoginForm/LoginForm.vue'
 import BottomBackground from '@/components/Common/BottomBackground/BottomBackground.vue'
 
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
+  middleware: 'guest',
   layout: ctx =>
     ctx.isMobile ? 'mobileWithoutFooter' : 'desktopWithoutFooter',
   components: {
@@ -48,7 +49,9 @@ Component.registerHooks(['fetch', 'head'])
   },
 })
 export default class LoginPage extends Vue {
-  form = {}
+  form = {
+    mobile: this.$auth.$storage.getCookie('login_mobile') || null,
+  }
 
   public head() {
     return {
@@ -59,7 +62,9 @@ export default class LoginPage extends Vue {
     }
   }
 
-  onSubmit() {}
+  onSubmit() {
+    this.$auth.$storage.setCookie('login_mobile', this.form.mobile, false)
+    this.$router.push('/patient/login/verify')
+  }
 }
 </script>
-

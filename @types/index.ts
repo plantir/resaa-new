@@ -1,4 +1,4 @@
-import AuthService from '~/services/test'
+import AuthService from '@/services/auth'
 interface IEnum {
   toSelect: { text: string; value: number }[]
 }
@@ -18,6 +18,7 @@ interface Auth {
   loginWith(strategy: string, date: any): Promise<any>
   login(): Promise<any>
   setUser(user: any): void
+  getToken(strategy: string): string
   setToken(strategy: string, token: string): void
   setUserToken(token: string): Promise<any>
   fetchUser(): Promise<any>
@@ -41,7 +42,7 @@ declare module 'vue/types/vue' {
 
 declare module 'vue/types/vue' {
   interface NuxtServiceInstance {
-    test: AuthService
+    auth: AuthService
   }
   interface NuxtEnumInstance {
     role: IEnum

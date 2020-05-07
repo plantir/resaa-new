@@ -1,11 +1,3 @@
-<template>
-  <div class="bottom-background"></div>
-</template>
-
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
 .bottom-background {
   position: fixed;
@@ -21,3 +13,11 @@ export default {}
   }
 }
 </style>
+
+<template>
+  <div class="bottom-background"></div>
+</template>
+
+<script>
+export default {}
+</script>

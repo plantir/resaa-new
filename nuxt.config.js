@@ -1,8 +1,8 @@
-import webpack from 'webpack'
-import colors from 'vuetify/es5/util/colors'
-require('dotenv').config({})
-import { version } from './package.json'
 import 'vrwebdesign-nuxt/modules/nuxt-i18n'
+import colors from 'vuetify/es5/util/colors'
+import webpack from 'webpack'
+import { version } from './package.json'
+require('dotenv').config({})
 export default {
   mode: 'universal',
   server: {
@@ -130,32 +130,37 @@ export default {
    */
   auth: {
     redirect: {
-      login: '/login',
+      login: '/patient/login',
       home: '/',
     },
     strategies: {
       local: {
         endpoints: {
           login: {
-            url: 'auth/login',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            url: '/oauth2/token',
             method: 'post',
-            propertyName: 'token',
+            propertyName: 'access_token',
           },
           logout: { url: 'auth/logout', method: 'post' },
           user: false,
         },
         tokenRequired: true,
-        tokenType: 'Bearer',
+        autoFetchUser: false,
+        tokenType: 'bearer',
       },
     },
   },
   /*
+  09382158220
+  2417
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
     proxy: true, // Can be also an object with default options
     prefix: '/api/',
+    debug: true,
   },
   proxy: {
     '/api/': {

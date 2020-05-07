@@ -14,5 +14,3 @@ export default class Icon extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>
