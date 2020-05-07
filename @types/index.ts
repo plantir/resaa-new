@@ -18,6 +18,7 @@ interface Auth {
   loginWith(strategy: string, date: any): Promise<any>
   login(): Promise<any>
   setUser(user: any): void
+  getToken(strategy: string): string
   setToken(strategy: string, token: string): void
   setUserToken(token: string): Promise<any>
   fetchUser(): Promise<any>

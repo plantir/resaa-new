@@ -1,10 +1,21 @@
-import { Module, VuexModule } from 'vuex-module-decorators'
+import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators'
 
 @Module({
   name: 'user',
-  namespaced: true
+  namespaced: true,
 })
 export default class User extends VuexModule {
-  name = 'armin'
+  user = 'armin'
   isDark = false
+
+  @Mutation
+  SET_USER(user: any) {
+    this.user = user
+  }
+
+  @Action
+  setUser(user: string) {
+    this.user = user
+    return this.user
+  }
 }

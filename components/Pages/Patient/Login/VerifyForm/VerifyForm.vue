@@ -31,9 +31,9 @@
         <Icon fileName="ic_password.svg" />
       </div>
       <form class="pa-6" @submit.prevent="onSubmit">
-        <p
-          class="desc font-weight-medium"
-        >شماره شما قبلا در رسا ثبت شده است. لطفا رمز عبود خود را وارد کنید.</p>
+        <p class="desc font-weight-medium">
+          شماره شما قبلا در رسا ثبت شده است. لطفا رمز عبود خود را وارد کنید.
+        </p>
         <EditMobile />
         <v-text-field
           v-model="form.password"
@@ -84,7 +84,11 @@ export default class LoginForm extends Vue {
   onSubmit() {
     this.$validator.validate().then(valid => {
       if (valid) {
-        this.$emit('submit', this.form)
+        this.$emit('submit', {
+          ...this.form,
+          username: this.$auth.$storage.getCookie('login_mobile'),
+          grant_type: 'password',
+        })
       }
     })
   }
