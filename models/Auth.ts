@@ -21,10 +21,3 @@ export interface Profile {
 export interface Result {
   profile: Profile
 }
-
-export interface ProfileResult {
-  status: string
-  code?: any
-  messages: any[]
-  result: Result
-}
