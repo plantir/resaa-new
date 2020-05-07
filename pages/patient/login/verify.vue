@@ -104,7 +104,11 @@ export default class LoginPage extends Vue {
   async test() {
     // console.log('this.$auth.user', this.$auth.user)
     let userStore = getModule(UserModule, this.$store)
-    userStore.setUser('saeed')
+    console.log(userStore.name)
+    userStore.SET_name('saeed')
+    console.log(userStore.name)
+    userStore.setname('arash')
+    console.log(userStore.name)
     // this.$store.dispatch('user/setUser')
   }
 }
