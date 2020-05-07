@@ -12,7 +12,6 @@ export default class Index extends VuexModule {
     if (token) {
       const profile = ctx.$auth.$storage.getCookie('profile')
       ctx.$auth.setUser(profile)
-      console.log('Index -> nuxtServerInit -> token', ctx.$auth.user)
     }
   }
 }

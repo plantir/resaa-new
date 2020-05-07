@@ -29,7 +29,6 @@
   <div class="auth mt-5">
     <v-container class="d-flex align-center">
       <VerifyForm class="login-wrap" v-model="form" @submit="onSubmit" />
-      <v-btn color="success" @click="test">text</v-btn>
     </v-container>
     <BottomBackground v-if="$device.isMobile" />
   </div>
@@ -43,6 +42,7 @@ import { ReqLogin } from '@/models/Auth'
 import decodeToken from '@/utils/jwtDecode'
 import { getModule } from 'vuex-module-decorators'
 import UserModule from '@/store/user'
+
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
@@ -57,7 +57,7 @@ Component.registerHooks(['fetch', 'head'])
 export default class LoginPage extends Vue {
   form = {
     username: null,
-    password: '3104',
+    password: null,
     grant_type: 'password',
   }
 
@@ -88,8 +88,6 @@ export default class LoginPage extends Vue {
 
       const { result: resProfile } = await this.$service.auth.getProfile(userId)
 
-      console.log('LoginPage -> onSubmit -> resProfile', resProfile.profile)
-
       this.$auth.$storage.setCookie('profile', resProfile.profile, true)
 
       this.$auth.setUser(resProfile.profile)
@@ -98,26 +96,6 @@ export default class LoginPage extends Vue {
     } catch (error) {
       this.$toast.error().showSimple('کلمه عبور یا نام کاربری صحیح نمی باشد.')
     }
-  }
-
-  async test() {
-    // console.log('this.$auth.user', this.$auth.user)
-    // let userStore = getModule(UserModule, this.$store)
-    // console.log(userStore.name)
-    // userStore.SET_name('saeed')
-    // console.log(userStore.name)
-    // userStore.setToken('arash')
-    // console.log(userStore.name)
-    // this.$store.dispatch('user/setUser')
-    const token = this.$auth.getToken('local')
-
-    const tokenDecode = decodeToken(token)
-
-    const userId =
-      tokenDecode['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']
-
-    const profile = await this.$service.auth.getProfile(userId)
-    console.log('LoginPage -> test -> data', profile.result.profile)
   }
 }
 </script>

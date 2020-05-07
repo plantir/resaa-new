@@ -18,6 +18,6 @@ export interface Profile {
   subscriberCards: SubscriberCard[]
 }
 
-export interface Result {
+export interface ResultProfile {
   profile: Profile
 }
