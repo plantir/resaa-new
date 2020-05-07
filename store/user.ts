@@ -5,7 +5,7 @@ import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators'
   namespaced: true,
 })
 export default class User extends VuexModule {
-  name = 'armin'
+  name = 'reza'
   isDark = false
 
   @Mutation
@@ -16,6 +16,5 @@ export default class User extends VuexModule {
   @Action
   setname(name: string) {
     this.SET_name(name)
-    return this.name
   }
 }

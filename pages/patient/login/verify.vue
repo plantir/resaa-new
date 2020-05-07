@@ -46,6 +46,7 @@ import UserModule from '@/store/user'
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
+  middleware: 'guest',
   layout: ctx =>
     ctx.isMobile ? 'mobileWithoutFooter' : 'desktopWithoutFooter',
   components: {
@@ -85,15 +86,12 @@ export default class LoginPage extends Vue {
 
       await this.$auth.setUserToken(token)
 
-      const { data: resProfile } = await this.$axios.get(
-        `/Accounts/${userId}/Profile`
-      )
-      console.log(
-        'LoginPage -> onSubmit -> resProfile',
-        resProfile.result.profile
-      )
+      const { result: resProfile } = await this.$service.auth.getProfile(userId)
+      console.log('LoginPage -> onSubmit -> resProfile', resProfile.profile)
 
-      this.$auth.setUser(resProfile.result.profile)
+      this.$auth.$storage.setCookie('profile', resProfile.profile, true)
+
+      this.$auth.setUser(resProfile.profile)
 
       this.$toast.success().showSimple('خوش آمدید!')
     } catch (error) {
@@ -103,13 +101,22 @@ export default class LoginPage extends Vue {
 
   async test() {
     // console.log('this.$auth.user', this.$auth.user)
-    let userStore = getModule(UserModule, this.$store)
-    console.log(userStore.name)
-    userStore.SET_name('saeed')
-    console.log(userStore.name)
-    userStore.setname('arash')
-    console.log(userStore.name)
+    // let userStore = getModule(UserModule, this.$store)
+    // console.log(userStore.name)
+    // userStore.SET_name('saeed')
+    // console.log(userStore.name)
+    // userStore.setToken('arash')
+    // console.log(userStore.name)
     // this.$store.dispatch('user/setUser')
+    const token = this.$auth.getToken('local')
+
+    const tokenDecode = decodeToken(token)
+
+    const userId =
+      tokenDecode['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']
+
+    const profile = await this.$service.auth.getProfile(userId)
+    console.log('LoginPage -> test -> data', profile.result.profile)
   }
 }
 </script>

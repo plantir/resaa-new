@@ -40,6 +40,7 @@ import BottomBackground from '@/components/Common/BottomBackground/BottomBackgro
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
+  middleware: 'guest',
   layout: ctx =>
     ctx.isMobile ? 'mobileWithoutFooter' : 'desktopWithoutFooter',
   components: {

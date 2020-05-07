@@ -130,7 +130,7 @@ export default {
    */
   auth: {
     redirect: {
-      login: '/login',
+      login: '/patient/login',
       home: '/',
     },
     strategies: {
@@ -160,6 +160,7 @@ export default {
   axios: {
     proxy: true, // Can be also an object with default options
     prefix: '/api/',
+    debug: true,
   },
   proxy: {
     '/api/': {

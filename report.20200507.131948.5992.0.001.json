@@ -4,10 +4,10 @@
     "reportVersion": 2,
     "event": "Allocation failed - JavaScript heap out of memory",
     "trigger": "FatalError",
-    "filename": "report.20200503.174340.34556.0.001.json",
-    "dumpEventTime": "2020-05-03T17:43:40Z",
-    "dumpEventTimeStamp": "1588511620046",
-    "processId": 34556,
+    "filename": "report.20200507.131948.5992.0.001.json",
+    "dumpEventTime": "2020-05-07T13:19:48Z",
+    "dumpEventTimeStamp": "1588841388719",
+    "processId": 5992,
     "threadId": null,
     "cwd": "D:\\Projects\\ressa.net\\nuxt-starter",
     "commandLine": [
@@ -49,74 +49,74 @@
       {
         "model": "Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz",
         "speed": 3503,
-        "user": 14883359,
+        "user": 5640375,
         "nice": 0,
-        "sys": 5171296,
-        "idle": 84716078,
-        "irq": 1254078
+        "sys": 3646843,
+        "idle": 55834703,
+        "irq": 730515
       },
       {
         "model": "Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz",
         "speed": 3503,
-        "user": 7436343,
+        "user": 3222859,
         "nice": 0,
-        "sys": 3103140,
-        "idle": 94231062,
-        "irq": 146140
+        "sys": 2099234,
+        "idle": 59799640,
+        "irq": 123156
       },
       {
         "model": "Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz",
         "speed": 3503,
-        "user": 22718375,
+        "user": 8040484,
         "nice": 0,
-        "sys": 3331359,
-        "idle": 78720812,
-        "irq": 115703
+        "sys": 2425140,
+        "idle": 54656109,
+        "irq": 69500
       },
       {
         "model": "Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz",
         "speed": 3503,
-        "user": 8436796,
+        "user": 3105921,
         "nice": 0,
-        "sys": 2043968,
-        "idle": 94289781,
-        "irq": 86859
+        "sys": 1510984,
+        "idle": 60504828,
+        "irq": 56015
       },
       {
         "model": "Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz",
         "speed": 3503,
-        "user": 12714140,
+        "user": 4947046,
         "nice": 0,
-        "sys": 3015609,
-        "idle": 89040796,
-        "irq": 127937
+        "sys": 2245375,
+        "idle": 57929312,
+        "irq": 85093
       },
       {
         "model": "Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz",
         "speed": 3503,
-        "user": 12786078,
+        "user": 3900406,
         "nice": 0,
-        "sys": 2103984,
-        "idle": 89880484,
-        "irq": 83218
+        "sys": 1406468,
+        "idle": 59814859,
+        "irq": 51343
       },
       {
         "model": "Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz",
         "speed": 3503,
-        "user": 10910046,
+        "user": 4905343,
         "nice": 0,
-        "sys": 3053640,
-        "idle": 90806859,
-        "irq": 123015
+        "sys": 2071640,
+        "idle": 58144750,
+        "irq": 78890
       },
       {
         "model": "Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz",
         "speed": 3503,
-        "user": 15137796,
+        "user": 5423093,
         "nice": 0,
-        "sys": 2588734,
-        "idle": 87044015,
-        "irq": 87171
+        "sys": 1762671,
+        "idle": 57935968,
+        "irq": 54906
       }
     ],
     "networkInterfaces": [
@@ -182,75 +182,163 @@
   },
   "nativeStack": [
     {
-      "pc": "0x00007ff72cc62539",
+      "pc": "0x00007ff744ab2539",
       "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+11561"
     },
     {
-      "pc": "0x00007ff72cc669e9",
+      "pc": "0x00007ff744ab69e9",
       "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+29145"
     },
     {
-      "pc": "0x00007ff72cc65868",
+      "pc": "0x00007ff744ab5868",
       "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24664"
     },
     {
-      "pc": "0x00007ff72cd8d272",
+      "pc": "0x00007ff744bdd272",
       "symbol": "v8::base::CPU::has_sse+61266"
     },
     {
-      "pc": "0x00007ff72d5bb93e",
+      "pc": "0x00007ff74540b93e",
       "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
     },
     {
-      "pc": "0x00007ff72d5a3091",
+      "pc": "0x00007ff7453f3091",
       "symbol": "v8::SharedArrayBuffer::Externalize+785"
     },
     {
-      "pc": "0x00007ff72d46a0fc",
+      "pc": "0x00007ff7452ba0fc",
       "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1468"
     },
     {
-      "pc": "0x00007ff72d475440",
+      "pc": "0x00007ff7452c5440",
       "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
     },
     {
-      "pc": "0x00007ff72d471f34",
+      "pc": "0x00007ff7452c1f34",
       "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3188"
     },
     {
-      "pc": "0x00007ff72d467643",
+      "pc": "0x00007ff7452b7643",
       "symbol": "v8::internal::Heap::CollectGarbage+1283"
     },
     {
-      "pc": "0x00007ff72d465dd4",
+      "pc": "0x00007ff7452b5dd4",
       "symbol": "v8::internal::Heap::AllocateExternalBackingStore+1396"
     },
     {
-      "pc": "0x00007ff72d487ea4",
+      "pc": "0x00007ff7452d7ea4",
       "symbol": "v8::internal::Factory::NewFillerObject+196"
     },
     {
-      "pc": "0x00007ff72d1e2271",
+      "pc": "0x00007ff745032271",
       "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+1681"
     },
     {
-      "pc": "0x00007ff72da0528d",
+      "pc": "0x00007ff74585528d",
       "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+517453"
     },
     {
-      "pc": "0x00007ff72da06278",
-      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+521528"
+      "pc": "0x00007ff7457dcd14",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+24532"
     },
     {
-      "pc": "0x00000253b8f1b133",
+      "pc": "0x00007ff7457dc85f",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+23327"
+    },
+    {
+      "pc": "0x00007ff7458c09eb",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+957611"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x00007ff7457e0bab",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+40555"
+    },
+    {
+      "pc": "0x000000928867381f",
       "symbol": ""
     }
   ],
   "javascriptHeap": {
-    "totalMemory": 2160541696,
-    "totalCommittedMemory": 2160541696,
-    "usedMemory": 2073720280,
-    "availableMemory": 71079576,
+    "totalMemory": 2169290752,
+    "totalCommittedMemory": 2169290752,
+    "usedMemory": 2099429352,
+    "availableMemory": 62588824,
     "memoryLimit": 2197815296,
     "heapSpaces": {
       "read_only_space": {
@@ -264,35 +352,35 @@
         "memorySize": 33554432,
         "committedMemory": 33554432,
         "capacity": 16758784,
-        "used": 564824,
-        "available": 16193960
+        "used": 597352,
+        "available": 16161432
       },
       "old_space": {
-        "memorySize": 1878667264,
-        "committedMemory": 1878667264,
-        "capacity": 1867520528,
-        "used": 1866667296,
-        "available": 853232
+        "memorySize": 1520840704,
+        "committedMemory": 1520840704,
+        "capacity": 1500621824,
+        "used": 1500272992,
+        "available": 348832
       },
       "code_space": {
-        "memorySize": 6983680,
-        "committedMemory": 6983680,
-        "capacity": 5613984,
-        "used": 5613984,
-        "available": 0
+        "memorySize": 7245824,
+        "committedMemory": 7245824,
+        "capacity": 6901760,
+        "used": 6106528,
+        "available": 795232
       },
       "map_space": {
-        "memorySize": 60035072,
-        "committedMemory": 60035072,
-        "capacity": 20327440,
-        "used": 20327440,
+        "memorySize": 35393536,
+        "committedMemory": 35393536,
+        "capacity": 21577120,
+        "used": 21577120,
         "available": 0
       },
       "large_object_space": {
-        "memorySize": 179834880,
-        "committedMemory": 179834880,
-        "capacity": 179419264,
-        "used": 179419264,
+        "memorySize": 570789888,
+        "committedMemory": 570789888,
+        "capacity": 569747888,
+        "used": 569747888,
         "available": 0
       },
       "code_large_object_space": {
@@ -312,17 +400,17 @@
     }
   },
   "resourceUsage": {
-    "userCpuSeconds": 800.89,
-    "kernelCpuSeconds": 26.343,
-    "cpuConsumptionPercent": 2.77084,
-    "maxRss": 2550403072,
+    "userCpuSeconds": 797.484,
+    "kernelCpuSeconds": 30.703,
+    "cpuConsumptionPercent": 41.8488,
+    "maxRss": 2543038464,
     "pageFaults": {
-      "IORequired": 4604668,
+      "IORequired": 3379100,
       "IONotRequired": 0
     },
     "fsActivity": {
-      "reads": 63115,
-      "writes": 217
+      "reads": 76073,
+      "writes": 427
     }
   },
   "libuv": [
@@ -333,7 +421,9 @@
     "=D:": "D:\\Projects\\ressa.net\\nuxt-starter",
     "ACLOCAL_PATH": "/mingw64/share/aclocal:/usr/share/aclocal",
     "ALLUSERSPROFILE": "C:\\ProgramData",
+    "API_URL": "https://resaa.net/api",
     "APPDATA": "C:\\Users\\ALI\\AppData\\Roaming",
+    "BASE_URL": "http://localhost:3000",
     "CHERE_INVOKING": "1",
     "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
     "ChocolateyLastPathUpdate": "132289469877424967",
@@ -351,9 +441,12 @@
     "EXEPATH": "C:\\Program Files\\Git\\bin",
     "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
     "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "GOOGLE_ANALITICS": "UA-12301-2",
+    "GTM": "GTM-XXXXXXX",
     "HOME": "C:\\Users\\ALI",
     "HOMEDRIVE": "C:",
     "HOMEPATH": "\\Users\\ALI",
+    "HOST": "localhost",
     "HOSTNAME": "DESKTOP-F3K4F20",
     "INFOPATH": "/usr/local/info:/usr/share/info:/usr/info:/share/info",
     "INIT_CWD": "D:\\Projects\\ressa.net\\nuxt-starter",
@@ -421,6 +514,7 @@
     "npm_package_devDependencies__nuxt_typescript_runtime": "^0.4.0",
     "npm_package_devDependencies__nuxt_vue_app": "^2.12.2",
     "npm_package_devDependencies__vue_test_utils": "^1.0.0-beta.27",
+    "npm_package_license": "SEE LICENSE IN LICENSE",
     "npm_package_name": "resaa-new",
     "npm_package_private": "true",
     "npm_package_readmeFilename": "README.md",
@@ -439,10 +533,11 @@
     "ORIGINAL_TEMP": "/tmp",
     "ORIGINAL_TMP": "/tmp",
     "OS": "Windows_NT",
-    "PATH": "C:\\Users\\ALI\\AppData\\Local\\Temp\\yarn--1588481764562-0.9876420235472849;D:\\Projects\\ressa.net\\nuxt-starter\\node_modules\\.bin;C:\\Users\\ALI\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Users\\ALI\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\local\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\ALI\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Python38\\Scripts;C:\\Python38;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Windows\\System32\\OpenSSH;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files (x86)\\Yarn\\bin;C:\\Program Files\\PuTTY;C:\\Program Files\\nodejs;C:\\laragon\\bin\\php\\php-7.4.4-Win32-vc15-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\laragon\\bin;C:\\laragon\\bin\\apache\\httpd-2.4.35-win64-VC15\\bin;C:\\laragon\\bin\\composer;C:\\laragon\\bin\\laragon\\utils;C:\\laragon\\bin\\mysql\\mysql-5.7.24-winx64\\bin;C:\\laragon\\bin\\nginx\\nginx-1.16.0;C:\\laragon\\bin\\ngrok;C:\\laragon\\bin\\notepad++;C:\\laragon\\bin\\php\\php-7.4.4-Win32-vc15-x64;C:\\laragon\\bin\\putty;C:\\laragon\\bin\\redis\\redis-x64-3.2.100;C:\\laragon\\bin\\telnet;C:\\laragon\\usr\\bin;C:\\Users\\ALI\\AppData\\Local\\Yarn\\config\\global\\node_modules\\.bin;C:\\Users\\ALI\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\ALI\\AppData\\Roaming\\npm;C:\\Users\\ALI\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\ALI\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\ALI\\AppData\\Local\\Yarn\\bin;C:\\tools\\Cmder;C:\\Program Files\\Git\\usr\\bin\\vendor_perl;C:\\Program Files\\Git\\usr\\bin\\core_perl",
+    "PATH": "C:\\Users\\ALI\\AppData\\Local\\Temp\\yarn--1588839409394-0.35474214931766057;D:\\Projects\\ressa.net\\nuxt-starter\\node_modules\\.bin;C:\\Users\\ALI\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Users\\ALI\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\local\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\ALI\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Python38\\Scripts;C:\\Python38;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Windows\\System32\\OpenSSH;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files (x86)\\Yarn\\bin;C:\\Program Files\\PuTTY;C:\\Program Files\\nodejs;C:\\laragon\\bin\\php\\php-7.4.4-Win32-vc15-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\laragon\\bin;C:\\laragon\\bin\\apache\\httpd-2.4.35-win64-VC15\\bin;C:\\laragon\\bin\\composer;C:\\laragon\\bin\\laragon\\utils;C:\\laragon\\bin\\mysql\\mysql-5.7.24-winx64\\bin;C:\\laragon\\bin\\nginx\\nginx-1.16.0;C:\\laragon\\bin\\ngrok;C:\\laragon\\bin\\notepad++;C:\\laragon\\bin\\php\\php-7.4.4-Win32-vc15-x64;C:\\laragon\\bin\\putty;C:\\laragon\\bin\\redis\\redis-x64-3.2.100;C:\\laragon\\bin\\telnet;C:\\laragon\\usr\\bin;C:\\Users\\ALI\\AppData\\Local\\Yarn\\config\\global\\node_modules\\.bin;C:\\Users\\ALI\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\ALI\\AppData\\Roaming\\npm;C:\\Users\\ALI\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\ALI\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\ALI\\AppData\\Local\\Yarn\\bin;C:\\tools\\Cmder;C:\\Program Files\\Git\\usr\\bin\\vendor_perl;C:\\Program Files\\Git\\usr\\bin\\core_perl",
     "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC;.PY;.PYW",
     "PKG_CONFIG_PATH": "/mingw64/lib/pkgconfig:/mingw64/share/pkgconfig",
     "PLINK_PROTOCOL": "ssh",
+    "PORT": "3000",
     "PROCESSOR_ARCHITECTURE": "AMD64",
     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 42 Stepping 7, GenuineIntel",
     "PROCESSOR_LEVEL": "6",
@@ -455,6 +550,8 @@
     "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
     "PUBLIC": "C:\\Users\\Public",
     "PWD": "/d/Projects/ressa.net/nuxt-starter",
+    "RECAPTCHA_SITEKEY": "6LdqT7YUAAAAAGEi0OymnZ7dLJuARiF9q_2Cu",
+    "SENTRY_DSN": "https://aa92634bdbdb4957b80627fd215a10f3@o384758.ingest.sentry.io/5216518",
     "SESSIONNAME": "Console",
     "SHELL": "C:\\Program Files\\Git\\usr\\bin\\bash.exe",
     "SHLVL": "2",
@@ -474,7 +571,7 @@
     "WINDIR": "C:\\Windows",
     "YARN_WRAP_OUTPUT": "false",
     "_": "/usr/bin/winpty",
-    "_AXIOS_BASE_URL_": "http://localhost:3000/api/"
+    "_AXIOS_BASE_URL_": "https://resaa.net/api"
   },
   "sharedObjects": [
     "C:\\Program Files\\nodejs\\node.exe",
@@ -488,11 +585,11 @@
     "C:\\Windows\\System32\\ucrtbase.dll",
     "C:\\Windows\\System32\\ADVAPI32.dll",
     "C:\\Windows\\System32\\msvcrt.dll",
-    "C:\\Windows\\System32\\sechost.dll",
     "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
     "C:\\Windows\\SYSTEM32\\USERENV.dll",
-    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\sechost.dll",
     "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\System32\\USER32.dll",
     "C:\\Windows\\System32\\win32u.dll",
     "C:\\Windows\\System32\\GDI32.dll",
     "C:\\Windows\\System32\\gdi32full.dll",
@@ -522,6 +619,8 @@
     "C:\\Windows\\system32\\NLAapi.dll",
     "C:\\Windows\\system32\\wshbth.dll",
     "C:\\Program Files\\Bonjour\\mdnsNSP.dll",
+    "C:\\Windows\\System32\\rasadhlp.dll",
+    "C:\\Windows\\System32\\fwpuclnt.dll",
     "\\\\?\\D:\\Projects\\ressa.net\\nuxt-starter\\node_modules\\fibers\\bin\\win32-x64-79\\fibers.node"
   ]
 }
