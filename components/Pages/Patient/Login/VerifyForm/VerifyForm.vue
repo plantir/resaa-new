@@ -40,6 +40,7 @@
           class="ltr-input mt-4"
           placeholder="رمز عبور"
           name="password"
+          type="password"
           v-validate="'required'"
           :error-messages="errors.collect('password')"
           data-vv-as="رمز عبور"
