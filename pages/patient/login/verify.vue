@@ -40,8 +40,6 @@ import VerifyForm from '@/components/Pages/Patient/Login/VerifyForm/VerifyForm.v
 import BottomBackground from '@/components/Common/BottomBackground/BottomBackground.vue'
 import { ReqLogin } from '@/models/Auth'
 import decodeToken from '@/utils/jwtDecode'
-import { getModule } from 'vuex-module-decorators'
-import UserModule from '@/store/user'
 
 Component.registerHooks(['fetch', 'head'])
 

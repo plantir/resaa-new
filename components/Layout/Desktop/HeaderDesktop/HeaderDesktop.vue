@@ -34,16 +34,14 @@ header {
 
       <div class="left-header">
         <v-btn>
-          <nuxt-link to="/charge">
-            افزایش اعتبار
-          </nuxt-link>
+          <nuxt-link to="/charge">افزایش اعتبار</nuxt-link>
         </v-btn>
         <nuxt-link
+          v-if="!$auth.loggedIn"
           to="/patient/login"
           class="auth-link font-weight-medium mr-5"
-        >
-          ورود/ثبت‌نام
-        </nuxt-link>
+        >ورود/ثبت‌نام</nuxt-link>
+        <v-btn v-else @click="logout" color="success">خروج</v-btn>
       </div>
     </v-container>
   </header>
@@ -53,17 +51,22 @@ header {
 import Logo from '@/components/Common/Logo/Logo.vue'
 import MainMenu from './MainMenu/MainMenu.vue'
 import mainMenuItems from '@/const/mainMenu'
-import Vue from 'vue'
+import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
 
-export default Vue.extend({
+@Component({
   components: {
     Logo,
     MainMenu,
   },
+})
+export default class component_name extends Vue {
   data() {
     return {
       mainMenu: mainMenuItems,
     }
-  },
-})
+  }
+  logout() {
+    this.$auth.logout()
+  }
+}
 </script>
