@@ -1,4 +1,5 @@
 import AuthService from '@/services/auth'
+import { Profile } from '../models/Auth'
 interface IEnum {
   toSelect: { text: string; value: number }[]
 }
@@ -12,7 +13,7 @@ interface Storage {
   getLocalStorage(key: string): any
 }
 interface Auth {
-  user?: Object
+  user?: Profile
   loggedIn: boolean
   $storage: Storage
   loginWith(strategy: string, date: any): Promise<any>

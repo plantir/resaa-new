@@ -41,14 +41,12 @@ import BottomBackground from '@/components/Common/BottomBackground/BottomBackgro
 import { ReqLogin } from '@/models/Auth'
 import decodeToken from '@/utils/jwtDecode'
 import { getModule } from 'vuex-module-decorators'
-import UserModule from '@/store/user'
 
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
   middleware: 'guest',
-  layout: ctx =>
-    ctx.isMobile ? 'mobileWithoutFooter' : 'desktopWithoutFooter',
+  layout: 'withoutFooter',
   components: {
     VerifyForm,
     BottomBackground,

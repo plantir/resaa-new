@@ -1,7 +1,10 @@
 <style lang="scss" scoped>
-header {
+.main-header {
   line-height: 94px;
   height: 94px;
+  .container {
+    padding: 0;
+  }
   .left-header {
     ::v-deep {
       .v-btn {
@@ -20,7 +23,7 @@ header {
 </style>
 
 <template>
-  <header>
+  <header class="main-header">
     <v-container class="d-flex justify-space-between">
       <div class="right-header d-flex">
         <div class="logo d-flex align-center">
@@ -29,22 +32,11 @@ header {
           </nuxt-link>
         </div>
 
-        <MainMenu :mainMenu="mainMenu" class="mr-10" />
+        <MainMenu v-if="!$device.isMobile" :mainMenu="mainMenu" class="mr-10" />
       </div>
 
-      <div class="left-header">
-        <v-btn>
-          <nuxt-link to="/charge">
-            افزایش اعتبار
-          </nuxt-link>
-        </v-btn>
-        <nuxt-link
-          to="/patient/login"
-          class="auth-link font-weight-medium mr-5"
-        >
-          ورود/ثبت‌نام
-        </nuxt-link>
-      </div>
+      <UserMenuLoggedIn v-if="$auth.loggedIn" />
+      <UserMenuNotLoggedIn v-else />
     </v-container>
   </header>
 </template>
@@ -52,6 +44,8 @@ header {
 <script lang="ts">
 import Logo from '@/components/Common/Logo/Logo.vue'
 import MainMenu from './MainMenu/MainMenu.vue'
+import UserMenuLoggedIn from './UserMenu/UserMenuLoggedIn.vue'
+import UserMenuNotLoggedIn from './UserMenu/UserMenuNotLoggedIn.vue'
 import mainMenuItems from '@/const/mainMenu'
 import Vue from 'vue'
 
@@ -59,6 +53,8 @@ export default Vue.extend({
   components: {
     Logo,
     MainMenu,
+    UserMenuNotLoggedIn,
+    UserMenuLoggedIn,
   },
   data() {
     return {

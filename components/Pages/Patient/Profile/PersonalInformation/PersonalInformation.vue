@@ -1,14 +1,14 @@
 <style lang="scss" scoped></style>
 
 <template>
-  <pre>{{ $auth.user }}</pre>
+  <div>
+    PersonalInformation
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({
-  middleware: 'auth',
-})
-export default class profile extends Vue {}
+@Component
+export default class extends Vue {}
 </script>
