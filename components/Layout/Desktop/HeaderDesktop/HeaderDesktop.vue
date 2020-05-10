@@ -19,6 +19,9 @@
       color: #212121;
     }
   }
+  @media (xs) {
+    background-color: red;
+  }
 }
 </style>
 
