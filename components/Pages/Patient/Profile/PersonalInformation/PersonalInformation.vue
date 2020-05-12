@@ -41,72 +41,41 @@
       <div class="full-width d-flex justify-space-between">
         <div class="title">اطلاعات شخصی</div>
         <v-btn text @click="$emit('edit')">
-          <span class="main-color">
-            ویرایش اطلاعات
-          </span>
+          <span class="main-color">ویرایش اطلاعات</span>
         </v-btn>
       </div>
     </v-card-title>
 
-    <div
-      class="card-content d-flex justify-space-between mt-5"
-      v-if="profile.phoneNumber"
-    >
+    <div class="card-content d-flex justify-space-between mt-5" v-if="profile.phoneNumber">
       <div class="avatar">
         <v-avatar size="192" color="dbdbdb" tile>
           <img src="/images/avatar/avatar.png" alt="alt" />
         </v-avatar>
       </div>
-      <div
-        class="info-content d-flex justify-space-between flex-wrap mt-5 mr-10"
-      >
+      <div class="info-content d-flex justify-space-between flex-wrap mt-5 mr-10">
         <div class="item d-flex flex-column mb-5">
-          <div class="label font-weight-bold">
-            نام و نام خانوادگی
-          </div>
-          <div class="value font-weight-bold mt-2">
-            {{ fullName }}
-          </div>
+          <div class="label font-weight-bold">نام و نام خانوادگی</div>
+          <div class="value font-weight-bold mt-2">{{ fullName }}</div>
         </div>
         <div class="item d-flex flex-column mb-5">
-          <div class="label font-weight-bold">
-            کد ملی
-          </div>
-          <div class="value font-weight-bold mt-2">
-            1270838857
-          </div>
+          <div class="label font-weight-bold">کد ملی</div>
+          <div class="value font-weight-bold mt-2">1270838857</div>
         </div>
         <div class="item d-flex flex-column mb-5">
-          <div class="label font-weight-bold">
-            تاریخ تولد
-          </div>
-          <div class="value font-weight-bold mt-2">
-            -
-          </div>
+          <div class="label font-weight-bold">تاریخ تولد</div>
+          <div class="value font-weight-bold mt-2">-</div>
         </div>
         <div class="item d-flex flex-column mb-5">
-          <div class="label font-weight-bold">
-            شهر
-          </div>
-          <div class="value font-weight-bold mt-2">
-            -
-          </div>
+          <div class="label font-weight-bold">شهر</div>
+          <div class="value font-weight-bold mt-2">-</div>
         </div>
         <div class="item d-flex flex-column mb-5">
-          <div class="label font-weight-bold">
-            شماره موبایل
-          </div>
-          <div class="value font-weight-bold mt-2">
-            {{ profile.phoneNumber }}
-          </div>
+          <div class="label font-weight-bold">شماره موبایل</div>
+          <div class="value font-weight-bold mt-2">{{ profile.phoneNumber | persianDigit }}</div>
         </div>
         <div class="item d-flex flex-column mb-5">
-          <div class="label font-weight-bold">
-            ایمیل
-          </div>
-          <div class="value font-weight-bold mt-2">
-            pamenary@gmail.com
-          </div>
+          <div class="label font-weight-bold">ایمیل</div>
+          <div class="value font-weight-bold mt-2">pamenary@gmail.com</div>
         </div>
       </div>
     </div>

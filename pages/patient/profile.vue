@@ -19,9 +19,7 @@
           :profile="profile"
           @edit="onDialogEditPersonalInformation"
         />
-        <DialogEditPersonalInformation
-          v-model="dialogEditPersonalInformation"
-        />
+        <DialogEditPersonalInformation v-model="dialogEditPersonalInformation" />
       </v-col>
       <v-col cols="12" sm="6" xs="12">
         <FavoriteSpecialists class="pa-4" />

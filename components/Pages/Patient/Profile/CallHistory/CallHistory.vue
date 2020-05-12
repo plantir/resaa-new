@@ -10,35 +10,26 @@
 
     <div class="card-contetn mt-5">
       <div class="list" v-if="calls.length > 0">
-        <CallHistoryItem
-          v-for="call in calls"
-          :key="call.id"
-          :call="call"
-          @rate="onRate"
-          class="mb-5"
-        />
+        <CallHistoryItem v-for="call in calls" :key="call.id" :call="call" class="mb-5" />
       </div>
       <div v-else class="empty d-flex flex-column align-center">
-        <p class="font-weight-medium my-12">
-          شما تا کنون تماسی با متخصصین رسا نداشته‌اید.
-        </p>
+        <p class="font-weight-medium my-12">شما تا کنون تماسی با متخصصین رسا نداشته‌اید.</p>
       </div>
     </div>
 
-    <DialogRate v-model="dialogRateCall" />
+    <!-- <DialogRate v-model="dialogRateCall" /> -->
   </v-card>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import CallHistoryItem from './CallHistoryItem.vue'
-import DialogRate from './DialogRate.vue'
+
 import { Call } from '@/models/Call'
 
 @Component({
   components: {
     CallHistoryItem,
-    DialogRate,
   },
 })
 export default class CallHistory extends Vue {
@@ -63,10 +54,6 @@ export default class CallHistory extends Vue {
 
   mounted() {
     this.getCalls()
-  }
-
-  onRate() {
-    this.dialogRateCall = true
   }
 }
 </script>
