@@ -40,13 +40,18 @@
     <v-card-title primary-title>
       <div class="full-width d-flex justify-space-between">
         <div class="title">اطلاعات شخصی</div>
-        <div class="left main-color" @click="$emit('edit')">
-          ویرایش اطلاعات
-        </div>
+        <v-btn text @click="$emit('edit')">
+          <span class="main-color">
+            ویرایش اطلاعات
+          </span>
+        </v-btn>
       </div>
     </v-card-title>
 
-    <div class="card-content d-flex justify-space-between mt-5">
+    <div
+      class="card-content d-flex justify-space-between mt-5"
+      v-if="profile.phoneNumber"
+    >
       <div class="avatar">
         <v-avatar size="192" color="dbdbdb" tile>
           <img src="/images/avatar/avatar.png" alt="alt" />
@@ -60,7 +65,7 @@
             نام و نام خانوادگی
           </div>
           <div class="value font-weight-bold mt-2">
-            علی پامناری
+            {{ fullName }}
           </div>
         </div>
         <div class="item d-flex flex-column mb-5">
@@ -92,7 +97,7 @@
             شماره موبایل
           </div>
           <div class="value font-weight-bold mt-2">
-            09136000415
+            {{ profile.phoneNumber }}
           </div>
         </div>
         <div class="item d-flex flex-column mb-5">
@@ -109,8 +114,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Profile } from '@/models/Auth'
 
 @Component
-export default class PersonalInformation extends Vue {}
+export default class PersonalInformation extends Vue {
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly profile!: Profile
+
+  get fullName() {
+    return `${this.profile.firstName} ${this.profile.lastName}`
+  }
+}
 </script>

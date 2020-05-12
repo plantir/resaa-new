@@ -11,6 +11,7 @@ export interface SubscriberCard {
 }
 
 export interface Profile {
+  userId: string
   firstName?: any
   lastName?: any
   gender: string

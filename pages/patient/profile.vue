@@ -16,6 +16,7 @@
       <v-col cols="12" sm="6" xs="12">
         <PersonalInformation
           class="pa-4"
+          :profile="profile"
           @edit="onDialogEditPersonalInformation"
         />
         <DialogEditPersonalInformation
@@ -46,6 +47,7 @@ import ProfileProgress from '@/components/Pages/Patient/Profile/ProfileProgress/
 import FavoriteSpecialists from '@/components/Pages/Patient/Profile/FavoriteSpecialists/FavoriteSpecialists.vue'
 import CallHistory from '@/components/Pages/Patient/Profile/CallHistory/CallHistory.vue'
 import HistoryTestResults from '@/components/Pages/Patient/Profile/HistoryTestResults/HistoryTestResults.vue'
+import { Profile } from '@/models/Auth'
 
 Component.registerHooks(['fetch', 'head'])
 
@@ -64,6 +66,8 @@ Component.registerHooks(['fetch', 'head'])
 export default class profile extends Vue {
   dialogEditPersonalInformation = false
 
+  profile = {}
+
   public head() {
     return {
       title: 'پروفایل بیمار',
@@ -75,6 +79,10 @@ export default class profile extends Vue {
 
   public onDialogEditPersonalInformation() {
     this.dialogEditPersonalInformation = !this.dialogEditPersonalInformation
+  }
+
+  mounted() {
+    this.profile = this.$auth.user
   }
 }
 </script>

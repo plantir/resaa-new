@@ -15,13 +15,23 @@
       <div class="card-content mt-6">
         <form @submit.prevent="onSubmit">
           <v-text-field
-            v-model="form.fullName"
-            label="نام و نام خانوادگی"
-            placeholder="نام و نام خانوادگی"
-            name="fullName"
+            v-model="form.firstName"
+            label="نام"
+            placeholder="نام"
+            name="firstName"
             v-validate="'required'"
-            :error-messages="errors.collect('fullName')"
-            data-vv-as="نام و نام خانوادگی"
+            :error-messages="errors.collect('firstName')"
+            data-vv-as="نام"
+            outlined
+          />
+          <v-text-field
+            v-model="form.lastName"
+            label="نام خانوادگی"
+            placeholder="نام خانوادگی"
+            name="lastName"
+            v-validate="'required'"
+            :error-messages="errors.collect('lastName')"
+            data-vv-as="نام خانوادگی"
             outlined
           />
           <v-text-field
@@ -47,13 +57,13 @@
             outlined
           />
           <v-text-field
-            v-model="form.mobile"
+            v-model="form.phoneNumber"
             class="ltr-input"
-            label="شهر"
+            label="موبایل"
             placeholder="موبایل"
-            name="mobile"
+            name="phoneNumber"
             v-validate="'required|mobile'"
-            :error-messages="errors.collect('mobile')"
+            :error-messages="errors.collect('phoneNumber')"
             data-vv-as="موبایل"
             outlined
           />
@@ -102,10 +112,20 @@ export default class DialogEditPersonalInformation extends Vue {
     this.$emit('input', val)
   }
 
+  mounted() {
+    this.form = {
+      ...this.$auth.user,
+    }
+  }
+
   onSubmit() {
-    this.$validator.validate().then(valid => {
+    this.$validator.validate().then(async valid => {
       if (valid) {
-        alert('hi')
+        try {
+          const userId = this.$auth.user?.userId
+          await this.$service.profile.updateProfile(userId, this.form)
+          this.$toast.success().showSimple('بروزرسانی با موفقیت انجام شد.')
+        } catch (error) {}
       }
     })
   }

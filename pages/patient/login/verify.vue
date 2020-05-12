@@ -85,10 +85,15 @@ export default class LoginPage extends Vue {
       await this.$auth.setUserToken(token)
 
       const { result: resProfile } = await this.$service.auth.getProfile(userId)
+      const payloadProfile = {
+        ...resProfile.profile,
+        userId: userId,
+      }
+      console.log('LoginPage -> onSubmit -> payloadProfile', payloadProfile)
 
-      this.$auth.$storage.setCookie('profile', resProfile.profile, true)
+      this.$auth.$storage.setCookie('profile', payloadProfile, true)
 
-      this.$auth.setUser(resProfile.profile)
+      this.$auth.setUser(payloadProfile)
 
       this.$toast.success().showSimple('خوش آمدید!')
     } catch (error) {
