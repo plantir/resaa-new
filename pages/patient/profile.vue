@@ -19,7 +19,9 @@
           :profile="profile"
           @edit="onDialogEditPersonalInformation"
         />
-        <DialogEditPersonalInformation v-model="dialogEditPersonalInformation" />
+        <DialogEditPersonalInformation
+          v-model="dialogEditPersonalInformation"
+        />
       </v-col>
       <v-col cols="12" sm="6" xs="12">
         <FavoriteSpecialists class="pa-4" />
@@ -79,8 +81,16 @@ export default class profile extends Vue {
     this.dialogEditPersonalInformation = !this.dialogEditPersonalInformation
   }
 
+  async getProfile() {
+    try {
+      const userId = this.$auth.user.userId
+      const { result: resProfile } = await this.$service.auth.getProfile(userId)
+      this.profile = resProfile.profile
+    } catch (error) {}
+  }
+
   mounted() {
-    this.profile = this.$auth.user
+    this.getProfile()
   }
 }
 </script>

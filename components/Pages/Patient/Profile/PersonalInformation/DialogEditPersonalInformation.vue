@@ -124,6 +124,16 @@ export default class DialogEditPersonalInformation extends Vue {
         try {
           const userId = this.$auth.user?.userId
           await this.$service.profile.updateProfile(userId, this.form)
+
+          const payloadProfile = {
+            ...this.$auth.user,
+            ...this.form,
+          }
+
+          this.$auth.$storage.setCookie('profile', payloadProfile, true)
+
+          this.$auth.setUser(payloadProfile)
+
           this.$toast.success().showSimple('بروزرسانی با موفقیت انجام شد.')
         } catch (error) {}
       }
