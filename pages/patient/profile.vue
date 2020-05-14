@@ -77,8 +77,11 @@ export default class profile extends Vue {
     }
   }
 
-  public onDialogEditPersonalInformation() {
-    this.dialogEditPersonalInformation = !this.dialogEditPersonalInformation
+  async onDialogEditProfile() {
+    const dialogProfile = await this.$dialog.show({
+      component: DialogEditPersonalInformation,
+      scope: this.profile,
+    })
   }
 
   async getProfile() {
