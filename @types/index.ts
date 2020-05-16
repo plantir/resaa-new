@@ -1,6 +1,7 @@
+import { Profile } from '@/models/Auth'
 import AuthService from '@/services/auth'
+import ChargeService from '@/services/charge'
 import ProfileService from '@/services/profile'
-import { Profile } from '../models/Auth'
 interface IEnum {
   toSelect: { text: string; value: number }[]
 }
@@ -46,6 +47,7 @@ declare module 'vue/types/vue' {
   interface NuxtServiceInstance {
     auth: AuthService
     profile: ProfileService
+    charge: ChargeService
   }
   interface NuxtEnumInstance {
     role: IEnum

@@ -7,7 +7,7 @@
         <ProfileProgress
           :percentage="'25'"
           class="pa-5"
-          @editProfile="onDialogEditPersonalInformation"
+          @editProfile="onDialogEditProfile"
         />
       </v-col>
     </v-row>
@@ -17,10 +17,7 @@
         <PersonalInformation
           class="pa-4"
           :profile="profile"
-          @edit="onDialogEditPersonalInformation"
-        />
-        <DialogEditPersonalInformation
-          v-model="dialogEditPersonalInformation"
+          @edit="onDialogEditProfile"
         />
       </v-col>
       <v-col cols="12" sm="6" xs="12">
