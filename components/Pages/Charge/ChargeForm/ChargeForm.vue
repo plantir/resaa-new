@@ -24,7 +24,7 @@
           v-model="form.phoneNumber"
           :error-messages="errors.collect('phoneNumber')"
           :disabled="loading"
-          class="ltr-input"
+          clearable
           placeholder="شماره موبایل"
           name="phoneNumber"
           v-validate="'required|mobile'"
@@ -93,8 +93,15 @@ export default class ChargeForm extends Vue {
   readonly loading!: Boolean
 
   hasDoctorName = false
-  form = {}
-
+  form = {
+    phoneNumber: '',
+    denominationId: null,
+  }
+  mounted() {
+    if (this.$auth.user) {
+      this.form.phoneNumber = this.$auth.user.phoneNumber
+    }
+  }
   onSubmit() {
     this.$validator.validate().then(valid => {
       if (valid) {
