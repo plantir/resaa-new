@@ -50,7 +50,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['vrwebdesign-nuxt/assets/style/main.scss', '~/assets/styles/main.scss'],
+  css: [
+    '~/assets/styles/main.scss',
+    'vrwebdesign-nuxt/assets/style/main.scss',
+    'vue-slick-carousel/dist/vue-slick-carousel.css',
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -60,7 +64,7 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss',
     ],
   },
-  plugins: ['@/plugins/lazy-load.js'],
+  plugins: [{ src: './plugins/vue-slick-carousel.js' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -253,6 +257,18 @@ export default {
         ],
       })
       //   '@/modules/vue-class-component'
+    },
+    babel: {
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            useBuiltIns: 'entry',
+            corejs: 3,
+          },
+        ],
+      ],
+      plugins: ['@babel/transform-runtime'],
     },
   },
 }

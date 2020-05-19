@@ -1,20 +1,19 @@
 <style lang="scss" scoped></style>
 <template>
-  <div>
-    <CM1 v-if="$device.isDesktop" />
-    <CM1Mob v-else />
-  </div>
+  <main>
+    <Intro class="mt-3" />
+  </main>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import logoComponent from '~/assets/svg/logo.svg?inline'
+import Intro from '@/components/Pages/Home/Intro/Intro.vue'
 
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
   layout: ctx => (ctx.isMobile ? 'mobile' : 'desktop'),
   components: {
-    logoComponent,
+    Intro,
     CM1: () =>
       import(
         '@/components/Pages/Home/Desktop/ComponentDekstop/ComponentDekstop.vue'
@@ -36,4 +35,3 @@ export default class YourComponent extends Vue {
   }
 }
 </script>
-
