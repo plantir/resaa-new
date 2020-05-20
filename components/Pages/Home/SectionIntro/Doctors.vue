@@ -3,17 +3,12 @@
   background-color: transparent;
   padding: 4px;
   border-radius: 10px;
-  position: relative;
-  top: -80px;
+  margin-top: -80px;
   padding: 10px 0;
   ::v-deep {
     .slick-list {
       padding-top: 10px !important;
       padding-bottom: 10px !important;
-    }
-  }
-  .nav {
-    .next {
     }
   }
 }

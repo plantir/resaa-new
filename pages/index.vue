@@ -1,27 +1,22 @@
 <style lang="scss" scoped></style>
 <template>
   <main>
-    <Intro class="mt-3" />
+    <SectionIntro class="mt-3" />
+    <SectionSearch class="mt-3" />
   </main>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import Intro from '@/components/Pages/Home/Intro/Intro.vue'
+import SectionIntro from '@/components/Pages/Home/SectionIntro/SectionIntro.vue'
+import SectionSearch from '@/components/Pages/Home/SectionSearch/SectionSearch.vue'
 
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
   layout: ctx => (ctx.isMobile ? 'mobile' : 'desktop'),
   components: {
-    Intro,
-    CM1: () =>
-      import(
-        '@/components/Pages/Home/Desktop/ComponentDekstop/ComponentDekstop.vue'
-      ),
-    CM1Mob: () =>
-      import(
-        '@/components/Pages/Home/Mobile/ComponentMobile/ComponentMobile.vue'
-      ),
+    SectionIntro,
+    SectionSearch,
   },
 })
 export default class YourComponent extends Vue {
