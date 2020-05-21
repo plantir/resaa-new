@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="307.966" height="315.755" viewBox="0 0 307.966 315.755">
+    <defs>
+        <linearGradient id="prefix__linear-gradient" x1=".021" x2="1.167" y1=".377" y2=".564" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#f9a429" stop-opacity=".502"/>
+            <stop offset="1" stop-color="#f9a429" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="prefix__linear-gradient-2" x1="1.682" x2=".173" y1="1.167" y2=".34" xlink:href="#prefix__linear-gradient"/>
+        <linearGradient id="prefix__linear-gradient-3" x1="1.084" x2="-.5" y1=".829" y2="-.103" xlink:href="#prefix__linear-gradient"/>
+        <style>
+            .prefix__cls-11{fill:#f9a429}.prefix__cls-16{fill:none;stroke-linecap:round}.prefix__cls-10,.prefix__cls-13{fill:#ffce87}.prefix__cls-13{font-family:IRANYekan-Black,IRANYekan;font-weight:800;font-size:7px}.prefix__cls-16{stroke:#ffce87;stroke-width:1.257px}.prefix__cls-19{fill:#c4f6ff}
+        </style>
+    </defs>
+    <g id="prefix__ic_buy_credit" transform="translate(-482.245 -2808.154)">
+        <g id="prefix__Page-1" transform="translate(494 2833)">
+            <g id="prefix__Group-16">
+                <path id="prefix__Fill-5904" d="M267.011 58.5q-2.549-4.36-5.439-8.5a147.118 147.118 0 0 0-46.54-33.86C183.355 1.427 145.858-3.687 111.464 2.706A138.42 138.42 0 0 0 88.5 9.089c-26.131 9.765-49.528 27.454-64.51 50.993C7.706 85.663-9.332 125.645 5.984 155.266c20.062 15.22 72.9-9.552 72.9-9.552s17.194-7.622 68.709-13.594 104.292 4.068 122.416-17.821c13.84-16.721 6.8-39-3-55.8" transform="rotate(-130 151.218 106.568)" style="fill-rule:evenodd;fill:rgba(252,207,142,.5)"/>
+                <g id="prefix__Group-6165" transform="translate(20.93 108.554)">
+                    <path id="prefix__Fill-6163" d="M157.312 222.309a138.478 138.478 0 0 0 15.816-.908 136.049 136.049 0 0 0 50.594-16.129H218.5a133.9 133.9 0 0 1-45.651 13.68 136.145 136.145 0 0 1-15.534.893c-2.625 0-5.278-.078-7.882-.232a162.338 162.338 0 0 1-33.64-5.676q-1.062-.294-2.123-.6l-.99-.291q-2.74-.815-5.463-1.722-.527-.175-1.054-.354-2.941-1-5.848-2.107l-.565-.216c-.188-.072-.381-.146-.569-.22q-3.2-1.241-6.348-2.606c-.416-.18-.828-.361-1.242-.545q-3.559-1.573-7.047-3.3c-.467-.232-.936-.468-1.4-.7q-4.134-2.1-8.149-4.407c-.562-.323-1.117-.648-1.675-.976q-5.327-3.149-10.4-6.662-1.2-.831-2.375-1.678-3.623-2.605-7.083-5.392a147.215 147.215 0 0 1-27.724-29.417l-.015-.02q-.8-1.125-1.572-2.264-3.279-4.824-6.115-9.857-.433-.767-.853-1.538l-.016-.031q-2.04-3.736-3.824-7.564c-.2-.428-.4-.86-.591-1.29q-1.446-3.2-2.707-6.449c-.146-.376-.291-.754-.432-1.131q-1.625-4.3-2.903-8.655A82.337 82.337 0 0 1 3.071 91.1c.02-11.17-3.094-9.482-2.308 3.958a88.939 88.939 0 0 0 3.581 19.578q1.656 5.645 3.829 11.1l.032.082.343.852q1.374 3.38 2.935 6.677.318.672.645 1.343 1.966 4.038 4.2 7.943.479.837.97 1.668 3.293 5.575 7.1 10.838c.313.432.629.865.946 1.294q.515.7 1.038 1.387a150.533 150.533 0 0 0 25.527 26.244q1.644 1.322 3.324 2.607.71.543 1.43 1.081l.347.259.994.734q5.522 4.042 11.406 7.664l.87.532c.291.177.6.366.909.549q4.2 2.517 8.546 4.8c.483.255.97.508 1.455.758q3.6 1.853 7.283 3.541c.425.194.853.389 1.278.581q1.672.75 3.357 1.466a170.435 170.435 0 0 0 56.177 13.428q4 .235 8.027.235" transform="translate(-.636 -83.732)"/>
+                </g>
+                <g id="prefix__Group-6171" transform="translate(239.402 -3.743)">
+                    <path id="prefix__Fill-6169" d="M1 29.179a27.3 27.3 0 0 0 13.82 19.944C28.248 56.73 49.665 53.7 56.009 37.992c7.269-18.01-11.918-35.3-28.5-37.2C11.546-1.036-1.023 13.744 1 29.179" transform="translate(-.784 -.638)"/>
+                </g>
+                <g id="prefix__Group-6174" transform="translate(62.786 -3.246)">
+                    <path id="prefix__Fill-6172" d="M.328 12.95c.814 6.97 9.067 10.942 15.467 8.926C27.1 18.317 27.255 1.011 14.285.263 7.2-.147-.572 5.251.328 12.95" transform="translate(-.257 -.241)"/>
+                </g>
+            </g>
+        </g>
+        <g id="prefix__Page-1-2" data-name="Page-1" transform="translate(530.99 2815.816)">
+            <g id="prefix__ic_buy_charge" transform="translate(-.991 -1.816)">
+                <g id="prefix__Group-17" transform="rotate(14.98 -546.913 712.483)">
+                    <rect id="prefix__Rectangle" width="89.989" height="63.522" rx="8" style="stroke-width:1.571px;stroke:#9a5b00;fill:#f9a429"/>
+                    <rect id="prefix__Rectangle-2" width="23.064" height="8.696" data-name="Rectangle" rx="3.613" transform="translate(12.477 13.234)" style="fill:#ffb953"/>
+                    <path id="prefix__Rectangle-3" d="M7.562 0h68.059a7.562 7.562 0 0 1 7.562 7.562v41.925a7.562 7.562 0 0 1-7.562 7.562H7.562A7.562 7.562 0 0 1 0 49.487V7.562A7.562 7.562 0 0 1 7.562 0z" data-name="Rectangle" transform="translate(3.403 3.403)" style="stroke-width:2px;stroke-dasharray:4.46;fill:none;stroke-linecap:round;stroke:#9a5b00;fill-rule:evenodd"/>
+                    <path id="prefix__Rectangle-4" d="M5.293 0h17.771a1.891 1.891 0 0 1 1.891 1.891v9.831a1.891 1.891 0 0 1-1.891 1.891H5.293A5.293 5.293 0 0 1 0 8.318V5.293A5.293 5.293 0 0 1 5.293 0z" data-name="Rectangle" transform="translate(67.303 25.333)" style="stroke-width:1.571px;stroke:#9a5b00;fill:#f9a429;fill-rule:evenodd"/>
+                    <circle id="prefix__Oval" cx="2" cy="2" r="2" transform="translate(72.218 30.626)" style="fill:#9a5b00"/>
+                </g>
+                <g id="prefix__Group-19" transform="rotate(10 -691.669 1128.01)">
+                    <circle id="prefix__Oval-2" cx="10.587" cy="10.587" r="10.587" class="prefix__cls-10" data-name="Oval"/>
+                    <circle id="prefix__Oval-3" cx="7.646" cy="7.646" r="7.646" class="prefix__cls-11" data-name="Oval" transform="translate(2.941 2.941)"/>
+                    <text id="prefix__ریال" transform="translate(6.233 11.343)" style="font-family:IRANYekan-Black,IRANYekan;font-weight:800;font-size:5px;fill:#ffce87">
+                        <tspan x="0" y="0">ریال</tspan>
+                    </text>
+                </g>
+                <g id="prefix__Group-19-2" data-name="Group-19" transform="rotate(-14.98 611.744 -779.377)">
+                    <circle id="prefix__Oval-4" cx="13.612" cy="13.612" r="13.612" class="prefix__cls-10" data-name="Oval"/>
+                    <circle id="prefix__Oval-5" cx="9.831" cy="9.831" r="9.831" class="prefix__cls-11" data-name="Oval" transform="translate(3.781 3.781)"/>
+                    <text id="prefix__ریال-2" class="prefix__cls-13" data-name="ریال" transform="translate(7.275 15.533)">
+                        <tspan x="0" y="0">ریال</tspan>
+                    </text>
+                </g>
+                <g id="prefix__Group-18" transform="rotate(-14.98 456.99 59.99)">
+                    <path id="prefix__Combined-Shape" d="M74.865 0a9.075 9.075 0 0 1 9.075 9.075v121.371a9.075 9.075 0 0 1-9.075 9.075H9.075A9.075 9.075 0 0 1 0 130.446V9.075A9.075 9.075 0 0 1 9.075 0zm-1.891 9.453H11.343a6.05 6.05 0 0 0-6.05 6.05v108.515a6.05 6.05 0 0 0 6.05 6.05h61.631a6.05 6.05 0 0 0 6.05-6.05V15.5a6.05 6.05 0 0 0-6.05-6.05z" style="fill:#006372;fill-rule:evenodd"/>
+                    <rect id="prefix__Rectangle-5" width="73.73" height="120.615" data-name="Rectangle" rx="5.027" transform="translate(5.293 9.453)" style="fill:#fff"/>
+                    <g id="prefix__Group-20" transform="translate(24.848 28.358)">
+                        <g id="prefix__Group-19-3" data-name="Group-19" transform="translate(3.888 14.368)">
+                            <circle id="prefix__Oval-6" cx="13.612" cy="13.612" r="13.612" class="prefix__cls-10" data-name="Oval"/>
+                            <circle id="prefix__Oval-7" cx="9.831" cy="9.831" r="9.831" class="prefix__cls-11" data-name="Oval" transform="translate(3.781 3.781)"/>
+                            <text id="prefix__ریال-3" class="prefix__cls-13" data-name="ریال" transform="translate(6.568 14.308)">
+                                <tspan x="0" y="0">ریال</tspan>
+                            </text>
+                        </g>
+                        <path id="prefix__Path-4" d="M0 8.077L0 0" class="prefix__cls-16" transform="translate(17.5)"/>
+                        <path id="prefix__Path-4-2" d="M0 8.077L0 0" class="prefix__cls-16" data-name="Path-4" transform="rotate(30 8.74 67.66)"/>
+                        <path id="prefix__Path-4-3" d="M0 0L0 8.077" data-name="Path-4" transform="rotate(150 .453 6.385)" style="stroke-width:1.257px;stroke:#ffce87;fill:none;stroke-linecap:round"/>
+                    </g>
+                    <text id="prefix__اعتبار-آنلاین" transform="translate(18.879 82.352)" style="fill:#13d1f3;font-size:8px;font-family:IRANYekan-Black,IRANYekan;font-weight:800">
+                        <tspan x="0" y="0">اعتبار آنلاین</tspan>
+                    </text>
+                    <rect id="prefix__Rectangle-6" width="31.005" height="3.025" class="prefix__cls-19" data-name="Rectangle" rx="1.257" transform="translate(26.845 91.879)"/>
+                    <rect id="prefix__Rectangle-7" width="24.199" height="3.025" class="prefix__cls-19" data-name="Rectangle" rx="1.257" transform="translate(30.248 98.685)"/>
+                </g>
+                <path id="prefix__Path-6" d="M168.25 127.556q0-54.816-22.408-91.334C123.435-.3 101.5-3.058 82.018 1.854S49.636 23.677 49.636 32.123s6.439 12.7 10.644 12.7 12.473-9.228 6.2-20.678-25.673-16.131-45.035 2Q2.083 44.288 0 84.008" transform="rotate(-3 187.133 -720.777)" style="stroke:#f9a429;stroke-width:1.885px;stroke-dasharray:5.655;fill:none;stroke-linecap:round;fill-rule:evenodd"/>
+                <circle id="prefix__Oval-8" cx="3.403" cy="3.403" r="3.403" class="prefix__cls-11" data-name="Oval" transform="translate(38.933 93.171)"/>
+                <circle id="prefix__Oval-9" cx="3.403" cy="3.403" r="3.403" class="prefix__cls-11" data-name="Oval" transform="translate(209.459 131.738)"/>
+            </g>
+        </g>
+    </g>
+</svg>

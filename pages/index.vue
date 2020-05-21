@@ -3,12 +3,14 @@
   <main>
     <SectionIntro class="mt-3" />
     <SectionSearch class="mt-3" />
+    <SectionFeatures class="mt-3" />
   </main>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import SectionIntro from '@/components/Pages/Home/SectionIntro/SectionIntro.vue'
 import SectionSearch from '@/components/Pages/Home/SectionSearch/SectionSearch.vue'
+import SectionFeatures from '@/components/Pages/Home/SectionFeatures/SectionFeatures.vue'
 
 Component.registerHooks(['fetch', 'head'])
 
@@ -17,6 +19,7 @@ Component.registerHooks(['fetch', 'head'])
   components: {
     SectionIntro,
     SectionSearch,
+    SectionFeatures,
   },
 })
 export default class YourComponent extends Vue {
