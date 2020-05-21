@@ -36,6 +36,12 @@
           }
         }
       }
+      .slick-slide {
+        cursor: grab;
+        &:active {
+          cursor: grabbing;
+        }
+      }
       .slick-slide.slick-center.slick-current {
         .testimonial {
           opacity: 1;
