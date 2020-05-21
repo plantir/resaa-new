@@ -50,7 +50,7 @@
           به ‌سرعت با پزشک‌ها و روان‌شناس‌های مد نظرت تماس بگیر.
         </div>
         <div class="items d-flex flex-wrap mt-6">
-          <div class="item">
+          <div class="item mb-8">
             <Icon fileName="ic_edit.svg" />
             <h3>سریع پیدا کنید</h3>
             <p>
@@ -59,7 +59,7 @@
               نظرتان را پیدا .کنید
             </p>
           </div>
-          <div class="item">
+          <div class="item mb-8">
             <Icon fileName="ic_edit.svg" />
             <h3>کمتر در رفت و آمد باشید</h3>
             <p>
@@ -69,7 +69,7 @@
               کنید
             </p>
           </div>
-          <div class="item">
+          <div class="item mb-8">
             <Icon fileName="ic_edit.svg" />
             <h3>بدون واسطه صحبت کنید</h3>
             <p>
