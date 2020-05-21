@@ -10,6 +10,12 @@
       padding-top: 10px !important;
       padding-bottom: 10px !important;
     }
+    .slick-slide {
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
+      }
+    }
   }
 }
 </style>
