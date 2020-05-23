@@ -5,6 +5,7 @@
     <SectionSearch class="mt-3" />
     <SectionFeatures class="mt-3" />
     <SectionTestimonial class="mt-3" />
+    <SectionWeblog class="mt-3" />
   </main>
 </template>
 <script lang="ts">
@@ -13,6 +14,7 @@ import SectionIntro from '@/components/Pages/Home/SectionIntro/SectionIntro.vue'
 import SectionSearch from '@/components/Pages/Home/SectionSearch/SectionSearch.vue'
 import SectionFeatures from '@/components/Pages/Home/SectionFeatures/SectionFeatures.vue'
 import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
+import SectionWeblog from '@/components/Pages/Home/SectionWeblog/SectionWeblog.vue'
 
 Component.registerHooks(['fetch', 'head'])
 
@@ -23,6 +25,7 @@ Component.registerHooks(['fetch', 'head'])
     SectionSearch,
     SectionFeatures,
     SectionTestimonial,
+    SectionWeblog,
   },
 })
 export default class YourComponent extends Vue {
