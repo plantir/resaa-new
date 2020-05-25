@@ -5,32 +5,24 @@
   border-radius: 10px;
   margin-top: -80px;
   padding: 10px 0;
-  ::v-deep {
-    .slick-list {
-      padding-top: 10px !important;
-      padding-bottom: 10px !important;
-    }
-    .slick-slide {
-      cursor: grab;
-      &:active {
-        cursor: grabbing;
-      }
-    }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0px;
+  }
+  .nav {
+    margin-top: 20px;
   }
 }
 </style>
 
 <template>
   <div class="doctors">
-    <client-only>
-      <VueSlickCarousel v-bind="slickOptions" ref="carousel">
-        <Doctor
-          v-for="(doctor, index) in doctors"
-          :key="index"
-          :doctor="doctor"
-        />
-      </VueSlickCarousel>
-    </client-only>
+    <swiper ref="swiper" :options="swiperOptions">
+      <swiper-slide v-for="(doctor, index) in doctors" :key="index">
+        <Doctor :doctor="doctor" />
+      </swiper-slide>
+    </swiper>
     <div class="nav d-flex justify-center">
       <button @click="onShowNext" class="next">
         <Icon fileName="ic_arrow_right.png" />
@@ -56,40 +48,38 @@ Component.registerHooks(['fetch'])
   },
 })
 export default class Doctors extends Vue {
-  slickOptions = {
-    centerMode: true,
-    focusOnSelect: true,
-    slidesToShow: 6,
-    rtl: true,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          dots: true,
-        },
+  swiperOptions = {
+    centeredSlides: true,
+    spaceBetween: 10,
+    slidesPerView: 2,
+    slidesPerGroup: 1,
+    autoplay: {
+      delay: 10000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      1280: {
+        slidesPerView: 5,
       },
-      {
-        breakpoint: 600,
-        settings: {
-          centerPadding: '105px',
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+      640: {
+        slidesPerView: 2,
       },
-    ],
+    },
+    grabCursor: true,
   }
 
   doctors = []
 
   onShowNext() {
-    this.$refs.carousel.next()
+    this.swiper.slideNext(1000)
   }
 
   onShowBack() {
-    this.$refs.carousel.prev()
+    this.swiper.slidePrev(1000)
+  }
+
+  get swiper() {
+    return (this.$refs.swiper as any).$swiper
   }
 
   async fetch() {

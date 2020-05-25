@@ -53,7 +53,7 @@ export default {
   css: [
     '~/assets/styles/main.scss',
     'vrwebdesign-nuxt/assets/style/main.scss',
-    'vue-slick-carousel/dist/vue-slick-carousel.css',
+    'swiper/css/swiper.css',
   ],
   /*
    ** Plugins to load before mounting the App
@@ -64,7 +64,7 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss',
     ],
   },
-  plugins: [{ src: './plugins/vue-slick-carousel.js' }],
+  plugins: [{ src: './plugins/vue-awesome-swiper.js' }],
   /*
    ** Nuxt.js dev-modules
    */

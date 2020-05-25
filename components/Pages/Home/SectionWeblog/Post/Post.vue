@@ -2,6 +2,7 @@
 .post {
   direction: rtl;
   padding: 5px;
+  height: 100%;
   h3 {
     font-size: 14px;
     line-height: 28px;
@@ -28,8 +29,10 @@
 
 <template>
   <div class="post">
-    <v-card>
-      <v-img src="/images/home/blog/1.png" height="260px" />
+    <v-card height="100%" class="d-flex flex-column justify-lg-space-between">
+      <nuxt-link to="#">
+        <v-img src="/images/home/blog/1.webp" :height="heightImage" eager />
+      </nuxt-link>
       <div class="content">
         <h3>
           <nuxt-link to="">
@@ -37,7 +40,7 @@
             برای بارداری
           </nuxt-link>
         </h3>
-        <p class="desc mt-5">
+        <p v-if="hasDescription" class="desc mt-5">
           آیا می‌دانید با وجود نارسایی‌های تخمدان امکان بارداری وجود دارد؟
           بسیاری از بانوان می‌پندارند اگر دچار اختلال های مربوط به تخمدان و رحم
           باشند دیگر قادر نخواهند بود که صاحب فرزند شوند. در حالی که با پیشرفت
@@ -72,5 +75,17 @@ export default class extends Vue {
     required: true,
   })
   readonly post!: Object
+
+  @Prop({
+    type: Boolean,
+    default: true,
+  })
+  readonly hasDescription!: Boolean
+
+  @Prop({
+    type: String,
+    default: '200px',
+  })
+  readonly heightImage!: String
 }
 </script>

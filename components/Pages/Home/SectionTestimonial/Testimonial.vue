@@ -40,7 +40,13 @@
         content: '';
         position: absolute;
         top: -52px;
-        right: 20px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        @include media(sm) {
+          right: 20px;
+          left: auto;
+        }
       }
       &::after {
         background: url('/images/icons/quote-2.png') no-repeat;
@@ -49,7 +55,13 @@
         content: '';
         position: absolute;
         top: -36px;
-        right: 31px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        @include media(sm) {
+          right: 31px;
+          left: auto;
+        }
       }
     }
     p {

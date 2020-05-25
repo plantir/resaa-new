@@ -5,15 +5,15 @@
   .testimonials {
     width: 100%;
     ::v-deep {
-      .slick-list {
+      .swiper-slide {
         padding-top: 50px !important;
         padding-bottom: 50px !important;
       }
-      .slick-dots {
+      .swiper-pagination-bullets {
         list-style: none;
         text-align: center;
         direction: rtl;
-        li {
+        .swiper-pagination-bullet {
           display: inline-block;
           height: 4px;
           width: 60px;
@@ -25,7 +25,7 @@
             width: 4px;
           }
           cursor: pointer;
-          &.slick-active {
+          &.swiper-pagination-bullet-active {
             background-color: #20d3ef;
             @include media(xs-only) {
               width: 17px;
@@ -36,13 +36,7 @@
           }
         }
       }
-      .slick-slide {
-        cursor: grab;
-        &:active {
-          cursor: grabbing;
-        }
-      }
-      .slick-slide.slick-center.slick-current {
+      .swiper-slide.swiper-slide-active {
         .testimonial {
           opacity: 1;
           transform: scale(1);
@@ -59,11 +53,12 @@
       <div class="title">نتیجه استفاده از رسا را از کاربران ما بشنوید</div>
     </v-container>
     <div class="testimonials mt-10">
-      <client-only>
-        <VueSlickCarousel v-bind="slickOptions" ref="carousel">
-          <Testimonial v-for="(item, index) in 4" :key="index" />
-        </VueSlickCarousel>
-      </client-only>
+      <swiper ref="swiper" :options="swiperOptions">
+        <swiper-slide v-for="(doctor, index) in 4" :key="index">
+          <Testimonial />
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
     </div>
   </section>
 </template>
@@ -78,26 +73,32 @@ import Testimonial from './Testimonial.vue'
   },
 })
 export default class SectionTestimonial extends Vue {
-  slickOptions = {
-    centerMode: true,
-    focusOnSelect: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: 1,
-    rtl: true,
-    dots: true,
-    arrows: false,
-    infinite: false,
-    responsive: [
-      {
-        breakpoint: 600,
-        settings: {
-          centerPadding: '0px',
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+  swiperOptions = {
+    centeredSlides: true,
+    spaceBetween: 10,
+    slidesPerView: 3,
+    slidesPerGroup: 1,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 5,
       },
-    ],
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+    grabCursor: true,
+  }
+
+  get swiper() {
+    return (this.$refs.swiper as any).$swiper
+  }
+
+  mounted() {
+    this.swiper.slideTo(1, 1000)
   }
 }
 </script>
