@@ -1,5 +1,6 @@
 <style lang="scss" scoped>
 .posts {
+  padding: 40px 0;
 }
 </style>
 

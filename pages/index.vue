@@ -1,11 +1,12 @@
 <style lang="scss" scoped></style>
 <template>
   <main>
-    <SectionIntro class="mt-3" />
-    <SectionSearch class="mt-3" />
-    <SectionFeatures class="mt-3" />
-    <SectionTestimonial class="mt-3" />
-    <SectionWeblog class="mt-3" />
+    <SectionIntro />
+    <SectionSearch />
+    <SectionFeatures />
+    <SectionTestimonial />
+    <SectionWeblog />
+    <SedctionSocial />
   </main>
 </template>
 <script lang="ts">
@@ -15,6 +16,7 @@ import SectionSearch from '@/components/Pages/Home/SectionSearch/SectionSearch.v
 import SectionFeatures from '@/components/Pages/Home/SectionFeatures/SectionFeatures.vue'
 import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
 import SectionWeblog from '@/components/Pages/Home/SectionWeblog/SectionWeblog.vue'
+import SedctionSocial from '@/components/Pages/Home/SedctionSocial/SedctionSocial.vue'
 
 Component.registerHooks(['fetch', 'head'])
 
@@ -26,6 +28,7 @@ Component.registerHooks(['fetch', 'head'])
     SectionFeatures,
     SectionTestimonial,
     SectionWeblog,
+    SedctionSocial,
   },
 })
 export default class YourComponent extends Vue {
