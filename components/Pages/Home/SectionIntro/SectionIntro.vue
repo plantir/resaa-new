@@ -1,11 +1,15 @@
 <style lang="scss" scoped>
 .intro {
+  padding: 30px 0;
   .intro-text {
     height: 300px;
     background: url('/images/home/intro_doctor_mobile.png') no-repeat;
     background-position: -75px;
-    .desc {
+    .right {
       width: 55%;
+      @include media(sm) {
+        width: 490px;
+      }
       h1 {
         line-height: 30px;
         font-size: 14px;
@@ -32,6 +36,11 @@
         font-weight: 500;
         font-size: 11px;
         line-height: 26px;
+        color: #5e696e;
+        @include media(sm) {
+          font-size: 16px;
+          line-height: 26px;
+        }
       }
     }
   }
@@ -42,7 +51,7 @@
   <section class="intro">
     <div class="intro-text">
       <v-container>
-        <div class="desc">
+        <div class="right">
           <h1>
             با پزشک یا روان شناس مد نظرتان <span>مستقیما</span> صحبت کنید.
           </h1>

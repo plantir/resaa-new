@@ -7,10 +7,16 @@
   margin: 0 10px;
   direction: rtl;
   padding: 0 8px 5px 8px;
+  @include media(sm) {
+    min-width: 190px;
+  }
   .image {
     margin-top: 8px;
     img {
       max-width: 132px;
+      @include media(sm) {
+        min-width: 188px;
+      }
       border-radius: 6px;
     }
   }

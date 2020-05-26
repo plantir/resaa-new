@@ -19,7 +19,7 @@
 <template>
   <div class="doctors">
     <swiper ref="swiper" :options="swiperOptions">
-      <swiper-slide v-for="(doctor, index) in doctors" :key="index">
+      <swiper-slide v-for="doctor in doctors" :key="doctor.subscriberNumber">
         <Doctor :doctor="doctor" />
       </swiper-slide>
     </swiper>
@@ -38,6 +38,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Icon from '@/components/Common/Icon/Icon.vue'
 import Doctor from './Doctor.vue'
+import { RelatedDoctor } from '../../../../models/Doctor'
 
 Component.registerHooks(['fetch'])
 
@@ -58,17 +59,20 @@ export default class Doctors extends Vue {
       disableOnInteraction: false,
     },
     breakpoints: {
-      1280: {
-        slidesPerView: 5,
-      },
       640: {
         slidesPerView: 2,
+      },
+      1280: {
+        slidesPerView: 6,
+      },
+      1785: {
+        slidesPerView: 8,
       },
     },
     grabCursor: true,
   }
 
-  doctors = []
+  doctors: RelatedDoctor[] = []
 
   onShowNext() {
     this.swiper.slideNext(1000)
@@ -84,14 +88,9 @@ export default class Doctors extends Vue {
 
   async fetch() {
     try {
-      const { result } = await this.$axios.$get(
-        '/categories/8/RelatedDoctors',
-        {
-          params: {
-            limit: 12,
-          },
-        }
-      )
+      const { result } = await this.$service.doctor.getRelatedDoctors(8, {
+        limit: 12,
+      })
       this.doctors = result.relatedDoctors
     } catch (error) {
       console.log('Doctors -> fetch -> error', error)

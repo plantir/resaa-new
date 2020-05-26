@@ -20,6 +20,9 @@
       .image {
         position: relative;
         text-align: center;
+        img {
+          height: 240px;
+        }
         &::after {
           position: absolute;
           left: 60px;

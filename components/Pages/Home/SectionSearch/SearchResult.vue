@@ -14,8 +14,9 @@
     font-weight: bold;
   }
   .empty {
+    padding: 40px 0;
     @include media(sm) {
-      width: 800px;
+      width: 650px;
     }
     img {
       width: 100%;

@@ -24,6 +24,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import SearchForm from './SearchForm.vue'
 import SearchResult from './SearchResult.vue'
+import { Doctor } from '~/models/Doctor'
 
 @Component({
   components: {
@@ -33,17 +34,15 @@ import SearchResult from './SearchResult.vue'
 })
 export default class SectionSearch extends Vue {
   form = {}
-  doctors = []
+  doctors: Doctor[] = []
 
   async onSubmit(form: any) {
     try {
-      const { result } = await this.$axios.$get('/Doctors', {
-        params: {
-          fields:
-            'id,specialty,subscriberNumber,firstName,lastName,imagePath,expertise',
-          limit: 10,
-          query: form.q,
-        },
+      const { result } = await this.$service.doctor.getDoctors({
+        fields:
+          'id,specialty,subscriberNumber,firstName,lastName,imagePath,expertise',
+        limit: 10,
+        query: form.q,
       })
       this.doctors = result.doctors
     } catch (error) {}
