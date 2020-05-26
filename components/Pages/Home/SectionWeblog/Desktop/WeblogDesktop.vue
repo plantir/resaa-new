@@ -11,12 +11,12 @@
 
 <template>
   <v-row class="posts">
-    <v-col class="right">
+    <v-col cols="6" class="right">
       <div class="wrapper py-3">
         <Post :post="post" heightImage="300px" />
       </div>
     </v-col>
-    <v-col>
+    <v-col cols="6">
       <v-row>
         <v-col cols="6">
           <Post :post="post" :hasDescription="false" heightImage="140px" />

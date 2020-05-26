@@ -21,7 +21,6 @@ import SedctionSocial from '@/components/Pages/Home/SedctionSocial/SedctionSocia
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
-  layout: ctx => (ctx.isMobile ? 'mobile' : 'desktop'),
   components: {
     SectionIntro,
     SectionSearch,
