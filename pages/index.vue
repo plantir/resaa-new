@@ -30,7 +30,7 @@ Component.registerHooks(['fetch', 'head'])
     SedctionSocial,
   },
 })
-export default class YourComponent extends Vue {
+export default class HomePage extends Vue {
   public head() {
     return {
       title: 'سامانه رسا',
