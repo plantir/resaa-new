@@ -51,7 +51,7 @@
         </div>
         <div class="items d-flex flex-wrap mt-6">
           <div class="item mb-8">
-            <Icon fileName="ic_edit.svg" />
+            <Icon fileName="ic_search2.png" />
             <h3>سریع پیدا کنید</h3>
             <p>
               ما یکی از بزرگترین جوامع آماری را از پزشکان و روان‌شناسان ایرانی
@@ -60,7 +60,7 @@
             </p>
           </div>
           <div class="item mb-8">
-            <Icon fileName="ic_edit.svg" />
+            <Icon fileName="ic_car.png" />
             <h3>کمتر در رفت و آمد باشید</h3>
             <p>
               هیچ‌کس مرخصی گرفتن، ماندن در ترافیک و منتظر ایستادن در صف مطب برای
@@ -70,7 +70,7 @@
             </p>
           </div>
           <div class="item mb-8">
-            <Icon fileName="ic_edit.svg" />
+            <Icon fileName="ic_tel.png" />
             <h3>بدون واسطه صحبت کنید</h3>
             <p>
               احتمالا برایتان پیش آمده که به‌جای خود پزشک، منشی یا دستیار او
@@ -79,7 +79,7 @@
             </p>
           </div>
           <div class="item">
-            <Icon fileName="ic_edit.svg" />
+            <Icon fileName="ic_money.png" />
             <h3>کمتر هزینه کنید</h3>
             <p>
               ،اگر جدای از خستگی، هزینه رفت و آمد مرخصی گرفتن و ویزیت را در نظر
