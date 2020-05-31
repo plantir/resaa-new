@@ -8,35 +8,29 @@
   }
   .features {
     .feature {
-      width: 33%;
+      width: 29%;
+      position: relative;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 180px;
+      @include media(sm) {
+        margin-bottom: 0;
+        text-align: right;
+        justify-content: start;
+        align-items: flex-start;
+      }
       @include media(xs-only) {
         width: 100%;
       }
-      &:last-child {
-        .image::after {
-          display: none;
-        }
-      }
       .image {
-        position: relative;
         text-align: center;
         img {
           height: 240px;
         }
-        &::after {
-          position: absolute;
-          left: 60px;
-          bottom: 0;
-          top: 0;
-          margin: auto;
-          content: '';
-          background: url('/images/icons/ic_feature_arrow_left.png') no-repeat;
-          width: 48px;
-          height: 18px;
-        }
       }
-      h3.title {
-        font-size: 16px;
+      h3.title-item {
+        font-size: 14px;
       }
       p {
         color: #6c6c6c;
@@ -52,6 +46,32 @@
           margin-bottom: 15px;
         }
       }
+      &::after {
+        background: url('/images/icons/ic_feature_arrow_left.png') no-repeat;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -95px;
+        top: auto;
+        margin: auto;
+        content: '';
+        width: 48px;
+        height: 18px;
+        transform: rotate(-90deg);
+        @include media(sm) {
+          transform: rotate(0);
+          right: auto;
+          left: -25px;
+          bottom: 0;
+          top: 0;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+        &::after {
+          display: none;
+        }
+      }
     }
   }
 }
@@ -63,12 +83,12 @@
       <h2 class="main-title text-center full-width mb-12">
         کار با رسا خیلی ساده است
       </h2>
-      <div class="features d-flex flex-wrap">
-        <div class="feature">
+      <div class="features d-flex justify-space-between flex-wrap">
+        <div class="feature d-flex flex-column">
           <div class="image">
             <Icon fileName="ic_find_doctor.png" />
           </div>
-          <h3 class="title mt-10">پیدا کردن پزشک یا روان‌شناس</h3>
+          <h3 class="title-item mt-10">پیدا کردن پزشک یا روان‌شناس</h3>
           <p class="desc mt-3">
             با جستجو در لیست پزشکان و روان‌شناسان .شخص مورد نظرتان را پیدا کنید.
           </p>
@@ -87,11 +107,11 @@
             </li>
           </ul>
         </div>
-        <div class="feature">
+        <div class="feature d-flex flex-column">
           <div class="image">
             <Icon fileName="ic_buy_credit.png" />
           </div>
-          <h3 class="title mt-10">افزایش اعتبار</h3>
+          <h3 class="title-item mt-10">افزایش اعتبار</h3>
           <p class="desc mt-3">
             چه تلفن هوشمند داشته باشید چه نه، می‌توانید از رسا استفاده کنید
             (اعتبار رسای شما، مستقل از حساب سیم‌کارتتان است).
@@ -101,11 +121,11 @@
           </p>
           <v-btn @click="onIncreaseCredit">افزایش اعتبار</v-btn>
         </div>
-        <div class="feature">
+        <div class="feature d-flex flex-column">
           <div class="image">
             <Icon fileName="img_direct_call.png" />
           </div>
-          <h3 class="title mt-10">تماس تلفنی مستقیم</h3>
+          <h3 class="title-item mt-10">تماس تلفنی مستقیم</h3>
           <p class="desc mt-3">
             به‌راحتی و به‌طور مستقیم با پزشک یا . روان‌شناس مد نظرتان تلفنی صحبت
             کنید هزینه تماس شما به‌صورت دقیقه‌ای .محاسبه می‌شود
