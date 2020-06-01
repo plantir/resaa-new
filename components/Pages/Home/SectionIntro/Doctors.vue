@@ -93,7 +93,7 @@ export default class Doctors extends Vue {
       })
       this.doctors = result.relatedDoctors
     } catch (error) {
-      console.log('Doctors -> fetch -> error', error)
+      // console.log('Doctors -> fetch -> error', error)
     }
   }
 }

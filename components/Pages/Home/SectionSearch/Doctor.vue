@@ -19,16 +19,10 @@
       <v-img src="/images/home/doctors/1.png" />
     </div>
     <div class="left-side d-flex flex-column align-center">
-      <div class="full-name font-weight-bold">
-        {{ fullName }}
-      </div>
-      <div class="skil mt-3">
-        {{ doctor.specialty.title }}
-      </div>
+      <div class="full-name font-weight-bold">{{ fullName }}</div>
+      <div class="skil mt-3">{{ doctor.specialty.title }}</div>
       <div class="link mt-5">
-        <nuxt-link to="/">
-          مشاهده پروفایل
-        </nuxt-link>
+        <nuxt-link to="/">مشاهده پروفایل</nuxt-link>
       </div>
     </div>
   </div>
@@ -43,7 +37,7 @@ export default class Doctor extends Vue {
     type: Object,
     required: true,
   })
-  readonly doctor!: Object
+  readonly doctor!: Object | any
 
   get fullName() {
     return `${this.doctor.firstName} ${this.doctor.lastName}`
