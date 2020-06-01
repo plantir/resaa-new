@@ -1,18 +1,33 @@
 <style lang="scss" scoped></style>
 <template>
-  <div>
-    Home
-  </div>
+  <main>
+    <SectionIntro />
+    <SectionSearch />
+    <SectionFeatures />
+    <SectionTestimonial />
+    <SectionWeblog />
+    <SedctionSocial />
+  </main>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import logoComponent from '~/assets/svg/logo.svg?inline'
+import SectionIntro from '@/components/Pages/Home/SectionIntro/SectionIntro.vue'
+import SectionSearch from '@/components/Pages/Home/SectionSearch/SectionSearch.vue'
+import SectionFeatures from '@/components/Pages/Home/SectionFeatures/SectionFeatures.vue'
+import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
+import SectionWeblog from '@/components/Pages/Home/SectionWeblog/SectionWeblog.vue'
+import SedctionSocial from '@/components/Pages/Home/SedctionSocial/SedctionSocial.vue'
 
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
   components: {
-    logoComponent,
+    SectionIntro,
+    SectionSearch,
+    SectionFeatures,
+    SectionTestimonial,
+    SectionWeblog,
+    SedctionSocial,
   },
 })
 export default class HomePage extends Vue {

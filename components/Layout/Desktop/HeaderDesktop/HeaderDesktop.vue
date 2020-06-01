@@ -50,24 +50,19 @@ import MainMenu from './MainMenu/MainMenu.vue'
 import UserMenuLoggedIn from './UserMenu/UserMenuLoggedIn.vue'
 import UserMenuNotLoggedIn from './UserMenu/UserMenuNotLoggedIn.vue'
 import mainMenuItems from '@/const/mainMenu'
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component({
+export default Vue.extend({
   components: {
     Logo,
     MainMenu,
     UserMenuNotLoggedIn,
     UserMenuLoggedIn,
   },
-})
-export default class component_name extends Vue {
   data() {
     return {
       mainMenu: mainMenuItems,
     }
-  }
-  logout() {
-    this.$auth.logout()
-  }
-}
+  },
+})
 </script>
