@@ -10,6 +10,12 @@
       flex-direction: column;
       width: 100%;
     }
+    @include media(sm) {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
     .items {
       .item {
         line-height: 30px;
@@ -35,6 +41,9 @@
   .left {
     width: 40%;
     @include media(xs-only) {
+      display: none;
+    }
+    @include media(sm-only) {
       display: none;
     }
   }

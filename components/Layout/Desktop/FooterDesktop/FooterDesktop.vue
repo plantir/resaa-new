@@ -112,9 +112,9 @@ footer {
             </div>
           </div>
         </v-col>
-        <v-col cols="8">
+        <v-col cols="12" md="12" lg="8" xl="8">
           <v-row>
-            <v-col cols="12" md="6" lg="6" xl="6">
+            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
               <div class="box useful-links">
                 <div class="main-title">
                   لینک‌های مفید
@@ -170,7 +170,7 @@ footer {
                 </div>
               </div>
             </v-col>
-            <v-col cols="12" md="6" lg="6" xl="6">
+            <v-col cols="12" sm="6" md="6" lg="6" xl="6">
               <div class="box contact">
                 <div class="main-title">
                   ارتباط با ما

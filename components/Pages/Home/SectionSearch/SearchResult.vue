@@ -16,7 +16,10 @@
   .empty {
     padding: 40px 0;
     @include media(sm) {
-      width: 650px;
+      width: 450px;
+    }
+    @include media(md) {
+      width: 550px;
     }
     img {
       width: 100%;

@@ -6,6 +6,9 @@
   h3 {
     font-size: 14px;
     line-height: 28px;
+    @include media(sm-only) {
+      font-size: 12px;
+    }
     a {
       color: #0099b9;
     }
@@ -15,11 +18,26 @@
     p.desc {
       line-height: 26px;
       text-align: justify;
+      @include media(sm-only) {
+        height: 160px;
+        overflow: hidden;
+      }
+      @include media(md) {
+        height: 108px;
+        overflow: hidden;
+      }
+      @include media(lg) {
+        height: 80px;
+        overflow: hidden;
+      }
     }
   }
 
   .footer {
     padding: 10px;
+    @include media(md) {
+      display: none !important;
+    }
     a {
       color: #35d6c1;
     }
@@ -69,7 +87,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
-export default class extends Vue {
+export default class Post extends Vue {
   @Prop({
     type: Object,
     required: true,
