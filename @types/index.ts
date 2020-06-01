@@ -13,7 +13,7 @@ interface Storage {
   getLocalStorage(key: string): any
 }
 interface Auth {
-  user?: Object
+  user?: Object | any
   loggedIn: boolean
   $storage: Storage
   loginWith(strategy: string, date: any): Promise<any>

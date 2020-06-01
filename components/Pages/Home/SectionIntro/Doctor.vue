@@ -55,20 +55,12 @@
 <template>
   <div class="doctor">
     <div class="image">
-      <img
-        max-width="140"
-        src="/images/home/doctors/1.png"
-        alt="دکتر محمد حاجی"
-      />
+      <v-img :src="`/api/${doctor.imagePath}`" alt="دکتر محمد حاجی" />
     </div>
 
     <div class="bottom">
-      <div class="full-name">
-        {{ doctor.fullNameWithTitle }}
-      </div>
-      <div class="skill">
-        {{ doctor.specialtyTitle }}
-      </div>
+      <div class="full-name">{{ doctor.fullNameWithTitle }}</div>
+      <div class="skill">{{ doctor.specialtyTitle }}</div>
     </div>
   </div>
 </template>
