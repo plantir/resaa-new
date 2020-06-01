@@ -1,36 +1,31 @@
 <style lang="scss" scoped></style>
 <template>
-  <main>
-    <SectionIntro />
-    <SectionSearch />
-    <SectionFeatures />
-    <SectionTestimonial />
-    <SectionWeblog />
-    <SedctionSocial />
-  </main>
+  <div>
+    <CM1 v-if="$device.isDesktop" />
+    <CM1Mob v-else />
+  </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import SectionIntro from '@/components/Pages/Home/SectionIntro/SectionIntro.vue'
-import SectionSearch from '@/components/Pages/Home/SectionSearch/SectionSearch.vue'
-import SectionFeatures from '@/components/Pages/Home/SectionFeatures/SectionFeatures.vue'
-import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
-import SectionWeblog from '@/components/Pages/Home/SectionWeblog/SectionWeblog.vue'
-import SedctionSocial from '@/components/Pages/Home/SedctionSocial/SedctionSocial.vue'
+import logoComponent from '~/assets/svg/logo.svg?inline'
 
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
+  layout: ctx => (ctx.isMobile ? 'mobile' : 'desktop'),
   components: {
-    SectionIntro,
-    SectionSearch,
-    SectionFeatures,
-    SectionTestimonial,
-    SectionWeblog,
-    SedctionSocial,
+    logoComponent,
+    CM1: () =>
+      import(
+        '@/components/Pages/Home/Desktop/ComponentDekstop/ComponentDekstop.vue'
+      ),
+    CM1Mob: () =>
+      import(
+        '@/components/Pages/Home/Mobile/ComponentMobile/ComponentMobile.vue'
+      ),
   },
 })
-export default class HomePage extends Vue {
+export default class YourComponent extends Vue {
   public head() {
     return {
       title: 'سامانه رسا',
@@ -41,3 +36,4 @@ export default class HomePage extends Vue {
   }
 }
 </script>
+

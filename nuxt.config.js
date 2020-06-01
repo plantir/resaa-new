@@ -50,11 +50,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/styles/main.scss',
-    'vrwebdesign-nuxt/assets/style/main.scss',
-    'swiper/css/swiper.css',
-  ],
+  css: ['vrwebdesign-nuxt/assets/style/main.scss', '~/assets/styles/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -64,7 +60,7 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss',
     ],
   },
-  plugins: [{ src: './plugins/vue-awesome-swiper.js' }],
+  plugins: ['@/plugins/lazy-load.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -257,18 +253,6 @@ export default {
         ],
       })
       //   '@/modules/vue-class-component'
-    },
-    babel: {
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            useBuiltIns: 'entry',
-            corejs: 3,
-          },
-        ],
-      ],
-      plugins: ['@babel/transform-runtime'],
     },
   },
 }

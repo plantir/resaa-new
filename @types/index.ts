@@ -1,5 +1,4 @@
 import AuthService from '@/services/auth'
-import DoctorService from '@/services/doctor'
 interface IEnum {
   toSelect: { text: string; value: number }[]
 }
@@ -13,7 +12,7 @@ interface Storage {
   getLocalStorage(key: string): any
 }
 interface Auth {
-  user?: Object | any
+  user?: Object
   loggedIn: boolean
   $storage: Storage
   loginWith(strategy: string, date: any): Promise<any>
@@ -44,7 +43,6 @@ declare module 'vue/types/vue' {
 declare module 'vue/types/vue' {
   interface NuxtServiceInstance {
     auth: AuthService
-    doctor: DoctorService
   }
   interface NuxtEnumInstance {
     role: IEnum
