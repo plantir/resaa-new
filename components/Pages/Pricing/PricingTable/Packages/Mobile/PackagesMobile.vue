@@ -54,6 +54,11 @@ export default class PackagesMobile extends Vue {
       delay: 10000,
       disableOnInteraction: false,
     },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+    },
     grabCursor: true,
   }
 
