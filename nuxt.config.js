@@ -50,7 +50,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['vrwebdesign-nuxt/assets/style/main.scss', '~/assets/styles/main.scss'],
+  css: [
+    'vrwebdesign-nuxt/assets/style/main.scss',
+    '~/assets/styles/main.scss',
+    'animate.css/animate.css',
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -60,7 +64,7 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss',
     ],
   },
-  plugins: ['@/plugins/lazy-load.js'],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */

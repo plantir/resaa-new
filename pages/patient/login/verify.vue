@@ -40,13 +40,13 @@ import VerifyForm from '@/components/Pages/Patient/Login/VerifyForm/VerifyForm.v
 import BottomBackground from '@/components/Common/BottomBackground/BottomBackground.vue'
 import { ReqLogin } from '@/models/Auth'
 import decodeToken from '@/utils/jwtDecode'
+import { getModule } from 'vuex-module-decorators'
 
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
   middleware: 'guest',
-  layout: ctx =>
-    ctx.isMobile ? 'mobileWithoutFooter' : 'desktopWithoutFooter',
+  layout: 'withoutFooter',
   components: {
     VerifyForm,
     BottomBackground,
@@ -85,10 +85,15 @@ export default class LoginPage extends Vue {
       await this.$auth.setUserToken(token)
 
       const { result: resProfile } = await this.$service.auth.getProfile(userId)
+      const payloadProfile = {
+        ...resProfile.profile,
+        userId: userId,
+      }
+      console.log('LoginPage -> onSubmit -> payloadProfile', payloadProfile)
 
-      this.$auth.$storage.setCookie('profile', resProfile.profile, true)
+      this.$auth.$storage.setCookie('profile', payloadProfile, true)
 
-      this.$auth.setUser(resProfile.profile)
+      this.$auth.setUser(payloadProfile)
 
       this.$toast.success().showSimple('خوش آمدید!')
     } catch (error) {

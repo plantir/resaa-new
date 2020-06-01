@@ -41,8 +41,7 @@ Component.registerHooks(['fetch', 'head'])
 
 @Component({
   middleware: 'guest',
-  layout: ctx =>
-    ctx.isMobile ? 'mobileWithoutFooter' : 'desktopWithoutFooter',
+  layout: 'withoutFooter',
   components: {
     LoginForm,
     BottomBackground,
