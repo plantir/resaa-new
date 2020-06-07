@@ -1,8 +1,20 @@
-.v-btn:not(.v-btn--text) {
+.theme--light.v-btn:not(.v-btn--text) {
   box-shadow: 0 2px 8px 0 rgba(19, 209, 243, 0.5) !important;
   background-image: linear-gradient(249deg, #13d1f3, #35d6c1);
 
   .v-btn__content {
     color: #fff;
+  }
+
+  &.v-btn--disabled {
+    border-color: transparent;
+    box-shadow: none !important;
+    background-image: none;
+    background-color: #e1e2e1;
+
+    .v-btn__content {
+      color: #6c6c6c !important;
+      font-weight: bold;
+    }
   }
 }

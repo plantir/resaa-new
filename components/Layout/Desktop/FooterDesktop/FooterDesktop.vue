@@ -3,6 +3,7 @@ footer {
   background-color: #383838;
   color: #a5a5a5;
   padding-top: 20px;
+  margin-top: 40px;
   .box.about {
     color: #a5a5a5;
     .desc {

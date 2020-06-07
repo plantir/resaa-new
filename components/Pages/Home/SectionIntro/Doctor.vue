@@ -55,7 +55,10 @@
 <template>
   <div class="doctor">
     <div class="image">
-      <v-img :src="`/api/${doctor.imagePath}`" alt="دکتر محمد حاجی" />
+      <v-img
+        :src="`/api/${doctor.imagePath}`"
+        :alt="doctor.fullNameWithTitle"
+      />
     </div>
 
     <div class="bottom">
@@ -67,6 +70,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
+import { RelatedDoctor } from '@/models/Doctor'
 
 @Component
 export default class Doctor extends Vue {
@@ -74,6 +78,6 @@ export default class Doctor extends Vue {
     type: Object,
     required: true,
   })
-  readonly doctor!: Object
+  readonly doctor!: RelatedDoctor
 }
 </script>
