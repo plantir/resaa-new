@@ -69,7 +69,7 @@ export default class FilterBased extends Vue {
     type: Object,
     required: true,
   })
-  readonly value!: Object
+  readonly value!: { specialty: any[]; sickness: any[] }
 
   get filter() {
     return this.value
