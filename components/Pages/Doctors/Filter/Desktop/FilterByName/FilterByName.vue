@@ -10,7 +10,16 @@
         clearable
         outlined
         dense
-      />
+      >
+        <template v-slot:append>
+          <img
+            width="24"
+            height="24"
+            src="/images/icons/ic_search.png"
+            alt="search"
+          />
+        </template>
+      </v-text-field>
     </div>
   </FilterCard>
 </template>

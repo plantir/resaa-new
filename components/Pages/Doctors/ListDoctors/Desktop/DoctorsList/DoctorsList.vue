@@ -38,7 +38,12 @@
     <Doctor v-for="(item, index) in 10" :key="index" class="mt-6" />
 
     <div class="pagination-wrapper">
-      <v-pagination v-model="page" :length="6" :circle="false" />
+      <v-pagination
+        v-model="page"
+        :length="100"
+        :circle="false"
+        :total-visible="10"
+      />
     </div>
   </div>
 </template>

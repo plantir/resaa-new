@@ -6,12 +6,12 @@ main.doctors-main {
 
 <template>
   <main class="doctors-main">
-    <v-container class="d-flex">
-      <FilterMobile v-if="$device.isMobile" />
+    <v-container class="d-flex flex-wrap">
+      <FilterMobile v-model="filter" v-if="$device.isMobile" />
       <FilterDesktop v-model="filter" v-else />
 
       <ListDoctorsMobile v-if="$device.isMobile" />
-      <ListDoctorsDesktop v-else />
+      <ListDoctorsDesktop @sort="onSort" v-else />
     </v-container>
   </main>
 </template>
@@ -40,6 +40,7 @@ export default class DoctorsPage extends Vue {
     query: null,
     specialty: [],
     sickness: [],
+    orderBy: 'NONE',
   }
 
   public head() {
@@ -49,6 +50,11 @@ export default class DoctorsPage extends Vue {
         class: 'page-doctors',
       },
     }
+  }
+
+  onSort(sort: any) {
+    this.filter.orderBy = sort
+    console.log('sort', sort)
   }
 }
 </script>

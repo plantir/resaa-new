@@ -25,7 +25,7 @@ import DoctorsList from './DoctorsList/DoctorsList.vue'
 })
 export default class ListDoctorsDesktop extends Vue {
   onSort(sort: String) {
-    alert(sort)
+    this.$emit('sort', sort)
   }
 
   doctors = []
