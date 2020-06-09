@@ -43,7 +43,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import content from '../../../../@types/svg'
 
 @Component
 export default class HeaderPromotion extends Vue {}
