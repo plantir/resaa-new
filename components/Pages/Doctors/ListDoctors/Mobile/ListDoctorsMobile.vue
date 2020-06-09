@@ -1,68 +1,6 @@
 <style lang="scss" scoped>
 .doctors-list {
   width: 100%;
-  ::v-deep {
-    .doctor {
-      width: calc(100% - 20px);
-      height: auto;
-      .avatar {
-        position: absolute;
-        right: 15;
-        top: 10px;
-        width: 110px;
-        height: 110px;
-      }
-      .left-side {
-        width: 100%;
-        padding: 15px 10px 15px 10px;
-        .top {
-          width: 100%;
-          flex-direction: column;
-          .main-title {
-            margin-right: 100px;
-            a {
-              font-size: 14px;
-              flex-direction: column;
-              display: flex;
-              .line {
-                display: none;
-              }
-              .skill {
-                margin-top: 5px;
-              }
-            }
-          }
-          .status {
-            margin-right: 100px;
-            margin-top: 10px;
-            padding: 0 15px;
-            width: max-content;
-          }
-        }
-        .middle {
-          margin-top: 30px;
-          font-size: 10px;
-          font-weight: 500;
-          line-height: 18px;
-        }
-        .bottom {
-          flex-direction: column;
-          .meta-wrapper {
-            justify-content: space-evenly !important;
-            flex-wrap: wrap;
-            width: 100%;
-            .meta-item {
-              margin-top: 30px;
-            }
-          }
-          a {
-            margin-top: 20px;
-            text-align: center;
-          }
-        }
-      }
-    }
-  }
   .pagination-wrapper {
     margin-top: 30px;
     width: calc(100% - 10px);
@@ -114,7 +52,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Doctor from '../Desktop/DoctorsList/Doctor.vue'
+import Doctor from '@/components/Common/Doctor/Doctor.vue'
 
 @Component({
   components: {

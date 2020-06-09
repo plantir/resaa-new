@@ -50,7 +50,7 @@
 <template>
   <section class="section-testimonial">
     <v-container class="d-flex flex-column align-center">
-      <div class="title">نتیجه استفاده از رسا را از کاربران ما بشنوید</div>
+      <div class="title">{{ title }}</div>
     </v-container>
     <div class="testimonials mt-10">
       <swiper ref="swiper" :options="swiperOptions">
@@ -64,7 +64,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Testimonial from './Testimonial.vue'
 
 @Component({
@@ -73,6 +73,12 @@ import Testimonial from './Testimonial.vue'
   },
 })
 export default class SectionTestimonial extends Vue {
+  @Prop({
+    type: String,
+    default: 'نتیجه استفاده از رسا را از کاربران ما بشنوید',
+  })
+  title!: String
+
   swiperOptions = {
     centeredSlides: true,
     spaceBetween: 10,
