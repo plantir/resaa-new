@@ -8,6 +8,10 @@
     padding: 14px;
     .innder-title {
       font-weight: bold;
+      img {
+        width: 24px;
+        height: 24px;
+      }
     }
     .desc {
       color: #5e696e;
@@ -23,9 +27,9 @@
     <div class="main-title text-center">صرفا جهت اطلاع</div>
     <v-card class="mt-6">
       <div class="content d-flex flex-column align-center">
-        <Icon fileName="ic_save_time.png" />
-        <div class="innder-title text-center mt-2">
-          اتلاف وقت کمتر و صرفه‌جویی در زمان
+        <div class="innder-title d-flex flex-column align-center mt-2">
+          <Icon fileName="ic_save_time.png" />
+          <span class="label">اتلاف وقت کمتر و صرفه‌جویی در زمان</span>
         </div>
         <div class="desc text-center mt-1">
           مشورت کردن با پزشک یا روانشناس نیاز به طی کردن مسیرهای طولانی، ماندن
@@ -36,9 +40,9 @@
     </v-card>
     <v-card class="mt-6">
       <div class="content d-flex flex-column align-center">
-        <Icon fileName="ic_save_money_small.png" />
-        <div class="innder-title text-center mt-2">
-          پرداخت هزینه کمتر
+        <div class="innder-title d-flex flex-column align-center mt-2">
+          <Icon fileName="ic_save_money_small.png" />
+          <span class="label">پرداخت هزینه کمتر</span>
         </div>
         <div class="desc text-center mt-1">
           اگر بخواهید به صورت حضوری در مطب از یک پزشک یا روان‌شناس مشورت بگیرید،

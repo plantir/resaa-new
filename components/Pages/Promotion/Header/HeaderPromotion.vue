@@ -10,6 +10,11 @@
   font-weight: bold;
   color: #fff;
   line-height: 28px;
+  @include media(sm) {
+    font-size: 26px;
+    height: 340px;
+    line-height: 60px;
+  }
   &::before {
     background-color: rgba(0, 0, 0, 0.4);
     position: absolute;

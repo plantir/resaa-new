@@ -9,6 +9,7 @@
     <HeaderPromotion />
 
     <PromotionDoctorListMobile v-if="$device.isMobile" />
+    <PromotionDoctorListDesktop v-else />
   </div>
 </template>
 
@@ -22,6 +23,10 @@ import HeaderPromotion from '@/components/Pages/Promotion/Header/HeaderPromotion
     PromotionDoctorListMobile: () =>
       import(
         '@/components/Pages/Promotion/DoctorList/Mobile/PromotionDoctorListMobile.vue'
+      ),
+    PromotionDoctorListDesktop: () =>
+      import(
+        '@/components/Pages/Promotion/DoctorList/Desktop/PromotionDoctorListDesktop.vue'
       ),
   },
 })
