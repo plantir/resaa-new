@@ -17,7 +17,7 @@ import HeaderDesktop from '@/components/Layout/Desktop/HeaderDesktop/HeaderDeskt
     HeaderDesktop,
   },
 })
-export default class YourComponent extends Vue {
+export default class withoutFooterLayout extends Vue {
   data() {
     return {
       user: {

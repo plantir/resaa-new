@@ -18,33 +18,5 @@ import HeaderDesktop from '@/components/Layout/Desktop/HeaderDesktop/HeaderDeskt
     HeaderDesktop,
   },
 })
-export default class YourComponent extends Vue {
-  data() {
-    return {
-      user: {
-        firstName: 'آرمین',
-        lastName: 'خیرخواهان',
-      },
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
-    }
-  }
-}
+export default class DefaultLayout extends Vue {}
 </script>
