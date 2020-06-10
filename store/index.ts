@@ -6,12 +6,14 @@ export default class Index extends VuexModule {
   nuxtClientInit() {}
 
   @Action
-  nuxtServerInit(ctx: any) {
+  async nuxtServerInit(ctx: any) {
     const token = ctx.$auth.getToken('local')
 
     if (token) {
       const profile = ctx.$auth.$storage.getCookie('profile')
       ctx.$auth.setUser(profile)
+    } else {
+      await ctx.$auth.logout()
     }
   }
 }
