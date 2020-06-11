@@ -45,7 +45,7 @@ section {
       <button class="sendAnswer">ارسال جواب آزمایش</button>
       <button class="directCall">تماس مستقیم</button>
     </div>
-    <infoMobile :doctor="items" />
+    <infoDoctor :doctor="items" />
     <medicalRecords />
     <doctorServices />
     <accessibility />
@@ -55,7 +55,7 @@ section {
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
-import infoMobile from './mobile/info.vue'
+import infoDoctor from './mobile/info.vue'
 import medicalRecords from './mobile/medicalRecords.vue'
 import doctorServices from './mobile/doctorServices.vue'
 import accessibility from './mobile/accessibility.vue'
@@ -63,7 +63,7 @@ import otherDoctors from './mobile/otherDoctors.vue'
 import comments from './mobile/comments.vue'
 @Component({
   components: {
-    infoMobile,
+    infoDoctor,
     medicalRecords,
     doctorServices,
     accessibility,

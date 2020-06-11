@@ -1,12 +1,10 @@
 <style lang="scss" scoped>
 .box {
   margin: 5rem 2rem 2rem;
-
   .v-card {
     text-align: center;
   }
   .img {
-    // height: 200px;
     img {
       margin-top: -20px;
     }
@@ -17,13 +15,6 @@
     flex-direction: column;
     align-items: center;
     h3 {
-      // font-size: 14px;
-      // font-weight: bold;
-      // font-stretch: normal;
-      // font-style: normal;
-      // line-height: 1.07;
-      // letter-spacing: normal;
-      // text-align: right;
       color: #000000;
     }
     > div {
@@ -58,9 +49,17 @@
         line-height: 2.33;
         letter-spacing: normal;
         text-align: right;
-        // font-family: IRANYekanMobileFN;
         &:not(:last-child) {
           border-bottom: 1px solid #dddddd;
+        }
+        > div {
+          > span {
+            display: flex;
+            justify-content: space-between;
+            a {
+              color: #35d6c1;
+            }
+          }
         }
         > span {
           display: flex;
@@ -109,12 +108,22 @@
             <span>{{ 3000 | currency | persianDigit }} تومان در دقیقه</span>
           </li>
           <li>
-            <span>آدرس مطب {{ 2 | persianDigit }}:</span>
-            <span>
-              <a href="">
-                نمایش آدرس
-              </a>
-            </span>
+            <div>
+              <span>آدرس مطب {{ 1 | persianDigit }}:</span>
+              <span>آدرس مطب {{ 2 | persianDigit }}:</span>
+            </div>
+            <div>
+              <span>
+                <a href="">
+                  نمایش آدرس
+                </a>
+              </span>
+              <span>
+                <a href="">
+                  نمایش آدرس
+                </a>
+              </span>
+            </div>
           </li>
           <li>
             <span>
