@@ -17,4 +17,18 @@
       font-weight: bold;
     }
   }
+
+  &.v-btn--outlined {
+    border-radius: 8px;
+    border: solid 1px #35d6c1;
+    background-color: #fff;
+    background-image: none;
+    box-shadow: none !important;
+
+    .v-btn__content {
+      color: #35d6c1;
+
+    }
+  }
+
 }
