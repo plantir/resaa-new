@@ -6,6 +6,7 @@
   width: 100%;
   background-image: linear-gradient(270deg, #13d1f3, #35d6c1);
   clip-path: ellipse(200% 100% at 50% 100%);
+  z-index: -1;
   @include media(sm) {
     clip-path: ellipse(100% 100% at 50% 100%);
   }
@@ -28,7 +29,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 export default class BottomBackground extends Vue {
   @Prop({
     type: String,
-    default: 400,
+    default: '400',
   })
   readonly height!: String
 }
