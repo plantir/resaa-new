@@ -3,32 +3,6 @@
   .pagination-wrapper {
     margin-top: 30px;
     text-align: left;
-    ::v-deep {
-      .v-pagination__item {
-        box-shadow: none;
-        border: solid 0.5px #13d1f3;
-        background: transparent;
-        border-radius: 4px;
-        color: #212121;
-        &.v-pagination__item--active {
-          color: #fff;
-          background-image: linear-gradient(225deg, #13d1f3, #35d6c1);
-        }
-      }
-      .v-pagination__navigation {
-        background: transparent;
-        box-shadow: none;
-        color: #13d1f3;
-        i {
-          color: #13d1f3;
-        }
-        &.v-pagination__navigation--disabled {
-          i {
-            color: #b6b6b6;
-          }
-        }
-      }
-    }
   }
 }
 </style>
@@ -50,7 +24,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Doctor from './Doctor.vue'
+import Doctor from '@/components/Common/Doctor/Doctor.vue'
 
 @Component({
   components: {
