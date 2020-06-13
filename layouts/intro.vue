@@ -3,7 +3,7 @@
   overflow: hidden;
   .v-application {
     background-color: $primary-color;
-    background-image: linear-gradient(to left, #13d1f3 100%, #35d6c1 0%);
+    background-image: linear-gradient(to left, #13d1f3, #35d6c1);
   }
   .container-intro {
     margin: 8px;
