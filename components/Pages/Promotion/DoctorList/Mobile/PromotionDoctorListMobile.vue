@@ -1,5 +1,6 @@
 <style lang="scss" scoped>
 .promotion-wrapper {
+  padding: 12px;
   // width: calc(100% - 270px);
   ::v-deep {
     .section-testimonial {
@@ -19,12 +20,7 @@
       </div>
 
       <div class="pagination-wrapper mt-8">
-        <v-pagination
-          v-model="page"
-          :length="100"
-          :circle="false"
-          :total-visible="10"
-        />
+        <v-pagination v-model="page" :length="100" :circle="false" :total-visible="10" />
       </div>
     </v-container>
 
@@ -47,7 +43,7 @@ import SectionFeatureTwo from '@/components/Pages/Home/SectionFeatures/SectionFe
   },
 })
 export default class PromotionDoctorListMobile extends Vue {
-  doctors: Array<any> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  doctors: Array<any> = [1, 2, 3, 4, 5]
 
   get components() {
     const doctors = this.doctors.map(item => ({

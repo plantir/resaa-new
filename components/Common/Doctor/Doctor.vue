@@ -9,8 +9,8 @@
   }
   .avatar {
     position: absolute;
-    right: -15px;
-    top: 10px;
+    right: -16px;
+    top: 0px;
     width: 110px;
     height: 110px;
     @include media(sm) {
@@ -152,7 +152,7 @@
     <div class="left-side d-flex flex-column justify-space-between">
       <div class="top d-flex justify-space-between">
         <h3 class="main-title">
-          <nuxt-link to="">
+          <nuxt-link to>
             <span class="full-name">دکتر مهیا ملکی</span>
             <span class="line my-1">-</span>
             <span class="skill">طب سنتی</span>
@@ -163,28 +163,26 @@
       </div>
 
       <div class="middle">
-        <p class="skills">
-          فوق تخصص روماتولوژی، تخصص داخلی، عضو هیت علمی دانشگاه علوم‌پزشکی تهران
-        </p>
+        <p class="skills">فوق تخصص روماتولوژی، تخصص داخلی، عضو هیت علمی دانشگاه علوم‌پزشکی تهران</p>
       </div>
 
       <div class="bottom d-flex justify-space-between">
         <div class="meta-wrapper d-flex justify-space-between">
           <div class="meta-item d-flex align-center">
-            <i class="las la-check-circle"></i>
+            <v-icon color="orange" size="26">la-check-circle</v-icon>
             <span class="value">۱۲ سال سابقه</span>
           </div>
           <div class="meta-item d-flex align-center">
-            <i class="las la-phone-volume"></i>
+            <v-icon color="orange" size="26">la-phone-volume</v-icon>
             <span class="value">۲۵ تماس موفق</span>
           </div>
           <div class="meta-item d-flex align-center">
-            <i class="las la-dot-circle"></i>
+            <v-icon color="orange" size="26">la-money-bill</v-icon>
             <span class="value">۳,۰۰۰ تومان در دقیقه</span>
           </div>
         </div>
 
-        <nuxt-link class="view-profile" to="">مشاهده پروفایل</nuxt-link>
+        <nuxt-link class="view-profile" to>مشاهده پروفایل</nuxt-link>
       </div>
     </div>
   </v-card>
