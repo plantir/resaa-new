@@ -11,3 +11,9 @@ body:not(.page-home) {
 .ltr {
   direction: ltr;
 }
+
+@include media(xs-only) {
+  .v-content {
+    padding-top: 48px !important;
+  }
+}

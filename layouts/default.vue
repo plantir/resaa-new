@@ -1,6 +1,8 @@
 <template>
   <v-app :dark="false">
-    <HeaderDesktop />
+    <MenuMobile v-model="drawer" v-if="$device.isMobile" />
+    <HeaderMobile @toggleNavbar="drawer = !drawer" v-if="$device.isMobile" />
+    <HeaderDesktop v-else />
     <v-content>
       <nuxt />
     </v-content>
@@ -14,9 +16,16 @@ import HeaderDesktop from '@/components/Layout/Desktop/HeaderDesktop/HeaderDeskt
 
 @Component({
   components: {
+    HeaderDesktop: () =>
+      import('@/components/Layout/Desktop/HeaderDesktop/HeaderDesktop.vue'),
+    HeaderMobile: () =>
+      import('@/components/Layout/Mobile/HeaderMobile/HeaderMobile.vue'),
+    MenuMobile: () =>
+      import('@/components/Layout/Mobile/MenuMobile/MenuMobile.vue'),
     FooterDesktop,
-    HeaderDesktop,
   },
 })
-export default class DefaultLayout extends Vue {}
+export default class DefaultLayout extends Vue {
+  drawer = false
+}
 </script>

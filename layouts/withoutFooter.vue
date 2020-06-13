@@ -1,6 +1,8 @@
 <template>
   <v-app :dark="false">
-    <HeaderDesktop />
+    <MenuMobile v-model="drawer" v-if="$device.isMobile" />
+    <HeaderMobile @toggleNavbar="drawer = !drawer" v-if="$device.isMobile" />
+    <HeaderDesktop v-else />
     <v-content>
       <nuxt />
     </v-content>
@@ -13,39 +15,16 @@ import HeaderDesktop from '@/components/Layout/Desktop/HeaderDesktop/HeaderDeskt
 
 @Component({
   components: {
+    HeaderDesktop: () =>
+      import('@/components/Layout/Desktop/HeaderDesktop/HeaderDesktop.vue'),
+    HeaderMobile: () =>
+      import('@/components/Layout/Mobile/HeaderMobile/HeaderMobile.vue'),
+    MenuMobile: () =>
+      import('@/components/Layout/Mobile/MenuMobile/MenuMobile.vue'),
     FooterDesktop,
-    HeaderDesktop,
   },
 })
-export default class withoutFooterLayout extends Vue {
-  data() {
-    return {
-      user: {
-        firstName: 'آرمین',
-        lastName: 'خیرخواهان',
-      },
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
-    }
-  }
+export default class WithoutFooterLayout extends Vue {
+  drawer = false
 }
 </script>
-
-<style lang="scss"></style>
