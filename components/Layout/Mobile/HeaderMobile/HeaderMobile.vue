@@ -1,8 +1,21 @@
 <style lang="scss" scoped>
 .main-header {
   ::v-deep {
+    .v-app-bar__nav-icon {
+      border: none;
+      background: none;
+      box-shadow: none !important;
+      .v-btn__content {
+        color: $primary-color;
+      }
+    }
+
     .theme--dark.v-btn.v-btn--icon {
       color: $primary-color;
+    }
+
+    .charge {
+      height: 28px;
     }
   }
 }
@@ -22,7 +35,7 @@
       <img src="/images/icons/ic_account_circle.svg" />
     </v-avatar>
 
-    <v-btn outlined dense>
+    <v-btn outlined dense class="charge mr-3">
       <nuxt-link to="/charge">
         افزایش اعتبار
       </nuxt-link>
