@@ -1,7 +1,9 @@
 <style lang="scss" scoped>
 .main-header {
+  position: relative;
   line-height: 94px;
   height: 94px;
+  z-index: 999;
   .container {
     padding: 0;
   }
