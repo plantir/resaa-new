@@ -31,32 +31,26 @@
 <template>
   <div class="charge-info">
     <div class="d-flex justify-space-between">
-      <div class="label">
-        اعتبار حساب شما:
-      </div>
+      <div class="label">اعتبار حساب شما:</div>
       <div class="price">{{ 3000 | currency | persianDigit }} تومان</div>
     </div>
-    <div class="desc mt-3">
-      اعتبار حساب شما برای یک تماس طولانی مناسب است.
-    </div>
+    <div class="desc mt-3">اعتبار حساب شما برای یک تماس طولانی مناسب است.</div>
     <div class="increase-credit d-flex justify-space-between align-center mt-3">
-      <div class="right">
-        فکر می‌کنید به اعتبار بیشتری احتیاج دارید؟
-      </div>
+      <div class="right">فکر می‌کنید به اعتبار بیشتری احتیاج دارید؟</div>
       <div class="left d-flex align-center mt-3">
-        <nuxt-link class="ml-2" to="/charge">
-          افزایش اعتبار
-        </nuxt-link>
-        <Icon fileName="ic_link_left.png" />
+        <nuxt-link class="ml-2" to="/charge">افزایش اعتبار</nuxt-link>
+        <!-- <Icon fileName="ic_link_left.png" /> -->
+        <v-img src="/images/icons/ic_link_left.png"></v-img>
       </div>
     </div>
     <div class="image d-flex align-center justify-center mt-9">
-      <Icon fileName="img_direct_call.png" />
+      <!-- <Icon fileName="img_direct_call.png" /> -->
+      <v-img src="/images/icons/img_direct_call.png"></v-img>
     </div>
 
     <Faq class="mt-6" />
 
-    <div class="submit ">
+    <div class="submit">
       <v-container class="d-flex justify-space-between align-center">
         <div class="right d-flex flex-column">
           <span class="label">شماره تماس با پزشک:</span>
