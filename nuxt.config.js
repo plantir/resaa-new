@@ -155,6 +155,12 @@ export default {
         tokenType: 'bearer',
       },
     },
+    cookie: {
+      prefix: 'auth.',
+      options: {
+        expires: 30,
+      },
+    },
   },
   /*
   09382158220
