@@ -41,6 +41,8 @@ export interface Doctor {
   timetable?: any
   workplaces?: any
   tags?: any
+  specialtyEnglishTitle: string
+  specialtyTitle: string
 }
 
 export interface ResultDoctor {

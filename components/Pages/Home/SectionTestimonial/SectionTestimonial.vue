@@ -95,6 +95,9 @@ export default class SectionTestimonial extends Vue {
       1024: {
         slidesPerView: 3,
       },
+      1440: {
+        slidesPerView: 4,
+      },
     },
     grabCursor: true,
   }

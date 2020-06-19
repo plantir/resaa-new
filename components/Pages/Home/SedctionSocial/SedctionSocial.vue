@@ -1,8 +1,16 @@
 <style lang="scss" scoped>
-.social {
+.social-container {
   background-color: #f9f9f9;
   .inner-wrapper {
-    padding: 70px 0;
+    // padding: 70px 0;
+    display: flex;
+    align-items: center;
+    // height: 370px;
+    padding: 0 100px;
+    > div {
+      flex: 1;
+    }
+
     .main-title {
       color: #212121;
       font-weight: bold;
@@ -20,7 +28,7 @@
       padding: 40px;
       @include media(sm) {
         padding: 0;
-        max-width: 250px;
+        // max-width: 250px;
       }
     }
   }
@@ -28,23 +36,19 @@
 </style>
 
 <template>
-  <section class="social">
-    <v-container>
-      <div class="inner-wrapper py-">
-        <div class="main-title">
-          ما را در شبکه‌های اجتماعی دنبال کنید.
-        </div>
-
+  <section class="social-container">
+    <div class="inner-wrapper">
+      <div>
+        <div class="main-title">ما را در شبکه‌های اجتماعی دنبال کنید.</div>
         <div class="social-wrapper d-flex flex-column">
-          <SocialButton network="telegram">
-            مشاهده کانال تلگرام
-          </SocialButton>
-          <SocialButton network="instagram" class="mt-7">
-            مشاهده صفحه اینستاگرام
-          </SocialButton>
+          <SocialButton network="telegram">مشاهده کانال تلگرام</SocialButton>
+          <SocialButton network="instagram" class="mt-7">مشاهده صفحه اینستاگرام</SocialButton>
         </div>
       </div>
-    </v-container>
+      <div class="image-wrapper">
+        <v-img src="/images/home/social.png" max-height="100%"></v-img>
+      </div>
+    </div>
   </section>
 </template>
 

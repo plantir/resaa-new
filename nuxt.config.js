@@ -30,7 +30,6 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + 'رسا سامانه سلامت ایرانیان',
     title: 'رسا سامانه سلامت ایرانیان',
     meta: [
       { charset: 'utf-8' },
@@ -38,7 +37,8 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content:
+          'با استفاده از رسا تماس های غیر ضروری خود از سمت بیماران را حذف کنید و مکالمات غیر مربوط به روند درمانی را کاهش رایگان ثبت‌نام کنید و با دسترسی به پزشکان معرفی‌شده در وب‌سایت رسا، تماس مستقیم با بهترین پزشکان متخصص را با صرفه‌جویی در وقت و هزینه خود، تجربه کنید',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -65,6 +65,7 @@ export default {
       'vrwebdesign-nuxt/assets/style/tools/_responsive.scss',
     ],
   },
+
   plugins: [{ src: './plugins/vue-awesome-swiper.js' }],
   /*
    ** Nuxt.js dev-modules
@@ -170,17 +171,39 @@ export default {
    */
   axios: {
     proxy: true, // Can be also an object with default options
-    prefix: '/api/',
-    debug: true,
+    prefix: '/api',
+    port: process.env.PORT,
   },
   proxy: {
+    '/api/Mobile/': {
+      target: 'http://webold.develop.bsn.local',
+    },
+    '/api/MessageCallback/': {
+      target: 'http://webold.develop.bsn.local',
+    },
+    '/api/DoctorApp/': {
+      target: 'http://webold.develop.bsn.local',
+    },
     '/api/': {
-      target: process.env.API_URL || 'http://localhost:3333',
+      target: process.env.API_URL,
       pathRewrite: {
         '^/api/': '',
       },
     },
   },
+  serverMiddleware: [
+    '~/servermiddleware/underconstruction.js',
+    '~/servermiddleware/redirect.js',
+    '~/servermiddleware/category_redirect.js',
+    '~/servermiddleware/doctors.js',
+    {
+      path: '/patient/profile',
+      handler: (req, res, next) => {
+        res.spa = true
+        next()
+      },
+    },
+  ],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

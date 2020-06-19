@@ -1,29 +1,18 @@
 <style lang="scss" scoped>
 .doctors-list {
-  .pagination-wrapper {
-    margin-top: 30px;
-    text-align: left;
-  }
 }
 </style>
 
 <template>
   <div class="doctors-list">
-    <Doctor v-for="(item, index) in 10" :key="index" class="mt-6" />
-
-    <div class="pagination-wrapper">
-      <v-pagination
-        v-model="page"
-        :length="100"
-        :circle="false"
-        :total-visible="10"
-      />
+    <div v-for="doctor in doctors" :key="doctor.id" class="mt-6">
+      <Doctor :doctor="doctor" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 
 @Component({
@@ -32,6 +21,9 @@ import Doctor from '@/components/Common/Doctor/Doctor.vue'
   },
 })
 export default class DoctorsList extends Vue {
-  page = 1
+  @Prop({
+    default: [],
+  })
+  doctors!: any[]
 }
 </script>

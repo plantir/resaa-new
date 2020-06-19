@@ -1,10 +1,9 @@
 <style lang="scss" scoped>
 .intro {
   padding: 30px 0;
+  background: url('/images/home/intro_doctor_mobile.png') no-repeat;
+  background-color: var(--v-primary-lighten5);
   .intro-text {
-    height: 300px;
-    background: url('/images/home/intro_doctor_mobile.png') no-repeat;
-    background-position: -75px;
     .right {
       width: 55%;
       @include media(sm) {
@@ -44,6 +43,10 @@
       }
     }
   }
+  .resaa-btn {
+    font-size: 1.3rem;
+    min-width: 320px;
+  }
 }
 </style>
 
@@ -53,7 +56,8 @@
       <v-container>
         <div class="right">
           <h1>
-            با پزشک یا روان شناس مد نظرتان <span>مستقیما</span> صحبت کنید.
+            با پزشک یا روان شناس مد نظرتان
+            <span>مستقیما</span> صحبت کنید.
           </h1>
           <p class="text-justify">
             رسا یا رسانه سلامت ایرانیان یک بستر مخابراتی بین شما و تمام پزشک‌ها
@@ -62,6 +66,7 @@
             صحبت کنید.
           </p>
         </div>
+        <v-btn class="resaa-btn" color="primary" x-large>مشاهده لیست پزشکان</v-btn>
       </v-container>
     </div>
 

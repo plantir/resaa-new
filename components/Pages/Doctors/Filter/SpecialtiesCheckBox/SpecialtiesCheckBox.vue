@@ -26,12 +26,7 @@
 <template>
   <div class="specialties-checkbox">
     <div class="specialty" v-for="item in specialtiesFilter" :key="item.id">
-      <v-checkbox
-        v-model="selected"
-        :label="item.title"
-        :value="item.id"
-        dense
-      />
+      <v-checkbox v-model="selected" :label="item.title" :value="item.id" dense />
     </div>
   </div>
 </template>
@@ -266,7 +261,7 @@ export default class SpecialtiesCheckBox extends Vue {
   async getSpecialties() {
     try {
       const data = await this.$axios.get('/Rubika/Doctors/MedicalSpecialties')
-      console.log('SpecialtiesCheckBox -> getSpecialties -> data', data)
+      // console.log('SpecialtiesCheckBox -> getSpecialties -> data', data)
     } catch (error) {}
   }
 

@@ -1,9 +1,7 @@
 <style lang="scss" scoped></style>
 
 <template>
-  <div>
-    {{ reqId }}
-  </div>
+  <div>{{ reqId }}</div>
 </template>
 
 <script lang="ts">
@@ -15,7 +13,7 @@ export default class extends Vue {
 
   mounted() {
     this.reqId = String(this.$route.query.chargeRequestId)
-    console.log('extends -> mounted -> this.$route', this.$route)
+    // console.log('extends -> mounted -> this.$route', this.$route)
   }
 }
 </script>

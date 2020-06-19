@@ -38,7 +38,7 @@ export default class SectionSearch extends Vue {
 
   async onSubmit(form: any) {
     try {
-      const { result } = await this.$service.doctor.getDoctors({
+      const { result } = await this.$service.doctors.query({
         fields:
           'id,specialty,subscriberNumber,firstName,lastName,imagePath,expertise',
         limit: 10,

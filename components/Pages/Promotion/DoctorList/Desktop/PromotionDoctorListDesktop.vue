@@ -84,7 +84,7 @@ export default class PromotionDoctorListDesktop extends Vue {
   doctors: Array<any> = [1, 2, 3, 4, 5]
 
   get components() {
-    const doctors = this.doctors.map(item => ({
+    const doctors: any = this.doctors.map(item => ({
       component: Doctor,
       data: item,
     }))

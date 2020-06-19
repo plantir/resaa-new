@@ -10,7 +10,7 @@
     background-color: #fff;
     box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.15);
     border-radius: 4px;
-    max-width: 550px;
+    // max-width: 550px;
     direction: rtl;
     position: relative;
     @include media(xs-only) {
@@ -97,7 +97,7 @@
       </div>
     </div>
     <div class="avatar d-flex flex-column">
-      <img src="/images/home/doctors/1.png" alt="" />
+      <img src="/images/home/doctors/1.png" alt />
     </div>
   </div>
 </template>

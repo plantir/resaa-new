@@ -3,7 +3,6 @@ footer {
   background-color: #383838;
   color: #a5a5a5;
   padding-top: 20px;
-  margin-top: 40px;
   .box.about {
     color: #a5a5a5;
     .desc {
@@ -108,64 +107,42 @@ footer {
             </div>
           </div>
           <div class="box enamad">
-            <div class="box-content">
-              enamad
-            </div>
+            <div class="box-content">enamad</div>
           </div>
         </v-col>
         <v-col cols="12" md="12" lg="8" xl="8">
           <v-row>
             <v-col cols="12" sm="6" md="6" lg="6" xl="6">
               <div class="box useful-links">
-                <div class="main-title">
-                  لینک‌های مفید
-                </div>
+                <div class="main-title">لینک‌های مفید</div>
                 <div class="box-content">
                   <ul>
                     <li>
-                      <nuxt-link to="/">
-                        حساب کاربری
-                      </nuxt-link>
+                      <nuxt-link to="/">حساب کاربری</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">
-                        لیست پزشکان
-                      </nuxt-link>
+                      <nuxt-link to="/">لیست پزشکان</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">
-                        رسای بیماران
-                      </nuxt-link>
+                      <nuxt-link to="/">رسای بیماران</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">
-                        دریافت برنامه بیماران
-                      </nuxt-link>
+                      <nuxt-link to="/">دریافت برنامه بیماران</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">
-                        قوانین
-                      </nuxt-link>
+                      <nuxt-link to="/">قوانین</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">
-                        حریم خصوصی
-                      </nuxt-link>
+                      <nuxt-link to="/">حریم خصوصی</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">
-                        سوالات متداول
-                      </nuxt-link>
+                      <nuxt-link to="/">سوالات متداول</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">
-                        درباره رسا
-                      </nuxt-link>
+                      <nuxt-link to="/">درباره رسا</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">
-                        تماس با ما
-                      </nuxt-link>
+                      <nuxt-link to="/">تماس با ما</nuxt-link>
                     </li>
                   </ul>
                 </div>
@@ -173,9 +150,7 @@ footer {
             </v-col>
             <v-col cols="12" sm="6" md="6" lg="6" xl="6">
               <div class="box contact">
-                <div class="main-title">
-                  ارتباط با ما
-                </div>
+                <div class="main-title">ارتباط با ما</div>
                 <div class="box-content">
                   <ul>
                     <li class="d-flex justify-space-between">
@@ -194,9 +169,7 @@ footer {
                 </div>
               </div>
               <div class="box address">
-                <div class="main-title">
-                  آدرس
-                </div>
+                <div class="main-title">آدرس</div>
                 <div class="box-content">
                   <address>
                     تهران، امیرآباد شمالی، پایین‌تر از بیمارستان قلب، کوچه

@@ -7,7 +7,7 @@
     .v-card {
       .v-card__title {
         margin: 4px 10px 25px 10px !important;
-        border-width: 2px;
+        // border-width: 2px;
         line-height: 35px;
         .main-title {
           font-size: 17px;
@@ -87,9 +87,7 @@
         :class="{ full: showAll }"
         @click="onShowAll"
       >
-        <span class="label">
-          {{ collapseLabel }}
-        </span>
+        <span class="label">{{ collapseLabel }}</span>
         <v-icon small>double_arrow</v-icon>
       </div>
     </v-card>

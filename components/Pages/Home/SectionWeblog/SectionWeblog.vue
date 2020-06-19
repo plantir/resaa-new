@@ -20,11 +20,8 @@
       <div class="title text-center">آخرین‌ها در مجله تخصصی پزشکی رسا</div>
       <WeblogMobile v-if="$device.isMobile" />
       <WeblogDesktop v-else />
-
-      <div class="blog-link text-center">
-        <a class="blog-link" target="_blank" href="#">
-          ورورد به مجله خبری آنلاین
-        </a>
+      <div class="text-center">
+        <v-btn class="title" color="teel" outlined x-large>ورورد به مجله خبری آنلاین</v-btn>
       </div>
     </v-container>
   </section>

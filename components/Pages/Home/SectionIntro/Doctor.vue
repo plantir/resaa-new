@@ -23,7 +23,6 @@
   .bottom {
     font-size: 12px;
     .full-name {
-      border-bottom: 2px solid #e6e6e6;
       font-weight: bold;
       position: relative;
       line-height: 30px;
@@ -31,12 +30,21 @@
       overflow: hidden;
       text-overflow: ellipsis;
       &::before {
-        background-color: #f9a429;
+        background-color: #e6e6e6;
         content: '';
         position: absolute;
         right: 0;
         bottom: 0;
-        width: 40px;
+        width: 100%;
+        height: 2px;
+      }
+      &::after {
+        background-color: var(--v-primary-base);
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 20px;
         height: 2px;
       }
     }
@@ -55,10 +63,13 @@
 <template>
   <div class="doctor">
     <div class="image">
-      <v-img
-        :src="`/api/${doctor.imagePath}`"
-        :alt="doctor.fullNameWithTitle"
-      />
+      <v-img height="190px" :src="`/api/${doctor.imagePath}`" :alt="doctor.fullNameWithTitle">
+        <template v-slot:placeholder>
+          <v-row class="fill-height ma-0" align="center" justify="center">
+            <v-progress-circular width="2" indeterminate color="secondary"></v-progress-circular>
+          </v-row>
+        </template>
+      </v-img>
     </div>
 
     <div class="bottom">

@@ -20,7 +20,7 @@ const mainMenu: MainMenu[] = [
   },
   {
     label: 'لیست پزشکان و روانشناسان',
-    link: '/l3',
+    link: '/doctors',
     internalLink: true,
     newTab: false,
   },

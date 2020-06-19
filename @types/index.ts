@@ -2,7 +2,7 @@ import { Profile } from '@/models/Auth'
 import AuthService from '@/services/auth'
 import ChargeService from '@/services/charge'
 import ProfileService from '@/services/profile'
-import DoctorService from '@/services/doctor'
+import DoctorService from '~/services/doctors'
 interface IEnum {
   toSelect: { text: string; value: number }[]
 }
@@ -49,7 +49,7 @@ declare module 'vue/types/vue' {
     auth: AuthService
     profile: ProfileService
     charge: ChargeService
-    doctor: DoctorService
+    doctors: DoctorService
   }
   interface NuxtEnumInstance {
     role: IEnum

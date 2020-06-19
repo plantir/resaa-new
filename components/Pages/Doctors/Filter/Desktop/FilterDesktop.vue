@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .filter-wrapper {
-  width: 270px;
+  width: 25%;
   margin-left: 40px;
 }
 </style>

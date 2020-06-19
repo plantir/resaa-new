@@ -40,7 +40,7 @@ export default class CallHistory extends Vue {
   async getCalls() {
     try {
       const userId = this.$auth.user?.userId
-      console.log('CallHistory -> getCalls -> userId', userId)
+      // console.log('CallHistory -> getCalls -> userId', userId)
       if (userId) {
         this.loading = true
         const { result } = await this.$service.profile.getCalls(userId)

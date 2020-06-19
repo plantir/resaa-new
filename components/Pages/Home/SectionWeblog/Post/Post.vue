@@ -4,7 +4,7 @@
   padding: 5px;
   height: 100%;
   h3 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 28px;
     @include media(sm-only) {
       font-size: 12px;
@@ -14,7 +14,8 @@
     }
   }
   .content {
-    padding: 10px;
+    padding: 16px;
+    font-size: 16px;
     p.desc {
       line-height: 26px;
       text-align: justify;
@@ -47,16 +48,13 @@
 
 <template>
   <div class="post">
-    <v-card height="100%" class="d-flex flex-column justify-lg-space-between">
+    <v-card height="100%" class="d-flex flex-column">
       <nuxt-link to="#">
         <v-img src="/images/home/blog/1.webp" :height="heightImage" eager />
       </nuxt-link>
       <div class="content">
         <h3>
-          <nuxt-link to="">
-            درمان کیست و تنبلی تخمدان برای بارداری و درمان کیست و تنبلی تخمدان
-            برای بارداری
-          </nuxt-link>
+          <nuxt-link to>{{post.title}}</nuxt-link>
         </h3>
         <p v-if="hasDescription" class="desc mt-5">
           آیا می‌دانید با وجود نارسایی‌های تخمدان امکان بارداری وجود دارد؟
@@ -74,9 +72,7 @@
         </div>
 
         <div class="more">
-          <a href="#">
-            بیشتر بخوانید
-          </a>
+          <a href="#">بیشتر بخوانید</a>
         </div>
       </div>
     </v-card>

@@ -71,7 +71,7 @@ export default class HistoryTestItem extends Vue {
     let rate = await this.$dialog.show({
       component: DialogRate,
     })
-    console.log(rate)
+    // console.log(rate)
   }
 }
 </script>

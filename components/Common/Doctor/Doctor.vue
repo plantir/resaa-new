@@ -4,6 +4,7 @@
   width: calc(100% - 20px);
   height: auto;
   @include media(sm) {
+    margin-right: 30px;
     width: 100%;
     height: 192px;
   }
@@ -66,9 +67,6 @@
             @include media(sm) {
               display: block;
             }
-          }
-          .skill {
-            margin-top: 5px;
           }
         }
       }
@@ -146,16 +144,19 @@
 <template>
   <v-card class="doctor d-flex align-center">
     <div class="avatar">
-      <v-img src="/images/avatar/1.png" alt="test" />
+      <v-img
+        :src="`/api/${doctor.imagePath}`"
+        :alt="doctor.title + doctor.firstName + doctor.lastName"
+      />
     </div>
 
     <div class="left-side d-flex flex-column justify-space-between">
       <div class="top d-flex justify-space-between">
         <h3 class="main-title">
-          <nuxt-link to>
-            <span class="full-name">دکتر مهیا ملکی</span>
-            <span class="line my-1">-</span>
-            <span class="skill">طب سنتی</span>
+          <nuxt-link :to="doctorLink">
+            <span class="full-name">{{doctor.title}} {{doctor.firstName}} {{doctor.lastName}}</span>
+            <span class="line mb-1 mx-2">-</span>
+            <span class="skill">{{doctor.specialty.title}}</span>
           </nuxt-link>
         </h3>
 
@@ -189,7 +190,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Icon from '@/components/Common/Icon/Icon.vue'
 import OnlineStatus from '@/components/Common/OnlineStatus/OnlineStatus.vue'
 
@@ -199,5 +200,16 @@ import OnlineStatus from '@/components/Common/OnlineStatus/OnlineStatus.vue'
     OnlineStatus,
   },
 })
-export default class Doctor extends Vue {}
+export default class Doctor extends Vue {
+  @Prop({
+    required: true,
+  })
+  doctor!: any
+
+  get doctorLink() {
+    return `/doctors/${this.doctor.specialty.description
+      .toLowerCase()
+      .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
+  }
+}
 </script>
