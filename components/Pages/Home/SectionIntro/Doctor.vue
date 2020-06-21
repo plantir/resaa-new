@@ -81,7 +81,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { RelatedDoctor } from '@/models/Doctor'
+import { RelatedDoctor } from '~/models/Doctor'
 
 @Component
 export default class Doctor extends Vue {

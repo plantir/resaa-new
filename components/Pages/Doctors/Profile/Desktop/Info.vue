@@ -1,18 +1,20 @@
 <style lang="scss" scoped>
 .box {
-  margin: 5rem 2rem 2rem 0;
+  margin-top: 16px;
   min-width: 310px;
-  @include media(xl) {
-    margin: 5rem 4rem 2rem 2rem;
-  }
   .v-card {
     text-align: center;
+    padding-top: 192px;
   }
   .img {
-    position: relative;
-    img {
-      margin-top: -20px;
-    }
+    position: absolute;
+    top: -16px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    width: 192px;
+    height: 192px;
     .available {
       position: absolute;
       margin-left: auto;
@@ -114,16 +116,16 @@
   <div class="box">
     <v-card>
       <div class="img">
-        <img :src="doctor.img || require('@/assets/img/doctor.png')" alt="" />
-        <span class="available"> در دسترس</span>
+        <v-img width="100%" height="100%" :src="`/api/${doctor.imagePath}`" :alt="fullName" />
+        <span class="available">در دسترس</span>
       </div>
       <div class="doctor_name">
-        <h3>دکتر {{ doctor.name || 'مهیا ملکی' }}</h3>
+        <h3>{{fullName}}</h3>
         <div>
           <span>
-            <img src="@/assets/img/ic_call.png" alt="" />
+            <img src="@/assets/img/ic_call.png" alt />
           </span>
-          <span> {{ 25 | persianDigit }} تماس موفق </span>
+          <span>{{ doctor.satisfiedCalls | persianDigit }} تماس موفق</span>
         </div>
       </div>
       <div class="doctor_info">
@@ -131,13 +133,13 @@
           <li>
             <div>
               <span>تخصص:</span>
-              <span>طب سنتی</span>
+              <span>{{doctor.specialtyTitle}}</span>
             </div>
           </li>
-          <li>
+          <li v-if="doctor.medicalCouncilNumber">
             <div>
               <span>کد نظام پزشکی:</span>
-              <span>{{ 12345 | persianDigit }}</span>
+              <span>{{ doctor.medicalCouncilNumber | persianDigit }}</span>
             </div>
           </li>
           <li>
@@ -149,22 +151,12 @@
           <li>
             <div class="call">
               <span>تعرفه تماس:</span>
-              <span>{{ 3000 | currency | persianDigit }} تومان در دقیقه</span>
+              <span>{{ +doctor.pricePerMinute | currency | persianDigit }} تومان در دقیقه</span>
             </div>
-            <div>
-              <span>آدرس مطب {{ 1 | persianDigit }}:</span>
+            <div v-for="(item, index) in doctor.workplaces" :key="index">
+              <span>آدرس مطب {{ index+1 | persianDigit }}:</span>
               <span>
-                <a href="">
-                  نمایش آدرس
-                </a>
-              </span>
-            </div>
-            <div>
-              <span>آدرس مطب {{ 2 | persianDigit }}:</span>
-              <span>
-                <a href="">
-                  نمایش آدرس
-                </a>
+                <a @click="showWorkplace(item)">نمایش آدرس</a>
               </span>
             </div>
             <div>
@@ -175,19 +167,15 @@
           <li>
             <div>
               <span>
-                <img src="@/assets/img/ic_share.png" alt="" />
+                <img src="@/assets/img/ic_share.png" alt />
                 <span>
-                  <a href="">
-                    اشتراک گذاری
-                  </a>
+                  <a href>اشتراک گذاری</a>
                 </span>
               </span>
               <span>
-                <img src="@/assets/img/ic_contacts.png" alt="" />
+                <img src="@/assets/img/ic_contacts.png" alt />
                 <span>
-                  <a href="">
-                    افزودن به مخاطبین
-                  </a>
+                  <a href>افزودن به مخاطبین</a>
                 </span>
               </span>
             </div>
@@ -199,8 +187,16 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Doctor } from '~/models/Doctor'
 @Component
 export default class component_name extends Vue {
-  doctor = {}
+  @Prop()
+  doctor!: Doctor
+  showWorkplace(item: any) {
+    console.log(item)
+  }
+  get fullName() {
+    return `${this.doctor.title} ${this.doctor.firstName} ${this.doctor.lastName}`
+  }
 }
 </script>

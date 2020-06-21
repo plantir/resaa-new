@@ -55,6 +55,7 @@
 
 .swiper-container {
   margin-right: 2.5rem;
+  padding: 10px;
   .swiper-slide {
     width: 180px;
     .v-card {
@@ -104,42 +105,49 @@
   <section>
     <div class="box">
       <div class="title">
-        <h3>
-          متخصصین طب سنتی مشابه
-        </h3>
-        <a href="">
+        <h3>متخصصین طب سنتی مشابه</h3>
+        <a href>
           مشاهده همه
-          <img src="@/assets/img/arrow-left.png" alt="" />
+          <img src="@/assets/img/arrow-left.png" alt />
         </a>
       </div>
     </div>
     <swiper ref="swiper" :options="swiperOptions">
-      <swiper-slide v-for="(doctor, index) in 2" :key="index">
-        <v-card>
-          <v-img :src="doctor.img || require('@/assets/img/image.png')">
-          </v-img>
-          <div class="wrapper">
-            <div class="doctorName">مصطفی حیدری</div>
-            <div class="Specialist">
-              <h3>
-                دندانپزشک
-              </h3>
+      <swiper-slide v-for="doctor in doctor.relatedDoctors" :key="doctor.id">
+        <nuxt-link class="item" :to="doctorLink(doctor)">
+          <v-card>
+            <div class="text-center">
+              <v-img height="110" :src="`/api/${doctor.imagePath}`"></v-img>
             </div>
-          </div>
-          <div class="numberOfCalls">۱۴ تماس موفق</div>
-        </v-card>
+            <div class="wrapper">
+              <div class="doctorName">{{doctor.fullNameWithTitle}}</div>
+              <div class="Specialist">
+                <h3>{{doctor.specialtyTitle}}</h3>
+              </div>
+            </div>
+            <div class="numberOfCalls">۱۴ تماس موفق</div>
+          </v-card>
+        </nuxt-link>
       </swiper-slide>
     </swiper>
   </section>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Doctor } from '~/models/Doctor'
 @Component
 export default class component_name extends Vue {
-  doctor = {}
+  @Prop()
+  doctor!: Doctor
   swiperOptions = {
     slidesPerView: 'auto',
     spaceBetween: 15,
+  }
+
+  doctorLink(doctor: Doctor) {
+    return `/doctors/${doctor.specialtyEnglishTitle
+      .toLowerCase()
+      .replace(/ /g, '-')}/${doctor.subscriberNumber}`
   }
 }
 </script>

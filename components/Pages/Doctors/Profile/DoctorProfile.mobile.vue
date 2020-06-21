@@ -6,9 +6,9 @@ section {
     padding: 1rem 0;
     position: fixed;
     text-align: center;
-    z-index: 1;
+    z-index: 89;
     width: 100%;
-    bottom: 20px;
+    bottom: 0px;
     .font-style {
       font-size: 14px;
       font-weight: bold;
@@ -45,33 +45,38 @@ section {
       <button class="sendAnswer">ارسال جواب آزمایش</button>
       <button class="directCall">تماس مستقیم</button>
     </div>
-    <infoDoctor :doctor="items" />
-    <medicalRecords />
-    <doctorServices />
-    <accessibility />
-    <otherDoctors />
-    <comments />
+    <InfoDoctor :doctor="doctor" />
+    <MedicalRecords :doctor="doctor" />
+    <DoctorServices :doctor="doctor" />
+    <!-- <Accessibility :doctor="doctor" /> -->
+    <TimeTable :doctor="doctor" :close="false" />
+    <OtherDoctors :doctor="doctor" />
+    <Comments :doctor="doctor" />
   </section>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
-import infoDoctor from './mobile/info.vue'
-import medicalRecords from './mobile/medicalRecords.vue'
-import doctorServices from './mobile/doctorServices.vue'
-import accessibility from './mobile/accessibility.vue'
-import otherDoctors from './mobile/otherDoctors.vue'
-import comments from './mobile/comments.vue'
+import InfoDoctor from './mobile/Info.vue'
+import MedicalRecords from './mobile/MedicalRecords.vue'
+import DoctorServices from './mobile/DoctorServices.vue'
+import Accessibility from './mobile/Accessibility.vue'
+import OtherDoctors from './mobile/OtherDoctors.vue'
+import TimeTable from '@/components/Common/Doctor/TimeTable.vue'
+import Comments from './mobile/Comments.vue'
+import { Doctor } from '~/models/Doctor'
 @Component({
   components: {
-    infoDoctor,
-    medicalRecords,
-    doctorServices,
-    accessibility,
-    otherDoctors,
-    comments,
+    InfoDoctor,
+    MedicalRecords,
+    DoctorServices,
+    Accessibility,
+    TimeTable,
+    OtherDoctors,
+    Comments,
   },
 })
 export default class YourComponent extends Vue {
-  items = null
+  @Prop({ required: true })
+  private doctor!: Doctor
 }
 </script>

@@ -1,20 +1,25 @@
 <style lang="scss" scoped></style>
 <template>
   <section>
-    <doctorProfileDesktop :doctor="doctor" v-if="$device.isDesktop" />
-    <doctorProfileMobile :doctor="doctor" v-if="$device.isMobileOrTablet" />
+    <template v-if="$fetchState.pending">
+      <v-skeleton-loader type="image,list-item-two-line, actions"></v-skeleton-loader>
+    </template>
+    <template v-else>
+      <DoctorProfileDesktop :doctor="doctor" v-if="$device.isDesktop" />
+      <DoctorProfileMobile :doctor="doctor" v-if="$device.isMobileOrTablet" />
+    </template>
   </section>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'nuxt-property-decorator'
-import doctorProfileDesktop from '@/components/Pages/doctor/profile/doctorProfile.desktop.vue'
-import doctorProfileMobile from '@/components/Pages/doctor/profile/doctorProfile.mobile.vue'
 import { Doctor } from '../../../../models/Doctor'
 Component.registerHooks(['fetch', 'head'])
 @Component({
   components: {
-    doctorProfileDesktop,
-    doctorProfileMobile,
+    DoctorProfileDesktop: () =>
+      import('@/components/Pages/Doctors/Profile/DoctorProfile.desktop.vue'),
+    DoctorProfileMobile: () =>
+      import('@/components/Pages/Doctors/Profile/DoctorProfile.mobile.vue'),
   },
 })
 export default class YourComponent extends Vue {
@@ -24,7 +29,7 @@ export default class YourComponent extends Vue {
   description!: any
   doctor!: Doctor
   asyncData() {
-    return { title: null }
+    return { title: null, doctor: null }
   }
   head() {
     return {
@@ -68,8 +73,18 @@ export default class YourComponent extends Vue {
     }
   }
   async fetch() {
-    let { result } = await this.$service.doctors.get(this.$route.params.id)
-    this.doctor = result.doctor
+    let [doctor, relatedDoctors] = await Promise.all([
+      this.$service.doctors.get(this.$route.params.id),
+      this.$service.doctors.relatedDoctors(this.$route.params.id),
+    ]).then(values => {
+      return [values[0].result.doctor, values[1].result.relatedDoctors]
+    })
+    this.doctor = doctor
+    this.doctor.relatedDoctors = relatedDoctors
+    this.seoContent()
+  }
+
+  seoContent() {
     this.title = `${this.doctor.title || ''} ${this.doctor.firstName} ${
       this.doctor.lastName
     } | تماس مستقیم با پزشک در سامانه رسا`

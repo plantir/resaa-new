@@ -43,6 +43,7 @@ export interface Doctor {
   tags?: any
   specialtyEnglishTitle: string
   specialtyTitle: string
+  relatedDoctors?: Doctor[]
 }
 
 export interface ResultDoctor {

@@ -50,18 +50,31 @@
 <template>
   <div class="box">
     <div class="title">
-      <h3>
-        خدمات پزشک
-      </h3>
+      <h3>خدمات پزشک</h3>
     </div>
     <div class="content">
-      اتارتروسکوپی، ارتوپدی، ارتودنسی، ارتودنسی، آسم و آلرژی، اکوکاردیوگرافی،
-      اکوکاردیوگرافی جنین، آلزایمر و فراموشی
+      <span v-for="(item,index) in doctor.categories" :key="item.id">
+        <nuxt-link v-if="item.isPageActive" :to="categoryLink(item)">{{item.title}}</nuxt-link>
+        <span v-else>{{item.title}}</span>
+        <template v-if="index < doctor.categories.length-1">,</template>
+      </span>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Doctor } from '~/models/Doctor'
 @Component
-export default class component_name extends Vue {}
+export default class component_name extends Vue {
+  @Prop()
+  doctor!: Doctor
+
+  categoryLink(category: any) {
+    return `/categories/${
+      category.englishTitle
+        ? category.englishTitle.replace(/ /g, '-')
+        : 'undifiend'
+    }/${category.id}`
+  }
+}
 </script>

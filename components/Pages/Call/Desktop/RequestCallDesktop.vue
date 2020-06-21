@@ -24,7 +24,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import ChargeInfo from './ChargeInfo/ChargeInfo.vue'
 import FormCall from './FormCall/FormCall.vue'
-import InfoDoctor from '@/components/Pages/doctor/profile/desktop/info.vue'
+import InfoDoctor from '@/components/Pages/Doctors/Profile/Desktop/Info.vue'
 
 @Component({
   components: {
