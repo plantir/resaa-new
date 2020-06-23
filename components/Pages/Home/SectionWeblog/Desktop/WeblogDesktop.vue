@@ -11,12 +11,14 @@
 
 <template>
   <v-row class="posts">
-    <v-col cols="6" class="right">
+    <AppSkeleton v-if="loading" section="WeblogDesktop" />
+
+    <v-col v-if="!loading" cols="6" class="right">
       <div class="wrapper py-3">
         <Post :post="post" heightImage="300px" />
       </div>
     </v-col>
-    <v-col cols="6">
+    <v-col v-if="!loading" cols="6">
       <v-row>
         <v-col cols="6">
           <Post :post="post" :hasDescription="false" heightImage="140px" />
@@ -37,14 +39,17 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import AppSkeleton from '@/components/Common/AppSkeleton/AppSkeleton.vue'
 import Post from '../Post/Post.vue'
 
 @Component({
   components: {
     Post,
+    AppSkeleton,
   },
 })
-export default class WeblogMobile extends Vue {
+export default class WeblogDesktop extends Vue {
+  loading = true
   post = {}
 }
 </script>
