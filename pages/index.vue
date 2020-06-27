@@ -1,9 +1,9 @@
 <style lang="scss" scoped></style>
 <template>
   <main>
-    <SectionIntro />
+    <SectionIntro :doctors="doctors" />
     <SectionSearch />
-    <SectionFeatures />
+    <SectionFeatures :doctors="doctors" />
     <SectionTestimonial />
     <SectionWeblog />
     <SedctionSocial />
@@ -17,6 +17,7 @@ import SectionFeatures from '@/components/Pages/Home/SectionFeatures/SectionFeat
 import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
 import SectionWeblog from '@/components/Pages/Home/SectionWeblog/SectionWeblog.vue'
 import SedctionSocial from '@/components/Pages/Home/SedctionSocial/SedctionSocial.vue'
+import { Doctor } from '../models/Doctor'
 
 Component.registerHooks(['fetch', 'head'])
 
@@ -31,12 +32,23 @@ Component.registerHooks(['fetch', 'head'])
   },
 })
 export default class HomePage extends Vue {
+  doctors: Doctor[] | undefined = []
   public head() {
     return {
       title: 'سامانه رسا',
       bodyAttrs: {
         class: 'page-home',
       },
+    }
+  }
+  async fetch() {
+    try {
+      const { result } = await this.$service.doctors.getRelatedDoctors(1141, {
+        limit: 12,
+      })
+      this.doctors = result.relatedDoctors
+    } catch (error) {
+      // console.log('Doctors -> fetch -> error', error)
     }
   }
 }

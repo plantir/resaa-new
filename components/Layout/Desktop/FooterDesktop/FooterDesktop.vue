@@ -107,7 +107,16 @@ footer {
             </div>
           </div>
           <div class="box enamad">
-            <div class="box-content">enamad</div>
+            <div class="box-content">
+              <v-img
+                width="100px"
+                src="/images/footer/e-namad.png"
+                alt
+                @click="enamadClick"
+                style="cursor:pointer"
+                id="1p93aagdwcp8JwYd"
+              />
+            </div>
           </div>
         </v-col>
         <v-col cols="12" md="12" lg="8" xl="8">
@@ -118,10 +127,10 @@ footer {
                 <div class="box-content">
                   <ul>
                     <li>
-                      <nuxt-link to="/">حساب کاربری</nuxt-link>
+                      <nuxt-link to="/patient/profile">حساب کاربری</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">لیست پزشکان</nuxt-link>
+                      <nuxt-link to="/doctors">لیست پزشکان</nuxt-link>
                     </li>
                     <li>
                       <nuxt-link to="/">رسای بیماران</nuxt-link>
@@ -130,19 +139,19 @@ footer {
                       <nuxt-link to="/">دریافت برنامه بیماران</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">قوانین</nuxt-link>
+                      <nuxt-link to="/privacy">قوانین</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">حریم خصوصی</nuxt-link>
+                      <nuxt-link to="/privacy">حریم خصوصی</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">سوالات متداول</nuxt-link>
+                      <nuxt-link to="/faq">سوالات متداول</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">درباره رسا</nuxt-link>
+                      <nuxt-link to="/about">درباره رسا</nuxt-link>
                     </li>
                     <li>
-                      <nuxt-link to="/">تماس با ما</nuxt-link>
+                      <nuxt-link to="/contact-us">تماس با ما</nuxt-link>
                     </li>
                   </ul>
                 </div>
@@ -190,7 +199,7 @@ footer {
       <v-container>
         <p>
           کلیه حقوق مادی و معنوی این سایت به شرکت رسالت سلامت ایرانیان (برگ های
-          سبز و نقره ای سابق) تعلق دارد © ۱۳۹۸
+          سبز و نقره ای سابق) تعلق دارد © {{year | persianDigit}}
         </p>
       </v-container>
     </div>
@@ -200,12 +209,23 @@ footer {
 import { Vue, Component } from 'vue-property-decorator'
 import Logo from '@/components/Common/Logo/Logo.vue'
 import Icon from '@/components/Common/Icon/Icon.vue'
-
+import moment from 'moment-jalaali'
 @Component({
   components: {
     Logo,
     Icon,
   },
 })
-export default class FooterDesktop extends Vue {}
+export default class FooterDesktop extends Vue {
+  enamadClick() {
+    window.open(
+      'https://trustseal.enamad.ir/Verify.aspx?id=127333&amp;p=1p93aagdwcp8JwYd',
+      'Popup',
+      'toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30'
+    )
+  }
+  get year() {
+    return moment().jYear()
+  }
+}
 </script>

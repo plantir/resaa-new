@@ -66,7 +66,7 @@ export default {
     ],
   },
 
-  plugins: [{ src: './plugins/vue-awesome-swiper.js' }],
+  plugins: [{ src: '@/plugins/vue-awesome-swiper.js' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -101,6 +101,9 @@ export default {
     // Doc: https://github.com/nuxt-community/auth-module
     '@nuxtjs/auth',
     // Doc: https://github.com/vrwebdesign/vrwebdesign-nuxt
+
+    ['nuxt-gmaps', { key: process.env.GOOGLE_MAP_APIKEY }],
+
     'vrwebdesign-nuxt/modules/nuxt-client-init',
     'vrwebdesign-nuxt/modules/nuxt-global',
     'vrwebdesign-nuxt/modules/nuxt-badge',
@@ -196,13 +199,13 @@ export default {
     '~/servermiddleware/redirect.js',
     '~/servermiddleware/category_redirect.js',
     '~/servermiddleware/doctors.js',
-    {
-      path: '/patient/profile',
-      handler: (req, res, next) => {
-        res.spa = true
-        next()
-      },
-    },
+    // {
+    //   path: '/patient/profile',
+    //   handler: (req, res, next) => {
+    //     res.spa = true
+    //     next()
+    //   },
+    // },
   ],
   /*
    ** vuetify module configuration
@@ -252,6 +255,7 @@ export default {
    ** Build configuration
    */
   build: {
+    // transpile: ['vrwebdesign-nuxt/modules/nuxt-dialog'],
     /*
      ** You can extend webpack config here
      */

@@ -16,7 +16,7 @@ export default class DoctorService {
       limit: Number
       offset?: Number
     }
-  ): Promise<IResponse<ResultRelatedDoctor>> {
+  ): Promise<IResponse<Doctor>> {
     return this.$axios.$get(`/categories/${categoryId}/RelatedDoctors`, {
       params: params,
     })

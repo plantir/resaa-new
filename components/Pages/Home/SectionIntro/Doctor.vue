@@ -61,7 +61,7 @@
 </style>
 
 <template>
-  <div class="doctor">
+  <nuxt-link class="doctor" :to="doctorLink">
     <div class="image">
       <v-img height="190px" :src="`/api/${doctor.imagePath}`" :alt="doctor.fullNameWithTitle">
         <template v-slot:placeholder>
@@ -76,7 +76,7 @@
       <div class="full-name">{{ doctor.fullNameWithTitle }}</div>
       <div class="skill">{{ doctor.specialtyTitle }}</div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script lang="ts">
@@ -90,5 +90,11 @@ export default class Doctor extends Vue {
     required: true,
   })
   readonly doctor!: RelatedDoctor
+
+  get doctorLink() {
+    return `/doctors/${this.doctor.specialtyEnglishTitle
+      .toLowerCase()
+      .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
+  }
 }
 </script>

@@ -2,15 +2,16 @@
 
 <template>
   <div class="features">
-    <SectionFeatureOne />
+    <SectionFeatureOne :doctors="doctors" />
     <SectionFeatureTwo />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import SectionFeatureOne from './SectionFeatureOne.vue'
 import SectionFeatureTwo from './SectionFeatureTwo.vue'
+import { Doctor } from '../../../../models/Doctor'
 
 @Component({
   components: {
@@ -18,5 +19,8 @@ import SectionFeatureTwo from './SectionFeatureTwo.vue'
     SectionFeatureTwo,
   },
 })
-export default class SectionFeatures extends Vue {}
+export default class SectionFeatures extends Vue {
+  @Prop()
+  doctors!: Doctor[]
+}
 </script>

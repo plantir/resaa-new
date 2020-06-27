@@ -14,6 +14,9 @@
   .next {
     display: inline-flex;
   }
+  .swiper-container {
+    padding: 10px 0;
+  }
   .swiper-navigation {
     margin-top: 20px;
     display: flex;
@@ -63,12 +66,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Icon from '@/components/Common/Icon/Icon.vue'
 import Doctor from './Doctor.vue'
-import { RelatedDoctor } from '../../../../models/Doctor'
+import { RelatedDoctor } from '~/models/Doctor'
 
-Component.registerHooks(['fetch'])
+// Component.registerHooks(['fetch'])
 
 @Component({
   components: {
@@ -100,8 +103,8 @@ export default class Doctors extends Vue {
     },
     grabCursor: true,
   }
-
-  doctors: RelatedDoctor[] = []
+  @Prop()
+  doctors!: RelatedDoctor[]
 
   onShowNext() {
     this.swiper.slideNext(1000)
@@ -115,15 +118,15 @@ export default class Doctors extends Vue {
     return (this.$refs.swiper as any).$swiper
   }
 
-  async fetch() {
-    try {
-      const { result } = await this.$service.doctors.getRelatedDoctors(1141, {
-        limit: 12,
-      })
-      this.doctors = result.relatedDoctors
-    } catch (error) {
-      // console.log('Doctors -> fetch -> error', error)
-    }
-  }
+  // async fetch() {
+  //   try {
+  //     const { result } = await this.$service.doctors.getRelatedDoctors(1141, {
+  //       limit: 12,
+  //     })
+  //     this.doctors = result.relatedDoctors
+  //   } catch (error) {
+  //     // console.log('Doctors -> fetch -> error', error)
+  //   }
+  // }
 }
 </script>

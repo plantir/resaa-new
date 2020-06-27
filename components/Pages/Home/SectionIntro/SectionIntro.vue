@@ -70,18 +70,22 @@
       </v-container>
     </div>
 
-    <Doctors />
+    <Doctors :doctors="doctors" />
   </section>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Doctors from './Doctors.vue'
+import { Doctor } from '~/models/Doctor'
 
 @Component({
   components: {
     Doctors,
   },
 })
-export default class Intro extends Vue {}
+export default class Intro extends Vue {
+  @Prop()
+  doctors!: Doctor[]
+}
 </script>

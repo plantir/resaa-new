@@ -41,8 +41,12 @@
       <div>
         <div class="main-title">ما را در شبکه‌های اجتماعی دنبال کنید.</div>
         <div class="social-wrapper d-flex flex-column">
-          <SocialButton network="telegram">مشاهده کانال تلگرام</SocialButton>
-          <SocialButton network="instagram" class="mt-7">مشاهده صفحه اینستاگرام</SocialButton>
+          <SocialButton link="https://t.me/pezeshkeresaa" network="telegram">مشاهده کانال تلگرام</SocialButton>
+          <SocialButton
+            link="https://www.instagram.com/resaanet/"
+            network="instagram"
+            class="mt-7"
+          >مشاهده صفحه اینستاگرام</SocialButton>
         </div>
       </div>
       <div class="image-wrapper">

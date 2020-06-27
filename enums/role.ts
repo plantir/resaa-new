@@ -1,9 +1,8 @@
 export enum ERole {
-  uish,
   administrator,
   branch_admin,
   coach,
   student,
-  secretary
+  secretary,
 }
 export default ERole

@@ -12,7 +12,7 @@
       content: '';
       position: absolute;
       right: 0;
-      bottom: 0;
+      bottom: -2px;
       width: 40px;
       height: 2px;
     }

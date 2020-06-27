@@ -160,8 +160,12 @@
               </span>
             </div>
             <div>
-              <button class="sendAnswer">ارسال جواب آزمایش</button>
-              <button class="directCall">تماس مستقیم</button>
+              <v-btn
+                :to="`${$route.fullPath}/experiement`"
+                class="sendAnswer"
+                outlined
+              >ارسال جواب آزمایش</v-btn>
+              <v-btn :to="`${$route.fullPath}/call`" class="directCall">تماس مستقیم</v-btn>
             </div>
           </li>
           <li>

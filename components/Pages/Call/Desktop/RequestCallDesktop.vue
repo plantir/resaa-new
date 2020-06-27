@@ -9,7 +9,7 @@
     <v-container>
       <v-row class="mt-5">
         <v-col cols="3">
-          <InfoDoctor class="info-doctor" />
+          <InfoDoctor :doctor="doctor" class="info-doctor" />
         </v-col>
         <v-col cols="9">
           <ChargeInfo v-if="false" class="mt-9" />
@@ -21,10 +21,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import ChargeInfo from './ChargeInfo/ChargeInfo.vue'
 import FormCall from './FormCall/FormCall.vue'
 import InfoDoctor from '@/components/Pages/Doctors/Profile/Desktop/Info.vue'
+import { Doctor } from '../../../../models/Doctor'
 
 @Component({
   components: {
@@ -33,5 +34,8 @@ import InfoDoctor from '@/components/Pages/Doctors/Profile/Desktop/Info.vue'
     InfoDoctor,
   },
 })
-export default class RequestCall extends Vue {}
+export default class RequestCall extends Vue {
+  @Prop()
+  doctor!: Doctor
+}
 </script>

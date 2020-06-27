@@ -47,7 +47,7 @@
       <main>
         <div class="doctors-list d-flex flex-column align-end">
           <template v-for="(item, index) in components">
-            <component :is="item.component" :key="index" class="mt-6" />
+            <component :doctor="item.data" :is="item.component" :key="index" class="mt-6" />
           </template>
         </div>
 
@@ -65,7 +65,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 import FeatureTypeOne from '@/components/Widgets/FeatureTypeOne/FeatureTypeOne.vue'
 import TestimonialTypeOne from '@/components/Widgets/TestimonialTypeOne/TestimonialTypeOne.vue'
@@ -81,8 +81,8 @@ import SectionFeatureTwo from '@/components/Pages/Home/SectionFeatures/SectionFe
   },
 })
 export default class PromotionDoctorListDesktop extends Vue {
-  doctors: Array<any> = [1, 2, 3, 4, 5]
-
+  @Prop()
+  doctors!: Doctor[]
   get components() {
     const doctors: any = this.doctors.map(item => ({
       component: Doctor,

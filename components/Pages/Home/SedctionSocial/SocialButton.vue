@@ -55,7 +55,7 @@
 </style>
 
 <template>
-  <a class="social-item" :class="network" href>
+  <a class="social-item" :class="network" :href="link" target="_blank">
     <slot />
   </a>
 </template>
@@ -70,5 +70,10 @@ export default class extends Vue {
     required: true,
   })
   network!: String
+  @Prop({
+    type: String,
+    required: true,
+  })
+  link!: String
 }
 </script>

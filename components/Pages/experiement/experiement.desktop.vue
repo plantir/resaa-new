@@ -3,26 +3,26 @@
   <section>
     <v-layout row class="mx-2">
       <v-flex sm9>
-        <uploadImage />
-        <descriptionImages />
+        <UploadImage />
+        <DescriptionImages />
       </v-flex>
       <v-flex sm3>
-        <info />
+        <Info />
       </v-flex>
     </v-layout>
   </section>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
-import info from './desktop/info.vue'
-import uploadImage from './desktop/uploadImage.vue'
-import descriptionImages from './desktop/descriptionImages.vue'
+import Info from './Desktop/Info.vue'
+import UploadImage from './Desktop/UploadImage.vue'
+import DescriptionImages from './Desktop/DescriptionImages.vue'
 
 @Component({
   components: {
-    info,
-    uploadImage,
-    descriptionImages,
+    Info,
+    UploadImage,
+    DescriptionImages,
   },
 })
 export default class YourComponent extends Vue {}

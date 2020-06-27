@@ -1,8 +1,11 @@
 <template>
   <li>
-    <nuxt-link :to="menu.link">
-      {{ menu.label }}
-    </nuxt-link>
+    <nuxt-link
+      v-if="menu.internalLink"
+      :to="menu.link"
+      :target="menu.newTab?'_blank':'_self'"
+    >{{ menu.label }}</nuxt-link>
+    <a v-else :href="menu.link" :target="menu.newTab?'_blank':'_self'">{{ menu.label }}</a>
   </li>
 </template>
 

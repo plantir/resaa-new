@@ -51,20 +51,18 @@ import Logo from '@/components/Common/Logo/Logo.vue'
 import MainMenu from './MainMenu/MainMenu.vue'
 import UserMenuLoggedIn from './UserMenu/UserMenuLoggedIn.vue'
 import UserMenuNotLoggedIn from './UserMenu/UserMenuNotLoggedIn.vue'
-import mainMenuItems from '@/const/mainMenu'
-import Vue from 'vue'
-
-export default Vue.extend({
+import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+@Component({
   components: {
     Logo,
     MainMenu,
     UserMenuNotLoggedIn,
     UserMenuLoggedIn,
   },
-  data() {
-    return {
-      mainMenu: mainMenuItems,
-    }
-  },
 })
+export default class HeaderDesktopComponent extends Vue {
+  get mainMenu() {
+    return this.$store.state.navigation.items
+  }
+}
 </script>

@@ -40,7 +40,41 @@ section {
     display: none;
     @include media(md) {
       display: flex;
+      flex: 0 0 500px;
       margin-right: 100px;
+      background: url(/images/home/feature.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .doctor {
+      position: absolute;
+      width: 220px;
+      max-width: 220px;
+      height: 280px;
+      &:nth-child(1) {
+        top: 100px;
+        left: 200px;
+        z-index: 2;
+        @include media(xl) {
+          top: 10px;
+        }
+      }
+      &:nth-child(2) {
+        top: 320px;
+        left: 20px;
+        z-index: 1;
+        @include media(xl) {
+          top: 230px;
+        }
+      }
+      &:nth-child(3) {
+        top: 410px;
+        left: 250px;
+        @include media(xl) {
+          top: 320px;
+        }
+      }
     }
   }
 }
@@ -94,7 +128,7 @@ section {
           </div>
         </div>
         <div class="left">
-          <v-img max-width="500px" src="/images/home/feature.png"></v-img>
+          <Doctor v-for="doctor in top3" :doctor="doctor" :key="doctor.id" />
         </div>
       </div>
     </v-container>
@@ -102,13 +136,21 @@ section {
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Icon from '@/components/Common/Icon/Icon.vue'
-
+import Doctor from '@/components/Pages/Home/SectionIntro/Doctor.vue'
 @Component({
   components: {
     Icon,
+    Doctor,
   },
 })
-export default class SectionFeatureOne extends Vue {}
+export default class SectionFeatureOne extends Vue {
+  @Prop()
+  doctors!: Doctor[]
+
+  get top3() {
+    return this.doctors.slice(0, 3)
+  }
+}
 </script>

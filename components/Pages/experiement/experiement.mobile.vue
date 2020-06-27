@@ -45,21 +45,21 @@ section {
       <button class="sendAnswer">ارسال جواب آزمایش</button>
       <button class="directCall">تماس مستقیم</button>
     </div>
-    <info />
-    <uploadImage />
-    <descriptionImages />
+    <Info />
+    <UploadImage />
+    <DescriptionImages />
   </section>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
-import info from './mobile/info.vue'
-import uploadImage from './mobile/uploadImage.vue'
-import descriptionImages from './mobile/descriptionImages.vue'
+import Info from './Mobile/Info.vue'
+import UploadImage from './Mobile/UploadImage.vue'
+import DescriptionImages from './Mobile/DescriptionImages.vue'
 @Component({
   components: {
-    info,
-    uploadImage,
-    descriptionImages,
+    Info,
+    UploadImage,
+    DescriptionImages,
   },
 })
 export default class YourComponent extends Vue {

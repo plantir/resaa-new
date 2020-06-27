@@ -4,10 +4,10 @@
     "reportVersion": 1,
     "event": "Allocation failed - JavaScript heap out of memory",
     "trigger": "FatalError",
-    "filename": "report.20200619.142156.26364.0.001.json",
-    "dumpEventTime": "2020-06-19T14:21:56Z",
-    "dumpEventTimeStamp": "1592560316065",
-    "processId": 26364,
+    "filename": "report.20200627.150006.2780.0.001.json",
+    "dumpEventTime": "2020-06-27T15:00:06Z",
+    "dumpEventTimeStamp": "1593253806019",
+    "processId": 2780,
     "cwd": "D:\\Resaa\\resaa-new",
     "commandLine": [
       "C:\\Program Files\\nodejs\\node.exe",
@@ -50,146 +50,146 @@
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 1150984,
+        "user": 1320812,
         "nice": 0,
-        "sys": 806187,
-        "idle": 37961343,
-        "irq": 182656
+        "sys": 9230828,
+        "idle": 68732171,
+        "irq": 546734
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 443031,
+        "user": 614406,
         "nice": 0,
-        "sys": 184484,
-        "idle": 39290703,
-        "irq": 4687
+        "sys": 604296,
+        "idle": 78064796,
+        "irq": 111781
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 3996312,
+        "user": 29408281,
         "nice": 0,
-        "sys": 791671,
-        "idle": 35130218,
-        "irq": 14015
+        "sys": 5416515,
+        "idle": 44458703,
+        "irq": 32406
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 588062,
+        "user": 789890,
         "nice": 0,
-        "sys": 129515,
-        "idle": 39200625,
-        "irq": 2625
+        "sys": 177250,
+        "idle": 78316359,
+        "irq": 3562
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 1658843,
+        "user": 3100875,
         "nice": 0,
-        "sys": 433718,
-        "idle": 37825640,
-        "irq": 10406
+        "sys": 1255531,
+        "idle": 74927093,
+        "irq": 23640
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 801640,
+        "user": 718484,
         "nice": 0,
-        "sys": 154750,
-        "idle": 38961812,
-        "irq": 5281
+        "sys": 390203,
+        "idle": 78174812,
+        "irq": 14375
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 1155203,
+        "user": 3074609,
         "nice": 0,
-        "sys": 367515,
-        "idle": 38395484,
-        "irq": 9109
+        "sys": 1103328,
+        "idle": 75105562,
+        "irq": 31937
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 848562,
+        "user": 800390,
         "nice": 0,
-        "sys": 6962171,
-        "idle": 32107468,
-        "irq": 5671
+        "sys": 218546,
+        "idle": 78264546,
+        "irq": 2375
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 1751171,
+        "user": 3307828,
         "nice": 0,
-        "sys": 1321984,
-        "idle": 36845046,
-        "irq": 8984
+        "sys": 8910015,
+        "idle": 67065656,
+        "irq": 29890
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 761187,
+        "user": 856718,
         "nice": 0,
-        "sys": 238484,
-        "idle": 38918531,
-        "irq": 7078
+        "sys": 516859,
+        "idle": 77909921,
+        "irq": 13281
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 1689484,
+        "user": 3286343,
         "nice": 0,
-        "sys": 777937,
-        "idle": 37450781,
-        "irq": 11390
+        "sys": 2478437,
+        "idle": 73518718,
+        "irq": 41296
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 322421,
+        "user": 424921,
         "nice": 0,
-        "sys": 163562,
-        "idle": 39432218,
-        "irq": 4296
+        "sys": 2307781,
+        "idle": 76550796,
+        "irq": 4203
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 1207359,
+        "user": 5794625,
         "nice": 0,
-        "sys": 623593,
-        "idle": 38087250,
-        "irq": 12000
+        "sys": 4415218,
+        "idle": 69073656,
+        "irq": 37359
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 342093,
+        "user": 294796,
         "nice": 0,
-        "sys": 121250,
-        "idle": 39454843,
-        "irq": 4250
+        "sys": 226890,
+        "idle": 78761781,
+        "irq": 3687
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 1313625,
+        "user": 3120546,
         "nice": 0,
-        "sys": 497406,
-        "idle": 38107156,
-        "irq": 8828
+        "sys": 1875812,
+        "idle": 74287125,
+        "irq": 22250
       },
       {
         "model": "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz",
         "speed": 3600,
-        "user": 547343,
+        "user": 832437,
         "nice": 0,
-        "sys": 250515,
-        "idle": 39120328,
-        "irq": 3906
+        "sys": 503734,
+        "idle": 77947312,
+        "irq": 6890
       }
     ],
     "networkInterfaces": [
@@ -197,7 +197,7 @@
         "name": "SpeedVPN",
         "internal": false,
         "mac": "00:00:00:00:00:00",
-        "address": "fe80::3885:5a74:75e1:2027",
+        "address": "fe80::9c35:ef09:6d58:a1ae",
         "netmask": "ffff:ffff:ffff:ffff::",
         "family": "IPv6",
         "scopeid": 41
@@ -206,7 +206,7 @@
         "name": "SpeedVPN",
         "internal": false,
         "mac": "00:00:00:00:00:00",
-        "address": "10.10.10.218",
+        "address": "10.10.10.36",
         "netmask": "255.255.255.255",
         "family": "IPv4"
       },
@@ -214,7 +214,7 @@
         "name": "Ethernet",
         "internal": false,
         "mac": "04:92:26:d8:d1:cc",
-        "address": "192.168.1.7",
+        "address": "192.168.1.2",
         "netmask": "255.255.255.0",
         "family": "IPv4"
       },
@@ -238,8 +238,8 @@
       {
         "name": "vEthernet (Default Switch)",
         "internal": false,
-        "mac": "00:15:5d:2c:d9:bc",
-        "address": "fe80::7ca0:7144:b709:c04",
+        "mac": "00:15:5d:b8:fa:24",
+        "address": "fe80::55b9:2226:bc71:cb19",
         "netmask": "ffff:ffff:ffff:ffff::",
         "family": "IPv6",
         "scopeid": 26
@@ -247,8 +247,8 @@
       {
         "name": "vEthernet (Default Switch)",
         "internal": false,
-        "mac": "00:15:5d:2c:d9:bc",
-        "address": "192.168.138.17",
+        "mac": "00:15:5d:b8:fa:24",
+        "address": "172.17.67.49",
         "netmask": "255.255.255.240",
         "family": "IPv4"
       }
@@ -263,71 +263,155 @@
   },
   "nativeStack": [
     {
-      "pc": "0x00007ff687561759",
+      "pc": "0x00007ff7a9b51759",
       "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
     },
     {
-      "pc": "0x00007ff687565b7c",
+      "pc": "0x00007ff7a9b55b7c",
       "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
     },
     {
-      "pc": "0x00007ff687564b38",
+      "pc": "0x00007ff7a9b54b38",
       "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
     },
     {
-      "pc": "0x00007ff68765433b",
+      "pc": "0x00007ff7a9c4433b",
       "symbol": "v8::base::CPU::has_sse+37723"
     },
     {
-      "pc": "0x00007ff687e58c5e",
+      "pc": "0x00007ff7aa448c5e",
       "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
     },
     {
-      "pc": "0x00007ff687e40ca1",
+      "pc": "0x00007ff7aa430ca1",
       "symbol": "v8::SharedArrayBuffer::Externalize+833"
     },
     {
-      "pc": "0x00007ff687d0e56c",
+      "pc": "0x00007ff7aa2fe56c",
       "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
     },
     {
-      "pc": "0x00007ff687d19910",
+      "pc": "0x00007ff7aa309910",
       "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
     },
     {
-      "pc": "0x00007ff687d16444",
+      "pc": "0x00007ff7aa306444",
       "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
     },
     {
-      "pc": "0x00007ff687d0bcd3",
+      "pc": "0x00007ff7aa2fbcd3",
       "symbol": "v8::internal::Heap::CollectGarbage+1283"
     },
     {
-      "pc": "0x00007ff687d0a4a4",
+      "pc": "0x00007ff7aa2fa4a4",
       "symbol": "v8::internal::Heap::AddRetainedMap+2356"
     },
     {
-      "pc": "0x00007ff687d2b775",
+      "pc": "0x00007ff7aa31b775",
       "symbol": "v8::internal::Factory::NewFillerObject+53"
     },
     {
-      "pc": "0x00007ff687a97a49",
+      "pc": "0x00007ff7aa087a49",
       "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+4057"
     },
     {
-      "pc": "0x00007ff68828463d",
+      "pc": "0x00007ff7aa87463d",
       "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+567949"
     },
     {
-      "pc": "0x000002e37a69ee48",
+      "pc": "0x00007ff7aa7efc72",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+24770"
+    },
+    {
+      "pc": "0x00007ff7aa7ef70f",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+23391"
+    },
+    {
+      "pc": "0x00007ff7aa8d5460",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+964784"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7ed57c",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+14796"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x00007ff7aa7f41cc",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+42524"
+    },
+    {
+      "pc": "0x000000103f14d345",
       "symbol": ""
     }
   ],
   "javascriptHeap": {
-    "totalMemory": 2164420608,
-    "totalCommittedMemory": 2164420608,
-    "usedMemory": 2044873104,
-    "availableMemory": 83129296,
+    "totalMemory": 2184998912,
+    "totalCommittedMemory": 2184998912,
+    "usedMemory": 2093993224,
+    "availableMemory": 44473272,
     "memoryLimit": 2197815296,
     "heapSpaces": {
       "read_only_space": {
@@ -341,35 +425,35 @@
         "memorySize": 33554432,
         "committedMemory": 33554432,
         "capacity": 16759808,
-        "used": 839960,
-        "available": 15919848
+        "used": 2712192,
+        "available": 14047616
       },
       "old_space": {
-        "memorySize": 1859497984,
-        "committedMemory": 1859497984,
-        "capacity": 1822001280,
-        "used": 1805175904,
-        "available": 16825376
+        "memorySize": 1633792000,
+        "committedMemory": 1633792000,
+        "capacity": 1600572320,
+        "used": 1599952432,
+        "available": 619888
       },
       "code_space": {
-        "memorySize": 8290304,
-        "committedMemory": 8290304,
-        "capacity": 6700032,
-        "used": 6700032,
+        "memorySize": 10649600,
+        "committedMemory": 10649600,
+        "capacity": 9005280,
+        "used": 9005280,
         "available": 0
       },
       "map_space": {
-        "memorySize": 49811456,
-        "committedMemory": 49811456,
-        "capacity": 19914880,
-        "used": 19914880,
+        "memorySize": 47714304,
+        "committedMemory": 47714304,
+        "capacity": 24760160,
+        "used": 24760160,
         "available": 0
       },
       "large_object_space": {
-        "memorySize": 211800064,
-        "committedMemory": 211800064,
-        "capacity": 211109616,
-        "used": 211109616,
+        "memorySize": 457822208,
+        "committedMemory": 457822208,
+        "capacity": 456430448,
+        "used": 456430448,
         "available": 0
       },
       "code_large_object_space": {
@@ -389,17 +473,17 @@
     }
   },
   "resourceUsage": {
-    "userCpuSeconds": 401.406,
-    "kernelCpuSeconds": 16.187,
-    "cpuConsumptionPercent": 7.28148,
-    "maxRss": 2273525760,
+    "userCpuSeconds": 574.14,
+    "kernelCpuSeconds": 26.531,
+    "cpuConsumptionPercent": 10.6824,
+    "maxRss": 2287194112,
     "pageFaults": {
-      "IORequired": 3955340,
+      "IORequired": 6064106,
       "IONotRequired": 0
     },
     "fsActivity": {
-      "reads": 50191,
-      "writes": 333
+      "reads": 77680,
+      "writes": 970
     }
   },
   "libuv": [
@@ -408,7 +492,7 @@
     "=C:": "C:\\",
     "=D:": "D:\\Resaa\\resaa-new",
     "ALLUSERSPROFILE": "C:\\ProgramData",
-    "API_URL": "https://resaa.net/api",
+    "API_URL": "https://dev.resaa.net/api",
     "APPDATA": "C:\\Users\\Armin\\AppData\\Roaming",
     "BASE_URL": "http://localhost:3000",
     "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
@@ -424,6 +508,7 @@
     "FPS_BROWSER_USER_PROFILE_STRING": "Default",
     "GIT_ASKPASS": "c:\\Users\\Armin\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh",
     "GOOGLE_ANALITICS": "UA-12301-2",
+    "GOOGLE_MAP_APIKEY": "AIzaSyDqLzkWTDlaVOOjFEnyv-xN_O3Zxw9QKPY",
     "GTM": "GTM-XXXXXXX",
     "HOMEDRIVE": "C:",
     "HOMEPATH": "\\Users\\Armin",
@@ -458,6 +543,7 @@
     "npm_package_author_name": "armin",
     "npm_package_dependencies_animate_css": "^3.7.2",
     "npm_package_dependencies_nuxt": "^2.0.0",
+    "npm_package_dependencies_nuxt_gmaps": "^1.2.4",
     "npm_package_dependencies_nuxt_property_decorator": "^2.7.2",
     "npm_package_dependencies_swiper": "^5.4.1",
     "npm_package_dependencies_vrwebdesign_nuxt": "^2.x",
@@ -509,7 +595,7 @@
     "OneDriveConsumer": "C:\\Users\\Armin\\OneDrive",
     "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
     "OS": "Windows_NT",
-    "Path": "C:\\Users\\Armin\\AppData\\Local\\Temp\\yarn--1592554582010-0.17001188590620853;D:\\Resaa\\resaa-new\\node_modules\\.bin;C:\\Users\\Armin\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Users\\Armin\\AppData\\Local\\Yarn\\bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin;;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Users\\Armin\\AppData\\Local\\Programs\\Python\\Python37\\Scripts\\;C:\\Users\\Armin\\AppData\\Local\\Programs\\Python\\Python37\\;C:\\Program Files\\MySQL\\MySQL Shell 8.0\\bin\\;C:\\Users\\Armin\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Armin\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Armin\\AppData\\Roaming\\npm;C:\\Users\\Armin\\AppData\\Local\\Programs\\Fiddler",
+    "Path": "C:\\Users\\Armin\\AppData\\Local\\Temp\\yarn--1593248182297-0.42678514589078564;D:\\Resaa\\resaa-new\\node_modules\\.bin;C:\\Users\\Armin\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Users\\Armin\\AppData\\Local\\Yarn\\bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin;;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Users\\Armin\\AppData\\Local\\Programs\\Python\\Python37\\Scripts\\;C:\\Users\\Armin\\AppData\\Local\\Programs\\Python\\Python37\\;C:\\Program Files\\MySQL\\MySQL Shell 8.0\\bin\\;C:\\Users\\Armin\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Armin\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Armin\\AppData\\Roaming\\npm;C:\\Users\\Armin\\AppData\\Local\\Programs\\Fiddler",
     "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
     "PORT": "3000",
     "PROCESSOR_ARCHITECTURE": "AMD64",
@@ -530,7 +616,7 @@
     "SystemRoot": "C:\\WINDOWS",
     "TEMP": "C:\\Users\\Armin\\AppData\\Local\\Temp",
     "TERM_PROGRAM": "vscode",
-    "TERM_PROGRAM_VERSION": "1.46.0",
+    "TERM_PROGRAM_VERSION": "1.46.1",
     "TMP": "C:\\Users\\Armin\\AppData\\Local\\Temp",
     "USERDOMAIN": "DESKTOP-G05IH3P",
     "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-G05IH3P",
@@ -542,7 +628,7 @@
     "VUE_ENV": "server",
     "windir": "C:\\WINDOWS",
     "YARN_WRAP_OUTPUT": "false",
-    "_AXIOS_BASE_URL_": "https://resaa.net/api"
+    "_AXIOS_BASE_URL_": "https://dev.resaa.net/api"
   },
   "sharedObjects": [
     "C:\\Program Files\\nodejs\\node.exe",
@@ -551,8 +637,8 @@
     "C:\\WINDOWS\\System32\\KERNELBASE.dll",
     "C:\\WINDOWS\\System32\\WS2_32.dll",
     "C:\\WINDOWS\\System32\\RPCRT4.dll",
-    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
     "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
     "C:\\WINDOWS\\System32\\msvcrt.dll",
     "C:\\WINDOWS\\System32\\ucrtbase.dll",
     "C:\\WINDOWS\\System32\\sechost.dll",
@@ -569,7 +655,7 @@
     "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
     "C:\\WINDOWS\\System32\\profapi.dll",
     "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
-    "C:\\WINDOWS\\SYSTEM32\\winmmbase.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMMBASE.dll",
     "C:\\WINDOWS\\System32\\cfgmgr32.dll",
     "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
     "C:\\WINDOWS\\System32\\IMM32.DLL",
