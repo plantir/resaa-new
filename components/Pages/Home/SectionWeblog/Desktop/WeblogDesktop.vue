@@ -39,13 +39,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import AppSkeleton from '@/components/Common/AppSkeleton/AppSkeleton.vue'
+// import AppSkeleton from '@/components/Common/AppSkeleton/AppSkeleton.vue'
 import Post from '../Post/Post.vue'
 
 @Component({
   components: {
     Post,
-    AppSkeleton,
+    // AppSkeleton,
   },
 })
 export default class WeblogDesktop extends Vue {

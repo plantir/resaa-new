@@ -1,18 +1,18 @@
 <style lang="scss" scoped></style>
 
 <template>
-  <client-only>
-    <component v-bind:is="section" />
-  </client-only>
+  <component :is="section" />
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import WeblogDesktop from './Sections/WeblogDesktop.vue'
 
 @Component({
   components: {
-    WeblogDesktop,
+    WeblogDesktop: () => import('./Sections/Weblog/WeblogDesktop.vue'),
+    WeblogMobile: () => import('./Sections/Weblog/WeblogMobile.vue'),
+    Testimonial: () => import('./Sections/Testimonial/Testimonial.vue'),
+    DoctorSwiper: () => import('./Sections/DoctorSwiper/DoctorSwiper.vue'),
   },
 })
 export default class AppSkeleton extends Vue {

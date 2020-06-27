@@ -18,12 +18,17 @@
 
 <template>
   <div class="doctors">
-    <swiper ref="swiper" :options="swiperOptions">
+    <swiper ref="swiper" :options="swiperOptions" v-if="!loading">
       <swiper-slide v-for="doctor in doctors" :key="doctor.subscriberNumber">
         <Doctor :doctor="doctor" />
       </swiper-slide>
     </swiper>
-    <div class="nav d-flex justify-center">
+    <swiper :options="swiperOptions" v-if="loading">
+      <swiper-slide v-for="index in 10" :key="index">
+        <AppSkeleton section="DoctorSwiper" />
+      </swiper-slide>
+    </swiper>
+    <div class="nav d-flex justify-center" v-if="!loading">
       <button @click="onShowNext" class="next">
         <Icon fileName="ic_arrow_right.png" />
       </button>
@@ -72,6 +77,8 @@ export default class Doctors extends Vue {
     grabCursor: true,
   }
 
+  loading = false
+
   doctors: RelatedDoctor[] = []
 
   onShowNext() {
@@ -88,11 +95,14 @@ export default class Doctors extends Vue {
 
   async fetch() {
     try {
+      this.loading = true
       const { result } = await this.$service.doctor.getRelatedDoctors(8, {
         limit: 12,
       })
       this.doctors = result.relatedDoctors
+      this.loading = false
     } catch (error) {
+      this.loading = false
       // console.log('Doctors -> fetch -> error', error)
     }
   }

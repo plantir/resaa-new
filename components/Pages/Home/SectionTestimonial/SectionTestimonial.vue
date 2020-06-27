@@ -6,7 +6,7 @@
     width: 100%;
     ::v-deep {
       .swiper-slide {
-        padding-top: 50px !important;
+        padding-top: 60px !important;
         padding-bottom: 50px !important;
       }
       .swiper-pagination-bullets {
@@ -21,6 +21,7 @@
           background-color: #d9d9d9;
           margin-left: 10px;
           transition: all 0.35s ease-in;
+          opacity: 0.7;
           @include media(xs-only) {
             width: 4px;
           }
@@ -52,7 +53,17 @@
     <v-container class="d-flex flex-column align-center">
       <div class="title">{{ title }}</div>
     </v-container>
-    <div class="testimonials mt-10">
+
+    <div class="testimonials mt-10" v-if="loading">
+      <swiper ref="swiper" :options="swiperOptions">
+        <swiper-slide v-for="(doctor, index) in 4" :key="index">
+          <AppSkeleton section="Testimonial" />
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+
+    <div class="testimonials mt-10" v-if="!loading">
       <swiper ref="swiper" :options="swiperOptions">
         <swiper-slide v-for="(doctor, index) in 4" :key="index">
           <Testimonial />
@@ -78,6 +89,8 @@ export default class SectionTestimonial extends Vue {
     default: 'نتیجه استفاده از رسا را از کاربران ما بشنوید',
   })
   title!: String
+
+  loading = true
 
   swiperOptions = {
     centeredSlides: true,

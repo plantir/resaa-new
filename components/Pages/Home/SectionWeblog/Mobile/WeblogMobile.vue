@@ -6,7 +6,9 @@
 
 <template>
   <div class="posts mt-8">
-    <swiper ref="swiper">
+    <AppSkeleton v-if="loading" section="WeblogMobile" />
+
+    <swiper ref="swiper" v-if="!loading">
       <swiper-slide v-for="(doctor, index) in 4" :key="index">
         <Post :post="post" />
       </swiper-slide>
@@ -17,13 +19,16 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Post from '../Post/Post.vue'
+// import AppSkeleton from '@/components/Common/AppSkeleton/AppSkeleton.vue'
 
 @Component({
   components: {
     Post,
+    // AppSkeleton,
   },
 })
 export default class WeblogMobile extends Vue {
   post = {}
+  loading = true
 }
 </script>
