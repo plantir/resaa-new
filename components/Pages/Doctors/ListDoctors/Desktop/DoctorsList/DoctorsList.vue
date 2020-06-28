@@ -9,9 +9,20 @@
 
 <template>
   <div class="doctors-list">
-    <Doctor v-for="(item, index) in 10" :key="index" class="mt-6" />
+    <div class="doctors" v-if="loading">
+      <AppSkeleton
+        section="Doctor"
+        v-for="(item, index) in 10"
+        :key="index"
+        class="mt-6"
+      />
+    </div>
 
-    <div class="pagination-wrapper">
+    <div class="doctors" v-if="!loading">
+      <Doctor v-for="(item, index) in 10" :key="index" class="mt-6" />
+    </div>
+
+    <div class="pagination-wrapper" v-if="!loading">
       <v-pagination
         v-model="page"
         :length="100"
@@ -32,6 +43,7 @@ import Doctor from '@/components/Common/Doctor/Doctor.vue'
   },
 })
 export default class DoctorsList extends Vue {
+  loading = true
   page = 1
 }
 </script>

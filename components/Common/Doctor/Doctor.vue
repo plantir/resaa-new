@@ -9,7 +9,7 @@
   }
   .avatar {
     position: absolute;
-    right: -16px;
+    right: -10px;
     top: 0px;
     width: 110px;
     height: 110px;
@@ -163,7 +163,9 @@
       </div>
 
       <div class="middle">
-        <p class="skills">فوق تخصص روماتولوژی، تخصص داخلی، عضو هیت علمی دانشگاه علوم‌پزشکی تهران</p>
+        <p class="skills">
+          فوق تخصص روماتولوژی، تخصص داخلی، عضو هیت علمی دانشگاه علوم‌پزشکی تهران
+        </p>
       </div>
 
       <div class="bottom d-flex justify-space-between">
