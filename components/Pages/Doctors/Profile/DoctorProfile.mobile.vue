@@ -56,13 +56,13 @@ section {
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
-import InfoDoctor from './mobile/Info.vue'
-import MedicalRecords from './mobile/MedicalRecords.vue'
-import DoctorServices from './mobile/DoctorServices.vue'
-import Accessibility from './mobile/Accessibility.vue'
-import OtherDoctors from './mobile/OtherDoctors.vue'
+import InfoDoctor from './Mobile/Info.vue'
+import MedicalRecords from './Mobile/MedicalRecords.vue'
+import DoctorServices from './Mobile/DoctorServices.vue'
+import Accessibility from './Mobile/Accessibility.vue'
+import OtherDoctors from './Mobile/OtherDoctors.vue'
 import TimeTable from '@/components/Common/Doctor/TimeTable.vue'
-import Comments from './mobile/Comments.vue'
+import Comments from './Mobile/Comments.vue'
 import { Doctor } from '~/models/Doctor'
 @Component({
   components: {
