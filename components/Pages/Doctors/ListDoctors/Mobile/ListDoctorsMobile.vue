@@ -36,10 +36,21 @@
 </style>
 
 <template>
-  <div class="doctors-list d-flex flex-column align-end">
-    <Doctor v-for="(item, index) in 10" :key="index" class="mt-6" />
+  <div class="doctors-list">
+    <div class="doctors d-flex flex-column align-end" v-if="loading">
+      <AppSkeleton
+        section="Doctor"
+        v-for="(item, index) in 10"
+        :key="index"
+        class="mt-6"
+      />
+    </div>
 
-    <div class="pagination-wrapper d-flex justify-center">
+    <div class="doctors d-flex flex-column align-end" v-if="!loading">
+      <Doctor v-for="(item, index) in 10" :key="index" class="mt-6" />
+    </div>
+
+    <div class="pagination-wrapper d-flex justify-center" v-if="!loading">
       <v-pagination
         v-model="page"
         :length="100"
@@ -61,5 +72,6 @@ import Doctor from '@/components/Common/Doctor/Doctor.vue'
 })
 export default class ListDoctorsMobile extends Vue {
   page = 1
+  loading = true
 }
 </script>

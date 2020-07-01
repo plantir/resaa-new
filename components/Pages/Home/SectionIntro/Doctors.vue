@@ -40,15 +40,17 @@
 
 <template>
   <div class="doctors">
-    <swiper ref="swiper" :options="swiperOptions">
+    <swiper ref="swiper" :options="swiperOptions" v-if="!loading">
       <swiper-slide v-for="doctor in doctors" :key="doctor.subscriberNumber">
         <Doctor :doctor="doctor" />
       </swiper-slide>
     </swiper>
-    <div class="swiper-navigation">
-      <!--   <div class="next">
-        <v-icon>iconName</v-icon>
-      </div>
+    <swiper :options="swiperOptions" v-if="loading">
+      <swiper-slide v-for="index in 10" :key="index">
+        <AppSkeleton section="DoctorSwiper" />
+      </swiper-slide>
+    </swiper>
+    <div class="nav d-flex justify-center" v-if="!loading">
       <button @click="onShowNext" class="next">
         <Icon fileName="ic_arrow_right.png" />
       </button>
@@ -105,6 +107,8 @@ export default class Doctors extends Vue {
   }
   @Prop()
   doctors!: RelatedDoctor[]
+
+  loading = false
 
   onShowNext() {
     this.swiper.slideNext(1000)
