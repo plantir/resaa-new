@@ -27,7 +27,13 @@
 
     <div class="logo">
       <nuxt-link to="/">
-        <v-img height="25" width="60" src="/images/logo.png" alt="رسا" contain />
+        <v-img
+          height="25"
+          width="60"
+          src="/images/logo.png"
+          alt="رسا"
+          contain
+        />
       </nuxt-link>
     </div>
 
@@ -39,7 +45,9 @@
       </v-avatar>
     </nuxt-link>
 
-    <v-btn to="/charge" outlined dense class="charge mr-3">افزایش اعتبار</v-btn>
+    <v-btn to="/charge" outlined dense class="resaa-btn charge mr-3">
+      افزایش اعتبار
+    </v-btn>
   </v-app-bar>
 </template>
 

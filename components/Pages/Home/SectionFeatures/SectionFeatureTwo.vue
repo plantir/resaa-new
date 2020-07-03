@@ -2,13 +2,9 @@
 .feature-two {
   padding: 50px 0;
   direction: rtl;
-  .main-title {
-    width: 100%;
-    font-weight: bold;
-  }
   .features {
     .feature {
-      width: 29%;
+      width: 26%;
       position: relative;
       text-align: center;
       justify-content: center;
@@ -70,7 +66,7 @@
         @include media(sm) {
           transform: rotate(0);
           right: auto;
-          left: -25px;
+          left: -85px;
           bottom: 0;
           top: 0;
         }
@@ -94,7 +90,7 @@
 <template>
   <div class="feature-two">
     <v-container class="d-flex flex-column">
-      <h2 class="main-title text-center full-width mb-12">
+      <h2 class="section-title text-center full-width mb-12">
         کار با رسا خیلی ساده است
       </h2>
       <div class="features d-flex justify-space-between flex-wrap">
@@ -133,7 +129,9 @@
           <p class="desc-small">
             اعتبار حساب شما مستقل از سیم‌کارتتان است.
           </p>
-          <v-btn @click="onIncreaseCredit">افزایش اعتبار</v-btn>
+          <v-btn class="resaa-btn" @click="onIncreaseCredit">
+            افزایش اعتبار
+          </v-btn>
         </div>
         <div class="feature d-flex flex-column">
           <div class="image d-flex justify-center">

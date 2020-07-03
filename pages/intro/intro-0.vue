@@ -19,7 +19,7 @@
         کار با رسا خیلی ساده است!
       </div>
 
-      <v-btn @click="onClick">بریم ببینیم</v-btn>
+      <v-btn @click="onClick" class="resaa-btn">بریم ببینیم</v-btn>
     </div>
   </div>
 </template>

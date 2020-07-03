@@ -34,7 +34,7 @@ form {
       outlined
     />
 
-    <v-btn @click="onSubmit" large>جستجو در رسا</v-btn>
+    <v-btn class="resaa-btn" @click="onSubmit" large>جستجو در رسا</v-btn>
   </form>
 </template>
 

@@ -51,7 +51,7 @@
 <template>
   <section class="section-testimonial">
     <v-container class="d-flex flex-column align-center">
-      <div class="title">{{ title }}</div>
+      <div class="section-title text-center">{{ title }}</div>
     </v-container>
 
     <div class="testimonials mt-10" v-if="loading">
@@ -97,6 +97,7 @@ export default class SectionTestimonial extends Vue {
     spaceBetween: 10,
     slidesPerView: 3,
     slidesPerGroup: 1,
+    loop: true,
     pagination: {
       el: '.swiper-pagination',
     },
@@ -120,7 +121,7 @@ export default class SectionTestimonial extends Vue {
   }
 
   mounted() {
-    this.swiper.slideTo(1, 1000)
+    this.swiper.slideTo(2, 1000)
   }
 }
 </script>

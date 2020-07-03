@@ -44,7 +44,7 @@
           data-vv-as="موبایل"
           outlined
         />
-        <v-btn block @click="onSubmit">تایید و ادامه</v-btn>
+        <v-btn block @click="onSubmit" class="resaa-btn">تایید و ادامه</v-btn>
       </form>
     </v-card>
     <p class="help-block font-weight-medium d-flex align-start mt-2">

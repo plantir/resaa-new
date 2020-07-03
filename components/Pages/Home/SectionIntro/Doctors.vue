@@ -1,28 +1,32 @@
 <style lang="scss" scoped>
 .doctors {
   background-color: transparent;
-  padding: 4px;
-  border-radius: 10px;
-  padding: 10px 0;
-  margin-top: 30px;
+  margin-top: -30px;
+  @include media(sm) {
+    padding: 10px 0;
+    margin-top: 30px;
+  }
   .swiper-slide {
     display: flex;
     justify-content: center;
     padding: 5px 0px;
   }
-  .prev,
-  .next {
-    display: inline-flex;
-  }
+
   .swiper-container {
     padding: 10px 0;
   }
-  .swiper-navigation {
+  .nav {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     .prev,
     .next {
+      display: inline-flex;
+    }
+    .prev,
+    .next {
+      box-shadow: 0 2px 12px 0 rgba(19, 209, 243, 0.5);
+      background-color: #ffffff;
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -32,7 +36,8 @@
       background: #fff;
       border-radius: 100%;
       margin: 0 6px;
-      box-shadow: 0 2px 12px 0 rgba(19, 209, 243, 0.5);
+      width: 40px;
+      height: 40px;
     }
   }
 }
@@ -40,27 +45,21 @@
 
 <template>
   <div class="doctors">
-    <swiper ref="swiper" :options="swiperOptions" v-if="!loading">
+    <swiper ref="swiper" :options="swiperOptions" v-show="!loading">
       <swiper-slide v-for="doctor in doctors" :key="doctor.subscriberNumber">
         <Doctor :doctor="doctor" />
       </swiper-slide>
     </swiper>
-    <swiper :options="swiperOptions" v-if="loading">
-      <swiper-slide v-for="index in 10" :key="index">
+    <swiper :options="swiperOptions" v-show="loading">
+      <swiper-slide v-for="index in 15" :key="index">
         <AppSkeleton section="DoctorSwiper" />
       </swiper-slide>
     </swiper>
     <div class="nav d-flex justify-center" v-if="!loading">
-      <button @click="onShowNext" class="next">
-        <Icon fileName="ic_arrow_right.png" />
-      </button>
-      <button @click="onShowBack" class="prev">
-        <Icon fileName="ic_arrow_left.png" />
-      </button>-->
-      <div @click="onShowNext" class="next" slot="button-prev">
+      <div @click="onShowNext" class="next" slot="prev">
         <v-icon color="primary">la-arrow-right</v-icon>
       </div>
-      <div @click="onShowBack" class="prev" slot="button-next">
+      <div @click="onShowBack" class="prev" slot="next">
         <v-icon color="primary">la-arrow-left</v-icon>
       </div>
     </div>
@@ -68,12 +67,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import Icon from '@/components/Common/Icon/Icon.vue'
 import Doctor from './Doctor.vue'
 import { RelatedDoctor } from '~/models/Doctor'
-
-// Component.registerHooks(['fetch'])
 
 @Component({
   components: {
@@ -87,6 +84,7 @@ export default class Doctors extends Vue {
     spaceBetween: 15,
     slidesPerView: 2,
     slidesPerGroup: 1,
+    loop: true,
     autoplay: {
       delay: 10000,
       disableOnInteraction: false,
@@ -108,7 +106,11 @@ export default class Doctors extends Vue {
   @Prop()
   doctors!: RelatedDoctor[]
 
-  loading = false
+  @Prop({
+    type: Boolean,
+    required: true,
+  })
+  readonly loading!: Boolean
 
   onShowNext() {
     this.swiper.slideNext(1000)
@@ -122,15 +124,8 @@ export default class Doctors extends Vue {
     return (this.$refs.swiper as any).$swiper
   }
 
-  // async fetch() {
-  //   try {
-  //     const { result } = await this.$service.doctors.getRelatedDoctors(1141, {
-  //       limit: 12,
-  //     })
-  //     this.doctors = result.relatedDoctors
-  //   } catch (error) {
-  //     // console.log('Doctors -> fetch -> error', error)
-  //   }
-  // }
+  mounted() {
+    this.swiper.slideTo(4, 1000, false)
+  }
 }
 </script>

@@ -14,6 +14,13 @@
     top: 0px;
     width: 110px;
     height: 110px;
+    border-radius: 8px;
+    overflow: hidden;
+    ::v-deep {
+      .v-image__image {
+        // background-size: 146%;
+      }
+    }
     @include media(sm) {
       position: relative;
       top: auto;
@@ -133,7 +140,7 @@
         border-radius: 8px;
         line-height: 36px;
         color: #35d6c1;
-        padding: 0 25px;
+        padding: 0 40px;
         font-weight: bold;
       }
     }
@@ -144,16 +151,27 @@
 <template>
   <v-card class="doctor d-flex align-center">
     <div class="avatar">
-      <v-img :src="`/api/${doctor.imagePath}`" :alt="fullname" />
+      <ImageLoader
+        :src="`/api/${doctor.imagePath}`"
+        :alt="fullname"
+        width="160"
+        height="160"
+      />
     </div>
 
     <div class="left-side d-flex flex-column justify-space-between">
       <div class="top d-flex justify-space-between">
         <h3 class="main-title">
           <nuxt-link :to="doctorLink">
-            <span class="full-name">{{fullname}}</span>
+            <span class="full-name">{{ fullname }}</span>
             <span class="line mb-1 mx-2">-</span>
-            <span class="skill">{{doctor.specialty?doctor.specialty.title:doctor.specialtyTitle}}</span>
+            <span class="skill">
+              {{
+                doctor.specialty
+                  ? doctor.specialty.title
+                  : doctor.specialtyTitle
+              }}
+            </span>
           </nuxt-link>
         </h3>
 
@@ -182,7 +200,9 @@
           </div>
         </div>
 
-        <nuxt-link class="view-profile" :to="doctorLink">مشاهده پروفایل</nuxt-link>
+        <nuxt-link class="view-profile" :to="doctorLink">
+          مشاهده پروفایل
+        </nuxt-link>
       </div>
     </div>
   </v-card>
@@ -204,11 +224,11 @@ export default class Doctor extends Vue {
     required: true,
   })
   doctor!: any
+
   get fullname() {
-    debugger
     return (
       this.doctor.fullNameWithTitle ||
-      `${this.doctor.title}  ${this.doctor.firstName}  ${this.doctor.lastName}`
+      `${this.doctor.title} ${this.doctor.firstName} ${this.doctor.lastName}`
     )
   }
   get doctorLink() {

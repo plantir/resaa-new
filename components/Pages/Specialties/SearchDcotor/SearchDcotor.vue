@@ -33,8 +33,13 @@
         font-size: 22px;
       }
     }
-    .input-q {
-      width: 370px;
+    ::v-deep {
+      .input-q {
+        width: 370px;
+        .v-input__slot {
+          box-shadow: none !important;
+        }
+      }
     }
 
     .btn-q {
@@ -71,7 +76,9 @@
         </template>
       </v-text-field>
 
-      <v-btn class="btn-q" @click="onSubmit" large>جستجو در رسا</v-btn>
+      <v-btn class="resaa-btn btn-q" @click="onSubmit" x-large>
+        جستجو در رسا
+      </v-btn>
     </form>
   </section>
 </template>

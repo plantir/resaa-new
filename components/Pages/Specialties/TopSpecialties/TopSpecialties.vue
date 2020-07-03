@@ -11,9 +11,17 @@
     .card-specialtie {
       width: 48%;
       margin-bottom: 15px;
+      .v-card {
+        box-shadow: 0 2px 8px 0 rgba(249, 164, 41, 0.3);
+      }
       @include media(sm) {
         margin-bottom: 60px;
         width: 18%;
+      }
+    }
+    .card-specialtie:nth-child(n + 6) {
+      .v-card {
+        box-shadow: 0 2px 8px 0 rgba(19, 209, 243, 0.3);
       }
     }
   }

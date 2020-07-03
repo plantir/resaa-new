@@ -47,22 +47,28 @@
     </div>
 
     <div class="doctors d-flex flex-column align-end" v-if="!loading">
-      <Doctor v-for="(item, index) in 10" :key="index" class="mt-6" />
+      <Doctor
+        v-for="(doctor, index) in doctors"
+        :key="index"
+        :doctor="doctor"
+        class="mt-6"
+      />
     </div>
 
     <div class="pagination-wrapper d-flex justify-center" v-if="!loading">
       <v-pagination
         v-model="page"
-        :length="100"
+        :length="total"
         :circle="false"
-        :total-visible="5"
+        :total-visible="6"
+        @input="pageChange"
       />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 
 @Component({
@@ -71,7 +77,40 @@ import Doctor from '@/components/Common/Doctor/Doctor.vue'
   },
 })
 export default class ListDoctorsMobile extends Vue {
-  page = 1
-  loading = true
+  @Prop({
+    type: Boolean,
+    required: true,
+  })
+  readonly loading!: Boolean
+
+  @Prop({
+    type: Number,
+    required: true,
+  })
+  readonly pageCurrent!: Number
+
+  @Prop({
+    type: Number,
+    required: true,
+  })
+  readonly total!: Number
+
+  @Prop({
+    type: Function,
+    required: true,
+  })
+  readonly pageChange!: Function
+
+  @Prop({
+    required: true,
+  })
+  readonly doctors!: any[]
+
+  get page() {
+    return this.pageCurrent
+  }
+  set page(val) {
+    this.$emit('pageCurrent', val)
+  }
 }
 </script>
