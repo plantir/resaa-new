@@ -19,9 +19,18 @@
         width: 18%;
       }
     }
-    .card-specialtie:nth-child(n + 6) {
-      .v-card {
-        box-shadow: 0 2px 8px 0 rgba(19, 209, 243, 0.3);
+    @include media(xs-only) {
+      .card-specialtie:nth-child(even) {
+        .v-card {
+          box-shadow: 0 2px 8px 0 rgba(19, 209, 243, 0.3);
+        }
+      }
+    }
+    @include media(sm) {
+      .card-specialtie:nth-child(n + 6) {
+        .v-card {
+          box-shadow: 0 2px 8px 0 rgba(19, 209, 243, 0.3);
+        }
       }
     }
   }

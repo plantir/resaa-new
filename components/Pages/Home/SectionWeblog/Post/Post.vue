@@ -59,7 +59,11 @@
   <div class="post">
     <v-card height="100%" class="d-flex flex-column">
       <nuxt-link to="#">
-        <v-img src="/images/home/blog/1.webp" :height="heightImage" eager />
+        <ImageLoader
+          src="/images/home/blog/1.webp"
+          :height="heightImage"
+          :alt="post.title"
+        />
       </nuxt-link>
       <div class="bottom d-flex flex-column justify-space-between pb-1">
         <div class="content">

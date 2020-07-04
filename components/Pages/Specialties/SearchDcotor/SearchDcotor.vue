@@ -68,8 +68,8 @@
       >
         <template v-slot:append>
           <img
-            width="24"
-            height="24"
+            width="30"
+            height="30"
             src="/images/icons/ic_search.png"
             alt="search"
           />

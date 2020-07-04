@@ -1,7 +1,7 @@
 <style lang="scss" scoped>
 section {
   background-color: #f9f9f9;
-  padding: 70px 0;
+  padding: 50px 0;
 }
 .feature-one {
   display: flex;
@@ -12,6 +12,10 @@ section {
     display: flex;
     flex-direction: column;
     .main-title {
+      text-align: center;
+      @include media(sm) {
+        text-align: right;
+      }
       h2 {
         line-height: 40px;
       }
@@ -96,9 +100,9 @@ section {
       <div class="feature-one">
         <div class="right text-right">
           <div class="main-title">
-            <h2>بهترین راه مشاوره <br />پزشکی و روان‌شناسی</h2>
+            <h2>بهترین راه مشاوره پزشکی و روان‌شناسی</h2>
             <p class="small-desc mt-4">
-              به ‌سرعت با پزشک‌ها و روان‌شناس‌های مد نظرت تماس بگیر.
+              بهترین راه مشاوره پزشکی و روان‌شناسی
             </p>
           </div>
           <div class="items d-flex flex-wrap mt-6">

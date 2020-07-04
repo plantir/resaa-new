@@ -30,14 +30,17 @@
     .social-wrapper {
       width: 100%;
       margin-top: 50px;
-      padding: 40px;
+      align-items: center;
       @include media(sm) {
-        padding: 0;
-        // max-width: 250px;
+        align-items: flex-start;
       }
     }
 
     .image-wrapper {
+      display: none;
+      @include media(sm) {
+        display: block;
+      }
       ::v-deep {
         .v-image__image {
           background-position: -55px center;
