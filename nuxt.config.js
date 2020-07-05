@@ -2,7 +2,9 @@ import 'vrwebdesign-nuxt/modules/nuxt-i18n'
 import colors from 'vuetify/es5/util/colors'
 import webpack from 'webpack'
 import { version } from './package.json'
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 require('dotenv').config({})
+
 export default {
   mode: 'universal',
   server: {
@@ -30,6 +32,9 @@ export default {
    ** Headers of the page
    */
   head: {
+    htmlAttrs: {
+      lang: 'fa',
+    },
     title: 'رسا سامانه سلامت ایرانیان',
     meta: [
       { charset: 'utf-8' },
@@ -122,6 +127,7 @@ export default {
     'vrwebdesign-nuxt/modules/nuxt-navbar',
     'vrwebdesign-nuxt/modules/nuxt-form-generator',
     'vrwebdesign-nuxt/modules/nuxt-data-grid',
+    'nuxt-compress',
   ],
   sentry: {},
   googleAnalytics: {
@@ -261,11 +267,30 @@ export default {
     /*
      ** You can extend webpack config here
      */
+
+    extractCSS: process.env.NODE_ENV === 'production',
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|scss|vue)$/,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      },
+    },
+    maxChunkSize: 360000,
+    optimizeCSS: true,
     watch: ['services', 'enums'],
     // extractCSS: true,
     plugins: [
       new webpack.DefinePlugin({
         'process.VERSION': version,
+      }),
+      new MomentLocalesPlugin({
+        localesToKeep: ['fa'],
       }),
     ],
     extend(config, ctx) {
@@ -305,6 +330,25 @@ export default {
         ],
       ],
       plugins: ['@babel/transform-runtime'],
+    },
+  },
+  cache: true,
+  render: {
+    static: {
+      maxAge: '1y',
+      setHeaders(res, path) {
+        if (path.includes('sw.js')) {
+          res.setHeader('Cache-Control', `public, max-age=${15 * 60}`)
+        }
+      },
+    },
+  },
+  'nuxt-compress': {
+    gzip: {
+      cache: true,
+    },
+    brotli: {
+      threshold: 10240,
     },
   },
 }

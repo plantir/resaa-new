@@ -4,8 +4,10 @@
       v-if="menu.internalLink"
       :to="menu.link"
       :target="menu.newTab ? '_blank' : '_self'"
-      >{{ menu.label }}</nuxt-link
+      no-prefetch
     >
+      {{ menu.label }}
+    </nuxt-link>
     <a v-else :href="menu.link" :target="menu.newTab ? '_blank' : '_self'">{{
       menu.label
     }}</a>
