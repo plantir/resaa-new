@@ -3,10 +3,11 @@
   background-color: #fff;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   border-radius: 6px;
-  max-width: 148px;
+  max-width: 150px;
   margin: 0 10px;
   direction: rtl;
   padding: 0 8px 5px 8px;
+  min-width: 150px;
   @include media(sm) {
     min-width: 190px;
   }
@@ -63,13 +64,11 @@
 <template>
   <nuxt-link class="doctor" :to="doctorLink">
     <div class="image">
-      <v-img height="190px" :src="`/api/${doctor.imagePath}`" :alt="doctor.fullNameWithTitle">
-        <template v-slot:placeholder>
-          <v-row class="fill-height ma-0" align="center" justify="center">
-            <v-progress-circular width="2" indeterminate color="secondary"></v-progress-circular>
-          </v-row>
-        </template>
-      </v-img>
+      <ImageLoader
+        height="190px"
+        :src="`/api/${doctor.imagePath}`"
+        :alt="doctor.fullNameWithTitle"
+      />
     </div>
 
     <div class="bottom">

@@ -32,9 +32,18 @@ form {
       :error-messages="errors.collect('q')"
       data-vv-as="نام و نام خانوادگی، تخصص، بیماری"
       outlined
-    />
+    >
+      <template v-slot:append>
+        <img
+          width="30"
+          height="30"
+          src="/images/icons/ic_search.png"
+          alt="search"
+        />
+      </template>
+    </v-text-field>
 
-    <v-btn @click="onSubmit" large>جستجو در رسا</v-btn>
+    <v-btn class="resaa-btn" @click="onSubmit" large>جستجو در رسا</v-btn>
   </form>
 </template>
 

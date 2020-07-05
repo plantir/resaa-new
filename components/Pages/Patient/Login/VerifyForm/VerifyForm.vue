@@ -50,7 +50,9 @@
           <span>رمز عبور را فراموش کرده‌اید؟</span>
           <nuxt-link to="/">بازیابی رمز عبور</nuxt-link>
         </div>
-        <v-btn class="mt-8" block @click="onSubmit">تایید و ادامه</v-btn>
+        <v-btn class="resaa-btn mt-8" block @click="onSubmit">
+          تایید و ادامه
+        </v-btn>
       </form>
     </v-card>
   </div>

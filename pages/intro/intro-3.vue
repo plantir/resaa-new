@@ -30,7 +30,7 @@
     </div>
 
     <div class="footer d-flex flex-column">
-      <v-btn @click="onClick">ورود به رسا</v-btn>
+      <v-btn @click="onClick" class="resaa-btn">ورود به رسا</v-btn>
     </div>
   </div>
 </template>

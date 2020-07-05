@@ -1,7 +1,7 @@
 <style lang="scss" scoped></style>
 <template>
   <main>
-    <SectionIntro :doctors="doctors" />
+    <SectionIntro :doctors="doctors" :loading="loadingDoctors" />
     <SectionSearch />
     <SectionFeatures :doctors="doctors" />
     <SectionTestimonial />
@@ -33,6 +33,9 @@ Component.registerHooks(['fetch', 'head'])
 })
 export default class HomePage extends Vue {
   doctors: Doctor[] | undefined = []
+
+  loadingDoctors = false
+
   public head() {
     return {
       title: 'سامانه رسا',
@@ -43,11 +46,14 @@ export default class HomePage extends Vue {
   }
   async fetch() {
     try {
+      this.loadingDoctors = true
       const { result } = await this.$service.doctors.getRelatedDoctors(1141, {
         limit: 12,
       })
       this.doctors = result.relatedDoctors
+      this.loadingDoctors = false
     } catch (error) {
+      this.loadingDoctors = false
       // console.log('Doctors -> fetch -> error', error)
     }
   }
