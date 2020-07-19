@@ -127,7 +127,6 @@ export default {
     'vrwebdesign-nuxt/modules/nuxt-navbar',
     'vrwebdesign-nuxt/modules/nuxt-form-generator',
     'vrwebdesign-nuxt/modules/nuxt-data-grid',
-    'nuxt-compress',
   ],
   sentry: {},
   googleAnalytics: {
@@ -341,14 +340,6 @@ export default {
           res.setHeader('Cache-Control', `public, max-age=${15 * 60}`)
         }
       },
-    },
-  },
-  'nuxt-compress': {
-    gzip: {
-      cache: true,
-    },
-    brotli: {
-      threshold: 10240,
     },
   },
 }
