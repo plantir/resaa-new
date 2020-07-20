@@ -1,7 +1,7 @@
 <style lang="scss" scoped>
 section {
   background-color: #f9f9f9;
-  padding: 50px 0;
+  padding: 100px 0;
 }
 .feature-one {
   display: flex;
@@ -53,12 +53,17 @@ section {
   .left {
     display: none;
     @include media(md) {
+      .bg {
+        background: url(/images/home/img_phone_rotated.png) no-repeat;
+        width: 537px;
+        height: 849px;
+        top: -180px;
+        position: absolute;
+        transform: scale(0.75);
+      }
       display: flex;
       flex: 0 0 500px;
       margin-right: 100px;
-      background: url(/images/home/feature.png);
-      background-size: cover;
-      background-position: center;
       position: relative;
     }
     .doctor {
@@ -146,6 +151,7 @@ section {
           </div>
         </div>
         <div class="left">
+          <div class="bg"></div>
           <Doctor v-for="doctor in top3" :doctor="doctor" :key="doctor.id" />
         </div>
       </div>

@@ -1,6 +1,7 @@
 <style lang="scss" scoped>
 footer {
-  background-color: #383838;
+  background: url('/images/footer/img_phone_gray.png') no-repeat #383838;
+  background-position: 0 160px;
   color: #a5a5a5;
   padding-top: 20px;
   .box.about {
@@ -199,12 +200,13 @@ footer {
       <v-container>
         <p>
           کلیه حقوق مادی و معنوی این سایت به شرکت رسالت سلامت ایرانیان (برگ های
-          سبز و نقره ای سابق) تعلق دارد © {{year | persianDigit}}
+          سبز و نقره ای سابق) تعلق دارد © {{ year | persianDigit }}
         </p>
       </v-container>
     </div>
   </footer>
 </template>
+
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import Logo from '@/components/Common/Logo/Logo.vue'

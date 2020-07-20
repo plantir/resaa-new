@@ -1,13 +1,30 @@
 <style lang="scss" scoped>
 .intro {
   padding: 30px 0;
-  background: url('/images/home/intro_doctor_mobile.png') no-repeat;
-  background-position: -92px 70px;
-  background-color: var(--v-primary-lighten5);
-  @include media(sm) {
-    background: url('/images/home/intro_doctor_desktop.png') no-repeat;
-    background-position: 150px -4px;
+  .doctor-bg {
+    background: url('/images/home/intro_doctor_mobile.png') no-repeat;
+    position: absolute;
+    width: 240px;
+    height: 244px;
+    left: -100px;
+    top: 70px;
+    z-index: 1;
+    @include media(sm) {
+      background: url('/images/home/intro_doctor_desktop.png') no-repeat;
+      width: 640px;
+      height: 649px;
+      left: 130px;
+      top: -4px;
+    }
   }
+  .bg {
+    background: url('/images/home/img_phone.png') no-repeat;
+    width: 100%;
+    height: 1019px;
+    position: absolute;
+    top: -100px;
+  }
+
   .intro-text {
     .right {
       width: 55%;
@@ -61,6 +78,10 @@
 
 <template>
   <section class="intro">
+    <div class="doctor-bg"></div>
+
+    <div class="bg"></div>
+
     <div class="intro-text">
       <v-container>
         <div class="right">
