@@ -4,6 +4,9 @@ form {
   ::v-deep {
     .v-input {
       width: 100%;
+      .v-input__slot {
+        background: #fff;
+      }
     }
     button {
       width: 100% !important;
@@ -32,6 +35,7 @@ form {
       :error-messages="errors.collect('q')"
       data-vv-as="نام و نام خانوادگی، تخصص، بیماری"
       outlined
+      clearable
     >
       <template v-slot:append>
         <img

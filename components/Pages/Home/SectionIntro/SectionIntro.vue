@@ -23,9 +23,16 @@
     height: 1019px;
     position: absolute;
     top: -100px;
+    background-size: 100%;
+    background-position: 0px 0;
+    @include media(sm) {
+      background-size: unset;
+      background-position: unset;
+    }
   }
 
   .intro-text {
+    position: relative;
     .right {
       width: 55%;
       @include media(sm) {

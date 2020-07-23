@@ -57,7 +57,13 @@
           class="mt-4"
         />
 
-        <v-btn block @click="onSubmit" :loading="loading" :disabled="loading">
+        <v-btn
+          block
+          @click="onSubmit"
+          :loading="loading"
+          :disabled="loading"
+          class="resaa-btn"
+        >
           <span>تایید و ادامه</span>
           <template v-slot:loader>
             <span class="white--text">لطفاً صبر کنید...</span>

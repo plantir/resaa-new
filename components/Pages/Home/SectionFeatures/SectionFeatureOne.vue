@@ -107,7 +107,7 @@ section {
           <div class="main-title">
             <h2>بهترین راه مشاوره پزشکی و روان‌شناسی</h2>
             <p class="small-desc mt-4">
-              بهترین راه مشاوره پزشکی و روان‌شناسی
+              به‌سرعت با پزشک‌ها و روان‌شناس‌های مد نظرت تماس بگیر.
             </p>
           </div>
           <div class="items d-flex flex-wrap mt-6">

@@ -15,7 +15,12 @@
 
       <SearchForm class="mt-6" @submit="onSubmit" />
 
-      <SearchResult class="mt-6" :doctors="doctors" />
+      <SearchResultMobile
+        v-if="$device.isMobile"
+        class="mt-6"
+        :doctors="doctors"
+      />
+      <SearchResultDesktop v-else class="mt-6" :doctors="doctors" />
     </v-container>
   </section>
 </template>
@@ -23,13 +28,13 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import SearchForm from './SearchForm.vue'
-import SearchResult from './SearchResult.vue'
 import { Doctor } from '~/models/Doctor'
 
 @Component({
   components: {
     SearchForm,
-    SearchResult,
+    SearchResultDesktop: () => import('./SearchResultDesktop.vue'),
+    SearchResultMobile: () => import('./SearchResultMobile.vue'),
   },
 })
 export default class SectionSearch extends Vue {
