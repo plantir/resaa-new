@@ -3,6 +3,9 @@
   position: relative;
   width: 400px;
   z-index: 1;
+  p {
+    color: #212121;
+  }
   @include media(xs-only) {
     width: 100%;
   }
