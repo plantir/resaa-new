@@ -35,7 +35,7 @@
     }
     ::v-deep {
       .input-q {
-        width: 370px;
+        width: 380px;
         .v-input__slot {
           box-shadow: none !important;
         }
@@ -43,7 +43,7 @@
     }
 
     .btn-q {
-      width: 220px;
+      width: 240px;
     }
   }
 }

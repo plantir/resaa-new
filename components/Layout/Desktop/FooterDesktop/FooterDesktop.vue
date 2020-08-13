@@ -1,9 +1,12 @@
 <style lang="scss" scoped>
 footer {
-  background: url('/images/footer/img_phone_gray.png') no-repeat #383838;
-  background-position: 0 160px;
+  background-color: #383838;
   color: #a5a5a5;
   padding-top: 20px;
+  @include media(sm) {
+    background: url('/images/footer/img_phone_gray.png') no-repeat #383838;
+    background-position: 0 160px;
+  }
   .box.about {
     color: #a5a5a5;
     .desc {
@@ -52,6 +55,22 @@ footer {
       address {
         font-style: normal;
         line-height: 28px;
+      }
+    }
+    &.useful-links {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        li {
+          margin-left: 10px;
+        }
+        @include media(sm) {
+          display: unset;
+          li {
+            margin-left: unset;
+          }
+        }
       }
     }
   }

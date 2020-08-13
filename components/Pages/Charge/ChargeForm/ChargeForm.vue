@@ -3,6 +3,9 @@
   position: relative;
   width: 400px;
   z-index: 1;
+  p {
+    color: #212121;
+  }
   @include media(xs-only) {
     width: 100%;
   }
@@ -57,7 +60,13 @@
           class="mt-4"
         />
 
-        <v-btn block @click="onSubmit" :loading="loading" :disabled="loading">
+        <v-btn
+          block
+          @click="onSubmit"
+          :loading="loading"
+          :disabled="loading"
+          class="resaa-btn"
+        >
           <span>تایید و ادامه</span>
           <template v-slot:loader>
             <span class="white--text">لطفاً صبر کنید...</span>

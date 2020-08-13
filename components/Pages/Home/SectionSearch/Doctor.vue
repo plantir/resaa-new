@@ -6,6 +6,7 @@
   background-color: #ffffff;
   .avatar {
     width: 110px;
+    border-radius: 8px;
   }
   .left-side {
     width: calc(100% - 110px);
@@ -16,13 +17,18 @@
 <template>
   <div class="doctor d-flex align-center">
     <div class="avatar">
-      <v-img src="/images/home/doctors/1.png" />
+      <ImageLoader
+        :src="`/api/${doctor.imagePath}`"
+        :alt="fullName"
+        width="110"
+        height="110"
+      />
     </div>
     <div class="left-side d-flex flex-column align-center">
       <div class="full-name font-weight-bold">{{ fullName }}</div>
       <div class="skil mt-3">{{ doctor.specialty.title }}</div>
       <div class="link mt-5">
-        <nuxt-link to="/">مشاهده پروفایل</nuxt-link>
+        <nuxt-link :to="doctorLink">مشاهده پروفایل</nuxt-link>
       </div>
     </div>
   </div>
@@ -41,6 +47,15 @@ export default class Doctor extends Vue {
 
   get fullName() {
     return `${this.doctor.firstName} ${this.doctor.lastName}`
+  }
+
+  get doctorLink() {
+    return `/doctors/${(this.doctor.specialty
+      ? this.doctor.specialty.description
+      : this.doctor.specialtyEnglishTitle
+    )
+      .toLowerCase()
+      .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
   }
 }
 </script>
