@@ -1,0 +1,29 @@
+.resaa-btn {
+    box-shadow: 0 2px 8px 0 rgba(19, 209, 243, 0.5) !important;
+    background-image: linear-gradient(249deg, #13d1f3, #35d6c1);
+
+    .v-btn__content {
+        color: #fff;
+    }
+
+    &.v-btn--disabled {
+        border-color: transparent;
+        box-shadow: none !important;
+        background-image: none;
+        background-color: #e1e2e1;
+        .v-btn__content {
+            color: #6c6c6c !important;
+            font-weight: bold;
+        }
+    }
+    &.v-btn--outlined {
+        border-radius: 8px;
+        border: solid 1px #35d6c1;
+        background-color: #fff;
+        background-image: none;
+        box-shadow: none !important;
+        .v-btn__content {
+            color: #35d6c1;
+        }
+    }
+}

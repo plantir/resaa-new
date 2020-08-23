@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__ic_account_circle" width="48" height="48" viewBox="0 0 48 48">
+    <g id="prefix__Icon_24px" data-name="Icon 24px">
+        <path id="prefix__Shape" d="M20 40a20 20 0 1 1 20-20 20.022 20.022 0 0 1-20 20zm0-18.2c-4.041 0-11.939 2.174-12 6.16a14.4 14.4 0 0 0 24 0c-.034-2.229-2.483-3.717-4.531-4.572A21.4 21.4 0 0 0 20 21.8zM20 6a6 6 0 1 0 6 6 6.007 6.007 0 0 0-6-6z" transform="translate(4 4)" style="fill:#35d6c1"/>
+        <path id="prefix__Shape-2" d="M0 0h48v48H0z" data-name="Shape" style="fill:none"/>
+    </g>
+</svg>

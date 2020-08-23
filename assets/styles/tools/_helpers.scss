@@ -1,0 +1,13 @@
+.ltr-input {
+  ::placeholder {
+    direction: rtl;
+  }
+
+  input {
+    direction: ltr;
+  }
+}
+
+.main-color {
+  color: $primary-color;
+}

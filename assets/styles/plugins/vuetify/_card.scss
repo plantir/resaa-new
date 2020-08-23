@@ -1,0 +1,28 @@
+.v-card {
+  &.v-card--outlined {
+    border: none !important;
+  }
+
+  .v-card__title {
+    position: relative;
+    font-size: 14px;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 5px !important;
+    padding-right: 0 !important;
+
+    .title {
+      font-size: 14px !important;
+      font-weight: bold;
+    }
+
+    &::before {
+      background-color: #f9a429;
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      width: 25px;
+      content: '';
+    }
+  }
+}

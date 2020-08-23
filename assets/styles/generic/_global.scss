@@ -1,0 +1,25 @@
+body:not(.page-home) {
+  .main-header {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+@include media(xs-only) {
+  .v-content {
+    padding-top: 48px !important;
+  }
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  width: 100%;
+}
