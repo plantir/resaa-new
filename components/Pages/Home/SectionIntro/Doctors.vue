@@ -4,7 +4,7 @@
   margin-top: -30px;
   @include media(sm) {
     padding: 10px 0;
-    margin-top: 30px;
+    margin-top: 15px;
   }
   .swiper-slide {
     display: flex;
@@ -97,6 +97,7 @@ export default class Doctors extends Vue {
       },
       1280: {
         slidesPerView: 6,
+        spaceBetween: 150,
       },
       1785: {
         slidesPerView: 8,

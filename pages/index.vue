@@ -1,11 +1,33 @@
 <style lang="scss" scoped></style>
 <template>
   <main>
-    <SectionIntro :doctors="doctors" :loading="loadingDoctors" />
+    <div v-if="!loggedIn">
+      <SectionIntro :doctors="doctors" :loading="loadingDoctors" />
+    </div>
     <SectionSearch />
-    <SectionFeatures :doctors="doctors" />
-    <SectionTestimonial />
-    <SectionWeblog />
+    <div v-if="loggedIn">
+      <ChosenDoctor
+        title="متخصصین پیشنهادی برای شما"
+        :doctors="doctors"
+        :loading="loadingDoctors"
+      />
+      <!-- <DiseasesList /> -->
+      <ChosenDoctor
+        title="مشاوره کرونا"
+        :doctors="suggestionDoctors"
+        :loading="loadingSuggestionDoctors"
+      />
+      <ChosenDoctor
+        title="متخصصین برگزیده"
+        :doctors="suggestionDoctors"
+        :loading="loadingSuggestionDoctors"
+      />
+    </div>
+    <div v-else>
+      <SectionFeatures :doctors="doctors" />
+      <SectionTestimonial />
+    </div>
+    <SectionWeblog :posts="posts" />
     <SedctionSocial />
   </main>
 </template>
@@ -17,6 +39,8 @@ import SectionFeatures from '@/components/Pages/Home/SectionFeatures/SectionFeat
 import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
 import SectionWeblog from '@/components/Pages/Home/SectionWeblog/SectionWeblog.vue'
 import SedctionSocial from '@/components/Pages/Home/SedctionSocial/SedctionSocial.vue'
+import ChosenDoctor from '@/components/Pages/Home/ChosenDoctors/ChosenDoctors.vue'
+import DiseasesList from '@/components/Pages/Home/DiseasesList/DiseasesList.vue'
 import { Doctor } from '../models/Doctor'
 
 Component.registerHooks(['fetch', 'head'])
@@ -29,13 +53,16 @@ Component.registerHooks(['fetch', 'head'])
     SectionTestimonial,
     SectionWeblog,
     SedctionSocial,
+    ChosenDoctor,
+    DiseasesList,
   },
 })
 export default class HomePage extends Vue {
   doctors: Doctor[] | undefined = []
-
+  suggestionDoctors: Doctor[] = []
+  posts: any = []
   loadingDoctors = false
-
+  loadingSuggestionDoctors = false
   public head() {
     return {
       title: 'سامانه رسا',
@@ -44,7 +71,21 @@ export default class HomePage extends Vue {
       },
     }
   }
+  get loggedIn() {
+    return this.$auth.loggedIn
+  }
   async fetch() {
+    this.posts = await this.$service.weblog.getPosts()
+  }
+  async mounted() {
+    try {
+      this.loadingSuggestionDoctors = true
+      const { result } = await this.$service.doctors.chosenDoctors()
+      this.suggestionDoctors = result.doctors
+      this.loadingSuggestionDoctors = false
+    } catch (error) {
+      this.loadingSuggestionDoctors = false
+    }
     try {
       this.loadingDoctors = true
       const { result } = await this.$service.doctors.getRelatedDoctors(1141, {
@@ -54,7 +95,6 @@ export default class HomePage extends Vue {
       this.loadingDoctors = false
     } catch (error) {
       this.loadingDoctors = false
-      // console.log('Doctors -> fetch -> error', error)
     }
   }
 }

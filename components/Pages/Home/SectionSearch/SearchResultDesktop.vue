@@ -14,8 +14,9 @@
     font-weight: bold;
   }
   .empty {
-    padding: 40px 0;
+    padding: 40px 0 54px;
     @include media(sm) {
+      padding: 80px 0 66px;
       width: 450px;
     }
     @include media(md) {
@@ -38,11 +39,9 @@
         class="mb-6"
       />
 
-      <nuxt-link class="view-all" to="/">
-        مشاهده همه
-      </nuxt-link>
+      <nuxt-link class="view-all" to="/"> مشاهده همه </nuxt-link>
     </div>
-    <div class="empty mt-5" v-else>
+    <div class="empty" v-else>
       <img src="/images/home/skills.png" />
     </div>
   </div>

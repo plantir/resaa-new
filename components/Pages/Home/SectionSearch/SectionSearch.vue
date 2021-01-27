@@ -1,9 +1,14 @@
 <style lang="scss" scoped>
 .section-search {
-  padding-bottom: 50px;
+  .container {
+    padding: 0 24px !important;
+  }
   .title {
-    font-size: 20px;
+    font-size: 20px !important;
     font-weight: bold;
+    @include media(sm) {
+      font-size: 24px !important;
+    }
   }
 }
 </style>
@@ -15,12 +20,12 @@
 
       <SearchForm class="mt-6" @submit="onSubmit" />
 
-      <SearchResultMobile
+      <!-- <SearchResultMobile
         v-if="$device.isMobile"
         class="mt-6"
         :doctors="doctors"
-      />
-      <SearchResultDesktop v-else class="mt-6" :doctors="doctors" />
+      /> -->
+      <SearchResultDesktop class="mt-6" :doctors="doctors" />
     </v-container>
   </section>
 </template>

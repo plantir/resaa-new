@@ -1,13 +1,28 @@
 <style lang="scss" scoped>
 .section-testimonial {
   background-color: #f9f9f9;
-  padding: 60px 0;
+  padding: 48px 0;
+  @include media(sm) {
+    padding: 75px 0;
+  }
+  .testimonials-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    @include media(sm) {
+      font-size: 24px;
+    }
+  }
   .testimonials {
     width: 100%;
     ::v-deep {
       .swiper-slide {
         padding-top: 60px !important;
         padding-bottom: 50px !important;
+        @include media(sm) {
+          padding-top: 40px !important;
+          padding-bottom: 80px !important;
+        }
       }
       .swiper-pagination-bullets {
         list-style: none;
@@ -51,22 +66,25 @@
 <template>
   <section class="section-testimonial">
     <v-container class="d-flex flex-column align-center">
-      <div class="section-title text-center">{{ title }}</div>
+      <div class="testimonials-title">{{ title }}</div>
     </v-container>
 
-    <div class="testimonials mt-10" v-if="loading">
+    <div class="testimonials" v-if="loading">
       <swiper ref="swiper" :options="swiperOptions">
-        <swiper-slide v-for="(doctor, index) in 4" :key="index">
+        <swiper-slide
+          v-for="(doctor, index) in testimonial.length"
+          :key="index"
+        >
           <AppSkeleton section="Testimonial" />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
 
-    <div class="testimonials mt-10" v-if="!loading">
+    <div class="testimonials" v-if="!loading">
       <swiper ref="swiper" :options="swiperOptions">
-        <swiper-slide v-for="(doctor, index) in 4" :key="index">
-          <Testimonial />
+        <swiper-slide v-for="(testimonial, index) in testimonial" :key="index">
+          <Testimonial :content="testimonial.body" />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -91,7 +109,7 @@ export default class SectionTestimonial extends Vue {
   title!: String
 
   loading = true
-
+  testimonial: Array<object> = []
   swiperOptions = {
     centeredSlides: true,
     spaceBetween: 10,
@@ -120,8 +138,10 @@ export default class SectionTestimonial extends Vue {
     return (this.$refs.swiper as any).$swiper
   }
 
-  mounted() {
+  async mounted() {
     this.swiper.slideTo(2, 1000)
+    this.testimonial = await this.$service.testimonials.getTestimonials()
+    this.loading = false
   }
 }
 </script>

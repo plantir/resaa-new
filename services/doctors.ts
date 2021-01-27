@@ -35,4 +35,7 @@ export default class DoctorService {
   ): Promise<IResponse<{ relatedDoctors: Doctor[] }>> {
     return this.$axios.$get(`/Doctors/${id}/RelatedDoctors?limit=${limit}`)
   }
+  chosenDoctors() {
+    return this.$axios.$get(`/Doctors/Highlight`)
+  }
 }

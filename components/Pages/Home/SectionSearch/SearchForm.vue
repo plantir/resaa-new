@@ -22,6 +22,12 @@ form {
       }
     }
   }
+  .resaa-btn {
+    height: 48px !important;
+    @include media(sm) {
+      height: 56px !important;
+    }
+  }
 }
 </style>
 

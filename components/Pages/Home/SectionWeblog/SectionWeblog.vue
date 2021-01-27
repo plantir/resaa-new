@@ -1,14 +1,30 @@
 <style lang="scss" scoped>
 .section-weblog {
-  padding: 50px 0;
+  padding: 48px 0;
+  @include media(sm) {
+    padding: 38px 0 106px;
+  }
+  ::v-deep {
+    .container {
+      padding: 0 12px;
+    }
+  }
+  .post-title {
+    color: #212121;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    @include media(sm) {
+      font-size: 24px;
+    }
+  }
   .blog-link {
     box-shadow: 0 15px 40px 0 rgba(19, 209, 243, 0.15) !important;
-    display: inline-block;
     border: 1px solid $primary-color;
-    line-height: 56px;
+    font-size: 16px;
     border-radius: 8px;
-    padding: 0 20px;
-    font-weight: 500;
+    font-weight: bold;
+    margin: 0 !important;
   }
 }
 </style>
@@ -16,13 +32,18 @@
 <template>
   <section class="section-weblog">
     <v-container>
-      <div class="section-title text-center">
-        آخرین‌ها در مجله تخصصی پزشکی رسا
-      </div>
-      <WeblogMobile v-if="$device.isMobile" />
-      <WeblogDesktop v-else />
+      <div class="post-title">آخرین‌ها در مجله تخصصی پزشکی رسا</div>
+      <WeblogMobile v-if="$device.isMobile" :posts="posts" />
+      <WeblogDesktop v-else :posts="posts" />
       <div class="text-center">
-        <v-btn class="blog-link resaa-btn" color="teel" outlined x-large>
+        <v-btn
+          class="blog-link resaa-btn"
+          outlined
+          x-large
+          href="https://resaa.net/blog"
+          target="_blank"
+          :block="$device.isMobile"
+        >
           ورورد به مجله خبری آنلاین
         </v-btn>
       </div>
@@ -31,8 +52,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import WeblogMobile from './Mobile/WeblogMobile.vue'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
   components: {
@@ -40,5 +60,10 @@ import WeblogMobile from './Mobile/WeblogMobile.vue'
     WeblogDesktop: () => import('./Desktop/WeblogDesktop.vue'),
   },
 })
-export default class SectionWeblog extends Vue {}
+export default class SectionWeblog extends Vue {
+  @Prop({
+    required: true,
+  })
+  readonly posts!: Array<Object>
+}
 </script>

@@ -88,11 +88,7 @@
     <div class="card">
       <div class="content">
         <p class="text-justify pa-5">
-          اگر شما هم مثل من در شرف ازدواج هستید حتی اگه از . انتخابتون مطمئنید
-          حتما قبلش با یک مشاور صحبت کنید خیلی چیزها بود که من حتی بهش فکر نکرده
-          بودم و توی مشاوره متوجه شدم چقدر مهم و تاثیر گزاره به نظرم خیلی خوبه
-          که الان میشه با تلفن مشاوره گرفت برای من که .شاغل هستم محل کارم خارج
-          شهره واقعا گره گشاست
+          {{ content }}
         </p>
       </div>
     </div>
@@ -103,8 +99,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
-export default class Testimonial extends Vue {}
+export default class Testimonial extends Vue {
+  @Prop({
+    type: String,
+  })
+  content!: String
+}
 </script>

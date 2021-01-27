@@ -15,7 +15,7 @@
   font-size: 16px;
   font-weight: 600;
   padding: 0 16px;
-  width: 240px;
+  width: 208px;
   &::before {
     width: 56px;
     height: 56px;

@@ -1,20 +1,25 @@
 <style lang="scss" scoped>
 .intro {
-  padding: 30px 0;
+  padding: 0 0 50px;
+  margin-top: -40px;
+  @include media(sm) {
+    margin-top: 0;
+    padding: 30px 0;
+  }
   .doctor-bg {
     background: url('/images/home/intro_doctor_mobile.png') no-repeat;
     position: absolute;
     width: 240px;
     height: 244px;
-    left: -100px;
-    top: 70px;
+    left: -80px;
+    top: -40px;
     z-index: 1;
     @include media(sm) {
       background: url('/images/home/intro_doctor_desktop.png') no-repeat;
       width: 640px;
       height: 649px;
-      left: 130px;
-      top: -4px;
+      left: 50px;
+      top: -20px;
     }
   }
   .bg {
@@ -34,16 +39,16 @@
   .intro-text {
     position: relative;
     .right {
-      width: 55%;
+      width: 60%;
       @include media(sm) {
-        width: 490px;
+        width: 500px;
       }
       h1 {
-        line-height: 30px;
-        font-size: 14px;
+        line-height: 35px;
+        font-size: 16px;
         @include media(sm) {
           line-height: 45px;
-          font-size: 24px;
+          font-size: 26px;
         }
         span {
           color: #13d1f3;
@@ -62,12 +67,11 @@
       }
       p {
         font-weight: 500;
-        font-size: 11px;
-        line-height: 26px;
+        font-size: 10px;
+        line-height: 24px;
         color: #5e696e;
         @include media(sm) {
           font-size: 16px;
-          line-height: 26px;
         }
       }
     }
@@ -77,6 +81,7 @@
       min-width: 320px;
       @include media(sm) {
         display: block;
+        margin-top: 40px;
       }
     }
   }

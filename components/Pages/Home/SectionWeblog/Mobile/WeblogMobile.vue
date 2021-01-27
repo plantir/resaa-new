@@ -1,23 +1,23 @@
 <style lang="scss" scoped>
 .posts {
-  padding: 40px 0;
+  padding: 32px 0;
 }
 </style>
 
 <template>
-  <div class="posts mt-8">
+  <div class="posts">
     <AppSkeleton v-if="loading" section="WeblogMobile" />
 
     <swiper ref="swiper" v-if="!loading">
-      <swiper-slide v-for="(doctor, index) in 4" :key="index">
-        <Post :post="post" />
+      <swiper-slide v-for="(item, index) in post" :key="index">
+        <Post :post="item" />
       </swiper-slide>
     </swiper>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import Post from '../Post/Post.vue'
 // import AppSkeleton from '@/components/Common/AppSkeleton/AppSkeleton.vue'
 
@@ -28,7 +28,23 @@ import Post from '../Post/Post.vue'
   },
 })
 export default class WeblogMobile extends Vue {
-  post = {}
+  items: Object = []
   loading = true
+  @Prop({
+    required: true,
+  })
+  readonly posts!: Array<Object>
+  get post() {
+    return this.posts.map((items: any) => {
+      return {
+        title: items.title.rendered,
+        link: items.link,
+        description: items.excerpt.rendered,
+      }
+    })
+  }
+  async mounted() {
+    this.loading = false
+  }
 }
 </script>

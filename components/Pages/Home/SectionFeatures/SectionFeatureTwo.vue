@@ -1,15 +1,31 @@
 <style lang="scss" scoped>
 .feature-two {
-  padding: 50px 0;
+  padding: 50px 30px;
   direction: rtl;
+  .feature-title {
+    text-align: center;
+    font-size: 20px;
+    color: #212121;
+    font-weight: bold;
+    padding-bottom: 30px;
+    @include media(sm) {
+      font-size: 24px;
+      padding-bottom: 60px;
+    }
+  }
   .features {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     .feature {
       width: 26%;
       position: relative;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-bottom: 180px;
+      text-align: center;
+      margin-bottom: 140px;
       @include media(sm) {
         margin-bottom: 0;
         text-align: right;
@@ -21,7 +37,11 @@
       }
       .image {
         width: 100%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        @include media(sm) {
+          justify-content: flex-start;
+        }
         img {
           display: block;
           width: auto;
@@ -31,23 +51,53 @@
           }
         }
       }
-      h3.title-item {
+      .title-item {
         font-size: 15px;
+        padding: 10px 0 12px;
+        @include media(sm) {
+          padding: 10px 36px 12px 0;
+        }
       }
-      p {
+      .desc {
         color: #6c6c6c;
-        line-height: 28px;
-        font-weight: 500;
+        line-height: 24px;
+        margin-bottom: 0;
+        font-size: 14px;
+        @include media(sm) {
+          padding-right: 36px;
+        }
       }
       .desc-small {
         color: #a5a5a5;
+        padding-top: 8px;
+        @include media(sm) {
+          padding-right: 36px;
+        }
       }
-      ul {
+      .resaa-btn {
+        width: 122px;
+        height: 36px;
+        margin-top: 24px;
+        border-radius: 8px;
+        @include media(sm) {
+          margin-top: 0;
+          margin-right: 36px;
+        }
+      }
+      .feature-list {
         list-style: none;
+        padding-top: 24px;
+        @include media(sm) {
+          padding-right: 36px;
+        }
         li {
-          margin-bottom: 15px;
-          @include media(sm-only) {
-            font-size: 12px;
+          margin-bottom: 20px;
+          font-size: 14px;
+          @include media(sm) {
+            margin-bottom: 15px;
+          }
+          a {
+            color: #35d6c1;
           }
         }
       }
@@ -56,7 +106,7 @@
         position: absolute;
         left: 0;
         right: 0;
-        bottom: -95px;
+        bottom: -70px;
         top: auto;
         margin: auto;
         content: '';
@@ -68,7 +118,7 @@
           right: auto;
           left: -85px;
           bottom: 0;
-          top: 0;
+          top: -170px;
         }
         @include media(sm-only) {
           transform: scale(0.5);
@@ -89,65 +139,68 @@
 
 <template>
   <div class="feature-two">
-    <v-container class="d-flex flex-column">
-      <h2 class="section-title text-center full-width mb-12">
-        کار با رسا خیلی ساده است
-      </h2>
-      <div class="features d-flex justify-space-between flex-wrap">
-        <div class="feature d-flex flex-column">
-          <div class="image d-flex justify-center">
-            <Icon fileName="ic_find_doctor.png" />
-          </div>
-          <h3 class="title-item mt-10">پیدا کردن پزشک یا روان‌شناس</h3>
-          <p class="desc mt-3">
-            با جستجو در لیست پزشکان و روان‌شناسان .شخص مورد نظرتان را پیدا کنید.
-          </p>
-          <ul class="mt-7">
-            <li>
-              <nuxt-link to="" class="d-flex align-center">
-                <span class="label">مشاهده لیست پزشکان</span>
-                <Icon fileName="ic_link_left.png" class="mr-1" />
-              </nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="" class="d-flex align-center">
-                <span class="label">مشاهده لیست روان‌شناسان</span>
-                <Icon fileName="ic_link_left.png" class="mr-1" />
-              </nuxt-link>
-            </li>
-          </ul>
+    <h2 class="feature-title">کار با رسا خیلی ساده است</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="image">
+          <Icon fileName="ic_find_doctor.png" />
         </div>
-        <div class="feature d-flex flex-column">
-          <div class="image d-flex justify-center">
-            <Icon fileName="ic_buy_credit.png" />
-          </div>
-          <h3 class="title-item mt-10">افزایش اعتبار</h3>
-          <p class="desc mt-3">
-            چه تلفن هوشمند داشته باشید چه نه، می‌توانید از رسا استفاده کنید
-            (اعتبار رسای شما، مستقل از حساب سیم‌کارتتان است).
-          </p>
-          <p class="desc-small">
-            اعتبار حساب شما مستقل از سیم‌کارتتان است.
-          </p>
-          <v-btn class="resaa-btn" @click="onIncreaseCredit">
-            افزایش اعتبار
-          </v-btn>
-        </div>
-        <div class="feature d-flex flex-column">
-          <div class="image d-flex justify-center">
-            <Icon fileName="img_direct_call.png" />
-          </div>
-          <h3 class="title-item mt-10">تماس تلفنی مستقیم</h3>
-          <p class="desc mt-3">
-            به‌راحتی و به‌طور مستقیم با پزشک یا . روان‌شناس مد نظرتان تلفنی صحبت
-            کنید هزینه تماس شما به‌صورت دقیقه‌ای .محاسبه می‌شود
-          </p>
-          <p class="desc-small">
-            تعرفه صحبت را خود پزشک یا روان‌شناس مشخص می‌کند.
-          </p>
-        </div>
+        <h3 class="title-item">پیدا کردن پزشک یا روان‌شناس</h3>
+        <p class="desc">
+          با جستجو در لیست پزشکان و روان‌شناسان .شخص مورد نظرتان را پیدا کنید.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <nuxt-link to="" class="d-flex align-center">
+              <span class="label">مشاهده لیست پزشکان</span>
+              <Icon fileName="ic_link_left.png" class="mr-1" />
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="" class="d-flex align-center">
+              <span class="label">مشاهده لیست روان‌شناسان</span>
+              <Icon fileName="ic_link_left.png" class="mr-1" />
+            </nuxt-link>
+          </li>
+        </ul>
       </div>
-    </v-container>
+      <div class="feature">
+        <div class="image">
+          <Icon fileName="ic_buy_credit.png" />
+        </div>
+        <h3 class="title-item">
+          {{
+            $device.isMobile ? 'پرداخت هزینه مشاوره تصویری' : 'افزایش اعتبار'
+          }}
+        </h3>
+        <p class="desc" v-if="$device.isMobile">
+          چه تلفن هوشمند داشته باشید چه نه، می‌توانید از رسا استفاده کنید
+          (اعتبار رسای شما، مستقل از حساب سیم‌کارتتان است).
+        </p>
+        <p class="desc" v-else>
+          چه تلفن هوشمند داشته باشید چه .نه، می‌توانید از رسا استفاده کنید
+        </p>
+        <p class="desc-small" v-if="!$device.isMobile">
+          اعتبار حساب شما مستقل از سیم‌کارتتان است.
+        </p>
+        <v-btn class="resaa-btn" @click="onIncreaseCredit">
+          افزایش اعتبار
+        </v-btn>
+      </div>
+      <div class="feature">
+        <div class="image">
+          <Icon fileName="img_direct_call.png" />
+        </div>
+        <h3 class="title-item">تماس تلفنی مستقیم</h3>
+        <p class="desc">
+          به‌راحتی و به‌طور مستقیم با پزشک یا . روان‌شناس مد نظرتان تلفنی صحبت
+          کنید هزینه تماس شما به‌صورت دقیقه‌ای .محاسبه می‌شود
+        </p>
+        <p class="desc-small">
+          تعرفه صحبت را خود پزشک یا روان‌شناس مشخص می‌کند.
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
