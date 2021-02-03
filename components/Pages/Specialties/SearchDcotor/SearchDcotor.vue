@@ -35,7 +35,11 @@
     }
     ::v-deep {
       .input-q {
-        width: 380px;
+        width: 312px;
+        margin-top: 24px;
+        @include media(sm) {
+          width: 387px;
+        }
         .v-input__slot {
           box-shadow: none !important;
         }
@@ -43,7 +47,10 @@
     }
 
     .btn-q {
-      width: 240px;
+      width: 312px;
+      @include media(sm) {
+        width: 240px;
+      }
     }
   }
 }
@@ -52,9 +59,7 @@
 <template>
   <section class="search-dcotor d-flex flex-column align-center justify-center">
     <form @submit.prevent="onSubmit" class="d-flex flex-column align-center">
-      <h1>
-        نام پزشک، تخصص یا بیماری مدنظرتان را وارد کنید.
-      </h1>
+      <h1>نام پزشک، تخصص یا بیماری مدنظرتان را وارد کنید.</h1>
       <v-text-field
         v-model="form.q"
         placeholder="نام و نام خانوادگی، تخصص، بیماری"
@@ -62,7 +67,7 @@
         v-validate="'required'"
         :error-messages="errors.collect('q')"
         data-vv-as="نام و نام خانوادگی، تخصص، بیماری"
-        class="input-q mt-6"
+        class="input-q"
         outlined
         solo
       >

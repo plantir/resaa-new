@@ -7,6 +7,10 @@
       width: 128px;
       height: 128px;
     }
+    @include media(xl) {
+      width: 200px;
+      height: 200px;
+    }
   }
   h2 {
     font-size: 14px;

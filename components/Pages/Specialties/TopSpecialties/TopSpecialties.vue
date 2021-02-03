@@ -1,10 +1,23 @@
 <style lang="scss" scoped>
+.container {
+  padding-top: 0;
+}
 .top-specialties-wrapper {
   .main-title {
     font-size: 16px;
     font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
     @include media(sm) {
       display: none;
+    }
+  }
+  .item-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include media(sm) {
+      justify-content: center;
     }
   }
   ::v-deep {
@@ -40,10 +53,8 @@
 <template>
   <v-container>
     <div class="top-specialties-wrapper">
-      <div class="main-title text-center mb-5">
-        دسترسی سریع به تخصص‌ها و بیماری‌ها
-      </div>
-      <div class="d-flex flex-wrap justify-space-between">
+      <div class="main-title">دسترسی سریع به تخصص‌ها و بیماری‌ها</div>
+      <div class="item-wrapper">
         <CardSpecialtie v-for="(item, index) in 10" :key="index" />
       </div>
     </div>
