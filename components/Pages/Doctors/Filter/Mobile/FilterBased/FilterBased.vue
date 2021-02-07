@@ -10,11 +10,13 @@
     color: $primary-color;
     button {
       margin-left: 10px;
+      font-size: 14px;
+      font-weight: bold;
       &:last-child {
         margin-left: 0;
       }
       i {
-        font-size: 20px;
+        font-size: 24px;
       }
     }
   }
@@ -27,7 +29,7 @@
       <span class="label">فیلتر بر اساس:</span>
       <div class="left d-flex">
         <FilterBySpecialty v-model="filter.specialty" />
-        <FilterBySickness v-model="filter.sickness" class="mr-2" />
+        <FilterBySickness v-model="filter.sickness" class="mr-3" />
       </div>
     </div>
     <div class="bottom d-flex align-start mt-5">

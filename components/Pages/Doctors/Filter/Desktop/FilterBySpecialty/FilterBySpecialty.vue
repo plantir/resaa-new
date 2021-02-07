@@ -17,6 +17,9 @@
   .show-all.full {
     margin-top: 0;
   }
+  .v-text-field--outlined fieldset {
+    border-color: #6c6c6c;
+  }
 }
 </style>
 

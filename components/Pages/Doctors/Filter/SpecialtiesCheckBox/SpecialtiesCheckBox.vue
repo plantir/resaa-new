@@ -10,6 +10,7 @@
       margin-bottom: 4px;
       .v-label {
         font-size: 14px;
+        font-weight: 500;
         color: #4b4b4b;
         white-space: nowrap;
         overflow: hidden;
@@ -26,7 +27,12 @@
 <template>
   <div class="specialties-checkbox">
     <div class="specialty" v-for="item in specialtiesFilter" :key="item.id">
-      <v-checkbox v-model="selected" :label="item.title" :value="item.id" dense />
+      <v-checkbox
+        v-model="selected"
+        :label="item.title"
+        :value="item.id"
+        dense
+      />
     </div>
   </div>
 </template>
@@ -272,7 +278,9 @@ export default class SpecialtiesCheckBox extends Vue {
   get specialtiesFilter() {
     let filter = this.specialties
     if (this.query) {
-      filter = this.specialties.filter(item => item.title.includes(this.query))
+      filter = this.specialties.filter((item) =>
+        item.title.includes(this.query)
+      )
     }
 
     return filter

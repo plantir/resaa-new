@@ -102,6 +102,9 @@
     }
 
     .bottom {
+      display: flex;
+      justify-content: space-between;
+
       flex-direction: column;
       font-size: 12px;
       font-weight: bold;
@@ -109,26 +112,38 @@
       @include media(sm) {
         flex-direction: row;
       }
-      .meta-wrapper {
-        justify-content: space-evenly !important;
+      .description-wrapper {
         flex-wrap: wrap;
         width: 100%;
         @include media(sm) {
+          display: flex;
+          align-items: center;
           width: calc(100% - 160px);
         }
-        .meta-item {
+        .value {
+          margin-right: 5px;
+        }
+        .items {
+          display: flex;
+          align-items: center;
+          @include media(sm) {
+            padding-left: 30px;
+          }
+        }
+        .description-top {
+          display: flex;
+          justify-content: space-between;
+        }
+        .price {
           margin-top: 30px;
-          ::v-deep {
-            img {
-              width: 20px;
-              height: 20px;
-            }
+          display: flex;
+          justify-content: center;
+          @include media(sm) {
+            margin-top: 0;
           }
-          i {
-            font-size: 20px;
-          }
-          .value {
-            margin-right: 5px;
+          .price-wrapper {
+            display: flex;
+            align-items: center;
           }
         }
       }
@@ -180,23 +195,40 @@
 
       <div class="middle">
         <p class="skills">
-          فوق تخصص روماتولوژی، تخصص داخلی، عضو هیت علمی دانشگاه علوم‌پزشکی تهران
+          <!-- فوق تخصص روماتولوژی، تخصص داخلی، عضو هیت علمی دانشگاه علوم‌پزشکی تهران -->
+          {{ doctor.expertise }}
         </p>
       </div>
 
-      <div class="bottom d-flex justify-space-between">
-        <div class="meta-wrapper d-flex justify-space-between">
-          <div class="meta-item d-flex align-center">
-            <v-icon color="orange" size="26">la-check-circle</v-icon>
-            <span class="value">۱۲ سال سابقه</span>
+      <div class="bottom">
+        <div class="description-wrapper">
+          <div class="description-top">
+            <div class="items">
+              <v-img
+                src="/images/icons/ic_check.png"
+                width="24px"
+                height="24px"
+              ></v-img>
+              <span class="value">۱۲ سال سابقه</span>
+            </div>
+            <div class="items">
+              <v-img
+                src="/images/icons/ic_call.png"
+                width="24px"
+                height="24px"
+              ></v-img>
+              <span class="value">۲۵ تماس موفق</span>
+            </div>
           </div>
-          <div class="meta-item d-flex align-center">
-            <v-icon color="orange" size="26">la-phone-volume</v-icon>
-            <span class="value">۲۵ تماس موفق</span>
-          </div>
-          <div class="meta-item d-flex align-center">
-            <v-icon color="orange" size="26">la-money-bill</v-icon>
-            <span class="value">۳,۰۰۰ تومان در دقیقه</span>
+          <div class="price">
+            <div class="price-wrapper">
+              <v-img
+                src="/images/icons/money.png"
+                width="24px"
+                height="24px"
+              ></v-img>
+              <span class="value">۳,۰۰۰ تومان در دقیقه</span>
+            </div>
           </div>
         </div>
 

@@ -2,13 +2,16 @@
 main.doctors-main {
   margin-top: 30px;
 }
+.container {
+  padding: 0 24px;
+}
 </style>
 
 <template>
   <main class="doctors-main">
     <v-container>
       <div class="d-flex flex-wrap">
-        <template v-if="$device.isMobile">
+        <template v-if="$device.isMobileOrTablet">
           <FilterMobile v-model="filter" />
           <ListDoctorsMobile
             @sort="onSort"
@@ -98,7 +101,7 @@ export default class DoctorsPage extends Vue {
     this.filter.orderBy = sort
   }
 
-  async fetch() {
+  async mounted() {
     await this.getDoctors()
   }
 
