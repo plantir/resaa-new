@@ -1,4 +1,10 @@
 <style lang="scss" scoped>
+.container {
+  padding-right: 24px;
+  @include media(sm) {
+    padding-right: 12px;
+  }
+}
 .tag-list {
   .main-title {
     color: #6c6c6c;
@@ -8,6 +14,8 @@
   .tags {
     margin-top: 38px;
     margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
     @include media(sm) {
       margin-top: 44px;
     }
@@ -18,10 +26,8 @@
 <template>
   <v-container>
     <div class="tag-list">
-      <div class="main-title text-center">
-        سایر تخصص‌ها و بیماری‌ها
-      </div>
-      <div class="tags d-flex flex-wrap">
+      <div class="main-title text-center">سایر تخصص‌ها و بیماری‌ها</div>
+      <div class="tags">
         <Tag v-for="(item, index) in tags" :key="index" :tag="item" />
       </div>
     </div>

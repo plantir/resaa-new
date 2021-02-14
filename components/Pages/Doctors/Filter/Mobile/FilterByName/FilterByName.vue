@@ -3,6 +3,9 @@
   .v-text-field__details {
     display: none;
   }
+  .v-input__slot {
+    height: 48px;
+  }
 }
 </style>
 
@@ -17,8 +20,8 @@
   >
     <template v-slot:append>
       <img
-        width="24"
-        height="24"
+        width="32px"
+        height="32px"
         src="/images/icons/ic_search.png"
         alt="search"
       />

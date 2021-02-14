@@ -2,7 +2,9 @@
 .sort-item {
   font-weight: bold;
   line-height: 45px;
-  padding: 0 15px;
+  padding: 0 13px;
+  font-size: 16px;
+  letter-spacing: 0.15px;
   &.active {
     background-color: #d6fffa;
   }

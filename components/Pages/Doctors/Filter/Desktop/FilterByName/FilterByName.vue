@@ -1,4 +1,10 @@
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+::v-deep {
+  .v-text-field--outlined fieldset {
+    border-color: #6c6c6c;
+  }
+}
+</style>
 
 <template>
   <FilterCard title="جستجو" :hasCollapse="false">
@@ -11,14 +17,14 @@
         outlined
         dense
       >
-        <template v-slot:append>
+        <!-- <template v-slot:append>
           <img
             width="24"
             height="24"
             src="/images/icons/ic_search.png"
             alt="search"
           />
-        </template>
+        </template> -->
       </v-text-field>
     </div>
   </FilterCard>

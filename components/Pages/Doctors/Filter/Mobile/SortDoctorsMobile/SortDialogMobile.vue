@@ -20,10 +20,13 @@
   width: 100%;
   height: 250px;
   z-index: 999;
-  padding: 24px 15px;
+  padding: 24px;
   .main-title {
     color: #6c6c6c;
     font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.15px;
+    padding-right: 10px;
   }
   .items {
     padding-top: 10px;

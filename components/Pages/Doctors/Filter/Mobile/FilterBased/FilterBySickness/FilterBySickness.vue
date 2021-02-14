@@ -1,11 +1,25 @@
 <style lang="scss" scoped>
+::v-deep {
+  .v-text-field__details {
+    display: none;
+  }
+  .search {
+    .v-input__slot {
+      height: 48px;
+    }
+  }
+}
 .filter-specialty {
   > button {
-    border: 1px solid #797979;
-    padding: 0 15px;
+    border: 1px solid #6c6c6c;
+    // padding: 0 15px;
     border-radius: 8px;
-    line-height: 32px;
-    color: #797979;
+    // line-height: 32px;
+    width: 94px;
+    height: 32px;
+    color: #6c6c6c;
+    font-weight: bold;
+    font-size: 12px;
     &.active {
       border-color: $primary-color;
       color: $primary-color;
@@ -39,9 +53,27 @@
       }
     }
     .footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
       background-color: #fff;
-      line-height: 56px;
-      padding: 8px 20px;
+      height: 56px;
+      .confirm {
+        height: 40px;
+        width: 144px;
+        border-radius: 8px;
+        background-color: #e1e2e1 !important;
+        color: #6c6c6c;
+        font-size: 14px;
+        font-weight: bold;
+        margin-right: 67px;
+        margin-left: 24px;
+      }
+      .cancel {
+        padding: 0;
+        margin: 0;
+        color: #35d6c1;
+      }
     }
   }
 }
@@ -65,19 +97,31 @@
       </div>
       <div class="content-body">
         <v-text-field
+          class="search"
           v-model="query"
           placeholder="جستجوی بیماری"
           name="query"
           clearable
           outlined
           dense
-        />
+        >
+          <template v-slot:append>
+            <img
+              width="32px"
+              height="32px"
+              src="/images/icons/ic_search.png"
+              alt="search"
+            />
+          </template>
+        </v-text-field>
 
         <SpecialtiesCheckBox v-model="selected" :query="query" />
       </div>
-      <div class="footer d-flex justify-space-between">
-        <v-btn text @click="visibleFilter = false">انصراف</v-btn>
-        <v-btn :disabled="selected.length === 0">تایید و اعمال فیلتر</v-btn>
+      <div class="footer">
+        <v-btn class="cancel" text @click="visibleFilter = false">انصراف</v-btn>
+        <v-btn class="confirm" depressed :disabled="selected.length === 0"
+          >تایید و اعمال فیلتر</v-btn
+        >
       </div>
     </div>
   </div>

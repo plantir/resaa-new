@@ -1,22 +1,24 @@
 <style lang="scss" scoped>
 .sort {
-  border: 1px solid #6c6c6c;
+  display: flex;
+  justify-content: space-between;
+  border: solid 1px #35d6c1;
   border-radius: 8px;
   line-height: 40px;
   padding: 0 12px;
   font-weight: bold;
   .label {
-    color: #6c6c6c;
+    color: #000000;
+  }
+  .value {
+    color: #35d6c1;
   }
 }
 </style>
 
 <template>
   <div class="sort-wrapper">
-    <div
-      class="sort d-flex justify-space-between mt-5"
-      @click="dialogVisible = !dialogVisible"
-    >
+    <div class="sort mt-5" @click="dialogVisible = !dialogVisible">
       <div class="label">مرتب شده بر اساس:</div>
       <div class="value">{{ selectedText }}</div>
     </div>
@@ -71,7 +73,9 @@ export default class SortDoctorsMobile extends Vue {
   ]
 
   get selectedText() {
-    const selected = this.sortOptions.find(item => item.value === this.orderBy)
+    const selected = this.sortOptions.find(
+      (item) => item.value === this.orderBy
+    )
     return selected?.label
   }
 
