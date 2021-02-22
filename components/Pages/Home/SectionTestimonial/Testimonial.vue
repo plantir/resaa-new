@@ -80,6 +80,12 @@
       border: 1px solid #9ee7db;
     }
   }
+  .author {
+    color: #212121;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 25px;
+  }
 }
 </style>
 
@@ -88,12 +94,15 @@
     <div class="card">
       <div class="content">
         <p class="text-justify pa-5">
-          {{ content }}
+          {{ content.body }}
         </p>
       </div>
     </div>
     <div class="avatar d-flex flex-column">
       <img src="/images/home/doctors/1.png" alt />
+    </div>
+    <div class="author">
+      {{ content.author }}
     </div>
   </div>
 </template>
@@ -104,8 +113,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 @Component
 export default class Testimonial extends Vue {
   @Prop({
-    type: String,
+    type: Object,
   })
-  content!: String
+  content!: Object
 }
 </script>

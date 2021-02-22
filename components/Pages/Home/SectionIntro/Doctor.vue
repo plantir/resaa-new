@@ -30,6 +30,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      color: #4b4b4b;
       &::before {
         background-color: #e6e6e6;
         content: '';
@@ -40,7 +41,7 @@
         height: 2px;
       }
       &::after {
-        background-color: var(--v-primary-base);
+        background-color: #f9a429;
         content: '';
         position: absolute;
         right: 0;

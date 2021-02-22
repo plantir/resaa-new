@@ -1,11 +1,11 @@
 <style lang="scss" scoped></style>
 <template>
   <main>
-    <div v-if="!loggedIn">
+    <div>
       <SectionIntro :doctors="doctors" :loading="loadingDoctors" />
     </div>
     <SectionSearch />
-    <div v-if="loggedIn">
+    <div>
       <ChosenDoctor
         title="متخصصین پیشنهادی برای شما"
         :doctors="doctors"
@@ -23,7 +23,7 @@
         :loading="loadingSuggestionDoctors"
       />
     </div>
-    <div v-else>
+    <div>
       <SectionFeatures :doctors="doctors" />
       <SectionTestimonial />
     </div>

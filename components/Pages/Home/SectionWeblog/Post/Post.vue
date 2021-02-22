@@ -2,7 +2,12 @@
 .post {
   direction: rtl;
   padding: 5px;
-  height: 100%;
+  height: 550px;
+  width: 330px;
+  @include media(sm) {
+    width: auto;
+    height: 100%;
+  }
   h3 {
     font-size: 14px;
     line-height: 21px;

@@ -22,7 +22,7 @@
     content: '';
     position: absolute;
     border-radius: 4px;
-    right: -66px;
+    right: -64px;
   }
   &.telegram {
     &::before {

@@ -2,7 +2,7 @@
 .section-weblog {
   padding: 48px 0;
   @include media(sm) {
-    padding: 38px 0 106px;
+    padding: 38px 30px 106px;
   }
   ::v-deep {
     .container {
@@ -25,29 +25,33 @@
     border-radius: 8px;
     font-weight: bold;
     margin: 0 !important;
+    width: 330px;
+    height: 48px;
+    @include media(sm) {
+      height: 56px;
+      width: 256px;
+    }
   }
 }
 </style>
 
 <template>
   <section class="section-weblog">
-    <v-container>
-      <div class="post-title">آخرین‌ها در مجله تخصصی پزشکی رسا</div>
-      <WeblogMobile v-if="$device.isMobile" :posts="posts" />
-      <WeblogDesktop v-else :posts="posts" />
-      <div class="text-center">
-        <v-btn
-          class="blog-link resaa-btn"
-          outlined
-          x-large
-          href="https://resaa.net/blog"
-          target="_blank"
-          :block="$device.isMobile"
-        >
-          ورورد به مجله خبری آنلاین
-        </v-btn>
-      </div>
-    </v-container>
+    <!-- <v-container> -->
+    <div class="post-title">آخرین‌ها در مجله تخصصی پزشکی رسا</div>
+    <WeblogMobile v-if="$device.isMobile" :posts="posts" />
+    <WeblogDesktop v-else :posts="posts" />
+    <div class="text-center">
+      <v-btn
+        class="blog-link resaa-btn"
+        outlined
+        href="https://resaa.net/blog"
+        target="_blank"
+      >
+        ورورد به مجله خبری آنلاین
+      </v-btn>
+    </div>
+    <!-- </v-container> -->
   </section>
 </template>
 

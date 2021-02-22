@@ -1,17 +1,34 @@
 <style lang="scss" scoped>
 .result {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 32px;
+  padding-bottom: 66px;
   .list {
     width: 100%;
   }
   .view-all {
-    border: 1px solid $primary-color;
-    color: $primary-color;
-    line-height: 48px;
-    border-radius: 8px;
-    display: block;
-    text-align: center;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-left: 40px;
+    .doctor-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+    }
+    .more {
+      .v-btn {
+        font-size: 14px;
+        font-weight: 500;
+        a {
+          color: #000000;
+        }
+      }
+    }
   }
   .empty {
     padding: 40px 0 54px;
@@ -27,19 +44,30 @@
     }
   }
 }
+.swiper-container {
+  padding: 0 0 30px;
+}
 </style>
 
 <template>
-  <div class="result d-flex flex-column align-center">
+  <div class="result">
     <div class="list" v-if="doctors.length > 0">
-      <Doctor
-        v-for="doctor in doctors"
-        :key="doctor.id"
-        :doctor="doctor"
-        class="mb-6"
-      />
-
-      <nuxt-link class="view-all" to="/"> مشاهده همه </nuxt-link>
+      <div class="view-all">
+        <div class="doctor-title">نتایج از بین پزشکان</div>
+        <div class="more">
+          <v-btn text>
+            <nuxt-link to="/">
+              مشاهده همه
+              <v-icon color="#35d6c1" size="18">la-angle-left</v-icon>
+            </nuxt-link>
+          </v-btn>
+        </div>
+      </div>
+      <swiper ref="swiper" :options="swiperOptions">
+        <swiper-slide v-for="doctor in doctors" :key="doctor.id">
+          <Doctor :doctor="doctor" />
+        </swiper-slide>
+      </swiper>
     </div>
     <div class="empty" v-else>
       <img src="/images/home/skills.png" />
@@ -62,5 +90,29 @@ export default class SearchResult extends Vue {
     required: true,
   })
   readonly doctors!: Array<object>
+  swiperOptions = {
+    grabCursor: true,
+    loop: true,
+    slidesPerView: 2,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 7000,
+      disableOnInteraction: false,
+    },
+
+    breakpoints: {
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      1280: {
+        slidesPerView: 4,
+        spaceBetween: 50,
+      },
+      1785: {
+        slidesPerView: 5,
+      },
+    },
+  }
 }
 </script>
