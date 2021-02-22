@@ -3,7 +3,7 @@
   background-color: #fff;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   border-radius: 6px;
-  max-width: 148px;
+  width: 148px;
   margin: 0 10px;
   direction: rtl;
   padding: 0 8px 5px 8px;
@@ -13,7 +13,7 @@
   .image {
     padding-top: 8px;
     .v-skeleton-loader__avatar {
-      max-width: 132px;
+      width: 148px;
       height: 190px;
       @include media(sm) {
         min-width: 188px;

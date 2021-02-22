@@ -17,7 +17,7 @@
     width: 100%;
     ::v-deep {
       .swiper-slide {
-        padding-top: 60px !important;
+        padding-top: 88px !important;
         padding-bottom: 50px !important;
         @include media(sm) {
           padding-top: 40px !important;
@@ -84,7 +84,7 @@
     <div class="testimonials" v-if="!loading">
       <swiper ref="swiper" :options="swiperOptions">
         <swiper-slide v-for="(testimonial, index) in testimonial" :key="index">
-          <Testimonial :content="testimonial.body" />
+          <Testimonial :content="testimonial" />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>

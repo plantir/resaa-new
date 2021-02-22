@@ -55,7 +55,7 @@
         font-size: 15px;
         padding: 10px 0 12px;
         @include media(sm) {
-          padding: 10px 36px 12px 0;
+          padding: 50px 36px 12px 0;
         }
       }
       .desc {
@@ -63,9 +63,13 @@
         line-height: 24px;
         margin-bottom: 0;
         font-size: 14px;
+        font-weight: 500;
         @include media(sm) {
           padding-right: 36px;
         }
+      }
+      p {
+        margin-bottom: 0;
       }
       .desc-small {
         color: #a5a5a5;
@@ -118,7 +122,7 @@
           right: auto;
           left: -85px;
           bottom: 0;
-          top: -170px;
+          top: -250px;
         }
         @include media(sm-only) {
           transform: scale(0.5);
@@ -178,12 +182,12 @@
           (اعتبار رسای شما، مستقل از حساب سیم‌کارتتان است).
         </p>
         <p class="desc" v-else>
-          چه تلفن هوشمند داشته باشید چه .نه، می‌توانید از رسا استفاده کنید
+          چه تلفن هوشمند داشته باشید چه نه، می‌توانید از رسا استفاده کنید.
         </p>
         <p class="desc-small" v-if="!$device.isMobile">
           اعتبار حساب شما مستقل از سیم‌کارتتان است.
         </p>
-        <v-btn class="resaa-btn" @click="onIncreaseCredit">
+        <v-btn class="resaa-btn mt-4" @click="onIncreaseCredit">
           افزایش اعتبار
         </v-btn>
       </div>
@@ -191,10 +195,20 @@
         <div class="image">
           <Icon fileName="img_direct_call.png" />
         </div>
-        <h3 class="title-item">تماس تلفنی مستقیم</h3>
-        <p class="desc">
+        <h3 class="title-item">
+          {{
+            $device.isMobile
+              ? 'تماس تصویری با پزشک یا روان‌شناس'
+              : '     تماس تلفنی مستقیم'
+          }}
+        </h3>
+        <p v-if="$device.isMobile">
+          چه تلفن هوشمند داشته باشید چه نه، می‌توانید از رسا استفاده کنید
+          (اعتبار رسای شما، مستقل از حساب سیم‌کارتتان است).
+        </p>
+        <p class="desc" v-else>
           به‌راحتی و به‌طور مستقیم با پزشک یا . روان‌شناس مد نظرتان تلفنی صحبت
-          کنید هزینه تماس شما به‌صورت دقیقه‌ای .محاسبه می‌شود
+          .کنید هزینه تماس شما به‌صورت دقیقه‌ای محاسبه می‌شود
         </p>
         <p class="desc-small">
           تعرفه صحبت را خود پزشک یا روان‌شناس مشخص می‌کند.

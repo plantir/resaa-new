@@ -36,7 +36,7 @@
         </swiper-slide>
       </swiper>
       <swiper :options="swiperOptions" v-show="loading">
-        <swiper-slide v-for="index in doctors.length" :key="index">
+        <swiper-slide v-for="index in 15" :key="index">
           <AppSkeleton section="DoctorSwiper" />
         </swiper-slide>
       </swiper>
@@ -80,6 +80,9 @@ export default class Doctors extends Vue {
     breakpoints: {
       640: {
         slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4,
       },
       1280: {
         slidesPerView: 6,

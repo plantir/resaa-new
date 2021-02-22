@@ -1,7 +1,10 @@
 <template>
   <v-app :dark="false">
-    <MenuMobile v-model="drawer" v-if="$device.isMobile" />
-    <HeaderMobile @toggleNavbar="drawer = !drawer" v-if="$device.isMobile" />
+    <MenuMobile v-model="drawer" v-if="$device.isMobileOrTablet" />
+    <HeaderMobile
+      @toggleNavbar="drawer = !drawer"
+      v-if="$device.isMobileOrTablet"
+    />
     <HeaderDesktop v-else />
     <v-content>
       <nuxt />

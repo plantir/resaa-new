@@ -3,7 +3,7 @@ section {
   background-color: #f9f9f9;
   padding: 41px 31px 48px;
   @include media(sm) {
-    padding: 100px 26px;
+    padding: 100px 0;
   }
 }
 .feature-one {
@@ -13,6 +13,9 @@ section {
     align-items: center;
     display: flex;
     flex-direction: column;
+    @include media(sm) {
+      padding-right: 26px;
+    }
     .main-title {
       text-align: center;
       @include media(sm) {
@@ -79,7 +82,7 @@ section {
 
   .left {
     display: none;
-    @include media(md) {
+    @include media(lg) {
       display: flex;
       flex: 0 0 500px;
       margin-right: 100px;
@@ -88,9 +91,12 @@ section {
         background: url(/images/home/img_phone_rotated.png) no-repeat;
         width: 537px;
         height: 849px;
-        top: -180px;
+        top: -120px;
         position: absolute;
         transform: scale(0.75);
+        @include media(xl) {
+          top: -180px;
+        }
       }
     }
     .doctor {
@@ -108,7 +114,7 @@ section {
       }
       &:nth-child(3) {
         top: 410px;
-        left: 250px;
+        left: 260px;
         @include media(xl) {
           top: 320px;
         }

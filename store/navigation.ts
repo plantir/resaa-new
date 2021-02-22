@@ -11,30 +11,35 @@ export default class Index extends VuexModule {
       link: '/',
       internalLink: true,
       newTab: false,
+      icon: 'apps',
     },
     {
       label: 'تخصص‌ها',
       link: '/specialties',
       internalLink: true,
       newTab: false,
+      icon: 'la-briefcase',
     },
     {
       label: 'لیست پزشکان و روانشناسان',
       link: '/doctors',
       internalLink: true,
       newTab: false,
+      icon: 'la-user-nurse',
     },
     {
       label: 'مقالات',
       link: 'https://blog.resaa.net',
       internalLink: false,
       newTab: true,
+      icon: 'la-blog',
     },
     {
       label: 'سوالات متداول',
       link: '/faq',
       internalLink: true,
       newTab: false,
+      icon: 'la-question',
     },
   ]
 }

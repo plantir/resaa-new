@@ -8,6 +8,9 @@ form {
         background: #fff;
       }
     }
+    .v-label {
+      color: #4b4b4b;
+    }
     button {
       width: 100% !important;
       display: block;
@@ -35,7 +38,7 @@ form {
   <form @submit.prevent="onSubmit" class="d-flex flex-column align-center">
     <v-text-field
       v-model="form.q"
-      placeholder="نام و نام خانوادگی، تخصص، بیماری"
+      label="نام و نام خانوادگی، تخصص، بیماری"
       name="q"
       v-validate="'required'"
       :error-messages="errors.collect('q')"

@@ -93,7 +93,10 @@ export default class Doctors extends Vue {
 
     breakpoints: {
       640: {
-        slidesPerView: 2,
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4,
       },
       1280: {
         slidesPerView: 6,

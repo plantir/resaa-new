@@ -19,14 +19,13 @@
       <div class="title text-center">پزشک یا روان‌شناس خود را پیدا کنید.</div>
 
       <SearchForm class="mt-6" @submit="onSubmit" />
-
-      <!-- <SearchResultMobile
-        v-if="$device.isMobile"
-        class="mt-6"
-        :doctors="doctors"
-      /> -->
-      <SearchResultDesktop class="mt-6" :doctors="doctors" />
     </v-container>
+    <SearchResultMobile
+      v-if="$device.isMobile"
+      class="mt-6"
+      :doctors="doctors"
+    />
+    <SearchResultDesktop v-else class="mt-6" :doctors="doctors" />
   </section>
 </template>
 
