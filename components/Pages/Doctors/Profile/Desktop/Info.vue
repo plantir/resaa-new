@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .box {
-  margin-top: 16px;
+  // margin-top: 16px;
   min-width: 310px;
   .v-card {
     text-align: center;
@@ -23,13 +23,20 @@
       right: 0;
       bottom: 20px;
       text-align: center;
-      font-size: 12px;
       font-weight: 500;
-      color: #058e4b;
-      background-color: #e9fbf3;
       border-radius: 30px;
       padding: 0.4rem 0.3rem;
       width: 80px;
+      &.online {
+        background-color: #e9fbf3;
+        color: #058e4b;
+        font-size: 12px;
+      }
+      &.offline {
+        background-color: #fbdde2;
+        color: #eb5470;
+        font-size: 10px;
+      }
     }
   }
   .doctor_name {
@@ -116,11 +123,16 @@
   <div class="box">
     <v-card>
       <div class="img">
-        <v-img width="100%" height="100%" :src="`/api/${doctor.imagePath}`" :alt="fullName" />
-        <span class="available">در دسترس</span>
+        <v-img
+          width="100%"
+          height="100%"
+          :src="`/api/${doctor.imagePath}`"
+          :alt="fullName"
+        />
+        <span class="available" :class="statusClass">{{ statusText }}</span>
       </div>
       <div class="doctor_name">
-        <h3>{{fullName}}</h3>
+        <h3>{{ fullName }}</h3>
         <div>
           <span>
             <img src="@/assets/img/ic_call.png" alt />
@@ -133,7 +145,7 @@
           <li>
             <div>
               <span>تخصص:</span>
-              <span>{{doctor.specialtyTitle}}</span>
+              <span>{{ doctor.specialtyTitle }}</span>
             </div>
           </li>
           <li v-if="doctor.medicalCouncilNumber">
@@ -151,10 +163,13 @@
           <li>
             <div class="call">
               <span>تعرفه تماس:</span>
-              <span>{{ +doctor.pricePerMinute | currency | persianDigit }} تومان در دقیقه</span>
+              <span
+                >{{ +doctor.pricePerMinute | currency | persianDigit }} تومان در
+                دقیقه</span
+              >
             </div>
             <div v-for="(item, index) in doctor.workplaces" :key="index">
-              <span>آدرس مطب {{ index+1 | persianDigit }}:</span>
+              <span>آدرس مطب {{ (index + 1) | persianDigit }}:</span>
               <span>
                 <a @click="showWorkplace(item)">نمایش آدرس</a>
               </span>
@@ -164,8 +179,11 @@
                 :to="`${$route.fullPath}/experiement`"
                 class="sendAnswer"
                 outlined
-              >ارسال جواب آزمایش</v-btn>
-              <v-btn :to="`${$route.fullPath}/call`" class="directCall">تماس مستقیم</v-btn>
+                >ارسال جواب آزمایش</v-btn
+              >
+              <v-btn :to="`${$route.fullPath}/call`" class="directCall"
+                >تماس مستقیم</v-btn
+              >
             </div>
           </li>
           <li>
@@ -200,7 +218,16 @@ export default class component_name extends Vue {
     console.log(item)
   }
   get fullName() {
-    return `${this.doctor.title} ${this.doctor.firstName} ${this.doctor.lastName}`
+    return `${this.doctor.title ? this.doctor.title : ''} ${
+      this.doctor.firstName
+    } ${this.doctor.lastName}`
+  }
+  get statusClass() {
+    return this.doctor.isCurrentlyAvailable ? 'online' : 'offline'
+  }
+
+  get statusText() {
+    return this.doctor.isCurrentlyAvailable ? 'در دسترس' : 'خارج از دسترس'
   }
 }
 </script>

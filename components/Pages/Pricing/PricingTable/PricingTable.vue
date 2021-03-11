@@ -24,39 +24,9 @@ import { Component, Vue } from 'vue-property-decorator'
   },
 })
 export default class PricingTable extends Vue {
-  packages = [
-    {
-      color: '#35d6c1',
-      count: 3,
-      name: 'تماس کوتاه',
-      title: '۳ دقیقه مکامله',
-      desc: ' مناسب برای پرسش و دریافت پاسخ ۲ سوال کوتاه',
-      price: 9000,
-    },
-    {
-      color: '#0bbad9',
-      count: 3,
-      name: 'تماس کوتاه',
-      title: '۳ دقیقه مکامله',
-      desc: ' مناسب برای پرسش و دریافت پاسخ ۲ سوال کوتاه',
-      price: 9000,
-    },
-    {
-      color: '#f9a429',
-      count: 3,
-      name: 'تماس کوتاه',
-      title: '۳ دقیقه مکامله',
-      desc: ' مناسب برای پرسش و دریافت پاسخ ۲ سوال کوتاه',
-      price: 9000,
-    },
-    {
-      color: '#c73260',
-      count: 3,
-      name: 'تماس کوتاه',
-      title: '۳ دقیقه مکامله',
-      desc: ' مناسب برای پرسش و دریافت پاسخ ۲ سوال کوتاه',
-      price: 9000,
-    },
-  ]
+  packages: any = []
+  async mounted() {
+    this.packages = await this.$service.pricing.query()
+  }
 }
 </script>

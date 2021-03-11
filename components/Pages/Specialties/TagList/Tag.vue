@@ -9,7 +9,10 @@
   color: #6c6c6c;
   border: solid 1px #c6c6c6;
   background-color: #fff;
-  // padding: 0 15px;
+  padding: 0 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   margin-left: 12px;
   margin-bottom: 12px;
   font-size: 12px;
@@ -27,7 +30,7 @@
 
 <template>
   <nuxt-link class="tag" to="">
-    {{ tag.name }}
+    {{ tag }}
   </nuxt-link>
 </template>
 
@@ -37,9 +40,9 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 @Component
 export default class Tag extends Vue {
   @Prop({
-    type: Object,
+    type: String,
     required: true,
   })
-  readonly tag!: Object
+  readonly tag!: String
 }
 </script>

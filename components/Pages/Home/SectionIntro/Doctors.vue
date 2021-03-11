@@ -81,11 +81,12 @@ import { RelatedDoctor } from '~/models/Doctor'
 })
 export default class Doctors extends Vue {
   swiperOptions = {
-    centeredSlides: true,
+    // centeredSlides: true,
     spaceBetween: 15,
     slidesPerView: 2,
     slidesPerGroup: 1,
     loop: true,
+    grabCursor: true,
     autoplay: {
       delay: 10000,
       disableOnInteraction: false,
@@ -106,7 +107,6 @@ export default class Doctors extends Vue {
         slidesPerView: 8,
       },
     },
-    grabCursor: true,
   }
   @Prop()
   doctors!: RelatedDoctor[]

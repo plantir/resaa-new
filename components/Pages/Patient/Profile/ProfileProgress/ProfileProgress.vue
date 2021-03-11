@@ -29,17 +29,24 @@
   <v-card class="profile-progress d-flex justify-space-between">
     <div class="right d-flex flex-column">
       <p class="font-weight-medium main-color">
-        <span class="value">{{ percentage | persianDigit }}</span> درصد از پروفایل شما تکمیل
-        شده است.
+        <span class="value">{{ percentage | persianDigit }}</span> درصد از
+        پروفایل شما تکمیل شده است.
       </p>
-      <v-progress-linear background-color="13d1f3" height="8" :value="percentage" rounded />
+      <v-progress-linear
+        background-color="13d1f3"
+        height="8"
+        :value="percentage"
+        rounded
+      />
     </div>
 
     <div class="left d-flex align-center">
-      <div
-        class="desc font-weight-medium"
-      >اطلاعات شخصی خود ا تکمیل کنید تا بتوانیم بهتر به‌شما خدمت‌رسانی کنیم.</div>
-      <v-btn class="mr-6" @click="$emit('editProfile')">تکمیل اطلاعات شخصی</v-btn>
+      <div class="desc font-weight-medium">
+        اطلاعات شخصی خود ا تکمیل کنید تا بتوانیم بهتر به‌شما خدمت‌رسانی کنیم.
+      </div>
+      <v-btn class="mr-6 resaa-btn" @click="$emit('editProfile')"
+        >تکمیل اطلاعات شخصی</v-btn
+      >
     </div>
   </v-card>
 </template>

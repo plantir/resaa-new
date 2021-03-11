@@ -1,4 +1,8 @@
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.text {
+  color: #35d6c1;
+}
+</style>
 
 <template>
   <div class="edit-mobile d-flex align-center">

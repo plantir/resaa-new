@@ -170,7 +170,7 @@
       </div>
       <div class="feature">
         <div class="image">
-          <Icon fileName="ic_buy_credit.png" />
+          <Icon fileName="ic_buy_credit2.png" />
         </div>
         <h3 class="title-item">
           {{

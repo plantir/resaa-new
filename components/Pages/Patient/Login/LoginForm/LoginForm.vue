@@ -1,7 +1,11 @@
 <style lang="scss" scoped>
 .auth-form {
   max-width: 396px;
-  .desc,
+  z-index: 1;
+  .v-card {
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  }
   .help-block {
     font-size: 12px;
     color: #212121;
@@ -12,8 +16,35 @@
       color: #fff;
     }
   }
+  .form {
+    padding: 10px 25px 25px;
+    @include media(sm) {
+      padding: 25px;
+    }
+    ::v-deep {
+      .v-input__slot {
+        min-height: 40px;
+        @include media(sm) {
+          min-height: 56px;
+        }
+      }
+    }
+  }
   .desc {
     font-size: 14px;
+    font-weight: 500;
+    color: #212121;
+    line-height: 2;
+    margin-bottom: 25px;
+    @include media(sm) {
+      margin-bottom: 16px;
+    }
+  }
+  .resaa-btn {
+    height: 36px !important;
+    @include media(sm) {
+      height: 48px !important;
+    }
   }
   ::v-deep {
     .v-btn {
@@ -30,13 +61,10 @@
       <div class="icon mt-10 d-flex justify-center">
         <Icon fileName="ic_mobile_number.png" />
       </div>
-      <form class="pa-6" @submit.prevent="onSubmit">
-        <p class="desc font-weight-medium">
-          برای ورود به رسا، شماره موبایل خود را وارد کنید.
-        </p>
+      <form class="form" @submit.prevent="onSubmit">
+        <p class="desc">برای ورود به رسا، شماره موبایل خود را وارد کنید.</p>
         <v-text-field
           v-model="form.mobile"
-          class="ltr-input"
           placeholder="شماره موبایل"
           name="mobile"
           v-validate="'required|mobile'"
@@ -47,7 +75,7 @@
         <v-btn block @click="onSubmit" class="resaa-btn">تایید و ادامه</v-btn>
       </form>
     </v-card>
-    <p class="help-block font-weight-medium d-flex align-start mt-2">
+    <p class="help-block font-weight-medium d-flex align-start mt-4">
       <Icon v-if="$device.isMobile" class="ml-2" fileName="ic_info.svg" />
       <span class="font-weight-medium text-justify">
         شماره موبایل شما نزد رسا امانت است و برای برقراری ارتباط با پزشک استفاده
@@ -83,7 +111,7 @@ export default class LoginForm extends Vue {
   }
 
   onSubmit() {
-    this.$validator.validate().then(valid => {
+    this.$validator.validate().then((valid) => {
       if (valid) {
         this.$emit('submit')
       }

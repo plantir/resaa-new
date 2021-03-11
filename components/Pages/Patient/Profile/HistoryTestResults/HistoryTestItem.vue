@@ -43,7 +43,9 @@
 
         <div class="item name d-flex flex-column">
           <div class="label font-weight-bold">وضعیت آزمایش</div>
-          <div class="value font-weight-bold mt-2 orange--text">در انتظار پاسخ</div>
+          <div class="value font-weight-bold mt-2 orange--text">
+            در انتظار پاسخ
+          </div>
         </div>
       </div>
     </v-card>
@@ -53,9 +55,13 @@
     <div
       class="rate-call d-flex justify-space-between align-center flex-column flex-sm-row px-4 py-6"
     >
-      <div class="desc font-weight-bold mb-5 mb-sm-0">نظر خود را در ارتباط با این تماس ثبت کنید.</div>
+      <div class="desc font-weight-bold mb-5 mb-sm-0">
+        نظر خود را در ارتباط با این تماس ثبت کنید.
+      </div>
       <div class="button">
-        <v-btn min-width="180" large @click="rate">ثبت نظر</v-btn>
+        <v-btn min-width="180" large class="resaa-btn" @click="rate"
+          >ثبت نظر</v-btn
+        >
       </div>
     </div>
     <!-- /rate-call -->

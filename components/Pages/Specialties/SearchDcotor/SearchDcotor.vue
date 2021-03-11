@@ -61,7 +61,7 @@
     <form @submit.prevent="onSubmit" class="d-flex flex-column align-center">
       <h1>نام پزشک، تخصص یا بیماری مدنظرتان را وارد کنید.</h1>
       <v-text-field
-        v-model="form.q"
+        v-model="searchWord"
         placeholder="نام و نام خانوادگی، تخصص، بیماری"
         name="q"
         v-validate="'required'"
@@ -89,14 +89,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class SearchDcotor extends Vue {
-  form = {}
+  searchWord = ''
+  @Prop({
+    type: Function,
+  })
+  readonly search!: Function
 
   onSubmit() {
-    this.$emit('submit', this.form)
+    this.$emit('submit', this.searchWord)
+    this.search()
   }
 }
 </script>

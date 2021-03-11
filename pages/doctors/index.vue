@@ -39,7 +39,7 @@ main.doctors-main {
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 Component.registerHooks(['head', 'fetch'])
 @Component({
   components: {
@@ -64,18 +64,16 @@ export default class DoctorsPage extends Vue {
   doctors: any = []
   totalItems: number = 0
   loading = false
-
   filter = {
     query: null,
     specialty: [],
     sickness: [],
-    orderBy: 'NONE',
+    orderBy: 0,
   }
 
   seo = {
     title: 'پزشکان و متخصصان سامانه رسا',
   }
-
   public head() {
     return {
       title: this.seo.title,
@@ -89,7 +87,23 @@ export default class DoctorsPage extends Vue {
       ],
     }
   }
-
+  @Watch('filter', { deep: true })
+  async updateFilters() {
+    this.loading = true
+    let { result } = await this.$service.doctors.query({
+      limit: this.limit,
+      offset: this.offset,
+      sort: this.filter.orderBy,
+      filters: {
+        speciality: this.filter.specialty,
+        category: this.filter.sickness,
+      },
+      query: this.filter.query,
+    })
+    this.doctors = result.doctors
+    this.totalItems = result.doctorsTotalCount
+    this.loading = false
+  }
   get offset() {
     return (this.page - 1) * this.limit
   }
@@ -100,7 +114,6 @@ export default class DoctorsPage extends Vue {
   onSort(sort: any) {
     this.filter.orderBy = sort
   }
-
   async mounted() {
     await this.getDoctors()
   }
@@ -117,14 +130,15 @@ export default class DoctorsPage extends Vue {
         fields:
           'id,specialty,subscriberNumber,firstName,lastName,imagePath,expertise',
         limit: this.limit,
-        query: this.query,
         offset: this.offset,
+        sort: this.filter.orderBy,
+        // filters: {
+        //   speciality: this.filter.specialty,
+        //   category: this.filter.sickness,
+        // },
+        query: this.filter.query,
       })
       this.doctors = result.doctors
-      console.log(
-        'DoctorsPage -> getDoctors -> this.doctors',
-        this.doctors.length
-      )
       this.totalItems = result.doctorsTotalCount
       this.loading = false
     } catch (error) {

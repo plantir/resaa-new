@@ -1,9 +1,12 @@
 <style lang="scss" scoped>
 .credit-wrapper {
   color: #212121;
+  font-size: 16px;
   font-weight: 500;
+  margin-top: 32px;
   span {
     color: #f9a429;
+    margin: 0 8px;
   }
 }
 </style>
@@ -12,12 +15,10 @@
   <div class="credit-wrapper text-center">
     <p>
       اعتبار حساب شما
-      <span class="credit mx-2">‏0 تومان</span>
+      <span>{{ '0' | persianDigit }} تومان</span>
       است و برای تماس با خانم دکتر ملکی کافی نیست.
     </p>
-    <p>
-      برای افزایش اعتبار حسابتان، لطفا یکی از بسته های زیر را انتخاب کنید.
-    </p>
+    <p>برای افزایش اعتبار حسابتان، لطفا یکی از بسته های زیر را انتخاب کنید.</p>
   </div>
 </template>
 

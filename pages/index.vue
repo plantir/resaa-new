@@ -5,7 +5,7 @@
       <SectionIntro :doctors="doctors" :loading="loadingDoctors" />
     </div>
     <SectionSearch />
-    <div>
+    <div v-if="loggedIn">
       <ChosenDoctor
         title="متخصصین پیشنهادی برای شما"
         :doctors="doctors"
@@ -23,7 +23,7 @@
         :loading="loadingSuggestionDoctors"
       />
     </div>
-    <div>
+    <div v-if="!loggedIn">
       <SectionFeatures :doctors="doctors" />
       <SectionTestimonial />
     </div>

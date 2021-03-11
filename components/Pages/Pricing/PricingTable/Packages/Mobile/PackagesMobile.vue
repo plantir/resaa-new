@@ -2,17 +2,18 @@
 .packages {
   ::v-deep {
     .swiper-container {
-      padding: 40px 0;
+      padding: 20px 0;
     }
     .swiper-slide {
-      width: 70%;
+      // width: 70%;
+      width: 192px;
     }
   }
 }
 </style>
 
 <template>
-  <div class="packages d-flex justify-space-between mt-8">
+  <div class="packages d-flex justify-space-between">
     <swiper ref="swiper" :options="swiperOptions">
       <swiper-slide v-for="(item, index) in packages" :key="index">
         <Package
@@ -44,10 +45,16 @@ export default class PackagesMobile extends Vue {
     required: true,
   })
   readonly packages!: Array<Object>
+  get swiper() {
+    return (this.$refs.swiper as any).$swiper
+  }
 
+  async mounted() {
+    this.swiper.slideTo(1, 1000)
+  }
   swiperOptions = {
     centeredSlides: true,
-    spaceBetween: 20,
+    spaceBetween: 50,
     slidesPerView: 'auto',
     slidesPerGroup: 1,
     autoplay: {

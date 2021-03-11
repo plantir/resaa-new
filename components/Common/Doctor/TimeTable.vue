@@ -11,6 +11,42 @@ section {
   height: 500px;
   display: flex;
   flex-direction: column;
+  .title {
+    margin-bottom: 120px;
+    > div {
+      font-size: 14px;
+      font-weight: bold;
+      color: #212121;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.07;
+      text-align: right;
+      color: #212121;
+      padding: 1rem 0 0.5rem;
+    }
+    padding: 2rem 0 1rem;
+    position: relative;
+    width: 100%;
+    &::before {
+      background-color: #d9d9d9;
+      height: 1px;
+      width: 95%;
+      content: '';
+      position: absolute;
+      bottom: 0;
+    }
+    &::after {
+      background-color: #f9a429;
+      height: 3px;
+      width: 30px;
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: 0;
+    }
+  }
   .close {
     position: absolute;
     cursor: pointer;
@@ -300,6 +336,9 @@ section {
 </style>
 <template>
   <section>
+    <div class="title">
+      <h3>زمان‌های پاسخ‌گویی</h3>
+    </div>
     <close v-if="close" class="close" @click="$emit('close')" />
     <div class="showhelp">
       <!-- <span class="morning">
@@ -358,7 +397,11 @@ section {
           <span class="rotate">یکشنبه</span>
           <div class="su">
             <img src="/images/time-table/img-bottom.png" v-if="events.su[0]" />
-            <img src="/images/time-table/img-notaccess.png" class="mobileshowimportant" v-else />
+            <img
+              src="/images/time-table/img-notaccess.png"
+              class="mobileshowimportant"
+              v-else
+            />
             <div class="items" v-if="events.su[0]">
               <div class="item" v-for="(item, index) in events.su" :key="index">
                 <div>

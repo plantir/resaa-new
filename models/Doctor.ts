@@ -44,6 +44,7 @@ export interface Doctor {
   specialtyEnglishTitle: string
   specialtyTitle: string
   relatedDoctors?: Doctor[]
+  isCurrentlyAvailable: Boolean
 }
 
 export interface ResultDoctor {

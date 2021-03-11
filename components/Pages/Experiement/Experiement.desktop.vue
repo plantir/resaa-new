@@ -7,7 +7,7 @@
         <DescriptionImages />
       </v-flex>
       <v-flex sm3>
-        <Info />
+        <Info :doctorInfo="doctorInfo" />
       </v-flex>
     </v-layout>
   </section>
@@ -25,5 +25,10 @@ import DescriptionImages from './Desktop/DescriptionImages.vue'
     DescriptionImages,
   },
 })
-export default class YourComponent extends Vue {}
+export default class YourComponent extends Vue {
+  @Prop({
+    type: Object,
+  })
+  readonly doctorInfo!: Object
+}
 </script>

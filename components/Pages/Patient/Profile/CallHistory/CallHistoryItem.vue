@@ -40,19 +40,23 @@
           <div class="label font-weight-bold">تاریخ تماس</div>
           <div class="value font-weight-bold mt-2">
             {{
-            call.startedAt | persianDate('jYYYY/jMM/jDD HH:mm') | persianDigit
+              call.startedAt | persianDate('jYYYY/jMM/jDD HH:mm') | persianDigit
             }}
           </div>
         </div>
 
         <div class="item name d-flex flex-column">
           <div class="label font-weight-bold">مدت تماس</div>
-          <div class="value font-weight-bold mt-2">{{ call.effectiveDuration | persianDigit }}</div>
+          <div class="value font-weight-bold mt-2">
+            {{ call.effectiveDuration | persianDigit }}
+          </div>
         </div>
 
         <div class="item name d-flex flex-column">
           <div class="label font-weight-bold">وضعیت تماس</div>
-          <div class="value font-weight-bold mt-2 green--text">{{ call.state | enum('call_state') }}</div>
+          <div class="value font-weight-bold mt-2 green--text">
+            {{ call.state | enum('call_state') }}
+          </div>
         </div>
       </div>
     </v-card>
@@ -62,9 +66,13 @@
     <div
       class="rate-call d-flex justify-space-between align-center flex-column flex-sm-row px-4 py-6"
     >
-      <div class="desc font-weight-bold mb-5 mb-sm-0">نظر خود را در ارتباط با این تماس ثبت کنید.</div>
+      <div class="desc font-weight-bold mb-5 mb-sm-0">
+        نظر خود را در ارتباط با این تماس ثبت کنید.
+      </div>
       <div class="button">
-        <v-btn min-width="180" large @click="onRate">ثبت نظر</v-btn>
+        <v-btn min-width="180" class="resaa-btn" large @click="onRate"
+          >ثبت نظر</v-btn
+        >
       </div>
     </div>
     <!-- /rate-call -->

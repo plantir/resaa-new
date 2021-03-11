@@ -14,9 +14,9 @@ main {
 
 <template>
   <main>
-    <SearchDcotor />
-    <TopSpecialties class="top-specialties" />
-    <TagList class="tag-list" />
+    <SearchDcotor @submit="getSearch" :search="querySearch" />
+    <TopSpecialties class="top-specialties" :data="topSpecialties" />
+    <TagList class="tag-list" :tags="tags" />
   </main>
 </template>
 
@@ -33,5 +33,40 @@ import TagList from '@/components/Pages/Specialties/TagList/TagList.vue'
     TagList,
   },
 })
-export default class SpecialtiesPage extends Vue {}
+export default class SpecialtiesPage extends Vue {
+  topSpecialties: any = []
+  tags: any = []
+  search = ''
+  async mounted() {
+    try {
+      let { result } = await this.$service.doctors.getTopCategories()
+      result.categories.map((items: any) => {
+        this.topSpecialties.push(items)
+      })
+      result.medicalSpecialties.map((items: any) => {
+        this.topSpecialties.push(items)
+      })
+      let tags = await this.$service.doctors.MedicalSpecialties()
+      this.tags = tags.result.medicalSpecialties
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  getSearch(val: string) {
+    this.search = val
+  }
+  async querySearch() {
+    try {
+      let { result } = await this.$service.doctors.searchCategory({
+        query: this.search,
+      })
+      this.topSpecialties = []
+      result.doctors.map((items: any) => {
+        this.topSpecialties.push(items)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
 </script>

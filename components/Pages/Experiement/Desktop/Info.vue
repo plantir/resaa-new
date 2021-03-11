@@ -7,8 +7,13 @@
   }
   .img {
     position: relative;
-    img {
-      margin-top: -20px;
+    width: 192px;
+    height: 192px;
+    margin: 0 auto;
+    .v-image {
+      // margin-top: -20px;
+      position: absolute;
+      top: -20px;
     }
     .available {
       position: absolute;
@@ -16,7 +21,7 @@
       margin-right: auto;
       left: 0;
       right: 0;
-      bottom: 20px;
+      bottom: 30px;
       text-align: center;
       font-size: 12px;
       font-weight: 500;
@@ -88,10 +93,18 @@
             text-align: center;
             font-size: 12px;
             font-weight: 500;
-            color: #058e4b;
-            background-color: #e9fbf3;
             border-radius: 30px;
             padding: 0.4rem 1rem;
+            &.online {
+              background-color: #e9fbf3;
+              color: #058e4b;
+              font-size: 12px;
+            }
+            &.offline {
+              background-color: #fbdde2;
+              color: #eb5470;
+              font-size: 10px;
+            }
           }
         }
       }
@@ -131,11 +144,16 @@
   <div class="box">
     <v-card>
       <div class="img">
-        <img :src="doctor.img || require('@/assets/img/doctor.png')" alt="" />
-        <span class="available"> در دسترس</span>
+        <v-img
+          width="100%"
+          height="100%"
+          :src="`/api/${doctorInfo.imagePath}`"
+          :alt="fullName"
+        />
+        <span class="available" :class="statusClass">{{ statusText }}</span>
       </div>
       <div class="doctor_name">
-        <h3>دکتر {{ doctor.name || 'مهیا ملکی' }}</h3>
+        <h3>{{ fullName }}</h3>
       </div>
       <div class="experiement_info">
         <ul>
@@ -163,12 +181,8 @@
         </ul>
       </div>
       <div class="buttons">
-        <button class="increase_credit">
-          افزایش اعتبار و ارسال
-        </button>
-        <button class="cancel">
-          انصراف و بازگشت به صفحه پزشک
-        </button>
+        <button class="increase_credit">افزایش اعتبار و ارسال</button>
+        <button class="cancel">انصراف و بازگشت به صفحه پزشک</button>
       </div>
     </v-card>
   </div>
@@ -177,6 +191,19 @@
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
 @Component
 export default class component_name extends Vue {
-  doctor = {}
+  @Prop({})
+  readonly doctorInfo!: any
+  get fullName() {
+    return `${this.doctorInfo.title ? this.doctorInfo.title : ''} ${
+      this.doctorInfo.firstName
+    } ${this.doctorInfo.lastName}`
+  }
+  get statusClass() {
+    return this.doctorInfo.isCurrentlyAvailable ? 'online' : 'offline'
+  }
+
+  get statusText() {
+    return this.doctorInfo.isCurrentlyAvailable ? 'در دسترس' : 'خارج از دسترس'
+  }
 }
 </script>
