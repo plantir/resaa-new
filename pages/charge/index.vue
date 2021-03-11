@@ -1,13 +1,24 @@
 <style lang="scss" scoped>
 .charge-wrapper {
   height: calc(100vh - 94px);
+  .background-top {
+    ::v-deep {
+      .bottom-background {
+        top: 50px;
+        clip-path: ellipse(200% 100% at 100% 50%);
+      }
+    }
+  }
 }
 </style>
 <template>
   <v-container class="charge-wrapper" align-center d-flex justify-center>
+    <div class="background-top" v-if="$device.isMobile">
+      <BottomBackground height="320" />
+    </div>
     <ChargeForm v-if="!invoice" @submit="onPreInvoice" :loading="loading" />
     <ChargeInvoice v-else :invoice="invoice" @submit="onGoToPayment" />
-    <BottomBackground height="320" />
+    <BottomBackground height="320" v-if="$device.isDesktopOrTablet" />
   </v-container>
 </template>
 <script lang="ts">

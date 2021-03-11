@@ -1,14 +1,23 @@
 <style lang="scss" scoped>
+.pricing {
+  @include media(sm) {
+    padding: 0 79px;
+  }
+}
 .faq-wrapper {
   margin-top: 100px;
+  padding: 24px;
+  @include media(sm) {
+    padding: 0;
+  }
 }
 </style>
 
 <template>
-  <v-container>
+  <section class="pricing">
     <PricingTable />
     <Faq class="faq-wrapper" />
-  </v-container>
+  </section>
 </template>
 
 <script lang="ts">

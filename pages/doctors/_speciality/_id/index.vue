@@ -2,7 +2,9 @@
 <template>
   <section>
     <template v-if="$fetchState.pending">
-      <v-skeleton-loader type="image,list-item-two-line, actions"></v-skeleton-loader>
+      <v-skeleton-loader
+        type="image,list-item-two-line, actions"
+      ></v-skeleton-loader>
     </template>
     <template v-else>
       <DoctorProfileDesktop :doctor="doctor" v-if="$device.isDesktop" />
@@ -76,7 +78,7 @@ export default class YourComponent extends Vue {
     let [doctor, relatedDoctors] = await Promise.all([
       this.$service.doctors.get(this.$route.params.id),
       this.$service.doctors.relatedDoctors(this.$route.params.id),
-    ]).then(values => {
+    ]).then((values) => {
       return [values[0].result.doctor, values[1].result.relatedDoctors]
     })
     this.doctor = doctor
@@ -89,10 +91,9 @@ export default class YourComponent extends Vue {
       this.doctor.lastName
     } | تماس مستقیم با پزشک در سامانه رسا`
 
-    this.description = `با استفاده از سامانه رسا می توانید در کوتاه ترین زمان ممکن، مستقیما با ${this
-      .doctor.title || ''} ${this.doctor.firstName}  ${
-      this.doctor.lastName
-    } متخصص ${
+    this.description = `با استفاده از سامانه رسا می توانید در کوتاه ترین زمان ممکن، مستقیما با ${
+      this.doctor.title || ''
+    } ${this.doctor.firstName}  ${this.doctor.lastName} متخصص ${
       this.doctor.specialtyTitle
     } تماس تلفنی برقرار کنید و به پاسخ سوالات خود برسید.`
     this.og = {

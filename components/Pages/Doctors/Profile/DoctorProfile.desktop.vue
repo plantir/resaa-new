@@ -6,10 +6,10 @@
 <template>
   <v-container>
     <v-layout row>
-      <v-flex sm3 px-3>
+      <v-flex sm3>
         <InfoDoctor :doctor="doctor" />
       </v-flex>
-      <v-flex sm9 px-3>
+      <v-flex sm9 px-4>
         <MedicalRecords :doctor="doctor" />
         <DoctorServices :doctor="doctor" />
         <!-- <Accessibility :doctor="doctor" /> -->

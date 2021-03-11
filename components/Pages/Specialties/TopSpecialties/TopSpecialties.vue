@@ -55,14 +55,18 @@
     <div class="top-specialties-wrapper">
       <div class="main-title">دسترسی سریع به تخصص‌ها و بیماری‌ها</div>
       <div class="item-wrapper">
-        <CardSpecialtie v-for="(item, index) in 10" :key="index" />
+        <CardSpecialtie
+          v-for="(item, index) in data"
+          :key="index"
+          :title="item.title"
+        />
       </div>
     </div>
   </v-container>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import CardSpecialtie from './CardSpecialtie.vue'
 
 @Component({
@@ -70,5 +74,10 @@ import CardSpecialtie from './CardSpecialtie.vue'
     CardSpecialtie,
   },
 })
-export default class TopSpecialties extends Vue {}
+export default class TopSpecialties extends Vue {
+  @Prop({
+    required: true,
+  })
+  readonly data!: Array<Object>
+}
 </script>

@@ -20,9 +20,17 @@
 
   .submit {
     .group {
-      width: 270px;
+      // width: 270px;
       line-height: 64px;
       text-align: left;
+      .resaa-btn {
+        width: 190px;
+        height: 42px;
+      }
+      .cancel {
+        color: #35d6c1;
+        padding-left: 64px;
+      }
     }
   }
 }
@@ -35,7 +43,7 @@
       در حال حاضر، خانم دکتر ملکی در دسترس نیست. شما می‌توانید از ایشان بخواهید
       که با شما تماس بگیرند. این تماس تا ۲۴ ساعت آینده اتفاق می‌افتد.
     </p>
-    <p class="desc mt-4">
+    <p class="desc font-weight-bold mt-4">
       برای تاثیر بیشتر تماس، می‌توانید یک پیام هم از شرح تماس‌تان به پزشک
       بفرستید.
     </p>
@@ -43,6 +51,8 @@
       v-model="form.desc"
       placeholder="متن پیام را بنویسید..."
       name="desc"
+      rows="10"
+      no-resize
       v-validate="'required'"
       :error-messages="errors.collect('desc')"
       data-vv-as="متن پیام"
@@ -51,8 +61,10 @@
 
     <div class="submit d-flex justify-end">
       <div class="group">
-        <v-btn text>انصراف</v-btn>
-        <v-btn @click="onSubmit" large>ارسال درخواست رزرو تماس</v-btn>
+        <v-btn text class="cancel">انصراف</v-btn>
+        <v-btn @click="onSubmit" class="resaa-btn" large
+          >ارسال درخواست رزرو تماس</v-btn
+        >
       </div>
     </div>
   </div>
@@ -66,7 +78,7 @@ export default class FormCall extends Vue {
   form = {}
 
   onSubmit() {
-    this.$validator.validate().then(valid => {
+    this.$validator.validate().then((valid) => {
       if (valid) {
         this.$emit('submit')
       }

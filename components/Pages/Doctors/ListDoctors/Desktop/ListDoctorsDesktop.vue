@@ -22,7 +22,6 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import SortDoctors from './SortDoctors/SortDoctors.vue'
 import DoctorsList from './DoctorsList/DoctorsList.vue'
-import { NuxtLoaderElement } from 'vrwebdesign-nuxt/modules/nuxt-loader/types'
 
 @Component({
   components: {

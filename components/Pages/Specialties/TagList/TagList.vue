@@ -28,14 +28,14 @@
     <div class="tag-list">
       <div class="main-title text-center">سایر تخصص‌ها و بیماری‌ها</div>
       <div class="tags">
-        <Tag v-for="(item, index) in tags" :key="index" :tag="item" />
+        <Tag v-for="(item, index) in tags" :key="index" :tag="item.title" />
       </div>
     </div>
   </v-container>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 import Tag from './Tag.vue'
 
 @Component({
@@ -44,76 +44,9 @@ import Tag from './Tag.vue'
   },
 })
 export default class TagList extends Vue {
-  tags = [
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-    {
-      name: 'تست',
-    },
-  ]
+  @Prop({
+    required: true,
+  })
+  readonly tags!: Array<object>
 }
 </script>

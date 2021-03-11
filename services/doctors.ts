@@ -2,10 +2,12 @@ import { ResultDoctor, Doctor, ResultRelatedDoctor } from '@/models/Doctor'
 import { NuxtAxiosInstance } from 'vrwebdesign-nuxt/modules/nuxt-axios/types'
 import { IResponse } from '~/@types/service'
 interface IDoctroQueryParams {
-  fields: String
-  limit: Number
-  query: String | null
+  fields?: String
+  limit?: Number
+  query?: String | null
   offset?: Number
+  sort?: Number
+  filters?: Object
 }
 export default class DoctorService {
   constructor(public $axios: NuxtAxiosInstance) {}
@@ -37,5 +39,14 @@ export default class DoctorService {
   }
   chosenDoctors() {
     return this.$axios.$get(`/Doctors/Highlight`)
+  }
+  getTopCategories() {
+    return this.$axios.$get(`Doctors/SpecialtiesAndCategories`)
+  }
+  searchCategory(params: { query: String }) {
+    return this.$axios.$get(`categories`, { params })
+  }
+  MedicalSpecialties() {
+    return this.$axios.$get(`doctors/MedicalSpecialties`)
   }
 }

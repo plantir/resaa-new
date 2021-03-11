@@ -69,6 +69,7 @@
           line-height: 1.07;
           text-align: right;
           color: #212121;
+          white-space: nowrap;
         }
         .Specialist {
           @extend .title;
@@ -120,9 +121,9 @@
               <v-img height="110" :src="`/api/${doctor.imagePath}`"></v-img>
             </div>
             <div class="wrapper">
-              <div class="doctorName">{{doctor.fullNameWithTitle}}</div>
+              <div class="doctorName">{{ doctor.fullNameWithTitle }}</div>
               <div class="Specialist">
-                <h3>{{doctor.specialtyTitle}}</h3>
+                <h3>{{ doctor.specialtyTitle }}</h3>
               </div>
             </div>
             <div class="numberOfCalls">۱۴ تماس موفق</div>

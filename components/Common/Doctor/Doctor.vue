@@ -260,16 +260,24 @@ export default class Doctor extends Vue {
   get fullname() {
     return (
       this.doctor.fullNameWithTitle ||
-      `${this.doctor.title} ${this.doctor.firstName} ${this.doctor.lastName}`
+      `${this.doctor.title ? this.doctor.title : ''} ${this.doctor.firstName} ${
+        this.doctor.lastName
+      }`
     )
   }
   get doctorLink() {
-    return `/doctors/${(this.doctor.specialty
-      ? this.doctor.specialty.description
-      : this.doctor.specialtyEnglishTitle
-    )
-      .toLowerCase()
-      .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
+    if (this.doctor.specialty) {
+      return `/doctors/${(this.doctor.specialty
+        ? this.doctor.specialty.description
+        : this.doctor.specialtyEnglishTitle
+      )
+        .toLowerCase()
+        .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
+    } else {
+      return `/doctors/${this.doctor.specialityEnglishTitle
+        .toLowerCase()
+        .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
+    }
   }
 }
 </script>

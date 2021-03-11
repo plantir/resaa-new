@@ -14,7 +14,7 @@ section {
     display: flex;
     flex-direction: column;
     @include media(sm) {
-      padding-right: 26px;
+      padding-right: 29px;
     }
     .main-title {
       text-align: center;

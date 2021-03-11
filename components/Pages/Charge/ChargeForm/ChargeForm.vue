@@ -3,8 +3,26 @@
   position: relative;
   width: 400px;
   z-index: 1;
-  p {
-    color: #212121;
+  padding: 32px 0 22px;
+  @include media(sm) {
+    padding: 0;
+  }
+  .v-card {
+    padding: 32px 24px;
+  }
+  .discount {
+    font-size: 14px;
+    font-weight: 500;
+    color: #35d6c1;
+  }
+  .resaa-btn {
+    width: 263px;
+    height: 36px;
+    @include media(sm) {
+      width: 348px;
+      height: 48px;
+      margin-top: 20px;
+    }
   }
   @include media(xs-only) {
     width: 100%;
@@ -16,13 +34,13 @@
   <div class="charge-form">
     <v-card :loading="loading">
       <HeaderCharge>
-        <p class="font-weight-medium">
+        <p>
           به‌منظور افزایش اعتبار، شماره موبایل خود را وارد و مقدار شارژ‌را
           انتخاب کنید.
         </p>
       </HeaderCharge>
 
-      <form class="pa-6" @submit.prevent="onSubmit">
+      <form @submit.prevent="onSubmit">
         <v-text-field
           v-model="form.phoneNumber"
           :error-messages="errors.collect('phoneNumber')"
@@ -59,7 +77,14 @@
           data-vv-as="مقدار شارژ"
           class="mt-4"
         />
-
+        <v-btn
+          text
+          class="discount"
+          :disabled="!form.denominationId"
+          @click="openDiscount"
+        >
+          وارد کردن کد تخفیف
+        </v-btn>
         <v-btn
           block
           @click="onSubmit"
@@ -85,7 +110,7 @@ import HeaderCharge from '../HeaderCharge/HeaderCharge.vue'
 import ToggleDoctor from './ToggleDoctor.vue'
 import DenominationSelect from './DenominationSelect.vue'
 import ChargeHelpBlock from '../ChargeHelpBlock/ChargeHelpBlock.vue'
-
+import DiscountDialog from '../ChargeDiscountDialog/ChargeDiscountDialog.vue'
 @Component({
   components: {
     HeaderCharge,
@@ -105,6 +130,7 @@ export default class ChargeForm extends Vue {
   form = {
     phoneNumber: '',
     denominationId: null,
+    discount: null,
   }
   mounted() {
     if (this.$auth.user) {
@@ -112,10 +138,20 @@ export default class ChargeForm extends Vue {
     }
   }
   onSubmit() {
-    this.$validator.validate().then(valid => {
+    this.$validator.validate().then((valid) => {
       if (valid) {
         this.$emit('submit', this.form)
       }
+    })
+  }
+  openDiscount() {
+    this.$dialog.show({
+      component: DiscountDialog,
+      scope: {
+        done: (discount: any) => {
+          this.form.discount = discount
+        },
+      },
     })
   }
 }

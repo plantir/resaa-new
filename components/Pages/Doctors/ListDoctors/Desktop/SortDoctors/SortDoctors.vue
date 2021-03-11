@@ -46,27 +46,27 @@ import SortItem from './SortItem.vue'
   },
 })
 export default class SortDoctors extends Vue {
-  sort: String = 'NONE'
+  sort: Number = 0
   sortOptions = [
     {
       label: 'فرقی نمی‌کند',
-      value: 'NONE',
+      value: 0,
     },
     {
       label: 'در دسترس',
-      value: 'AVAILABLE',
+      value: 1,
     },
     {
       label: 'بیشترین تماس',
-      value: 'MOST_CALLS',
+      value: 2,
     },
     {
       label: 'بیشترین سابقه',
-      value: 'MOST_EXPERIENCE',
+      value: 3,
     },
   ]
 
-  onSort(sort: String) {
+  onSort(sort: Number) {
     this.sort = sort
     this.$emit('click', sort)
   }
