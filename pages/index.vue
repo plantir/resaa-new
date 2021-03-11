@@ -27,7 +27,7 @@
       <SectionFeatures :doctors="doctors" />
       <SectionTestimonial />
     </div>
-    <SectionWeblog :posts="posts" />
+    <SectionWeblog :posts="posts" v-if="posts.length" />
     <SedctionSocial />
   </main>
 </template>
