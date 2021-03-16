@@ -167,7 +167,7 @@
   <v-card class="doctor d-flex align-center">
     <div class="avatar">
       <ImageLoader
-        :src="`/api/${doctor.imagePath}`"
+        :src="doctorImage"
         :alt="fullname"
         width="160"
         height="160"
@@ -264,6 +264,13 @@ export default class Doctor extends Vue {
         this.doctor.lastName
       }`
     )
+  }
+  get doctorImage() {
+    if (this.doctor.imagePath) {
+      return `/api/${this.doctor.imagePath}`
+    } else {
+      return '/images/icons/avatar.png'
+    }
   }
   get doctorLink() {
     if (this.doctor.specialty) {
