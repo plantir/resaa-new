@@ -1,25 +1,32 @@
 <style lang="scss" scoped>
 .charge-wrapper {
   height: calc(100vh - 94px);
+  padding: 0 24px;
+  margin-top: -48px;
+  @include media(sm) {
+    padding: 0;
+    margin-top: 0;
+  }
   .background-top {
     ::v-deep {
       .bottom-background {
         top: 50px;
         clip-path: ellipse(200% 100% at 100% 50%);
+        height: 180px !important;
       }
     }
   }
 }
 </style>
 <template>
-  <v-container class="charge-wrapper" align-center d-flex justify-center>
+  <div class="charge-wrapper" align-center d-flex justify-center>
     <div class="background-top" v-if="$device.isMobile">
       <BottomBackground height="320" />
     </div>
     <ChargeForm v-if="!invoice" @submit="onPreInvoice" :loading="loading" />
     <ChargeInvoice v-else :invoice="invoice" @submit="onGoToPayment" />
     <BottomBackground height="320" v-if="$device.isDesktopOrTablet" />
-  </v-container>
+  </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'

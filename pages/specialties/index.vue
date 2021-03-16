@@ -40,10 +40,10 @@ export default class SpecialtiesPage extends Vue {
   async mounted() {
     try {
       let { result } = await this.$service.doctors.getTopCategories()
-      result.categories.map((items: any) => {
+      result.medicalSpecialties.map((items: any) => {
         this.topSpecialties.push(items)
       })
-      result.medicalSpecialties.map((items: any) => {
+      result.categories.map((items: any) => {
         this.topSpecialties.push(items)
       })
       let tags = await this.$service.doctors.MedicalSpecialties()

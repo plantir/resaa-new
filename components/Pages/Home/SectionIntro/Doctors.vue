@@ -81,7 +81,7 @@ import { RelatedDoctor } from '~/models/Doctor'
 })
 export default class Doctors extends Vue {
   swiperOptions = {
-    // centeredSlides: true,
+    centeredSlides: this.$device.isMobile,
     spaceBetween: 15,
     slidesPerView: 2,
     slidesPerGroup: 1,

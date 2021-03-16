@@ -134,23 +134,12 @@ section {
 
 <template>
   <section>
-    <!-- <v-container> -->
     <div class="feature-one">
       <div class="right text-right">
         <div class="main-title">
-          <h2 v-if="$device.isMobileOrTablet">
-            بهترین راه مشاوره پزشکی و روان‌شناسی
-          </h2>
-          <h2 v-else>
-            بهترین راه مشاوره<br />
-            پزشکی و روان‌شناسی
-          </h2>
+          <h2>بهترین راه مشاوره پزشکی و روان‌شناسی</h2>
           <p class="small-desc">
-            {{
-              $device.isMobile
-                ? 'بهترین راه مشاوره پزشکی و روان‌شناسی'
-                : ' به‌سرعت با پزشک‌ها و روان‌شناس‌های مد نظرت تماس بگیر.'
-            }}
+            به‌سرعت با پزشک‌ها و روان‌شناس‌های مد نظرت تماس بگیر.
           </p>
         </div>
         <div class="items d-flex flex-wrap">
@@ -198,7 +187,6 @@ section {
         <Doctor v-for="doctor in top3" :doctor="doctor" :key="doctor.id" />
       </div>
     </div>
-    <!-- </v-container> -->
   </section>
 </template>
 

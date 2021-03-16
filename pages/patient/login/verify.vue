@@ -2,16 +2,7 @@
 .v-application {
   background: red;
   .auth {
-    background: url('/images/auth/verify_bg.jpg') no-repeat;
-    background-position: 10% 73%;
     position: relative;
-    @media only screen and (max-width: 599px) {
-      background-image: none;
-      margin-top: 0 !important;
-    }
-    @media only screen and (min-width: 1900px) {
-      background-position-x: -200px;
-    }
     .form-wrapper {
       display: flex;
       height: calc(100vh - 114px);
@@ -30,7 +21,7 @@
 </style>
 
 <template>
-  <div class="auth mt-5">
+  <div class="auth">
     <div class="form-wrapper">
       <VerifyForm class="login-wrap" v-model="form" @submit="onSubmit" />
     </div>
@@ -50,7 +41,7 @@ Component.registerHooks(['fetch', 'head'])
 
 @Component({
   middleware: 'guest',
-  layout: 'withoutFooter',
+  layout: 'patientLogin',
   components: {
     VerifyForm,
     BottomBackground,

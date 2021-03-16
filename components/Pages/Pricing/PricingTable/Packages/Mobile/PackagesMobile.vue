@@ -5,29 +5,57 @@
       padding: 20px 0;
     }
     .swiper-slide {
-      // width: 70%;
       width: 192px;
     }
+  }
+}
+.colorful-circle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 39px 0 0;
+  padding: 0 24px;
+  .circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  .active {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
   }
 }
 </style>
 
 <template>
-  <div class="packages d-flex justify-space-between">
-    <swiper ref="swiper" :options="swiperOptions">
-      <swiper-slide v-for="(item, index) in packages" :key="index">
-        <Package
-          :color="item.color"
-          :count="item.count"
-          :name="item.name"
-          :title="item.title"
-          :desc="item.desc"
-          :price="item.price"
-          @click="onClick"
-        />
-      </swiper-slide>
-    </swiper>
-  </div>
+  <section>
+    <div class="packages d-flex justify-space-between">
+      <swiper ref="swiper" :options="swiperOptions">
+        <swiper-slide v-for="(item, index) in packages" :key="index">
+          <Package
+            :color="item.color"
+            :count="item.count"
+            :name="item.name"
+            :title="item.title"
+            :desc="item.desc"
+            :price="item.price"
+            @click="onClick"
+          />
+        </swiper-slide>
+      </swiper>
+    </div>
+    <div class="colorful-circle">
+      <div
+        class="circle"
+        v-for="(color, index) in packages"
+        :key="index"
+        :class="{ active: isActive == index }"
+        :style="{ backgroundColor: color.color }"
+        @click="setActive(index)"
+      ></div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -45,12 +73,18 @@ export default class PackagesMobile extends Vue {
     required: true,
   })
   readonly packages!: Array<Object>
+  isActive = 0
   get swiper() {
     return (this.$refs.swiper as any).$swiper
   }
 
   async mounted() {
     this.swiper.slideTo(1, 1000)
+  }
+  setActive(index: any) {
+    console.log(index)
+    this.isActive = index
+    console.log(this.isActive)
   }
   swiperOptions = {
     centeredSlides: true,

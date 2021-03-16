@@ -65,7 +65,7 @@
     ul {
       list-style-type: none;
       margin: 0;
-      padding: 0 2rem;
+      padding: 0 24px;
       li {
         > div {
           display: flex;

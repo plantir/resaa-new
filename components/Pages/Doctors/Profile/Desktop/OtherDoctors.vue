@@ -151,7 +151,7 @@
         <nuxt-link
           class="item"
           :to="doctorLink(doctor)"
-          v-for="doctor in doctor.relatedDoctors"
+          v-for="doctor in doctor.relatedDoctors.slice(0, 3)"
           :key="doctor.id"
         >
           <v-card>
@@ -159,9 +159,9 @@
               <v-img height="110" :src="`/api/${doctor.imagePath}`"></v-img>
             </div>
             <div class="wrapper">
-              <div class="doctorName">{{doctor.fullNameWithTitle}}</div>
+              <div class="doctorName">{{ doctor.fullNameWithTitle }}</div>
               <div class="Specialist">
-                <h3>{{doctor.specialtyTitle}}</h3>
+                <h3>{{ doctor.specialtyTitle }}</h3>
               </div>
             </div>
             <div class="numberOfCalls">۱۴ تماس موفق</div>

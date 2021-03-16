@@ -5,7 +5,6 @@
   }
 }
 .faq-wrapper {
-  margin-top: 100px;
   padding: 24px;
   @include media(sm) {
     padding: 0;

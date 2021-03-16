@@ -35,6 +35,11 @@
       @include media(xs-only) {
         width: 100%;
       }
+      .img-mobile-margin {
+        @include media(xs-only) {
+          margin-right: 35px;
+        }
+      }
       .image {
         width: 100%;
         display: flex;
@@ -169,7 +174,7 @@
         </ul>
       </div>
       <div class="feature">
-        <div class="image">
+        <div class="image img-mobile-margin">
           <Icon fileName="ic_buy_credit2.png" />
         </div>
         <h3 class="title-item">

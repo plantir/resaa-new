@@ -5,7 +5,9 @@
   transform: rotate(180deg);
   height: 270px;
   clip-path: ellipse(170% 100% at 50% 100%);
+  margin-top: -48px;
   @include media(sm) {
+    margin-top: 0;
     height: 370px;
     clip-path: ellipse(100% 100% at 50% 100%);
   }
@@ -59,14 +61,14 @@
 <template>
   <section class="search-dcotor d-flex flex-column align-center justify-center">
     <form @submit.prevent="onSubmit" class="d-flex flex-column align-center">
-      <h1>نام پزشک، تخصص یا بیماری مدنظرتان را وارد کنید.</h1>
+      <h1>تخصص یا بیماری مد نظرتان را وارد کنید.</h1>
       <v-text-field
         v-model="searchWord"
-        placeholder="نام و نام خانوادگی، تخصص، بیماری"
+        placeholder="تخصص یا بیماری"
         name="q"
         v-validate="'required'"
         :error-messages="errors.collect('q')"
-        data-vv-as="نام و نام خانوادگی، تخصص، بیماری"
+        data-vv-as="تخصص یا بیماری"
         class="input-q"
         outlined
         solo

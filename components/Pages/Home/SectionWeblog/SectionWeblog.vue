@@ -26,9 +26,9 @@
     font-weight: bold;
     margin: 0 !important;
     width: 330px;
-    height: 48px;
+    height: 48px !important;
     @include media(sm) {
-      height: 56px;
+      height: 56px !important;
       width: 256px;
     }
   }

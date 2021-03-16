@@ -7,12 +7,6 @@
   flex-direction: column;
   align-items: center;
   padding: 29px 43px 24px;
-  .icon-discount {
-    border: 1px solid #707070;
-    width: 76px;
-    height: 65px;
-    border-radius: unset !important;
-  }
   .text {
     padding: 10px 0 0;
     line-height: 25px;
@@ -37,7 +31,7 @@
 
 <template>
   <v-card>
-    <div class="icon-discount"></div>
+    <v-icon size="76px"> la-percent </v-icon>
     <div class="text">
       لطفا کد تخفیف خود را وارد و سپس دکمه ثبت را انتخاب کنید.
     </div>

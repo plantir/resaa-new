@@ -1,10 +1,8 @@
 <style lang="scss" scope>
 .v-application {
   .auth {
-    background: url('/images/auth/login_bg.png') no-repeat;
-    background-position: top;
     position: relative;
-    margin-top: 20px;
+    z-index: 1;
     @media only screen and (max-width: 599px) {
       background-image: none;
       padding: 0 24px;
@@ -17,7 +15,14 @@
     .form-wrapper {
       display: flex;
       height: calc(100vh - 114px);
+      margin-top: 32px;
       @include media(sm) {
+        justify-content: center;
+        align-items: center;
+      }
+      @include media(md) {
+        justify-content: unset;
+        align-items: unset;
         margin-right: 133px;
         padding-top: 53px;
       }
@@ -48,7 +53,7 @@ Component.registerHooks(['fetch', 'head'])
 
 @Component({
   middleware: 'guest',
-  layout: 'withoutFooter',
+  layout: 'patientLogin',
   components: {
     LoginForm,
     BottomBackground,

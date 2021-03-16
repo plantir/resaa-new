@@ -104,7 +104,6 @@
         color: #707070;
         padding-bottom: 0.8rem;
       }
-
       span:last-child {
         font-size: 14px;
         font-weight: bold;
@@ -140,7 +139,7 @@
               </div>
               <div>
                 <span>فوق تخصص</span>
-                <span>{{doctor.expertise}}</span>
+                <span>{{ doctor.expertise }}</span>
               </div>
             </div>
             <div>
@@ -149,7 +148,7 @@
               </div>
               <div>
                 <span>تخصص</span>
-                <span>{{doctor.specialtyTitle}}</span>
+                <span>{{ doctor.specialtyTitle }}</span>
               </div>
             </div>
             <div>
@@ -158,7 +157,7 @@
               </div>
               <div>
                 <span>سابقه علمی</span>
-                <span>{{doctor.aboutDoctor.join(',')}}</span>
+                <span>{{ doctor.aboutDoctor.join(',') }}</span>
               </div>
             </div>
           </div>

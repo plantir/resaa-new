@@ -27,7 +27,8 @@
 <template>
   <nuxt-link to="/" class="card-specialtie">
     <v-card class="d-flex flex-column align-center justify-center">
-      <Icon fileName="ic_pregnancy.png" />
+      <!-- <Icon fileName="ic_pregnancy.png" /> -->
+      <v-icon size="56"> la-stethoscope </v-icon>
       <h2 class="mt-2">{{ title }}</h2>
     </v-card>
   </nuxt-link>

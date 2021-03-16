@@ -23,7 +23,8 @@
         :loading="loadingSuggestionDoctors"
       />
     </div>
-    <div v-if="!loggedIn">
+    <div>
+      <!-- v-if="!loggedIn" -->
       <SectionFeatures :doctors="doctors" />
       <SectionTestimonial />
     </div>
@@ -65,7 +66,7 @@ export default class HomePage extends Vue {
   loadingSuggestionDoctors = false
   public head() {
     return {
-      title: 'سامانه رسا',
+      title: 'با پزشک یا روان‌شناس مد نظرتان مستقیما صحبت کنید',
       bodyAttrs: {
         class: 'page-home',
       },

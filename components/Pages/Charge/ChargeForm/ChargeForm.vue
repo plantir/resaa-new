@@ -1,23 +1,49 @@
 <style lang="scss" scoped>
 .charge-form {
   position: relative;
-  width: 400px;
   z-index: 1;
-  padding: 32px 0 22px;
+  margin-top: 32px;
   @include media(sm) {
+    width: 400px;
     padding: 0;
+    margin: 40px auto 0;
   }
   .v-card {
     padding: 32px 24px;
+    border-radius: 8px !important;
   }
   .discount {
     font-size: 14px;
     font-weight: 500;
     color: #35d6c1;
+    padding-right: 0 !important;
+  }
+  .form {
+    ::v-deep {
+      .v-input__slot {
+        min-height: 40px;
+        @include media(sm) {
+          min-height: 56px;
+        }
+        .v-select__selections {
+          padding: 0 !important;
+          @include media(sm) {
+            padding: 8px 0 !important;
+          }
+        }
+      }
+      .v-input__append-inner {
+        margin-top: 8px;
+        @include media(sm) {
+          margin-top: 17px;
+        }
+      }
+    }
   }
   .resaa-btn {
     width: 263px;
     height: 36px;
+    margin-top: 10px;
     @include media(sm) {
       width: 348px;
       height: 48px;
@@ -40,12 +66,11 @@
         </p>
       </HeaderCharge>
 
-      <form @submit.prevent="onSubmit">
+      <form @submit.prevent="onSubmit" class="form">
         <v-text-field
           v-model="form.phoneNumber"
           :error-messages="errors.collect('phoneNumber')"
           :disabled="loading"
-          clearable
           placeholder="شماره موبایل"
           name="phoneNumber"
           v-validate="'required|mobile'"

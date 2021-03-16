@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51" height="65" viewBox="0 0 51 65">
+    <defs>
+        <filter id="prefix__Rectangle_1033" width="51" height="65" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="2"/>
+            <feGaussianBlur result="blur" stdDeviation="4"/>
+            <feFlood flood-color="#13d1f3" flood-opacity=".302"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <style>
+            .prefix__cls-2{stroke:#13d1f3;fill:none;stroke-linecap:round}
+        </style>
+    </defs>
+    <g id="prefix__Group_1569" data-name="Group 1569" transform="translate(-615 -747)">
+        <g transform="translate(615 747)">
+            <g id="prefix__Rectangle_1033-2" data-name="Rectangle 1033" transform="translate(12 10)" style="stroke:#13d1f3;fill:#fff">
+                <rect width="27" height="41" rx="12" style="stroke:none"/>
+                <rect width="26" height="40" x=".5" y=".5" rx="11.5" style="fill:none"/>
+            </g>
+        </g>
+        <g id="prefix__Group_1483" data-name="Group 1483" transform="translate(0 -2)">
+            <path id="prefix__Line_105" d="M0 0L0 21" class="prefix__cls-2" data-name="Line 105" transform="translate(640.5 769.5)"/>
+            <path id="prefix__Line_106" d="M4 0L0 6" class="prefix__cls-2" data-name="Line 106" transform="translate(640.5 784.5)"/>
+            <path id="prefix__Line_107" d="M0 0L4 6" class="prefix__cls-2" data-name="Line 107" transform="translate(636.5 784.5)"/>
+        </g>
+    </g>
+</svg>

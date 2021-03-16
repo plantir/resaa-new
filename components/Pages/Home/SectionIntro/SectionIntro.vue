@@ -5,6 +5,7 @@
   @include media(sm) {
     margin-top: 0;
     padding: 30px 0;
+    min-height: 800px;
   }
   .doctor-bg {
     background: url('/images/home/intro_doctor_mobile.png') no-repeat;

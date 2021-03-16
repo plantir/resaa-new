@@ -4,6 +4,7 @@
   flex-direction: column;
   .img {
     text-align: center;
+    margin-bottom: 24px;
   }
   p {
     line-height: 28px;
@@ -16,7 +17,7 @@
 <template>
   <div class="header-charge">
     <div class="img">
-      <Icon class="my-8" fileName="ic_clock_shape.png" />
+      <Icon fileName="ic_clock_shape.png" />
     </div>
     <slot />
   </div>
