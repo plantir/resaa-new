@@ -2,6 +2,7 @@
 .intro {
   padding: 0 0 50px;
   margin-top: -40px;
+  min-height: 620px;
   @include media(sm) {
     margin-top: 0;
     padding: 30px 0;

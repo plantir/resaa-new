@@ -6,16 +6,10 @@
     background-position: 20% 98%;
   }
   @include media(1280) {
-    background-position: 10% 72%;
-  }
-  @include media(1366) {
-    background-position: 5% 80%;
+    background-position: 10% 70%;
   }
   @include media(1440) {
-    background-position: 0 75%;
-  }
-  @include media(1900) {
-    // background-position-x: -200px;
+    background-position: 0 70%;
   }
 }
 </style>
