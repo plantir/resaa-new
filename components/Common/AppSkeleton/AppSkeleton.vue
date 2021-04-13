@@ -14,6 +14,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
     Testimonial: () => import('./Sections/Testimonial/Testimonial.vue'),
     DoctorSwiper: () => import('./Sections/DoctorSwiper/DoctorSwiper.vue'),
     Doctor: () => import('./Sections/Doctor/Doctor.vue'),
+    DoctorProfile: () => import('./Sections/Doctor/DoctorProfile.vue'),
   },
 })
 export default class AppSkeleton extends Vue {

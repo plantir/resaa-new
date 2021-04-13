@@ -13,8 +13,11 @@
   }
   .image {
     margin-top: 8px;
+    height: 190px;
     img {
-      max-width: 132px;
+      // max-width: 132px;
+      width: 100%;
+      height: 100%;
       @include media(sm) {
         min-width: 188px;
       }
@@ -65,11 +68,18 @@
 <template>
   <nuxt-link class="doctor" :to="doctorLink">
     <div class="image">
-      <ImageLoader
+      <!-- <ImageLoader
         height="190px"
         :src="`/api/${doctor.imagePath}`"
         :alt="doctor.fullNameWithTitle"
-      />
+      /> -->
+      <!-- <v-img
+        height="190px"
+        :src="`/api/${doctor.imagePath}`"
+        :alt="doctor.fullNameWithTitle"
+      >
+      </v-img> -->
+      <img :src="`/api/${doctor.imagePath}`" :alt="doctor.fullNameWithTitle" />
     </div>
 
     <div class="bottom">

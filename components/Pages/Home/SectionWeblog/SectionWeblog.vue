@@ -48,7 +48,7 @@
         href="https://resaa.net/blog"
         target="_blank"
       >
-        ورورد به مجله خبری آنلاین
+        ورود به مجله سلامت رسا
       </v-btn>
     </div>
     <!-- </v-container> -->

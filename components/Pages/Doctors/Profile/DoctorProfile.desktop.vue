@@ -2,22 +2,30 @@
 .container {
   margin-top: 24px;
 }
+.doctor-profile {
+  padding: 0 30px;
+}
+.sticky {
+  position: sticky;
+  top: 150px;
+}
 </style>
 <template>
   <v-container>
-    <v-layout row>
-      <v-flex sm3>
-        <InfoDoctor :doctor="doctor" />
-      </v-flex>
-      <v-flex sm9 px-4>
+    <v-row>
+      <v-col md="4" xl="3">
+        <div class="sticky">
+          <InfoDoctor :doctor="doctor" />
+        </div>
+      </v-col>
+      <v-col md="8" xl="9">
         <MedicalRecords :doctor="doctor" />
         <DoctorServices :doctor="doctor" />
-        <!-- <Accessibility :doctor="doctor" /> -->
         <TimeTable :close="false" :doctor="doctor" />
         <OtherDoctors :doctor="doctor" />
         <Comments :doctor="doctor" />
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 <script lang="ts">

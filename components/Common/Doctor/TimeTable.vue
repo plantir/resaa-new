@@ -682,4 +682,3 @@ export default class TimeTable extends Vue {
   }
 }
 </script>
-

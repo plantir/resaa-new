@@ -45,7 +45,7 @@
         display: flex;
         justify-content: center;
         @include media(sm) {
-          justify-content: flex-start;
+          // justify-content: flex-start;
         }
         img {
           display: block;

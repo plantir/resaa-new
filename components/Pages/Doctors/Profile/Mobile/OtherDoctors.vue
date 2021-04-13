@@ -107,7 +107,7 @@
     <div class="box">
       <div class="title">
         <h3>متخصصین طب سنتی مشابه</h3>
-        <a href>
+        <a href="/specialties">
           مشاهده همه
           <img src="@/assets/img/arrow-left.png" alt />
         </a>

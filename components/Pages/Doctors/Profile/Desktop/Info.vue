@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .box {
-  // margin-top: 16px;
+  margin-top: 12px;
   min-width: 310px;
   .v-card {
     text-align: center;

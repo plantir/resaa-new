@@ -128,7 +128,6 @@ export default class Doctors extends Vue {
   get swiper() {
     return (this.$refs.swiper as any).$swiper
   }
-
   mounted() {
     this.swiper.slideTo(4, 1000, false)
   }

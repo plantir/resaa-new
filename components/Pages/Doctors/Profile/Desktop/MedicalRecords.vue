@@ -1,7 +1,9 @@
 <style lang="scss" scoped>
 .box {
-  // margin: 2rem 2rem 2rem 0;
-  // width: 466px;
+  .v-card {
+    height: 425px;
+    overflow: hidden;
+  }
   .font-style {
     font-stretch: normal;
     font-style: normal;
@@ -39,6 +41,9 @@
     }
   }
   .card_body {
+    height: 290px;
+    overflow: hidden;
+    position: relative;
     > div {
       display: flex;
       padding: 0 1rem 1rem;
@@ -65,11 +70,25 @@
         text-align: right;
         color: #212121;
       }
+      .medical-history-item {
+        line-height: 1.8 !important;
+      }
+    }
+  }
+  .showMore {
+    &.v-card {
+      height: auto;
+    }
+    .card_body {
+      height: auto;
     }
   }
   .card_footer {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
     text-align: center;
-    padding: 1rem 0;
     a {
       @extend .font-style;
       font-size: 14px;
@@ -116,14 +135,14 @@
 }
 </style>
 <template>
-  <v-layout>
-    <v-flex md6 px-3>
+  <v-row>
+    <v-col md="6">
       <div class="box">
-        <v-card>
+        <v-card :class="{ showMore: showMore }">
           <div class="card_header">
             <h3>سوابق پزشک</h3>
           </div>
-          <div class="card_body">
+          <div class="card_body" id="medicalRecords">
             <div>
               <div>
                 <img src="@/assets/img/ic_time.png" alt />
@@ -157,19 +176,22 @@
               </div>
               <div>
                 <span>سابقه علمی</span>
-                <span>{{ doctor.aboutDoctor.join(',') }}</span>
+                <span class="medical-history-item">
+                  {{ doctor.aboutDoctor.join(',') }}
+                </span>
               </div>
             </div>
           </div>
-          <!-- <div class="card_footer">
-            <a href>مشاهده همه سوابق</a>
-          </div>-->
+          <div class="card_footer">
+            <a @click="showMore = !showMore" v-if="showMoreButton">{{
+              showMore ? 'مشاهده کمتر' : 'مشاهده بیشتر'
+            }}</a>
+          </div>
         </v-card>
       </div>
-    </v-flex>
-    <v-flex md6 px-3>
+    </v-col>
+    <v-col md="6">
       <div class="boxes_wrapper">
-        <!-- <div> -->
         <v-card>
           <div>
             <div>
@@ -214,17 +236,34 @@
             </div>
           </div>
         </v-card>
-        <!-- </div> -->
       </div>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 import { Doctor } from '~/models/Doctor'
 @Component
 export default class component_name extends Vue {
   @Prop()
   doctor!: Doctor
+  showMore = false
+  showMoreButton = false
+  mounted() {
+    let medicalDiv = document.querySelectorAll('.card_body > div')
+    let calc = 0
+    for (let item in medicalDiv) {
+      try {
+        calc += parseInt(
+          window
+            .getComputedStyle(medicalDiv[item], null)
+            .getPropertyValue('height')
+        )
+      } catch (error) {}
+    }
+    if (calc > 290) {
+      this.showMoreButton = true
+    }
+  }
 }
 </script>
