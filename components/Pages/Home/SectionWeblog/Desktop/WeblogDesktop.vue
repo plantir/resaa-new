@@ -77,6 +77,8 @@ export default class WeblogDesktop extends Vue {
         title: items.title.rendered,
         link: items.link,
         description: items.excerpt.rendered,
+        content: items.content.rendered,
+        image: items._embedded['wp:featuredmedia']['0'].source_url,
       }
     })
   }

@@ -74,7 +74,7 @@ export default {
   plugins: [
     { src: './plugins/vue-awesome-swiper.js' },
     { src: './plugins/globalComponents.js' },
-    { src: './plugins/axios.js' },
+    // { src: './plugins/axios.js' },
   ],
   /*
    ** Nuxt.js dev-modules

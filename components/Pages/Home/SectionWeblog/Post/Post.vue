@@ -71,7 +71,7 @@
     <v-card height="100%" class="d-flex flex-column">
       <a :href="post.link" target="_blank">
         <ImageLoader
-          src="/images/home/blog/1.webp"
+          :src="post.image"
           :height="heightImage"
           :alt="post.title"
         />
@@ -93,7 +93,9 @@
         <div class="footer d-flex justify-space-between">
           <div class="time">
             <span class="label">زمان تخمینی مطالعه:</span>
-            <span class="value">۱۰ دقیقه</span>
+            <client-only>
+              <span class="value">{{ calculateReadTime }} دقیقه</span>
+            </client-only>
           </div>
 
           <div class="more">
@@ -114,7 +116,7 @@ export default class Post extends Vue {
     type: Object,
     required: true,
   })
-  readonly post!: Object
+  readonly post!: any
   @Prop({
     type: Boolean,
     default: true,
@@ -126,5 +128,15 @@ export default class Post extends Vue {
     default: '200px',
   })
   readonly heightImage!: String
+
+  get calculateReadTime() {
+    if (process.browser) {
+      var span = document.createElement('span')
+      span.innerHTML = this.post.content
+      return Math.floor(
+        (span.textContent || span.innerText).split(' ').length / 200
+      )
+    }
+  }
 }
 </script>
