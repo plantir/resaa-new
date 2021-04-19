@@ -273,6 +273,7 @@ export default class Doctor extends Vue {
     }
   }
   get doctorLink() {
+    debugger
     if (this.doctor.specialty) {
       return `/doctors/${(this.doctor.specialty
         ? this.doctor.specialty.description
@@ -281,7 +282,7 @@ export default class Doctor extends Vue {
         .toLowerCase()
         .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
     } else {
-      return `/doctors/${this.doctor.specialityEnglishTitle
+      return `/doctors/${this.doctor.specialtyEnglishTitle
         .toLowerCase()
         .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
     }

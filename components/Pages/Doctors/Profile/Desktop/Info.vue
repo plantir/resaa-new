@@ -212,7 +212,7 @@ import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
 import { Doctor } from '~/models/Doctor'
 @Component
 export default class component_name extends Vue {
-  @Prop()
+  @Prop({ required: true })
   doctor!: Doctor
   showWorkplace(item: any) {
     console.log(item)

@@ -8,7 +8,10 @@
   <div class="promotion-wrapper">
     <template v-if="!$fetchState.pending">
       <HeaderPromotion />
-      <PromotionDoctorListMobile :doctors="related_doctors" v-if="$device.isMobile" />
+      <PromotionDoctorListMobile
+        :doctors="related_doctors"
+        v-if="$device.isMobile"
+      />
       <PromotionDoctorListDesktop :doctors="related_doctors" v-else />
     </template>
   </div>
@@ -47,16 +50,16 @@ export default class PromotionPage extends Vue {
     return {
       title: this.title,
       __dangerouslyDisableSanitizers: ['script'],
-      link: [
-        {
-          rel: 'canonical',
-          href: `${
-            process.env.SITE_URL
-          }/categories/${this.category.englishTitle
-            .toLowerCase()
-            .replace(/ /g, '-')}/${this.category.id}`,
-        },
-      ],
+      // link: [
+      //   {
+      //     rel: 'canonical',
+      //     href: `${
+      //       process.env.SITE_URL
+      //     }/categories/${this.category.englishTitle
+      //       .toLowerCase()
+      //       .replace(/ /g, '-')}/${this.category.id}`,
+      //   },
+      // ],
       script: [
         {
           innerHTML: JSON.stringify(this.main_schema),
@@ -121,9 +124,9 @@ export default class PromotionPage extends Vue {
       this.requestId = result.requestId
     } catch (error) {}
     this.title = this.category.pageHeaderTitle || this.category.title
-    this.description = `دریافت ${this.category.pageHeaderTitle ||
-      this.category
-        .title} فقط در سامانه رسا، با کمترین هزینه، بدون دریافت نوبت، بدون رفت و آمد، بدون انتظار و با بهترین مشاوران`
+    this.description = `دریافت ${
+      this.category.pageHeaderTitle || this.category.title
+    } فقط در سامانه رسا، با کمترین هزینه، بدون دریافت نوبت، بدون رفت و آمد، بدون انتظار و با بهترین مشاوران`
     this.main_schema = {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
