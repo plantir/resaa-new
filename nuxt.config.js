@@ -7,7 +7,6 @@ require('dotenv').config({})
 
 export default {
   mode: 'universal',
-  ssr: false,
   server: {
     port: process.env.PORT || 3000,
     host: process.env.HOST || '0.0.0.0', // default: localhost
@@ -74,7 +73,7 @@ export default {
   plugins: [
     { src: './plugins/vue-awesome-swiper.js' },
     { src: './plugins/globalComponents.js' },
-    // { src: './plugins/axios.js' },
+    { src: './plugins/axios.js' },
   ],
   /*
    ** Nuxt.js dev-modules
