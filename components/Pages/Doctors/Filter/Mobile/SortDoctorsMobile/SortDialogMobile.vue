@@ -66,10 +66,10 @@ export default class SortDialogMobile extends Vue {
   readonly value!: Boolean
 
   @Prop({
-    type: String,
+    type: [String, Number],
     required: true,
   })
-  readonly sort!: String
+  readonly sort!: [String, Number]
 
   get dialogVisible() {
     if (process.client) {

@@ -7,7 +7,7 @@
     letter-spacing: normal;
   }
   .title {
-    h3 {
+    h2 {
       @extend .font-style;
       font-size: 16px;
       font-weight: bold;
@@ -50,13 +50,15 @@
 <template>
   <div class="box">
     <div class="title">
-      <h3>خدمات پزشک</h3>
+      <h2>خدمات پزشک</h2>
     </div>
     <div class="content">
-      <span v-for="(item,index) in doctor.categories" :key="item.id">
-        <nuxt-link v-if="item.isPageActive" :to="categoryLink(item)">{{item.title}}</nuxt-link>
-        <span v-else>{{item.title}}</span>
-        <template v-if="index < doctor.categories.length-1">,</template>
+      <span v-for="(item, index) in doctor.categories" :key="item.id">
+        <nuxt-link v-if="item.isPageActive" :to="categoryLink(item)">{{
+          item.title
+        }}</nuxt-link>
+        <span v-else>{{ item.title }}</span>
+        <template v-if="index < doctor.categories.length - 1">,</template>
       </span>
     </div>
   </div>

@@ -46,13 +46,13 @@
         flex-direction: row;
       }
       .main-title {
+        display: flex;
         margin-right: 100px;
         font-size: 14px;
         @include media(sm) {
           margin-right: 0;
           font-size: 18px;
         }
-
         .full-name {
           color: #212121;
         }
@@ -176,7 +176,7 @@
 
     <div class="left-side d-flex flex-column justify-space-between">
       <div class="top d-flex justify-space-between">
-        <h3 class="main-title">
+        <h2 class="main-title">
           <nuxt-link :to="doctorLink">
             <span class="full-name">{{ fullname }}</span>
             <span class="line mb-1 mx-2">-</span>
@@ -188,7 +188,7 @@
               }}
             </span>
           </nuxt-link>
-        </h3>
+        </h2>
 
         <OnlineStatus :status="false" />
       </div>

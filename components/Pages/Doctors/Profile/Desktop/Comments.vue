@@ -7,7 +7,7 @@
     letter-spacing: normal;
   }
   .title {
-    h3 {
+    h2 {
       @extend .font-style;
       font-size: 16px;
       font-weight: bold;
@@ -220,9 +220,9 @@
 <template>
   <div class="box">
     <div class="title">
-      <h3>
+      <h2>
         نظرات مراجعین
-      </h3>
+      </h2>
     </div>
     <div class="wrapper">
       <div class="comments_wrapper" v-for="n in 2" :key="n">

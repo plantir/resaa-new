@@ -20,7 +20,7 @@
 
 <template>
   <div class="sort-doctors-wrapper d-flex justify-space-between">
-    <div class="main-title">لیست پزشکان</div>
+    <h1 class="main-title">لیست پزشکان</h1>
     <div class="sort-items-wrapper d-flex">
       <span class="label ml-5">مرتب شده بر اساس:</span>
       <div class="sort-items d-flex">

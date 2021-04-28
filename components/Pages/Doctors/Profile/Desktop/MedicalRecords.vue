@@ -10,7 +10,7 @@
     letter-spacing: normal;
   }
   .card_header {
-    h3 {
+    h2 {
       @extend .font-style;
       font-size: 16px;
       font-weight: bold;
@@ -140,7 +140,7 @@
       <div class="box">
         <v-card :class="{ showMore: showMore }">
           <div class="card_header">
-            <h3>سوابق پزشک</h3>
+            <h2>سوابق پزشک</h2>
           </div>
           <div class="card_body" id="medicalRecords">
             <div>
