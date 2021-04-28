@@ -7,7 +7,7 @@
     letter-spacing: normal;
   }
   .title {
-    h3 {
+    h2 {
       @extend .font-style;
       font-size: 14px;
       font-weight: bold;
@@ -50,9 +50,9 @@
 <template>
   <div class="box">
     <div class="title">
-      <h3>
+      <h2>
         خدمات پزشک
-      </h3>
+      </h2>
     </div>
     <div class="content">
       اتارتروسکوپی، ارتوپدی، ارتودنسی، ارتودنسی، آسم و آلرژی، اکوکاردیوگرافی،

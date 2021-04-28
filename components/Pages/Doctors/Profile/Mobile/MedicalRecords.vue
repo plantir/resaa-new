@@ -7,7 +7,7 @@
     letter-spacing: normal;
   }
   .card_header {
-    h3 {
+    h2 {
       @extend .font-style;
       font-size: 14px;
       font-weight: bold;
@@ -73,9 +73,9 @@
   <div class="box">
     <v-card>
       <div class="card_header">
-        <h3>
+        <h2>
           سوابق پزشک
-        </h3>
+        </h2>
       </div>
       <div class="card_body">
         <div>
@@ -122,7 +122,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 @Component
 export default class component_name extends Vue {
   doctor = {}

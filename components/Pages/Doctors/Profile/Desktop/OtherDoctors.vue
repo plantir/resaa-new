@@ -7,7 +7,7 @@
     letter-spacing: normal;
   }
   .title {
-    h3 {
+    h2 {
       @extend .font-style;
       font-size: 16px;
       font-weight: bold;
@@ -141,7 +141,7 @@
   <section>
     <div class="box">
       <div class="title">
-        <h3>متخصصین طب سنتی مشابه</h3>
+        <h2>متخصصین طب سنتی مشابه</h2>
         <a href="/specialties">
           مشاهده همه
           <img src="@/assets/img/arrow-left.png" alt />

@@ -44,8 +44,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    h3 {
+    h1 {
       color: #000000;
+      font-size: 14px;
     }
     > div {
       display: flex;
@@ -132,7 +133,7 @@
         <span class="available" :class="statusClass">{{ statusText }}</span>
       </div>
       <div class="doctor_name">
-        <h3>{{ fullName }}</h3>
+        <h1>{{ fullName }}</h1>
         <div>
           <span>
             <img src="@/assets/img/ic_call.png" alt />

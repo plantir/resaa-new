@@ -3,10 +3,39 @@
   margin: 5rem 2rem 2rem;
   .v-card {
     text-align: center;
+    padding-top: 192px;
   }
   .img {
-    img {
-      margin-top: -20px;
+    position: absolute;
+    top: -16px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    width: 192px;
+    height: 192px;
+    .available {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+      border-radius: 30px;
+      padding: 0.4rem 0.3rem;
+      width: 80px;
+      &.online {
+        background-color: #e9fbf3;
+        color: #058e4b;
+        font-size: 12px;
+      }
+      &.offline {
+        background-color: #fbdde2;
+        color: #eb5470;
+        font-size: 10px;
+      }
     }
   }
   .doctor_name {
@@ -14,8 +43,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    h3 {
+    h1 {
       color: #000000;
+      font-size: 14px;
     }
     > div {
       display: flex;
@@ -79,9 +109,10 @@
     <v-card>
       <div class="img">
         <img :src="doctor.img || require('@/assets/img/doctor.png')" alt="" />
+        <span class="available" :class="statusClass">{{ statusText }}</span>
       </div>
       <div class="doctor_name">
-        <h3>دکتر {{ doctor.name || 'مهیا ملکی' }}</h3>
+        <h1>دکتر {{ doctor.name || 'مهیا ملکی' }}</h1>
         <div>
           <span>
             <img src="@/assets/img/ic_call.png" alt="" />
@@ -149,9 +180,17 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Doctor } from '~/models/Doctor'
 @Component
 export default class component_name extends Vue {
-  doctor = {}
+  @Prop()
+  doctor!: Doctor
+  get statusClass() {
+    return this.doctor.isCurrentlyAvailable ? 'online' : 'offline'
+  }
+  get statusText() {
+    return this.doctor.isCurrentlyAvailable ? 'در دسترس' : 'خارج از دسترس'
+  }
 }
 </script>

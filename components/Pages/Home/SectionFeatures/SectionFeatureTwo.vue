@@ -160,13 +160,13 @@
         </p>
         <ul class="feature-list">
           <li>
-            <nuxt-link to="" class="d-flex align-center">
+            <nuxt-link to="/doctors" class="d-flex align-center">
               <span class="label">مشاهده لیست پزشکان</span>
               <Icon fileName="ic_link_left.png" class="mr-1" />
             </nuxt-link>
           </li>
           <li>
-            <nuxt-link to="" class="d-flex align-center">
+            <nuxt-link to="/doctors" class="d-flex align-center">
               <span class="label">مشاهده لیست روان‌شناسان</span>
               <Icon fileName="ic_link_left.png" class="mr-1" />
             </nuxt-link>

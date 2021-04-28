@@ -38,10 +38,10 @@ import SortDialogMobile from './SortDialogMobile.vue'
 })
 export default class SortDoctorsMobile extends Vue {
   @Prop({
-    type: String,
+    type: [String, Number],
     required: true,
   })
-  readonly value!: String
+  readonly value!: any
 
   get orderBy() {
     return this.value
@@ -73,9 +73,7 @@ export default class SortDoctorsMobile extends Vue {
   ]
 
   get selectedText() {
-    const selected = this.sortOptions.find(
-      (item) => item.value === this.orderBy
-    )
+    const selected = this.sortOptions.find(item => item.value === this.orderBy)
     return selected?.label
   }
 

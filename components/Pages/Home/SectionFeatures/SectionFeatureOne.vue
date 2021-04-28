@@ -108,6 +108,9 @@ section {
         top: 320px;
         left: 20px;
         z-index: 1;
+        @include media(1600) {
+          top: 230px;
+        }
         @include media(xl) {
           top: 230px;
         }
@@ -115,6 +118,9 @@ section {
       &:nth-child(3) {
         top: 410px;
         left: 260px;
+        @include media(1600) {
+          top: 330px;
+        }
         @include media(xl) {
           top: 320px;
         }
@@ -123,6 +129,9 @@ section {
         top: 100px;
         left: 200px;
         z-index: 2;
+        @include media(1600) {
+          top: 30px;
+        }
         @include media(xl) {
           top: 10px;
         }

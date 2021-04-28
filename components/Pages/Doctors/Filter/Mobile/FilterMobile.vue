@@ -10,7 +10,7 @@
 
 <template>
   <aside class="filter-wrapper">
-    <div class="main-title">لیست پزشکان</div>
+    <h1 class="main-title">لیست پزشکان</h1>
     <FilterByName v-model="filter.query" class="mt-4" />
     <FilterBased v-model="filter" class="mt-4" />
     <SortDoctorsMobile v-model="filter.orderBy" />

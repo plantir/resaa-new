@@ -18,7 +18,7 @@ section {
       font-weight: bold;
       color: #212121;
     }
-    h3 {
+    h2 {
       font-size: 16px;
       font-weight: bold;
       line-height: 1.07;
@@ -337,7 +337,7 @@ section {
 <template>
   <section>
     <div class="title">
-      <h3>زمان‌های پاسخ‌گویی</h3>
+      <h2>زمان‌های پاسخ‌گویی</h2>
     </div>
     <close v-if="close" class="close" @click="$emit('close')" />
     <div class="showhelp">
