@@ -47,12 +47,22 @@
       <main>
         <div class="doctors-list d-flex flex-column align-end">
           <template v-for="(item, index) in components">
-            <component :doctor="item.data" :is="item.component" :key="index" class="mt-6" />
+            <component
+              :doctor="item.data"
+              :is="item.component"
+              :key="index"
+              class="mt-6"
+            />
           </template>
         </div>
 
         <div class="pagination-wrapper text-left mt-8">
-          <v-pagination v-model="page" :length="100" :circle="false" :total-visible="10" />
+          <v-pagination
+            v-model="page"
+            :length="100"
+            :circle="false"
+            :total-visible="10"
+          />
         </div>
       </main>
 
@@ -69,14 +79,10 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 import FeatureTypeOne from '@/components/Widgets/FeatureTypeOne/FeatureTypeOne.vue'
 import TestimonialTypeOne from '@/components/Widgets/TestimonialTypeOne/TestimonialTypeOne.vue'
-import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
-import SectionFeatureTwo from '@/components/Pages/Home/SectionFeatures/SectionFeatureTwo.vue'
-
+import WorkingWithResaa from '@/components/Pages/Promotion/WorkingWithResaa/WorkingWithResaa.vue'
 @Component({
   components: {
     FeatureTypeOne,
-    SectionTestimonial,
-    SectionFeatureTwo,
     TestimonialTypeOne,
   },
 })
@@ -90,7 +96,7 @@ export default class PromotionDoctorListDesktop extends Vue {
     }))
 
     doctors.splice(2, 0, {
-      component: SectionFeatureTwo,
+      component: WorkingWithResaa,
       data: null,
     })
 

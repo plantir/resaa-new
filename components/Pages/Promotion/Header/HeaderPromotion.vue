@@ -24,6 +24,18 @@
     right: 0;
     top: 0;
   }
+  .skill-desc {
+    font-size: 14px;
+    @include media(sm) {
+      font-size: 32px;
+    }
+  }
+  .main-title {
+    font-size: 12px;
+    @include media(sm) {
+      font-size: 26px;
+    }
+  }
   .skill-desc,
   .main-title {
     position: relative;
@@ -34,10 +46,10 @@
 
 <template>
   <div class="header d-flex flex-column align-center justify-center">
-    <div class="main-title">لیست متخصصان مرتبط با نیاز شما</div>
-    <div class="skill-desc">
+    <span class="main-title">لیست متخصصان مرتبط با نیاز شما</span>
+    <h1 class="skill-desc">
       مشاوره با متخصصان زنان و زایمان
-    </div>
+    </h1>
   </div>
 </template>
 

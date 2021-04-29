@@ -20,12 +20,17 @@
       </div>
 
       <div class="pagination-wrapper mt-8">
-        <v-pagination v-model="page" :length="100" :circle="false" :total-visible="10" />
+        <v-pagination
+          v-model="page"
+          :length="100"
+          :circle="false"
+          :total-visible="10"
+        />
       </div>
     </v-container>
 
     <SectionTestimonial title="چگونه دیگران از رسا سود برده‌اند؟" />
-    <SectionFeatureTwo />
+    <WorkingWithResaa />
   </div>
 </template>
 
@@ -34,12 +39,12 @@ import { Component, Vue } from 'vue-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 import FeatureTypeOne from '@/components/Widgets/FeatureTypeOne/FeatureTypeOne.vue'
 import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
-import SectionFeatureTwo from '@/components/Pages/Home/SectionFeatures/SectionFeatureTwo.vue'
-
+import WorkingWithResaa from '@/components/Pages/Promotion/WorkingWithResaa/WorkingWithResaa.vue'
 @Component({
   components: {
     SectionTestimonial,
-    SectionFeatureTwo,
+
+    WorkingWithResaa,
   },
 })
 export default class PromotionDoctorListMobile extends Vue {

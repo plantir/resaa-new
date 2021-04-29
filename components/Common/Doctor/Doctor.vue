@@ -273,7 +273,6 @@ export default class Doctor extends Vue {
     }
   }
   get doctorLink() {
-    debugger
     if (this.doctor.specialty) {
       return `/doctors/${(this.doctor.specialty
         ? this.doctor.specialty.description
