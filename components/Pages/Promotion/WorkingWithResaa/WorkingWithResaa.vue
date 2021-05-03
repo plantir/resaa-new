@@ -88,8 +88,8 @@
 </style>
 
 <template>
-  <div class="working-wrapper">
-    <span class="working-title">کار با رسا خیلی ساده است</span>
+  <span class="working-wrapper">
+    <h2 class="working-title">کار با رسا خیلی ساده است</h2>
     <div class="images-wrapper">
       <div class="image-item">
         <div class="image">
@@ -120,7 +120,7 @@
         </h3>
       </div>
     </div>
-  </div>
+  </span>
 </template>
 
 <script lang="ts">

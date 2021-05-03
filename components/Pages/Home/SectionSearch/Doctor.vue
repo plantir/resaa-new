@@ -11,8 +11,10 @@
     width: 110px;
     margin-right: -10px;
     position: relative;
-    .v-image {
+    .image {
       border-radius: 4px;
+      width: 112px;
+      height: 112px;
     }
     .available {
       display: flex;
@@ -23,7 +25,7 @@
       margin-right: auto;
       left: 0;
       right: 0;
-      bottom: 5px;
+      bottom: 10px;
       text-align: center;
       font-weight: 500;
       border-radius: 30px;
@@ -55,12 +57,13 @@
 <template>
   <div class="doctor d-flex align-center">
     <div class="avatar">
-      <ImageLoader
+      <!-- <ImageLoader
         :src="`/api/${doctor.imagePath}`"
         :alt="fullName"
         width="112"
         height="112"
-      />
+      /> -->
+      <img class="image" :src="`/api/${doctor.imagePath}`" :alt="fullName" />
       <span class="available" :class="statusClass">{{ statusText }}</span>
     </div>
     <div class="left-side d-flex flex-column align-center">

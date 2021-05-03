@@ -48,9 +48,9 @@
       <Doctor v-for="item in data" :key="item.id" :doctor="item" />
       <nuxt-link class="view-all" :to="link"> مشاهده همه </nuxt-link>
     </div>
-    <div class="empty mt-5" v-else>
+    <!-- <div class="empty mt-5" v-else>
       <img src="/images/home/skills.png" />
-    </div>
+    </div> -->
   </div>
 </template>
 

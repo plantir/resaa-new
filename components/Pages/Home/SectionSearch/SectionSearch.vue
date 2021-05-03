@@ -10,6 +10,19 @@
       font-size: 24px !important;
     }
   }
+  .empty {
+    padding: 40px 0;
+    @include media(sm) {
+      padding: 80px 0 66px;
+      width: 450px;
+    }
+    @include media(md) {
+      width: 550px;
+    }
+    img {
+      width: 100%;
+    }
+  }
 }
 </style>
 
@@ -19,6 +32,9 @@
       <div class="title text-center">پزشک یا روان‌شناس خود را پیدا کنید.</div>
 
       <SearchForm class="mt-6" @submit="onSubmit" />
+      <div class="empty" v-if="!doctors.length">
+        <img src="/images/home/skills.png" />
+      </div>
     </v-container>
     <SearchResultMobile
       v-if="$device.isMobile"

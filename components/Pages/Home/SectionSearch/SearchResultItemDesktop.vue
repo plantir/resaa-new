@@ -69,9 +69,9 @@
         </swiper-slide>
       </swiper>
     </div>
-    <div class="empty" v-else>
+    <!-- <div class="empty" v-else>
       <img src="/images/home/skills.png" />
-    </div>
+    </div> -->
   </div>
 </template>
 
