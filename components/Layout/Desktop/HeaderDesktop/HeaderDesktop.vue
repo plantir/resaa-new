@@ -13,6 +13,10 @@
     background-color: #fff;
     position: fixed;
     top: 0;
+    &.main-header {
+      line-height: 70px;
+      height: 70px;
+    }
   }
   .container {
     padding: 0;
