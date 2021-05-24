@@ -2,7 +2,6 @@
 .doctor-info-wrapper {
   width: 100%;
   max-width: 440px;
-  height: 513px;
   padding: 24px;
   border-radius: 8px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
@@ -61,12 +60,12 @@
       <span>تلفن مطب: </span>
       <span class="phone">{{ scope.data.phoneNumber }}</span>
     </p>
-    <div class="map">
+    <div class="map" v-if="scope.data.latitude && scope.data.longitude">
       <GMap
         ref="mapRef"
         :center="{ lat: scope.data.latitude, lng: scope.data.longitude }"
         :zoom="18"
-        style="width: 100%; height:100%"
+        style="width: 100%; height: 100%"
       >
         <GMapMarker
           ref="mapMarker"

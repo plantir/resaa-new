@@ -32,6 +32,7 @@
         outlined
         label="شماره موبایل دوست"
         v-validate="'required|mobile'"
+        data-vv-as="موبایل"
         :error-messages="errors.collect('mobile')"
         autocomplete="off"
         name="mobile"
