@@ -38,6 +38,16 @@
   @media (xs) {
     background-color: red;
   }
+  .referral-btn {
+    display: flex;
+    align-items: center;
+    .v-btn {
+      width: 104px;
+      height: 42px;
+      background: #fff;
+      color: #35d6c1;
+    }
+  }
 }
 </style>
 
@@ -57,6 +67,9 @@
         </div>
 
         <MainMenu v-if="!$device.isMobile" :mainMenu="mainMenu" class="mr-10" />
+        <div class="referral-btn">
+          <v-btn outlined @click="openReferralDialog">اعتبار رایگان</v-btn>
+        </div>
       </div>
 
       <UserMenuLoggedIn v-if="$auth.loggedIn" />
@@ -70,6 +83,7 @@ import Logo from '@/components/Common/Logo/Logo.vue'
 import MainMenu from './MainMenu/MainMenu.vue'
 import UserMenuLoggedIn from './UserMenu/UserMenuLoggedIn.vue'
 import UserMenuNotLoggedIn from './UserMenu/UserMenuNotLoggedIn.vue'
+import Refferal from '@/components/Common/Referral/Index.vue'
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
 @Component({
   components: {
@@ -114,6 +128,11 @@ export default class HeaderDesktopComponent extends Vue {
 
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll)
+  }
+  openReferralDialog() {
+    this.$dialog.show({
+      component: Refferal,
+    })
   }
 }
 </script>

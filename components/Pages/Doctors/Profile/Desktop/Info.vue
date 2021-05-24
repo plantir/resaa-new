@@ -176,7 +176,7 @@
             <div v-for="(item, index) in doctor.workplaces" :key="index">
               <span>آدرس مطب {{ (index + 1) | persianDigit }}:</span>
               <span>
-                <a @click="showWorkplace(item)">نمایش آدرس</a>
+                <a @click="showWorkplace(item, index)">نمایش آدرس</a>
               </span>
             </div>
             <div v-if="isCallPage">
@@ -225,8 +225,9 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 import { Doctor } from '~/models/Doctor'
+import doctorAddress from '@/components/Common/Doctor/ClinicAddressDialog.vue'
 @Component
 export default class component_name extends Vue {
   @Prop({ required: true })
@@ -241,6 +242,7 @@ export default class component_name extends Vue {
       this.doctor.firstName
     } ${this.doctor.lastName}`
   }
+
   get statusClass() {
     return this.doctor.isCurrentlyAvailable ? 'online' : 'offline'
   }
@@ -249,8 +251,15 @@ export default class component_name extends Vue {
     return this.doctor.isCurrentlyAvailable ? 'در دسترس' : 'خارج از دسترس'
   }
 
-  showWorkplace(item: any) {
+  showWorkplace(item: any, index: number) {
     console.log(item)
+    this.$dialog.show({
+      component: doctorAddress,
+      scope: {
+        data: item,
+        clinicNumber: index + 1,
+      },
+    })
   }
 }
 </script>
