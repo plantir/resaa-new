@@ -11,10 +11,13 @@
   }
   .image {
     border-radius: 4px;
+    text-align: center;
     img {
       max-width: 132px;
+      min-height: 132px;
       @include media(sm) {
         min-width: 188px;
+        min-height: 188px;
       }
     }
   }
@@ -64,8 +67,7 @@
   <v-card class="doctor">
     <nuxt-link :to="doctorLink">
       <div class="image">
-        <ImageLoader
-          height="190px"
+        <img
           :src="`/api/${doctor.imagePath}`"
           :alt="doctor.fullName || doctor.fullNameWithTitle"
         />
@@ -97,7 +99,7 @@ export default class Doctor extends Vue {
 
   get doctorLink() {
     return `/doctors/${
-      this.doctor.specialityEnglishTitle ||
+      this.doctor.specialtyEnglishTitle ||
       this.doctor.specialtyEnglishTitle.toLowerCase().replace(/ /g, '-')
     }/${this.doctor.subscriberNumber}`
   }

@@ -130,6 +130,8 @@ export default class Post extends Vue {
   readonly heightImage!: String
 
   get calculateReadTime() {
+    debugger
+    console.log(process.browser)
     if (process.browser) {
       var span = document.createElement('span')
       span.innerHTML = this.post.content

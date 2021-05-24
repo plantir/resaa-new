@@ -28,13 +28,9 @@
       </div>
 
       <div class="increase-credit d-flex align-center mt-3">
-        <div class="right ml-4">
-          فکر می‌کنید به اعتبار بیشتری احتیاج دارید؟
-        </div>
+        <div class="right ml-4">فکر می‌کنید به اعتبار بیشتری احتیاج دارید؟</div>
         <div class="left d-flex align-center mt-3">
-          <nuxt-link class="ml-2" to="/charge">
-            افزایش اعتبار
-          </nuxt-link>
+          <nuxt-link class="ml-2" to="call/charge"> افزایش اعتبار </nuxt-link>
           <Icon fileName="ic_link_left.png" />
         </div>
       </div>

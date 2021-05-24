@@ -68,7 +68,7 @@
 
       <aside>
         <FeatureTypeOne />
-        <TestimonialTypeOne class="mt-6" />
+        <TestimonialTypeOne :items="category.testimonials" class="mt-6" />
       </aside>
     </v-container>
   </div>
@@ -89,8 +89,10 @@ import WorkingWithResaa from '@/components/Pages/Promotion/WorkingWithResaa/Work
 export default class PromotionDoctorListDesktop extends Vue {
   @Prop()
   doctors!: Doctor[]
+  @Prop()
+  category!: any
   get components() {
-    const doctors: any = this.doctors.map(item => ({
+    const doctors: any = this.doctors.map((item) => ({
       component: Doctor,
       data: item,
     }))

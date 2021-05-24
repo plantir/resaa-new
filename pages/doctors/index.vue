@@ -89,20 +89,7 @@ export default class DoctorsPage extends Vue {
   }
   @Watch('filter', { deep: true })
   async updateFilters() {
-    this.loading = true
-    let { result } = await this.$service.doctors.query({
-      limit: this.limit,
-      offset: this.offset,
-      sort: this.filter.orderBy,
-      filters: {
-        speciality: this.filter.specialty,
-        category: this.filter.sickness,
-      },
-      query: this.filter.query,
-    })
-    this.doctors = result.doctors
-    this.totalItems = result.doctorsTotalCount
-    this.loading = false
+    this.getDoctors()
   }
   get offset() {
     return (this.page - 1) * this.limit
@@ -127,15 +114,13 @@ export default class DoctorsPage extends Vue {
     try {
       this.loading = true
       let { result } = await this.$service.doctors.query({
-        fields:
-          'id,specialty,subscriberNumber,firstName,lastName,imagePath,expertise',
         limit: this.limit,
         offset: this.offset,
         sort: this.filter.orderBy,
-        // filters: {
-        //   speciality: this.filter.specialty,
-        //   category: this.filter.sickness,
-        // },
+        filters: {
+          speciality: this.filter.specialty,
+          category: this.filter.sickness,
+        },
         query: this.filter.query,
       })
       this.doctors = result.doctors

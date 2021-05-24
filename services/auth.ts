@@ -8,4 +8,13 @@ export default class AuthService {
   getProfile(userId: string): Promise<IResponse<ResultProfile>> {
     return this.$axios.$get(`/Accounts/${userId}/Profile`)
   }
+
+  login(params: any) {
+    let data = `username=${params.username}&password=${params.password}&grant_type=${params.grant_type}`
+    return this.$axios.$post(`/oauth2/token`, data, {
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
+  }
 }

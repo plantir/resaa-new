@@ -164,10 +164,14 @@
           <li>
             <div class="call">
               <span>تعرفه تماس:</span>
-              <span
-                >{{ +doctor.pricePerMinute | currency | persianDigit }} تومان در
-                دقیقه</span
-              >
+              <span>
+                {{ +doctor.minimumPrice | currency | persianDigit }} تومان
+                {{
+                  doctor.pricePolicyType == 'PerMinutes'
+                    ? 'در دقیقه'
+                    : 'در جلسه'
+                }}
+              </span>
             </div>
             <div v-for="(item, index) in doctor.workplaces" :key="index">
               <span>آدرس مطب {{ (index + 1) | persianDigit }}:</span>
@@ -175,19 +179,31 @@
                 <a @click="showWorkplace(item)">نمایش آدرس</a>
               </span>
             </div>
-            <div>
+            <div v-if="isCallPage">
+              <v-btn
+                block
+                outlined
+                exact
+                :to="`${$route.fullPath.replace('/call', '')}`"
+                class="sendAnswer"
+              >
+                بازگشت به پروفایل
+              </v-btn>
+            </div>
+            <div v-else>
               <v-btn
                 :to="`${$route.fullPath}/experiement`"
                 class="sendAnswer"
                 outlined
-                >ارسال جواب آزمایش</v-btn
               >
-              <v-btn :to="`${$route.fullPath}/call`" class="directCall"
-                >تماس مستقیم</v-btn
-              >
+                ارسال جواب آزمایش
+              </v-btn>
+              <v-btn :to="`${$route.fullPath}/call`" class="directCall">
+                تماس مستقیم
+              </v-btn>
             </div>
           </li>
-          <li>
+          <li v-if="false">
             <div>
               <span>
                 <img src="@/assets/img/ic_share.png" alt />
@@ -215,9 +231,11 @@ import { Doctor } from '~/models/Doctor'
 export default class component_name extends Vue {
   @Prop({ required: true })
   doctor!: Doctor
-  showWorkplace(item: any) {
-    console.log(item)
+
+  get isCallPage() {
+    return this.$route.name?.includes('call')
   }
+
   get fullName() {
     return `${this.doctor.title ? this.doctor.title : ''} ${
       this.doctor.firstName
@@ -229,6 +247,10 @@ export default class component_name extends Vue {
 
   get statusText() {
     return this.doctor.isCurrentlyAvailable ? 'در دسترس' : 'خارج از دسترس'
+  }
+
+  showWorkplace(item: any) {
+    console.log(item)
   }
 }
 </script>

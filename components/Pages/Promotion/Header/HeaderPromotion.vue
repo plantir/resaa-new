@@ -1,8 +1,8 @@
 <style lang="scss" scoped>
 .header {
-  background: url('/images/promotion/header-bg.png') no-repeat;
-  background-position: center;
-  background-size: cover;
+  // background: url('/images/promotion/header-bg.png') no-repeat;
+  // background-position: center;
+  // background-size: cover;
   position: relative;
   width: 100%;
   height: 140px;
@@ -10,12 +10,13 @@
   font-weight: bold;
   color: #fff;
   line-height: 28px;
+  overflow: hidden;
   @include media(sm) {
     font-size: 26px;
     height: 340px;
     line-height: 60px;
   }
-  &::before {
+  &::after {
     background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
     content: '';
@@ -29,6 +30,9 @@
     @include media(sm) {
       font-size: 32px;
     }
+  }
+  .v-image {
+    position: absolute;
   }
   .main-title {
     font-size: 12px;
@@ -46,16 +50,31 @@
 
 <template>
   <div class="header d-flex flex-column align-center justify-center">
+    <v-img
+      width="100%"
+      height="100%"
+      :src="backgroundImage"
+      :alt="category.pageHeaderTitle"
+    />
+
     <span class="main-title">لیست متخصصان مرتبط با نیاز شما</span>
-    <h1 class="skill-desc">
-      مشاوره با متخصصان زنان و زایمان
-    </h1>
+    <h1 class="skill-desc">{{ category.pageHeaderTitle }}</h1>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
-export default class HeaderPromotion extends Vue {}
+export default class HeaderPromotion extends Vue {
+  @Prop()
+  category!: any
+
+  get backgroundImage() {
+    // return '/images/promotion/header-bg.png'
+    return '/api/' + this.$device.isDesktop
+      ? this.category.backgroundImagePath
+      : this.category.mobileBackgroundImagePath
+  }
+}
 </script>

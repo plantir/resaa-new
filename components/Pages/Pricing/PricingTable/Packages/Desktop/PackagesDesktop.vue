@@ -24,12 +24,12 @@
       <Package
         v-for="(item, index) in packages"
         :key="index"
-        :color="item.color"
-        :count="item.count"
-        :name="item.name"
-        :title="item.title"
-        :desc="item.desc"
-        :price="item.price"
+        :color="colors[index]"
+        :count="item.chargePackage.durationInMinute"
+        :name="item.chargePackage.packageTitle"
+        :title="`${item.chargePackage.durationInMinute} دقیقه مکالمه`"
+        :desc="item.chargePackage.description"
+        :price="item.denomination.amount"
         @click="onClick"
       />
     </div>
@@ -52,6 +52,7 @@ import Icon from '@/components/Common/Icon/Icon.vue'
   },
 })
 export default class PackagesDesktop extends Vue {
+  colors = ['#35d6c1', '#0bbad9', '#f9a429', '#c73260']
   @Prop({
     type: Array,
     required: true,

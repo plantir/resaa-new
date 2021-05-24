@@ -136,41 +136,39 @@
           </li>
           <li>
             <span>تعرفه تماس:</span>
-            <span>{{ 3000 | currency | persianDigit }} تومان در دقیقه</span>
+            <span>
+              {{ +doctor.minimumPrice | currency | persianDigit }} تومان
+              {{
+                doctor.pricePolicyType == 'PerMinutes' ? 'در دقیقه' : 'در جلسه'
+              }}
+            </span>
           </li>
           <li>
+            <template></template>
             <div>
               <span>آدرس مطب {{ 1 | persianDigit }}:</span>
               <span>آدرس مطب {{ 2 | persianDigit }}:</span>
             </div>
             <div>
               <span>
-                <a href="">
-                  نمایش آدرس
-                </a>
+                <a href=""> نمایش آدرس </a>
               </span>
               <span>
-                <a href="">
-                  نمایش آدرس
-                </a>
+                <a href=""> نمایش آدرس </a>
               </span>
             </div>
           </li>
-          <li>
+          <li v-if="false">
             <span>
               <img src="@/assets/img/ic_share.png" alt="" />
               <span>
-                <a href="">
-                  اشتراک گذاری
-                </a>
+                <a href=""> اشتراک گذاری </a>
               </span>
             </span>
             <span>
               <img src="@/assets/img/ic_contacts.png" alt="" />
               <span>
-                <a href="">
-                  افزودن به مخاطبین
-                </a>
+                <a href=""> افزودن به مخاطبین </a>
               </span>
             </span>
           </li>

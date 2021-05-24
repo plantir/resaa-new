@@ -42,8 +42,8 @@
       برای تاثیر بیشتر تماس، می‌توانید یک پیام هم از شرح تماس‌تان به پزشک
       بفرستید.
     </p>
-    <v-text-field
-      v-model="form.desc"
+    <v-area
+      v-model="message"
       placeholder="توضیحات..."
       name="desc"
       v-validate="'required'"
@@ -52,7 +52,7 @@
       outlined
     />
 
-    <div class="submit ">
+    <div class="submit">
       <v-container class="d-flex justify-space-between">
         <v-btn text>انصراف</v-btn>
         <v-btn @click="onSubmit" dense>ارسال درخواست رزرو تماس</v-btn>
@@ -66,12 +66,12 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class FormCall extends Vue {
-  form = {}
+  message = ''
 
   onSubmit() {
-    this.$validator.validate().then(valid => {
+    this.$validator.validate().then((valid) => {
       if (valid) {
-        this.$emit('submit')
+        this.$emit('submit', this.message)
       }
     })
   }

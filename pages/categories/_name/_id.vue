@@ -7,12 +7,22 @@
 <template>
   <div class="promotion-wrapper">
     <template v-if="!$fetchState.pending">
-      <HeaderPromotion />
+      <HeaderPromotion :category="category" />
       <PromotionDoctorListMobile
         :doctors="related_doctors"
+        :totalItems="totalItems"
         v-if="$device.isMobile"
       />
-      <PromotionDoctorListDesktop :doctors="related_doctors" v-else />
+      <PromotionDoctorListDesktop
+        :category="category"
+        :doctors="related_doctors"
+        v-else
+      />
+      <v-container>
+        <div class="custom-container">
+          <Description :content="category.seoContents" />
+        </div>
+      </v-container>
     </template>
   </div>
 </template>
@@ -20,10 +30,12 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import HeaderPromotion from '@/components/Pages/Promotion/Header/HeaderPromotion.vue'
+import Description from '@/components/Pages/Category/Description.vue'
 Component.registerHooks(['fetch'])
 @Component({
   components: {
     HeaderPromotion,
+    Description,
     PromotionDoctorListMobile: () =>
       import(
         '@/components/Pages/Promotion/DoctorList/Mobile/PromotionDoctorListMobile.vue'

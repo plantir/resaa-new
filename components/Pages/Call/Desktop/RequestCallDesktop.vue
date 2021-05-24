@@ -14,8 +14,10 @@
         <InfoDoctor :doctor="doctor" class="info-doctor" />
       </v-col>
       <v-col md="8">
-        <ChargeInfo v-if="false" />
-        <FormCall v-else />
+        <ChargeInfo v-if="doctor.isCurrentlyAvailable" />
+        <div v-else ref="formWrapper">
+          <FormCall @submit="onFormSubmit" />
+        </div>
         <Faq />
       </v-col>
     </v-row>
@@ -40,5 +42,30 @@ import Faq from '@/components/Common/Faq/Faq.vue'
 export default class RequestCall extends Vue {
   @Prop()
   doctor!: Doctor
+
+  async onFormSubmit(message: string) {
+    let loader = this.$loader.show(this.$refs.formWrapper)
+    try {
+      await this.$service.doctors.callbackRequest({
+        DoctorSubscriberNumber: this.$route.params.id,
+        Message: message,
+        loginOrigin: localStorage.getItem('referrer'),
+      })
+      // let { data } = await this.$axios.$post(
+      //   `/api/calls/WebsiteCallRequest`,
+      //   {
+      //     DoctorSubscriberNumber: this.$route.params.id,
+      //     Message: this.message,
+      //     loginOrigin: localStorage.getItem("referrer")
+      //   }
+      // );
+      this.$toast.success().showSimple('درخواست تماس با موفقیت ثبت شد')
+    } catch (error) {
+      this.$toast
+        .error()
+        .showSimple('مشکلی رخ داده است لطفا با پشتیبانی تماس بگیرید')
+    }
+    loader.hide()
+  }
 }
 </script>

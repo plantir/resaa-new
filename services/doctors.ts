@@ -25,6 +25,7 @@ export default class DoctorService {
   }
 
   query(params: IDoctroQueryParams): Promise<IResponse<ResultDoctor>> {
+    debugger
     if (params.query == '') params.query = null
     return this.$axios.$get('/Doctors', { params })
   }
@@ -48,5 +49,15 @@ export default class DoctorService {
   }
   MedicalSpecialties() {
     return this.$axios.$get(`doctors/MedicalSpecialties`)
+  }
+  getComments(id: string) {
+    return this.$axios.$get(`CallBookSurveys/Doctor/${id}`)
+  }
+  callbackRequest(data: any) {
+    return this.$axios.$post(`/calls/WebsiteCallRequest`, data)
+  }
+
+  getCharges(id: string) {
+    return this.$axios.$get(`/Doctors/${id}/TimeBasedChargePackages`)
   }
 }

@@ -13,13 +13,13 @@
   <v-card class="testimonial-type-one">
     <div class="main-title">چگونه دیگران از رسا سود بردند</div>
     <div class="items">
-      <Testimonial v-for="(item, index) in 3" :key="index" />
+      <Testimonial v-for="(item, index) in items" :key="index" />
     </div>
   </v-card>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import Testimonial from './Testimonial.vue'
 
 @Component({
@@ -27,5 +27,8 @@ import Testimonial from './Testimonial.vue'
     Testimonial,
   },
 })
-export default class TestimonialTypeOne extends Vue {}
+export default class TestimonialTypeOne extends Vue {
+  @Prop()
+  items!: any[]
+}
 </script>

@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
   components: {
@@ -24,9 +24,7 @@ import { Component, Vue } from 'vue-property-decorator'
   },
 })
 export default class PricingTable extends Vue {
-  packages: any = []
-  async mounted() {
-    this.packages = await this.$service.pricing.query()
-  }
+  @Prop()
+  packages: any
 }
 </script>

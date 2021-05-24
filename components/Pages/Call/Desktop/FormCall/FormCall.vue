@@ -48,7 +48,7 @@
       بفرستید.
     </p>
     <v-textarea
-      v-model="form.desc"
+      v-model="message"
       placeholder="متن پیام را بنویسید..."
       name="desc"
       rows="10"
@@ -75,7 +75,7 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component
 export default class FormCall extends Vue {
-  form = {}
+  message = ''
 
   onSubmit() {
     this.$validator.validate().then((valid) => {

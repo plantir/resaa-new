@@ -107,10 +107,10 @@
     <div class="box">
       <div class="title">
         <h2>متخصصین طب سنتی مشابه</h2>
-        <a href="/specialties">
+        <nuxt-link :to="otherDoctorsLink">
           مشاهده همه
           <img src="@/assets/img/arrow-left.png" alt />
-        </a>
+        </nuxt-link>
       </div>
     </div>
     <swiper ref="swiper" :options="swiperOptions">
@@ -118,7 +118,7 @@
         <nuxt-link class="item" :to="doctorLink(doctor)">
           <v-card>
             <div class="text-center">
-              <v-img height="110" :src="`/api/${doctor.imagePath}`"></v-img>
+              <img height="110" :src="`/api/${doctor.imagePath}`" />
             </div>
             <div class="wrapper">
               <div class="doctorName">{{ doctor.fullNameWithTitle }}</div>
@@ -144,7 +144,16 @@ export default class component_name extends Vue {
     slidesPerView: 'auto',
     spaceBetween: 15,
   }
-
+  get otherDoctorsLink() {
+    let category = this.doctor.categories.find((item) => {
+      return (
+        item.type == 2 || item.englishTitle == this.doctor.specialtyEnglishTitle
+      )
+    })
+    return `/categories/${category.englishTitle.replace(/ /g, '-')}/${
+      category.id
+    }`
+  }
   doctorLink(doctor: Doctor) {
     return `/doctors/${doctor.specialtyEnglishTitle
       .toLowerCase()

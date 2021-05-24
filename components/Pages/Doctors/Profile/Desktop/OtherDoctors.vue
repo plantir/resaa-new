@@ -141,11 +141,11 @@
   <section>
     <div class="box">
       <div class="title">
-        <h2>متخصصین طب سنتی مشابه</h2>
-        <a href="/specialties">
+        <h2>متخصصین {{ doctor.specialtyTitle }} مشابه</h2>
+        <nuxt-link :to="otherDoctorsLink">
           مشاهده همه
           <img src="@/assets/img/arrow-left.png" alt />
-        </a>
+        </nuxt-link>
       </div>
       <div class="card_wrapper">
         <nuxt-link
@@ -191,8 +191,24 @@ export default class component_name extends Vue {
     spaceBetween: 15,
   }
 
+  get otherDoctorsLink() {
+    let category = this.doctor.categories.find((item) => {
+      return (
+        item.type == 2 || item.englishTitle == this.doctor.specialtyEnglishTitle
+      )
+    })
+    if (category) {
+      return `/categories/${category.englishTitle.replace(/ /g, '-')}/${
+        category.id
+      }`
+    }
+    return ''
+  }
+
   doctorLink(doctor: Doctor) {
-    return `/doctors/${doctor.specialtyEnglishTitle
+    return `/doctors/${(
+      doctor.specialityEnglishTitle || doctor.specialtyEnglishTitle
+    )
       .toLowerCase()
       .replace(/ /g, '-')}/${doctor.subscriberNumber}`
   }

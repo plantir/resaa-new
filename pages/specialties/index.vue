@@ -25,7 +25,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import SearchDcotor from '@/components/Pages/Specialties/SearchDcotor/SearchDcotor.vue'
 import TopSpecialties from '@/components/Pages/Specialties/TopSpecialties/TopSpecialties.vue'
 import TagList from '@/components/Pages/Specialties/TagList/TagList.vue'
-
+Component.registerHooks(['fetch'])
 @Component({
   components: {
     SearchDcotor,
@@ -37,7 +37,7 @@ export default class SpecialtiesPage extends Vue {
   topSpecialties: any = []
   tags: any = []
   search = ''
-  async mounted() {
+  async fetch() {
     try {
       let { result } = await this.$service.doctors.getTopCategories()
       result.medicalSpecialties.map((items: any) => {

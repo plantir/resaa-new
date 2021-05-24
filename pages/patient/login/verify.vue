@@ -65,8 +65,9 @@ export default class LoginPage extends Vue {
 
   async onSubmit(formData: ReqLogin) {
     try {
-      const payload = new URLSearchParams(formData as any).toString()
-      const { data } = await this.$auth.loginWith('local', { data: payload })
+      debugger
+      const data = await this.$service.auth.login(formData)
+      // $auth.loginWith('local', { data: payload })
 
       const token = data.access_token
 

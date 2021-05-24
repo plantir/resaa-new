@@ -181,16 +181,14 @@
             <span class="full-name">{{ fullname }}</span>
             <span class="line mb-1 mx-2">-</span>
             <span class="skill">
-              {{
-                doctor.specialty
-                  ? doctor.specialty.title
-                  : doctor.specialtyTitle
-              }}
+              {{ doctor.speciality || doctor.specialtyTitle }}
             </span>
           </nuxt-link>
         </h2>
 
-        <OnlineStatus :status="false" />
+        <OnlineStatus
+          :status="doctor.available || doctor.isCurrentlyAvailable"
+        />
       </div>
 
       <div class="middle">
@@ -209,7 +207,9 @@
                 width="24px"
                 height="24px"
               ></v-img>
-              <span class="value">۱۲ سال سابقه</span>
+              <span class="value"
+                >{{ doctor.history | persianDigit }} سال سابقه</span
+              >
             </div>
             <div class="items">
               <v-img
@@ -217,7 +217,9 @@
                 width="24px"
                 height="24px"
               ></v-img>
-              <span class="value">۲۵ تماس موفق</span>
+              <span class="value"
+                >{{ doctor.succuessCallsCount | persianDigit }} تماس موفق</span
+              >
             </div>
           </div>
           <div class="price">
@@ -227,7 +229,10 @@
                 width="24px"
                 height="24px"
               ></v-img>
-              <span class="value">۳,۰۰۰ تومان در دقیقه</span>
+              <span class="value">
+                {{ doctor.minimumPrice | currency | persianDigit }} تومان در
+                دقیقه
+              </span>
             </div>
           </div>
         </div>
@@ -254,6 +259,7 @@ import OnlineStatus from '@/components/Common/OnlineStatus/OnlineStatus.vue'
 export default class Doctor extends Vue {
   @Prop({
     required: true,
+    default: {},
   })
   doctor!: any
 
@@ -276,14 +282,16 @@ export default class Doctor extends Vue {
     if (this.doctor.specialty) {
       return `/doctors/${(this.doctor.specialty
         ? this.doctor.specialty.description
-        : this.doctor.specialtyEnglishTitle
+        : this.doctor.specialtyEnglishTitle ||
+          this.doctor.specialityEnglishTitle
       )
         .toLowerCase()
         .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
     } else {
-      return `/doctors/${this.doctor.specialtyEnglishTitle
-        .toLowerCase()
-        .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
+      return `/doctors/${
+        this.doctor.specialtyEnglishTitle ||
+        this.doctor.specialityEnglishTitle.toLowerCase().replace(/ /g, '-')
+      }/${this.doctor.subscriberNumber}`
     }
   }
 }

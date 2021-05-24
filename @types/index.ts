@@ -2,6 +2,7 @@ import { Profile } from '@/models/Auth'
 import AuthService from '@/services/auth'
 import ChargeService from '@/services/charge'
 import ProfileService from '@/services/profile'
+import CallbookSurveyService from '~/services/callbookSurveys'
 import DoctorService from '~/services/doctors'
 import PricingService from '~/services/pricing'
 import TestimonialsService from '~/services/testimonials'
@@ -56,6 +57,7 @@ declare module 'vue/types/vue' {
     weblog: WeblogService
     testimonials: TestimonialsService
     pricing: PricingService
+    callbookSurveys: CallbookSurveyService
   }
   interface NuxtEnumInstance {
     role: IEnum

@@ -220,27 +220,28 @@
 <template>
   <div class="box">
     <div class="title">
-      <h2>
-        نظرات مراجعین
-      </h2>
+      <h2>نظرات مراجعین</h2>
     </div>
     <div class="wrapper">
-      <div class="comments_wrapper" v-for="n in 2" :key="n">
+      <div
+        class="comments_wrapper"
+        v-for="comment in comments"
+        :key="comment.id"
+      >
         <div class="comment_item">
           <div class="right_side">
-            <span>محمدرضا محمدی</span>
-            <span>در تاریخ ۶ آذر ۱۳۹۸</span>
+            <span>{{ comment.authorDisplayName }}</span>
+            <span>
+              در تاریخ
+              {{
+                comment.createdAt | persianDate('jDD jMMM jYYYY') | persianDigit
+              }}
+            </span>
           </div>
           <div class="left_side">
             <div class="message_text">
               <span>
-                از این تماس بسیار راضی بودن. خانم دکتر با دقت به حرف‌های من گوش
-                کرد و راهکار مناسب بهم .پیشنهاد کرد .
-
-                <br />
-                <br />
-                در نهایت خیلی خوشحالم که مجبور نشدن تا مطب برم و توی ترافیک
-                بمونم
+                {{ comment.feedback }}
               </span>
             </div>
           </div>
@@ -248,15 +249,15 @@
         <div class="agree_comment">
           <div class="agree_question">با این نظر موافقید؟</div>
           <div class="yes_or_no">
-            <span>
-              ۱۳ بله
+            <span @click="aggreeComment(comment)">
+              {{ comment.likeCount | persianDigit }} بله
             </span>
-            <span>
-              ۳ خیر
+            <span @click="disaggreeComment(comment)">
+              {{ comment.dislikeCount | persianDigit }} خیر
             </span>
           </div>
         </div>
-        <div class="answer_wrapper" v-if="n < 2">
+        <!-- <div class="answer_wrapper" v-if="n < 2">
           <div class="comment_answer">
             <div class="support">
               <span>پاسخ پشتیبانی</span>
@@ -276,7 +277,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -284,5 +285,45 @@
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
 @Component
-export default class component_name extends Vue {}
+export default class component_name extends Vue {
+  @Prop()
+  doctor!: any
+  comments = []
+  async mounted() {
+    let { result } = await this.$service.doctors.getComments(
+      this.doctor.subscriberNumber
+    )
+    this.comments = result.surveys
+  }
+
+  async aggreeComment(comment: any) {
+    debugger
+    if (!this.$auth.loggedIn) {
+      return this.$toast
+        .warning()
+        .showSimple(
+          'برای تایید یا عدم تایید نظر ابتدا باید وارد حساب کاربری خود شوید'
+        )
+    }
+    if (comment.userAction == 2) {
+      this.$service.callbookSurveys.withdrawSurvey(comment.id)
+    } else {
+      this.$service.callbookSurveys.likeSurvey(comment.id)
+    }
+  }
+  async disaggreeComment(comment: any) {
+    if (!this.$auth.loggedIn) {
+      return this.$toast
+        .warning()
+        .showSimple(
+          'برای تایید یا عدم تایید نظر ابتدا باید وارد حساب کاربری خود شوید'
+        )
+    }
+    if (comment.userAction == 1) {
+      this.$service.callbookSurveys.withdrawSurvey(comment.id)
+    } else {
+      this.$service.callbookSurveys.dislikeSurvey(comment.id)
+    }
+  }
+}
 </script>

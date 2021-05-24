@@ -34,12 +34,13 @@
       <swiper ref="swiper" :options="swiperOptions">
         <swiper-slide v-for="(item, index) in packages" :key="index">
           <Package
-            :color="item.color"
-            :count="item.count"
-            :name="item.name"
-            :title="item.title"
-            :desc="item.desc"
-            :price="item.price"
+            :key="index"
+            :color="colors[index]"
+            :count="item.chargePackage.durationInMinute"
+            :name="item.chargePackage.packageTitle"
+            :title="`${item.chargePackage.durationInMinute} دقیقه مکالمه`"
+            :desc="item.chargePackage.description"
+            :price="item.denomination.amount"
             @click="onClick"
           />
         </swiper-slide>
@@ -68,6 +69,7 @@ import Package from '../Package/Package.vue'
   },
 })
 export default class PackagesMobile extends Vue {
+  colors = ['#35d6c1', '#0bbad9', '#f9a429', '#c73260']
   @Prop({
     type: Array,
     required: true,
