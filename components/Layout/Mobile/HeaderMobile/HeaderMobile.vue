@@ -24,6 +24,16 @@
       height: 28px;
     }
   }
+  .referral-btn {
+    display: flex;
+    align-items: center;
+    .v-btn {
+      width: 70px;
+      height: 25px;
+      background: #fff;
+      color: #35d6c1;
+    }
+  }
 }
 </style>
 
@@ -49,7 +59,9 @@
         />
       </nuxt-link>
     </div>
-
+    <div class="referral-btn">
+      <v-btn outlined @click="openReferralDialog">اعتبار رایگان</v-btn>
+    </div>
     <v-spacer />
 
     <nuxt-link :to="avatarLink">
@@ -66,7 +78,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
+import Refferal from '@/components/Common/Referral/Index.vue'
 @Component
 export default class HeaderMobile extends Vue {
   get avatarLink() {
@@ -107,6 +119,11 @@ export default class HeaderMobile extends Vue {
 
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll)
+  }
+  openReferralDialog() {
+    this.$dialog.show({
+      component: Refferal,
+    })
   }
 }
 </script>
