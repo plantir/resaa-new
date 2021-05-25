@@ -6,11 +6,11 @@
     </div>
     <SectionSearch />
     <div v-if="loggedIn">
-      <ChosenDoctor
+      <!-- <ChosenDoctor
         title="متخصصین پیشنهادی برای شما"
         :doctors="doctors"
         :loading="loadingDoctors"
-      />
+      /> -->
       <!-- <DiseasesList /> -->
       <ChosenDoctor
         title="مشاوره کرونا"

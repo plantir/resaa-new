@@ -25,7 +25,6 @@ export default class DoctorService {
   }
 
   query(params: IDoctroQueryParams): Promise<IResponse<ResultDoctor>> {
-    debugger
     if (params.query == '') params.query = null
     return this.$axios.$get('/Doctors', { params })
   }

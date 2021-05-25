@@ -2,16 +2,26 @@
 
 <template>
   <section>
-    <SearchResultItem :data="doctors" title="نتایج جستجو پزشکان:" :link="`/`" />
     <SearchResultItem
-      :data="doctors"
-      title="نتایج جستجو تخصص ها:"
-      :link="`/`"
+      v-if="result.doctors"
+      :data="result.doctors"
+      type="doctor"
+      title="نتایج از بین پزشکان"
+      :link="'/'"
     />
     <SearchResultItem
-      :data="doctors"
-      title="نتایج جستجو بیماری ها:"
-      :link="`/`"
+      v-if="result.specialities"
+      :data="result.specialities"
+      type="speciality"
+      title="نتایج از بین تخصص ها"
+      :link="'/'"
+    />
+    <SearchResultItem
+      v-if="result.categories"
+      :data="result.categories"
+      type="illness"
+      title="نتایج از بین بیماری ها"
+      :link="'/'"
     />
   </section>
 </template>
@@ -26,9 +36,9 @@ import SearchResultItem from './SearchResultItemMobile.vue'
 })
 export default class SearchResult extends Vue {
   @Prop({
-    type: Array,
+    type: Object,
     required: true,
   })
-  readonly doctors!: Array<object>
+  readonly result!: object
 }
 </script>

@@ -68,7 +68,7 @@
     </div>
     <div class="left-side d-flex flex-column align-center">
       <div class="full-name font-weight-bold">{{ fullName }}</div>
-      <div class="skil mt-3">{{ doctor.specialty.title }}</div>
+      <div class="skil mt-3">{{ doctor.speciality }}</div>
       <div class="link mt-5">
         <nuxt-link :to="doctorLink">مشاهده پروفایل</nuxt-link>
       </div>
@@ -92,19 +92,24 @@ export default class Doctor extends Vue {
   }
 
   get doctorLink() {
-    return `/doctors/${(this.doctor.specialty
-      ? this.doctor.specialty.description
-      : this.doctor.specialtyEnglishTitle
-    )
-      .toLowerCase()
-      .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
+    let name =
+      this.doctor.specialityEnglishTitle ||
+      this.doctor.specialtyEnglishTitle ||
+      ''
+    return `/doctors/${name.toLowerCase().replace(/ /g, '-')}/${
+      this.doctor.subscriberNumber
+    }`
   }
   get statusClass() {
-    return this.doctor.isCurrentlyAvailable ? 'online' : 'offline'
+    return this.doctor.isCurrentlyAvailable || this.doctor.available
+      ? 'online'
+      : 'offline'
   }
 
   get statusText() {
-    return this.doctor.isCurrentlyAvailable ? 'در دسترس' : 'خارج از دسترس'
+    return this.doctor.isCurrentlyAvailable || this.doctor.available
+      ? 'در دسترس'
+      : 'خارج از دسترس'
   }
 }
 </script>

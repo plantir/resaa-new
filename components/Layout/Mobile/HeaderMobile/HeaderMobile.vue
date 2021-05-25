@@ -59,9 +59,9 @@
         />
       </nuxt-link>
     </div>
-    <div class="referral-btn">
+    <!-- <div class="referral-btn">
       <v-btn outlined @click="openReferralDialog">اعتبار رایگان</v-btn>
-    </div>
+    </div> -->
     <v-spacer />
 
     <nuxt-link :to="avatarLink">

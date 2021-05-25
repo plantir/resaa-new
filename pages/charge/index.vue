@@ -63,7 +63,7 @@ export default class ChargePage extends Vue {
       this.loading = true
       const { result } = await this.$service.charge.getPreInvoice({
         ...form,
-        callbackUrl: process.env.BANK_RETURN_URL,
+        CallbackUrl: process.env.BANK_RETURN_URL,
       })
       this.invoice = result
       this.loading = false

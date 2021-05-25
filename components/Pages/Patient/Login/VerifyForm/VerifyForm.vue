@@ -90,7 +90,7 @@
         />
         <div class="forgot-password font-weight-medium">
           <span>رمز عبور را فراموش کرده‌اید؟</span>
-          <nuxt-link to="/">بازیابی رمز عبور</nuxt-link>
+          <a @click="forgotPassword">بازیابی رمز عبور</a>
         </div>
         <v-btn class="resaa-btn mt-8" block @click="onSubmit">
           تایید و ادامه
@@ -142,11 +142,14 @@ export default class LoginForm extends Vue {
       if (valid) {
         this.$emit('submit', {
           ...this.form,
-          username: this.$auth.$storage.getCookie('login_mobile'),
+          username: this.$storage.getUniversal('login_mobile'),
           grant_type: 'password',
         })
       }
     })
+  }
+  forgotPassword() {
+    this.$emit('forgotPassword')
   }
 }
 </script>

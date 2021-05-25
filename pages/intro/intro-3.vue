@@ -54,7 +54,7 @@ export default class IntroPage3 extends Vue {
   }
 
   onClick() {
-    this.$auth.$storage.setCookie('seeIntro', 1, false)
+    this.$storage.setUniversal('seeIntro', 1)
     this.$router.push('/patient/login')
   }
 }

@@ -55,13 +55,13 @@
             />
           </template>
         </div>
-
         <div class="pagination-wrapper text-left mt-8">
           <v-pagination
             v-model="page"
-            :length="100"
+            :length="pageLength"
             :circle="false"
             :total-visible="10"
+            @change="onPageChange"
           />
         </div>
       </main>
@@ -75,7 +75,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 import FeatureTypeOne from '@/components/Widgets/FeatureTypeOne/FeatureTypeOne.vue'
 import TestimonialTypeOne from '@/components/Widgets/TestimonialTypeOne/TestimonialTypeOne.vue'
@@ -87,24 +87,34 @@ import WorkingWithResaa from '@/components/Pages/Promotion/WorkingWithResaa/Work
   },
 })
 export default class PromotionDoctorListDesktop extends Vue {
+  page = 1
   @Prop()
   doctors!: Doctor[]
   @Prop()
   category!: any
+  @Prop()
+  totalItems!: number
+  get pageLength() {
+    return Math.ceil(this.totalItems / 6)
+  }
   get components() {
     const doctors: any = this.doctors.map((item) => ({
       component: Doctor,
       data: item,
     }))
-
-    doctors.splice(2, 0, {
-      component: WorkingWithResaa,
-      data: null,
-    })
+    if (this.page == 1) {
+      doctors.splice(2, 0, {
+        component: WorkingWithResaa,
+        data: null,
+      })
+    }
 
     return doctors
   }
-
-  page = 1
+  @Watch('page')
+  onPageChange() {
+    debugger
+    this.$emit('pageChange', this.page)
+  }
 }
 </script>

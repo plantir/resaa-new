@@ -22,8 +22,13 @@
 
 <template>
   <div class="auth">
-    <div class="form-wrapper">
-      <VerifyForm class="login-wrap" v-model="form" @submit="onSubmit" />
+    <div class="form-wrapper" ref="wrapper">
+      <VerifyForm
+        class="login-wrap"
+        v-model="form"
+        @submit="onSubmit"
+        @forgotPassword="onForgotPassword"
+      />
     </div>
     <BottomBackground v-if="$device.isMobile" />
   </div>
@@ -65,7 +70,6 @@ export default class LoginPage extends Vue {
 
   async onSubmit(formData: ReqLogin) {
     try {
-      debugger
       const data = await this.$service.auth.login(formData)
       // $auth.loginWith('local', { data: payload })
 
@@ -87,7 +91,7 @@ export default class LoginPage extends Vue {
       }
       // console.log('LoginPage -> onSubmit -> payloadProfile', payloadProfile)
 
-      this.$auth.$storage.setCookie('profile', payloadProfile, true)
+      this.$storage.setUniversal('profile', payloadProfile)
 
       this.$auth.setUser(payloadProfile)
 
@@ -95,6 +99,28 @@ export default class LoginPage extends Vue {
     } catch (error) {
       this.$toast.error().showSimple('کلمه عبور یا نام کاربری صحیح نمی باشد.')
     }
+  }
+
+  async onForgotPassword() {
+    let loader = this.$loader.show(this.$refs.wrapper)
+    try {
+      let mobile = this.$storage.getUniversal('login_mobile')
+      await this.$service.auth.forgotPassword(mobile)
+      this.$toast
+        .success()
+        .showSimple('رمز عبور به شماره موبایل وارد شما پیامک شد')
+    } catch (error) {
+      console.log(error.response)
+      let msg = 'خطایی رخ داده است'
+      if (error.response.status == 409) {
+        msg = 'تعداد درخواست بیش از حد مجاز. لطفا چند دقیقه دیگر درخواست دهید'
+      }
+      if (error.response.status == 500) {
+        msg = 'شماره وارد شده در سیستم وجود ندارد'
+      }
+      this.$toast.error().showSimple(msg)
+    }
+    loader.hide()
   }
 }
 </script>

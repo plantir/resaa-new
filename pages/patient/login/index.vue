@@ -61,7 +61,7 @@ Component.registerHooks(['fetch', 'head'])
 })
 export default class LoginPage extends Vue {
   form = {
-    mobile: this.$auth.$storage.getCookie('login_mobile') || null,
+    mobile: this.$storage.getUniversal('login_mobile') || null,
   }
 
   public head() {
@@ -74,7 +74,7 @@ export default class LoginPage extends Vue {
   }
 
   onSubmit() {
-    this.$auth.$storage.setCookie('login_mobile', this.form.mobile, false)
+    this.$storage.setUniversal('login_mobile', this.form.mobile, false)
     this.$router.push('/patient/login/verify')
   }
 }

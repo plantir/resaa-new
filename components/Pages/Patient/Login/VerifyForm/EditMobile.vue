@@ -25,7 +25,7 @@ import Icon from '@/components/Common/Icon/Icon.vue'
 })
 export default class EditMobile extends Vue {
   get mobile() {
-    return this.$auth.$storage.getCookie('login_mobile')
+    return this.$storage.getUniversal('login_mobile')
   }
 }
 </script>

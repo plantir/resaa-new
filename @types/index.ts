@@ -3,6 +3,7 @@ import AuthService from '@/services/auth'
 import ChargeService from '@/services/charge'
 import ProfileService from '@/services/profile'
 import CallbookSurveyService from '~/services/callbookSurveys'
+import CategoryService from '~/services/categories'
 import DoctorService from '~/services/doctors'
 import PricingService from '~/services/pricing'
 import TestimonialsService from '~/services/testimonials'
@@ -14,10 +15,15 @@ interface Storage {
   setState(key: string, val: any): void
   getState(key: string): any
   watchState(key: string, callback: (newValue: any) => any): void
-  setCookie(key: string, val: any, isJson: boolean): void
+  setCookie(key: string, val: any, isJson?: boolean): void
   getCookie(key: string): any
-  setLocalStorage(key: string, val: any, isJson: boolean): void
+  setLocalStorage(key: string, val: any, isJson?: boolean): void
   getLocalStorage(key: string): any
+  removeLocalStorage(key: string): any
+  setUniversal(key: string, val: any, isJson?: boolean): void
+  getUniversal(key: string, isJson?: boolean): any
+  syncUniversal(key: string, val: any, isJson?: boolean): void
+  removeUniversal(key: string): any
 }
 interface Auth {
   user?: Object | any
@@ -39,12 +45,15 @@ interface Auth {
 declare module 'vue/types/vue' {
   interface Vue {
     $auth: Auth
+    $storage: Storage
   }
   interface Context {
     $auth: Auth
+    $storage: Storage
   }
   interface NuxtAppOptions {
     $auth: Auth
+    $storage: Storage
   }
 }
 
@@ -58,6 +67,7 @@ declare module 'vue/types/vue' {
     testimonials: TestimonialsService
     pricing: PricingService
     callbookSurveys: CallbookSurveyService
+    categories: CategoryService
   }
   interface NuxtEnumInstance {
     role: IEnum

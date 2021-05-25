@@ -95,6 +95,7 @@ export default {
     // '@nuxtjs/recaptcha',
     // Doc: https://github.com/nuxt-community/sentry-module
     // '@nuxtjs/sentry',
+    '@nuxtjs/universal-storage',
     // Doc: https://github.com/nuxt-community/sitemap-module
     '@nuxtjs/sitemap',
     // Doc: https://github.com/nuxt-community/robots-module#readme

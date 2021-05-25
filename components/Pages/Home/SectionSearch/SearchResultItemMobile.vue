@@ -39,14 +39,37 @@
     }
   }
 }
+.item {
+  height: 97px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.swiper-container {
+  padding: 30px 10px 30px;
+}
 </style>
 
 <template>
   <div class="result">
     <div class="list" v-if="data.length > 0">
       <div class="result-title">{{ title }}</div>
-      <Doctor v-for="item in data" :key="item.id" :doctor="item" />
-      <nuxt-link class="view-all" :to="link"> مشاهده همه </nuxt-link>
+      <swiper ref="swiper" :options="swiperOptions">
+        <swiper-slide v-for="item in data" :key="item.id">
+          <Doctor :doctor="item" v-if="type == 'doctor'" />
+          <template v-else>
+            <div class="item primary--text">
+              <nuxt-link :to="categoryLink(item)" class="pa-4">
+                {{ item.title }}
+              </nuxt-link>
+            </div>
+          </template>
+        </swiper-slide>
+      </swiper>
+      <!-- <nuxt-link class="view-all" :to="link"> مشاهده همه </nuxt-link> -->
     </div>
     <!-- <div class="empty mt-5" v-else>
       <img src="/images/home/skills.png" />
@@ -79,29 +102,26 @@ export default class SearchResult extends Vue {
     required: true,
   })
   readonly link!: String
-  swiperOptions = {
-    grabCursor: true,
-    loop: true,
-    slidesPerView: 2,
-    spaceBetween: 20,
-    autoplay: {
-      delay: 7000,
-      disableOnInteraction: false,
-    },
+  @Prop({
+    type: String,
+    required: true,
+  })
+  readonly type!: String
 
-    breakpoints: {
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 20,
+  get swiperOptions() {
+    return {
+      grabCursor: true,
+      slidesPerView: this.type == 'doctor' ? 1 : 2,
+      spaceBetween: 20,
+      autoplay: {
+        delay: 7000,
+        disableOnInteraction: false,
       },
-      1280: {
-        slidesPerView: 4,
-        spaceBetween: 50,
-      },
-      1785: {
-        slidesPerView: 5,
-      },
-    },
+    }
+  }
+  categoryLink(item: any) {
+    let name = item.englishTitle || ''
+    return `/categories/${name.replace(/ /g, '-')}/${item.id}`
   }
 }
 </script>

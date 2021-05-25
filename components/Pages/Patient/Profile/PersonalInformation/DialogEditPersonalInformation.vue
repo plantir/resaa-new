@@ -78,12 +78,8 @@
           outlined
         />
         <div class="buttons d-flex justify-space-between">
-          <v-btn text @click="$emit('close')">
-            انصراف
-          </v-btn>
-          <v-btn @click="onSubmit">
-            ثبت تغییرات
-          </v-btn>
+          <v-btn text @click="$emit('close')"> انصراف </v-btn>
+          <v-btn @click="onSubmit"> ثبت تغییرات </v-btn>
         </div>
       </form>
     </div>
@@ -109,7 +105,7 @@ export default class DialogEditPersonalInformation extends Vue {
   }
 
   onSubmit() {
-    this.$validator.validate().then(async valid => {
+    this.$validator.validate().then(async (valid) => {
       if (valid) {
         try {
           const userId = this.$auth.user?.userId
@@ -120,7 +116,7 @@ export default class DialogEditPersonalInformation extends Vue {
             ...this.form,
           }
 
-          this.$auth.$storage.setCookie('profile', payloadProfile, true)
+          this.$storage.setUniversal('profile', payloadProfile)
 
           this.$auth.setUser(payloadProfile)
 

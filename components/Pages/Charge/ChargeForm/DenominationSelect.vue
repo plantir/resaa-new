@@ -65,7 +65,7 @@ export default class DenominationSelect extends Vue {
       const { result } = await this.$service.charge.getChargeMenu()
       if (result.denominations.length > 0) {
         this.chargeMenuItems = result.denominations
-          .filter(item => {
+          .filter((item) => {
             return (
               item.amount == 10000 ||
               item.amount == 20000 ||
@@ -75,7 +75,7 @@ export default class DenominationSelect extends Vue {
             )
           })
           .sort((a, b) => a.amount - b.amount)
-          .map(item => {
+          .map((item) => {
             return {
               amount: item.amount,
               value: item.id,

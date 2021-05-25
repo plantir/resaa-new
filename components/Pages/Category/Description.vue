@@ -4,9 +4,9 @@
     overflow: hidden;
     z-index: 1;
     position: relative;
-    padding: 70px;
-    @include media(sm) {
-      padding: 30px;
+    padding: 30px;
+    @include media(xl) {
+      padding: 70px;
     }
     .resaa-element {
       width: 480px;
@@ -48,9 +48,9 @@
     }
   }
   .half-width {
-    max-width: calc(100% - 430px);
-    @include media(sm) {
-      max-width: 100%;
+    max-width: 100%;
+    @include media(xl) {
+      max-width: calc(100% - 430px);
     }
   }
   .item {

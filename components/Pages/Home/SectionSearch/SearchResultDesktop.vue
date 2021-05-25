@@ -2,14 +2,24 @@
 
 <template>
   <section>
-    <SearchResultItem :data="doctors" title="نتایج از بین پزشکان" :link="'/'" />
     <SearchResultItem
-      :data="doctors"
+      v-if="result.doctors"
+      :data="result.doctors"
+      type="doctor"
+      title="نتایج از بین پزشکان"
+      :link="'/'"
+    />
+    <SearchResultItem
+      v-if="result.specialities"
+      :data="result.specialities"
+      type="speciality"
       title="نتایج از بین تخصص ها"
       :link="'/'"
     />
     <SearchResultItem
-      :data="doctors"
+      v-if="result.categories"
+      :data="result.categories"
+      type="illness"
       title="نتایج از بین بیماری ها"
       :link="'/'"
     />
@@ -17,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import SearchResultItem from './SearchResultItemDesktop.vue'
 @Component({
   components: {
@@ -26,9 +36,14 @@ import SearchResultItem from './SearchResultItemDesktop.vue'
 })
 export default class SearchResult extends Vue {
   @Prop({
-    type: Array,
+    type: Object,
     required: true,
   })
-  readonly doctors!: Array<object>
+  readonly result!: object
+
+  @Watch('result', { deep: true })
+  onResultChange() {
+    console.log(this.result)
+  }
 }
 </script>

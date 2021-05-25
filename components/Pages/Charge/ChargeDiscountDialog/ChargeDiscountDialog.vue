@@ -39,6 +39,10 @@
       <v-text-field
         v-model="discount"
         class="mt-4"
+        v-validate="{ required: true }"
+        :error-messages="errors.collect('discount')"
+        data-vv-as="کد تخفیف"
+        name="discount"
         placeholder="کد تخفیف"
         outlined
       ></v-text-field>
@@ -66,10 +70,20 @@ export default class DiscountCharge extends Vue {
     type: Object,
   })
   readonly scope!: any
-  discount = null
-  save() {
-    this.scope.done(this.discount)
-    this.$emit('hide')
+  discount = ''
+  async save() {
+    let valid = await this.$validator.validate()
+    if (!valid) return
+    try {
+      await this.$service.charge.validateDiscount({
+        discountCode: this.discount,
+        phoneNumber: this.scope.phoneNumber,
+        amount: this.scope.amount,
+      })
+      this.$emit('hide', this.discount)
+    } catch (error) {
+      this.$toast.error().showSimple('کد تخفیف معتبر نمیباشد')
+    }
   }
 }
 </script>

@@ -31,17 +31,20 @@
     <v-container class="d-flex flex-column align-center">
       <div class="title text-center">پزشک یا روان‌شناس خود را پیدا کنید.</div>
 
-      <SearchForm class="mt-6" @submit="onSubmit" />
-      <div class="empty" v-if="!doctors.length">
+      <SearchForm class="mt-6" :loading="loading" @submit="onSubmit" />
+      <div class="empty" v-if="!hasResult">
         <img src="/images/home/skills.png" />
       </div>
     </v-container>
-    <SearchResultMobile
-      v-if="$device.isMobile"
-      class="mt-6"
-      :doctors="doctors"
-    />
-    <SearchResultDesktop v-else class="mt-6" :doctors="doctors" />
+    <template v-if="hasResult">
+      <!-- {{ searchResult }} -->
+      <SearchResultMobile
+        v-if="$device.isMobile"
+        class="mt-6"
+        :result="searchResult"
+      />
+      <SearchResultDesktop v-else class="mt-6" :result="searchResult" />
+    </template>
   </section>
 </template>
 
@@ -60,17 +63,61 @@ import { Doctor } from '~/models/Doctor'
 export default class SectionSearch extends Vue {
   form = {}
   doctors: Doctor[] = []
-
-  async onSubmit(form: any) {
-    try {
-      const { result } = await this.$service.doctors.query({
-        fields:
-          'id,specialty,subscriberNumber,firstName,lastName,imagePath,expertise',
-        limit: 10,
-        query: form.q,
-      })
-      this.doctors = result.doctors
-    } catch (error) {}
+  searchResult: any = {}
+  hasResult = false
+  loading = false
+  async onSubmit(keyword: string) {
+    this.loading = true
+    this.hasResult = false
+    let doctorQuery = this.$service.doctors.query({
+      limit: 10,
+      offset: 0,
+      sort: 0,
+      filters: { speciality: [], category: [] },
+      query: keyword,
+    })
+    let specialitiesService = this.$service.categories.search({
+      type: 1,
+      query: keyword,
+    })
+    let categoriesService = this.$service.categories.search({
+      type: 2,
+      query: keyword,
+    })
+    let [
+      { result: result1 },
+      { result: result2 },
+      { result: result3 },
+    ] = await Promise.all([doctorQuery, specialitiesService, categoriesService])
+    this.searchResult.doctors = result1.doctors
+    this.searchResult.specialities = result2.doctors
+    this.searchResult.categories = result3.doctors
+    this.hasResult = true
+    // try {
+    //   const { result } = await this.$service.doctors.query({
+    //     limit: 10,
+    //     offset: 0,
+    //     sort: 0,
+    //     filters: { speciality: [], category: [] },
+    //     query: keyword,
+    //   })
+    //   this.searchResult.doctors = result.doctors
+    // } catch (error) {}
+    // try {
+    //   const { result } = await this.$service.categories.search({
+    //     type: 1,
+    //     query: keyword,
+    //   })
+    //   this.searchResult.specialities = result.doctors
+    // } catch (error) {}
+    // try {
+    //   const { result } = await this.$service.categories.search({
+    //     type: 2,
+    //     query: keyword,
+    //   })
+    //   this.searchResult.categories = result.doctors
+    // } catch (error) {}
+    this.loading = false
   }
 }
 </script>

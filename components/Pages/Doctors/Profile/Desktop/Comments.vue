@@ -297,7 +297,6 @@ export default class component_name extends Vue {
   }
 
   async aggreeComment(comment: any) {
-    debugger
     if (!this.$auth.loggedIn) {
       return this.$toast
         .warning()

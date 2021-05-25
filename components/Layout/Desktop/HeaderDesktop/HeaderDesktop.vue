@@ -67,9 +67,9 @@
         </div>
 
         <MainMenu v-if="!$device.isMobile" :mainMenu="mainMenu" class="mr-10" />
-        <div class="referral-btn">
+        <!-- <div class="referral-btn">
           <v-btn outlined @click="openReferralDialog">اعتبار رایگان</v-btn>
-        </div>
+        </div> -->
       </div>
 
       <UserMenuLoggedIn v-if="$auth.loggedIn" />

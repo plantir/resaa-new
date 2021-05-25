@@ -43,6 +43,14 @@
       width: 100%;
     }
   }
+  .item {
+    height: 97px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 .swiper-container {
   padding: 0 0 30px;
@@ -55,17 +63,24 @@
       <div class="view-all">
         <div class="doctor-title">{{ title }}</div>
         <div class="more">
-          <v-btn text>
+          <!-- <v-btn text>
             <nuxt-link :to="link">
               مشاهده همه
               <v-icon color="#35d6c1" size="18">la-angle-left</v-icon>
             </nuxt-link>
-          </v-btn>
+          </v-btn> -->
         </div>
       </div>
       <swiper ref="swiper" :options="swiperOptions">
         <swiper-slide v-for="item in data" :key="item.id">
-          <Doctor :doctor="item" />
+          <Doctor :doctor="item" v-if="type == 'doctor'" />
+          <template v-else>
+            <div class="item primary--text">
+              <nuxt-link :to="categoryLink(item)" class="pa-4">
+                {{ item.title }}
+              </nuxt-link>
+            </div>
+          </template>
         </swiper-slide>
       </swiper>
     </div>
@@ -100,11 +115,15 @@ export default class SearchResult extends Vue {
     required: true,
   })
   readonly link!: String
+  @Prop({
+    type: String,
+    required: true,
+  })
+  readonly type!: String
   swiperOptions = {
     grabCursor: true,
-    loop: true,
     slidesPerView: 2,
-    spaceBetween: 20,
+    spaceBetween: 30,
     autoplay: {
       delay: 7000,
       disableOnInteraction: false,
@@ -123,6 +142,9 @@ export default class SearchResult extends Vue {
         slidesPerView: 5,
       },
     },
+  }
+  categoryLink(item: any) {
+    return `/categories/${item.englishTitle.replace(/ /g, '-')}/${item.id}`
   }
 }
 </script>

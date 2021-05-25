@@ -17,4 +17,10 @@ export default class AuthService {
       },
     })
   }
+
+  forgotPassword(phoneNumber: string) {
+    return this.$axios.$get(
+      `Accounts/phonenumber/${phoneNumber}/forgotpassword`
+    )
+  }
 }

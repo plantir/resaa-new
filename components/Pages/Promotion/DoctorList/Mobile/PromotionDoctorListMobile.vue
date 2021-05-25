@@ -6,11 +6,15 @@
     margin: 0;
     padding: 0;
   }
+
   // width: calc(100% - 270px);
   ::v-deep {
     .section-testimonial {
       background-color: transparent;
     }
+  }
+  .pagination-wrapper {
+    margin: 32px 20px 0 0;
   }
 }
 </style>
@@ -29,12 +33,12 @@
         </template>
       </div>
 
-      <div class="pagination-wrapper mt-8">
+      <div class="pagination-wrapper">
         <v-pagination
           v-model="page"
-          :length="totalPages"
+          :length="pageLength"
           :circle="false"
-          :total-visible="10"
+          :total-visible="5"
         />
       </div>
     </v-container>
@@ -45,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 import FeatureTypeOne from '@/components/Widgets/FeatureTypeOne/FeatureTypeOne.vue'
 import SectionTestimonial from '@/components/Pages/Home/SectionTestimonial/SectionTestimonial.vue'
@@ -58,12 +62,13 @@ import WorkingWithResaa from '@/components/Pages/Promotion/WorkingWithResaa/Work
   },
 })
 export default class PromotionDoctorListMobile extends Vue {
+  page = 1
   @Prop()
   doctors!: Array<any>
   @Prop()
   totalItems!: number
 
-  get totalPages() {
+  get pageLength() {
     return Math.ceil(this.totalItems / 6)
   }
   get components() {
@@ -71,15 +76,20 @@ export default class PromotionDoctorListMobile extends Vue {
       component: Doctor,
       data: item,
     }))
-
-    doctors.splice(2, 0, {
-      component: FeatureTypeOne,
-      data: null,
-    })
+    if (this.page == 1) {
+      doctors.splice(2, 0, {
+        component: FeatureTypeOne,
+        data: null,
+      })
+    }
 
     return doctors
   }
 
-  page = 1
+  @Watch('page')
+  onPageChange() {
+    debugger
+    this.$emit('pageChange', this.page)
+  }
 }
 </script>

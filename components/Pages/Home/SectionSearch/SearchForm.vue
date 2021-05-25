@@ -36,13 +36,15 @@ form {
 
 <template>
   <form @submit.prevent="onSubmit" class="d-flex flex-column align-center">
+    <!--     v-validate="'required'"
+      :error-messages="errors.collect('q')"
+      data-vv-as="نام و نام خانوادگی، تخصص، بیماری" -->
     <v-text-field
-      v-model="form.q"
+      :loading="loading"
+      v-model="value"
       label="نام و نام خانوادگی، تخصص، بیماری"
       name="q"
-      v-validate="'required'"
-      :error-messages="errors.collect('q')"
-      data-vv-as="نام و نام خانوادگی، تخصص، بیماری"
+      @input="onChange"
       outlined
       clearable
     >
@@ -61,14 +63,19 @@ form {
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class SearchForm extends Vue {
-  form = {}
-
+  value = ''
+  @Prop()
+  loading!: boolean
   onSubmit() {
-    this.$emit('submit', this.form)
+    if (this.value && this.value != '') {
+      this.$emit('submit', this.value)
+    }
   }
+
+  onChange() {}
 }
 </script>

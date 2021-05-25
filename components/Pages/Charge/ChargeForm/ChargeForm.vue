@@ -68,7 +68,7 @@
 
       <form @submit.prevent="onSubmit" class="form">
         <v-text-field
-          v-model="form.phoneNumber"
+          v-model="form.PhoneNumber"
           :error-messages="errors.collect('phoneNumber')"
           :disabled="loading"
           placeholder="شماره موبایل"
@@ -78,7 +78,7 @@
           outlined
         />
 
-        <ToggleDoctor v-model="hasDoctorName" />
+        <!-- <ToggleDoctor v-model="hasDoctorName" />
 
         <v-text-field
           v-if="hasDoctorName"
@@ -91,10 +91,10 @@
           v-validate="'required'"
           data-vv-as="نام و نام خانوادگی پزشک"
           outlined
-        />
+        /> -->
 
         <DenominationSelect
-          v-model="form.denominationId"
+          v-model="form.DenominationId"
           :error-messages="errors.collect('denominationId')"
           :disabled="loading"
           name="denominationId"
@@ -105,7 +105,7 @@
         <v-btn
           text
           class="discount"
-          :disabled="!form.denominationId"
+          :disabled="!form.denominationId || !form.phoneNumber"
           @click="openDiscount"
         >
           وارد کردن کد تخفیف
@@ -169,15 +169,12 @@ export default class ChargeForm extends Vue {
       }
     })
   }
-  openDiscount() {
-    this.$dialog.show({
+  async openDiscount() {
+    let discountcode = await this.$dialog.show({
       component: DiscountDialog,
-      scope: {
-        done: (discount: any) => {
-          this.form.discount = discount
-        },
-      },
+      scope: this.form,
     })
+    this.form.discount = discountcode
   }
 }
 </script>

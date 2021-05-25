@@ -5,17 +5,22 @@
 </style>
 
 <template>
-  <div class="promotion-wrapper">
+  <div class="promotion-wrapper" ref="wrapper">
     <template v-if="!$fetchState.pending">
       <HeaderPromotion :category="category" />
       <PromotionDoctorListMobile
         :doctors="related_doctors"
         :totalItems="totalItems"
+        @pageChange="onPageChange"
         v-if="$device.isMobile"
+        class="doctor-list-wrapper"
       />
       <PromotionDoctorListDesktop
+        class="doctor-list-wrapper"
         :category="category"
         :doctors="related_doctors"
+        :totalItems="totalItems"
+        @pageChange="onPageChange"
         v-else
       />
       <v-container>
@@ -48,6 +53,7 @@ Component.registerHooks(['fetch'])
 })
 export default class PromotionPage extends Vue {
   limit = 6
+  offset = 0
   category: any = {}
   related_doctors = []
   requestId = null
@@ -122,18 +128,7 @@ export default class PromotionPage extends Vue {
       }
     } catch (error) {}
     try {
-      let { result } = await this.$axios.$get(
-        `categories/${this.$route.params.id}/RelatedDoctors`,
-        {
-          params: {
-            limit: this.limit,
-            offset: 0,
-          },
-        }
-      )
-      this.related_doctors = result.relatedDoctors
-      this.totalItems = result.relatedDoctorsTotalCount
-      this.requestId = result.requestId
+      await this.getDoctors()
     } catch (error) {}
     this.title = this.category.pageHeaderTitle || this.category.title
     this.description = `دریافت ${
@@ -195,6 +190,33 @@ export default class PromotionPage extends Vue {
         }
       }),
     }
+  }
+
+  async getDoctors() {
+    let loader: any
+    if (process.browser) {
+      loader = this.$loader.show(this.$refs.wrapper)
+    }
+    let { result } = await this.$service.categories.RelatedDoctors(
+      this.$route.params.id,
+      {
+        limit: this.limit,
+        offset: this.offset,
+        requestId: this.requestId,
+      }
+    )
+    this.related_doctors = result.relatedDoctors
+    this.totalItems = result.relatedDoctorsTotalCount
+    this.requestId = result.requestId
+    if (process.browser) {
+      loader.hide()
+      this.$vuetify.goTo('.doctor-list-wrapper', { offset: 100, duration: 500 })
+    }
+  }
+
+  onPageChange(page: number) {
+    this.offset = this.limit * page - 1
+    this.getDoctors()
   }
 }
 </script>
