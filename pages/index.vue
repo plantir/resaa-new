@@ -75,9 +75,7 @@ export default class HomePage extends Vue {
   get loggedIn() {
     return this.$auth.loggedIn
   }
-  async fetch() {
-    this.posts = await this.$service.weblog.getPosts()
-  }
+  async fetch() {}
   async mounted() {
     try {
       this.loadingSuggestionDoctors = true
@@ -97,6 +95,9 @@ export default class HomePage extends Vue {
     } catch (error) {
       this.loadingDoctors = false
     }
+    try {
+      this.posts = await this.$service.weblog.getPosts()
+    } catch (error) {}
   }
 }
 </script>
