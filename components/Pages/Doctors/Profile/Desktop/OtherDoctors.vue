@@ -184,7 +184,9 @@
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
 import RecommendationDoctorCompoent from '~/components/Common/Doctor/Recommendation.vue'
 import { Doctor } from '~/models/Doctor'
-@Component
+@Component({
+  components: { RecommendationDoctorCompoent },
+})
 export default class component_name extends Vue {
   @Prop()
   doctor!: Doctor
@@ -216,6 +218,7 @@ export default class component_name extends Vue {
   }
 
   async addDoctor() {
+    this.$dialog.destroy()
     let data = await this.$dialog.show({
       component: RecommendationDoctorCompoent,
     })
