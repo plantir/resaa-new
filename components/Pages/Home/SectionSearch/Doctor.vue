@@ -68,7 +68,7 @@
     </div>
     <div class="left-side d-flex flex-column align-center">
       <div class="full-name font-weight-bold">{{ fullName }}</div>
-      <div class="skil mt-3">{{ doctor.speciality }}</div>
+      <div class="skil mt-3">{{ doctor.specialty }}</div>
       <div class="link mt-5">
         <nuxt-link :to="doctorLink">مشاهده پروفایل</nuxt-link>
       </div>
@@ -92,10 +92,7 @@ export default class Doctor extends Vue {
   }
 
   get doctorLink() {
-    let name =
-      this.doctor.specialityEnglishTitle ||
-      this.doctor.specialtyEnglishTitle ||
-      ''
+    let name = this.doctor.specialtyEnglishTitle || ''
     return `/doctors/${name.toLowerCase().replace(/ /g, '-')}/${
       this.doctor.subscriberNumber
     }`

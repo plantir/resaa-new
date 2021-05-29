@@ -12,7 +12,7 @@
     <SearchResultItem
       v-if="result.specialities"
       :data="result.specialities"
-      type="speciality"
+      type="specialty"
       title="نتایج از بین تخصص ها"
       :link="'/'"
     />

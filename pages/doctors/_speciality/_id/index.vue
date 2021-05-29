@@ -103,9 +103,9 @@ export default class YourComponent extends Vue {
         this.doctor.lastName
       } - متخصص : ${this.doctor.specialtyTitle}`,
       description: `کد رسا:${this.doctor.subscriberNumber} - ${this.description}`,
-      canonical: `${
-        process.env.SITE_URL
-      }/doctors/${this.doctor.specialtyEnglishTitle
+      canonical: `${process.env.SITE_URL}/doctors/${(
+        this.doctor.specialtyEnglishTitle || ''
+      )
         .toLowerCase()
         .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`,
     }

@@ -181,7 +181,7 @@
             <span class="full-name">{{ fullname }}</span>
             <span class="line mb-1 mx-2">-</span>
             <span class="skill">
-              {{ doctor.speciality || doctor.specialtyTitle }}
+              {{ doctor.specialty || doctor.specialtyTitle }}
             </span>
           </nuxt-link>
         </h2>
@@ -207,9 +207,12 @@
                 width="24px"
                 height="24px"
               ></v-img>
-              <span class="value"
-                >{{ doctor.history | persianDigit }} سال سابقه</span
-              >
+              <span class="value">
+                {{
+                  doctor.history || doctor.yearsOfPractice || '0' | persianDigit
+                }}
+                سال سابقه
+              </span>
             </div>
             <div class="items">
               <v-img
@@ -279,20 +282,9 @@ export default class Doctor extends Vue {
     }
   }
   get doctorLink() {
-    if (this.doctor.specialty) {
-      return `/doctors/${(this.doctor.specialty
-        ? this.doctor.specialty.description
-        : this.doctor.specialtyEnglishTitle ||
-          this.doctor.specialityEnglishTitle
-      )
-        .toLowerCase()
-        .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
-    } else {
-      return `/doctors/${
-        this.doctor.specialtyEnglishTitle ||
-        this.doctor.specialityEnglishTitle.toLowerCase().replace(/ /g, '-')
-      }/${this.doctor.subscriberNumber}`
-    }
+    return `/doctors/${(this.doctor.specialtyEnglishTitle || '')
+      .toLowerCase()
+      .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
   }
 }
 </script>

@@ -118,7 +118,7 @@ export default class DoctorsPage extends Vue {
         offset: this.offset,
         sort: this.filter.orderBy,
         filters: {
-          speciality: this.filter.specialty,
+          specialty: this.filter.specialty,
           category: this.filter.sickness,
         },
         query: this.filter.query,

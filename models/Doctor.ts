@@ -42,9 +42,7 @@ export interface Doctor {
   workplaces?: any
   tags?: any
   specialtyEnglishTitle: string
-  specialityEnglishTitle: string
   specialtyTitle: string
-  specialityTitle: string
   categories: any[]
   relatedDoctors?: Doctor[]
   isCurrentlyAvailable: Boolean

@@ -102,7 +102,7 @@ export default class Doctor extends Vue {
   readonly doctor!: RelatedDoctor
 
   get doctorLink() {
-    return `/doctors/${this.doctor.specialtyEnglishTitle
+    return `/doctors/${(this.doctor.specialtyEnglishTitle || '')
       .toLowerCase()
       .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
   }

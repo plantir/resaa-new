@@ -78,7 +78,7 @@
           {{ doctor.fullName || doctor.fullNameWithTitle }}
         </div>
         <div class="skill">
-          {{ doctor.specialityTitle || doctor.specialtyTitle }}
+          {{ doctor.specialtyTitle || doctor.specialtyTitle }}
         </div>
       </div>
     </nuxt-link>
@@ -98,10 +98,9 @@ export default class Doctor extends Vue {
   readonly doctor!: any
 
   get doctorLink() {
-    return `/doctors/${
-      this.doctor.specialtyEnglishTitle ||
-      this.doctor.specialtyEnglishTitle.toLowerCase().replace(/ /g, '-')
-    }/${this.doctor.subscriberNumber}`
+    return `/doctors/${(this.doctor.specialtyEnglishTitle || '')
+      .toLowerCase()
+      .replace(/ /g, '-')}/${this.doctor.subscriberNumber}`
   }
 }
 </script>

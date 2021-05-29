@@ -73,7 +73,7 @@ export default class SectionSearch extends Vue {
       limit: 10,
       offset: 0,
       sort: 0,
-      filters: { speciality: [], category: [] },
+      filters: { specialty: [], category: [] },
       query: keyword,
     })
     let specialitiesService = this.$service.categories.search({
@@ -98,7 +98,7 @@ export default class SectionSearch extends Vue {
     //     limit: 10,
     //     offset: 0,
     //     sort: 0,
-    //     filters: { speciality: [], category: [] },
+    //     filters: { specialty: [], category: [] },
     //     query: keyword,
     //   })
     //   this.searchResult.doctors = result.doctors

@@ -59,4 +59,8 @@ export default class DoctorService {
   getCharges(id: string) {
     return this.$axios.$get(`/Doctors/${id}/TimeBasedChargePackages`)
   }
+
+  recommendations(data: any) {
+    return this.$axios.$post(`/DoctorRecommendations`, data)
+  }
 }

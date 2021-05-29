@@ -68,7 +68,7 @@
 
       <form @submit.prevent="onSubmit" class="form">
         <v-text-field
-          v-model="form.PhoneNumber"
+          v-model="form.phoneNumber"
           :error-messages="errors.collect('phoneNumber')"
           :disabled="loading"
           placeholder="شماره موبایل"
@@ -94,7 +94,7 @@
         /> -->
 
         <DenominationSelect
-          v-model="form.DenominationId"
+          v-model="form.denominationId"
           :error-messages="errors.collect('denominationId')"
           :disabled="loading"
           name="denominationId"

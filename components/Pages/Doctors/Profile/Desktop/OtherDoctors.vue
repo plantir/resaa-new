@@ -105,11 +105,12 @@
         color: #4b4b4b;
       }
     }
-    .add_doctor {
+    .add-doctor {
       border: 1px dashed #13d1f3;
       // border-image: url('@/assets/img/border.png') 50% round;
       // width: 245px;
       // height: 242px;
+      cursor: pointer;
       padding: 1rem;
       text-align: center;
       display: flex;
@@ -168,7 +169,7 @@
           </v-card>
         </nuxt-link>
 
-        <div class="add_doctor">
+        <div class="add-doctor" @click="addDoctor">
           <div>پزشکی را با این تخصص می‌شناسید؟</div>
           <div class="img">
             <img src="@/assets/img/plus.png" alt />
@@ -181,6 +182,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import RecommendationDoctorCompoent from '~/components/Common/Doctor/Recommendation.vue'
 import { Doctor } from '~/models/Doctor'
 @Component
 export default class component_name extends Vue {
@@ -207,10 +209,19 @@ export default class component_name extends Vue {
 
   doctorLink(doctor: Doctor) {
     return `/doctors/${(
-      doctor.specialityEnglishTitle || doctor.specialtyEnglishTitle
+      doctor.specialtyEnglishTitle || doctor.specialtyEnglishTitle
     )
       .toLowerCase()
       .replace(/ /g, '-')}/${doctor.subscriberNumber}`
+  }
+
+  async addDoctor() {
+    let data = await this.$dialog.show({
+      component: RecommendationDoctorCompoent,
+    })
+    if (data) {
+      this.$toast.success().showSimple('از وقتی که گذاشتید سپاس گزاریم')
+    }
   }
 }
 </script>

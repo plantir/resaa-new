@@ -124,7 +124,7 @@ export default class PromotionPage extends Vue {
         this.category.englishTitle.toLowerCase().replace(/ /g, '-') !==
         this.$route.params.name
       ) {
-        // return ctx.error({ statusCode: 404, message: "speciality not found" });
+        // return ctx.error({ statusCode: 404, message: "specialty not found" });
       }
     } catch (error) {}
     try {
