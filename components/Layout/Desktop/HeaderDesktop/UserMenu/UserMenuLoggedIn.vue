@@ -22,12 +22,9 @@ import Icon from '@/components/Common/Icon/Icon.vue'
 })
 export default class UserMenuNotLoggedIn extends Vue {
   get fullName() {
-    let fullName = `${this.$auth.user?.firstName} ${this.$auth.user?.lastName}`
-    if (
-      this.$auth.user?.firstName === null &&
-      this.$auth.user?.lastName === null
-    ) {
-      fullName = this.$auth.user.phoneNumber
+    let fullName = this.$auth.user.phoneNumber
+    if (this.$auth.user?.firstName && this.$auth.user?.lastName) {
+      fullName = `${this.$auth.user?.firstName} ${this.$auth.user?.lastName}`
     }
     return fullName
   }

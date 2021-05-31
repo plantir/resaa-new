@@ -11,7 +11,7 @@ export default class Index extends VuexModule {
     // const seeIntro = ctx.$auth.$storage.getCookie('seeIntro')
 
     if (token && ctx.$auth.loggedIn) {
-      const profile = ctx.$auth.$storage.getCookie('profile')
+      const profile = ctx.$storage.getUniversal('profile')
       ctx.$auth.setUser(profile)
     } else {
       // await ctx.$auth.logout()
