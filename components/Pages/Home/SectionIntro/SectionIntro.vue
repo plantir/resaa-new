@@ -52,18 +52,20 @@
           line-height: 45px;
           font-size: 26px;
         }
-        span {
-          color: #13d1f3;
-          position: relative;
-          &::before {
-            content: '';
-            height: 5px;
-            border-radius: 10px;
-            background-color: #13d1f3;
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 100%;
+        ::v-deep {
+          span {
+            color: #13d1f3;
+            position: relative;
+            &::before {
+              content: '';
+              height: 5px;
+              border-radius: 10px;
+              background-color: #13d1f3;
+              position: absolute;
+              bottom: -5px;
+              right: 0;
+              width: 100%;
+            }
           }
         }
       }
@@ -99,15 +101,17 @@
     <div class="intro-text">
       <v-container>
         <div class="right">
-          <h1>
+          <!-- {{ pageInfo }} -->
+          <h1 v-html="pageInfo.h1">
             با پزشک یا روان شناس مد نظرتان <br />
             <span>مستقیما</span> صحبت کنید.
           </h1>
           <p class="text-justify mt-3">
-            رسا یا رسانه سلامت ایرانیان یک بستر مخابراتی بین شما و تمام پزشک‌ها
+            <!-- رسا یا رسانه سلامت ایرانیان یک بستر مخابراتی بین شما و تمام پزشک‌ها
             و روانشناس‌های عضو آن است. از طریق رسا می‌توانید با هزینه کمتر، رقت
             و آمد کمتر و سرعت بیشتر با هر پزشک یا روانشناسی که بخواهید مستقیما
-            صحبت کنید.
+            صحبت کنید. -->
+            {{ pageInfo.description }}
           </p>
         </div>
         <v-btn class="resaa-btn" color="primary" x-large @click="onDoctors">
@@ -139,6 +143,12 @@ export default class Intro extends Vue {
     required: true,
   })
   readonly loading!: Boolean
+
+  @Prop({
+    type: Object,
+    required: true,
+  })
+  readonly pageInfo!: Object
 
   onDoctors() {
     this.$router.push('/doctors')

@@ -2,10 +2,15 @@
 .dialog-edit {
   overflow: hidden;
 }
+.wrapper {
+  width: 420px;
+  max-width: 100%;
+  padding: 24px;
+}
 </style>
 
 <template>
-  <v-card class="pa-3" min-width="280">
+  <v-card class="wrapper">
     <v-card-title>
       <div class="full-width d-flex justify-space-between">
         <div class="title">ویرایش اطلاعات شخصی</div>
@@ -44,7 +49,7 @@
           data-vv-as="کد ملی"
           outlined
         />
-        <vr-date-picker v-model="form.birthday" />
+        <vr-date-picker v-model="form.birthday" outlined label="تاریخ تولد" />
         <v-text-field
           v-model="form.city"
           label="شهر"
@@ -79,7 +84,7 @@
         />
         <div class="buttons d-flex justify-space-between">
           <v-btn text @click="$emit('close')"> انصراف </v-btn>
-          <v-btn @click="onSubmit"> ثبت تغییرات </v-btn>
+          <v-btn color="primary" @click="onSubmit"> ثبت تغییرات </v-btn>
         </div>
       </form>
     </div>

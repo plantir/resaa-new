@@ -2,7 +2,11 @@
 <template>
   <main>
     <div>
-      <SectionIntro :doctors="doctors" :loading="loadingDoctors" />
+      <SectionIntro
+        :doctors="doctors"
+        :loading="loadingDoctors"
+        :pageInfo="pageInfo"
+      />
     </div>
     <SectionSearch />
     <div v-if="loggedIn">
@@ -64,6 +68,7 @@ export default class HomePage extends Vue {
   posts: any = []
   loadingDoctors = false
   loadingSuggestionDoctors = false
+  pageInfo = {}
   public head() {
     return {
       title: 'با پزشک یا روان‌شناس مد نظرتان مستقیما صحبت کنید',
@@ -75,7 +80,11 @@ export default class HomePage extends Vue {
   get loggedIn() {
     return this.$auth.loggedIn
   }
-  async fetch() {}
+  async fetch() {
+    // console.log('object')
+    this.pageInfo = await this.$service.metadata.getMetadata('home')
+    // console.log(this.pageInfo)
+  }
   async mounted() {
     try {
       this.loadingSuggestionDoctors = true
@@ -97,6 +106,8 @@ export default class HomePage extends Vue {
     }
     try {
       this.posts = await this.$service.weblog.getPosts()
+    } catch (error) {}
+    try {
     } catch (error) {}
   }
 }

@@ -65,7 +65,7 @@ import Icon from '@/components/Common/Icon/Icon.vue'
     Icon,
   },
 })
-export default class DiscountCharge extends Vue {
+export default class DiscountDialog extends Vue {
   @Prop({
     type: Object,
   })
@@ -75,12 +75,16 @@ export default class DiscountCharge extends Vue {
     let valid = await this.$validator.validate()
     if (!valid) return
     try {
-      await this.$service.charge.validateDiscount({
+      let result = await this.$service.charge.validateDiscount({
         discountCode: this.discount,
         phoneNumber: this.scope.phoneNumber,
-        amount: this.scope.amount,
+        amount: this.scope.denomination.amount,
       })
-      this.$emit('hide', this.discount)
+      if (result.isvalid) {
+        this.$emit('hide', this.discount)
+      } else {
+        this.$toast.error().showSimple('کد تخفیف معتبر نمیباشد')
+      }
     } catch (error) {
       this.$toast.error().showSimple('کد تخفیف معتبر نمیباشد')
     }

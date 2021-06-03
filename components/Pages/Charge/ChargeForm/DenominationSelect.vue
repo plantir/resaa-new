@@ -10,6 +10,7 @@
     placeholder="مقدار شارژ"
     cache-items
     outlined
+    return-object
   >
     <template v-slot:selection="{ item }">
       <span class="label">کارت شارژ</span>
@@ -56,7 +57,7 @@ export default class DenominationSelect extends Vue {
     this.$emit('input', val)
   }
 
-  chargeMenuItems: ChargeMenuItem[] = []
+  chargeMenuItems: any[] = []
   loading: boolean = false
 
   async getChargeMenu() {
@@ -76,10 +77,7 @@ export default class DenominationSelect extends Vue {
           })
           .sort((a, b) => a.amount - b.amount)
           .map((item) => {
-            return {
-              amount: item.amount,
-              value: item.id,
-            }
+            return item
           })
       }
       this.loading = false

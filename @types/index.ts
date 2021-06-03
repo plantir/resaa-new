@@ -5,6 +5,7 @@ import ProfileService from '@/services/profile'
 import CallbookSurveyService from '~/services/callbookSurveys'
 import CategoryService from '~/services/categories'
 import DoctorService from '~/services/doctors'
+import MetadataService from '~/services/metadata'
 import PricingService from '~/services/pricing'
 import TestimonialsService from '~/services/testimonials'
 import WeblogService from '~/services/weblog'
@@ -68,6 +69,7 @@ declare module 'vue/types/vue' {
     pricing: PricingService
     callbookSurveys: CallbookSurveyService
     categories: CategoryService
+    metadata: MetadataService
   }
   interface NuxtEnumInstance {
     role: IEnum

@@ -2,9 +2,11 @@
 .charge-invoice {
   position: relative;
   width: 400px;
+  max-width: 100%;
   z-index: 1;
-  @include media(xs-only) {
-    width: 100%;
+  @include media(sm) {
+    padding: 0;
+    margin: 40px auto 0;
   }
 }
 </style>
@@ -15,9 +17,7 @@
       <HeaderCharge>
         <h3 class="font-weight-bold text-center">پیش فاکتور</h3>
       </HeaderCharge>
-
-      <InvoiceDetails :invoice="invoice.electronicPaymentVoucher" />
-
+      <InvoiceDetails :invoice="invoice" />
       <v-btn block @click="onSubmit">تایید و ادامه</v-btn>
     </v-card>
 

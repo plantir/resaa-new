@@ -86,6 +86,7 @@
           v-validate="'required'"
           :error-messages="errors.collect('password')"
           data-vv-as="رمز عبور"
+          @keypress.enter="onSubmit"
           outlined
         />
         <div class="forgot-password font-weight-medium">

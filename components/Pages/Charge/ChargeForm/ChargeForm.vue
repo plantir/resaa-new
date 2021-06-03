@@ -92,9 +92,8 @@
           data-vv-as="نام و نام خانوادگی پزشک"
           outlined
         /> -->
-
         <DenominationSelect
-          v-model="form.denominationId"
+          v-model="form.denomination"
           :error-messages="errors.collect('denominationId')"
           :disabled="loading"
           name="denominationId"
@@ -102,10 +101,15 @@
           data-vv-as="مقدار شارژ"
           class="mt-4"
         />
+        <span class="caption" v-if="form.discountCode">
+          کد تخفیف : {{ form.discountCode }}
+          <v-icon size="12" @click="form.discountCode = null">la-times</v-icon>
+        </span>
         <v-btn
+          v-else
           text
           class="discount"
-          :disabled="!form.denominationId || !form.phoneNumber"
+          :disabled="!form.denomination.amount || !form.phoneNumber"
           @click="openDiscount"
         >
           وارد کردن کد تخفیف
@@ -142,6 +146,7 @@ import DiscountDialog from '../ChargeDiscountDialog/ChargeDiscountDialog.vue'
     ToggleDoctor,
     DenominationSelect,
     ChargeHelpBlock,
+    DiscountDialog,
   },
 })
 export default class ChargeForm extends Vue {
@@ -154,12 +159,17 @@ export default class ChargeForm extends Vue {
   hasDoctorName = false
   form = {
     phoneNumber: '',
-    denominationId: null,
-    discount: null,
+    denomination: {},
+    discountCode: null,
   }
   mounted() {
-    if (this.$auth.user) {
+    if (this.$auth.user && this.$auth.user.phoneNumber) {
       this.form.phoneNumber = this.$auth.user.phoneNumber
+    } else {
+      let info = this.$storage.getUniversal('profile')
+      if (info && info.phoneNumber) {
+        this.form.phoneNumber = info.phoneNumber
+      }
     }
   }
   onSubmit() {
@@ -174,7 +184,7 @@ export default class ChargeForm extends Vue {
       component: DiscountDialog,
       scope: this.form,
     })
-    this.form.discount = discountcode
+    this.form.discountCode = discountcode
   }
 }
 </script>

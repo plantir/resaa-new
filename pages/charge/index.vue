@@ -62,9 +62,12 @@ export default class ChargePage extends Vue {
     try {
       this.loading = true
       const { result } = await this.$service.charge.getPreInvoice({
-        ...form,
+        discountCode: form.discountCode,
+        phoneNumber: form.phoneNumber,
+        denominationId: form.denomination.id,
         callbackUrl: process.env.BANK_RETURN_URL,
       })
+      console.log(result)
       this.invoice = result
       this.loading = false
     } catch (error) {
@@ -76,9 +79,9 @@ export default class ChargePage extends Vue {
     if (this.invoice) {
       const form = document.createElement('form')
       form.method = 'POST'
-      form.action = this.invoice.electronicPaymentVoucher.gateway.address
+      form.action = this.invoice.gateWay.address
       const input = document.createElement('input')
-      input.value = this.invoice.electronicPaymentVoucher.gateway.submissionParameters.token
+      input.value = this.invoice.gateWay.submissionParameters.token
       input.name = 'token'
       form.appendChild(input)
       document.body.appendChild(form)

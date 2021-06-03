@@ -25,10 +25,22 @@
       <v-text-field
         name="name"
         v-model="form.DoctorName"
-        label="نام پزشک را وارد نمایید"
         v-validate="{ required: true }"
         :error-messages="errors.collect('name')"
         data-vv-as="نام پزشک"
+        single-line
+        outlined
+        hide-details="auto"
+      ></v-text-field>
+    </div>
+    <div class="form-group">
+      <label>شماره مطب</label>
+      <v-text-field
+        name="phoneNumber"
+        v-model="form.phoneNumber"
+        v-validate="{ number: true }"
+        :error-messages="errors.collect('phoneNumber')"
+        data-vv-as="شماره مطب"
         single-line
         outlined
         hide-details="auto"
@@ -39,10 +51,10 @@
       <v-textarea
         name="address"
         v-model="form.ClinicAddress"
-        label="آدرس مطب را وارد نمایید"
         v-validate="{ required: true }"
         :error-messages="errors.collect('address')"
         data-vv-as="آدرس مطب"
+        rows="3"
         single-line
         outlined
         no-resize
@@ -54,10 +66,9 @@
       <v-textarea
         name="description"
         v-model="form.Description"
-        label="توضیحات را وارد نمایید"
-        v-validate="{ required: true }"
         :error-messages="errors.collect('description')"
         data-vv-as="توضیحات"
+        rows="3"
         single-line
         outlined
         no-resize

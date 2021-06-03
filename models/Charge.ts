@@ -29,15 +29,11 @@ export interface Gateway {
   submissionParameters: SubmissionParameters
 }
 
-export interface ElectronicPaymentVoucher {
+export interface ResultInvoice {
   paymentRequestId: string
   issuedAt: Date
   subscriberNumber: string
   obfuscatedPhoneNumber: string
   chargeDenomination: ChargeDenomination
-  gateway: Gateway
-}
-
-export interface ResultInvoice {
-  electronicPaymentVoucher: ElectronicPaymentVoucher
+  gateWay: Gateway
 }
