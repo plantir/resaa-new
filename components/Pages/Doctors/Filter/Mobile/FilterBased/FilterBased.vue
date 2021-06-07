@@ -28,8 +28,17 @@
     <div class="top d-flex align-center justify-space-between">
       <span class="label">فیلتر بر اساس:</span>
       <div class="left d-flex">
-        <FilterBySpecialty v-model="filter.specialty" />
-        <FilterBySickness v-model="filter.sickness" class="mr-3" />
+        <FilterBySpecialty
+          :specialities="specialities"
+          v-model="filter.specialty"
+          @input="onSubmit"
+        />
+        <FilterBySickness
+          :categories="categories"
+          v-model="filter.sickness"
+          @input="onSubmit"
+          class="mr-3"
+        />
       </div>
     </div>
     <div class="bottom d-flex align-start mt-5">
@@ -78,15 +87,27 @@ export default class FilterBased extends Vue {
   }
 
   set filter(val) {
-    this.$emit('input', val)
+    // this.$emit('input', val)
   }
+  @Prop()
+  categories!: any[]
+
+  @Prop()
+  specialities!: any[]
 
   onRemoveFilterSpecialty() {
     this.filter.specialty = []
+    this.onSubmit()
   }
 
   onRemoveFilterSickness() {
     this.filter.sickness = []
+    this.onSubmit()
+  }
+
+  onSubmit() {
+    this.$emit('input', this.filter)
+    this.$emit('submit')
   }
 }
 </script>

@@ -1,3 +1,13 @@
 @import './generic/reset';
 @import './generic/scroll';
 @import './generic/global';
+
+.no-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  border: 1px solid var(--v-primary-base);
+  font-size: 24px;
+  margin: 20px;
+}

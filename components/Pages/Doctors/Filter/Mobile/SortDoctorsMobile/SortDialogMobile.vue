@@ -95,19 +95,19 @@ export default class SortDialogMobile extends Vue {
   sortOptions = [
     {
       label: 'فرقی نمی‌کند',
-      value: 'NONE',
+      value: 0,
     },
     {
       label: 'در دسترس',
-      value: 'AVAILABLE',
+      value: 1,
     },
     {
       label: 'بیشترین تماس',
-      value: 'MOST_CALLS',
+      value: 2,
     },
     {
       label: 'بیشترین سابقه',
-      value: 'MOST_EXPERIENCE',
+      value: 3,
     },
   ]
 

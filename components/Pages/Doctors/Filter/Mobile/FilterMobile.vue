@@ -12,8 +12,14 @@
   <aside class="filter-wrapper">
     <h1 class="main-title">لیست پزشکان</h1>
     <FilterByName v-model="filter.query" class="mt-4" />
-    <FilterBased v-model="filter" class="mt-4" />
-    <SortDoctorsMobile v-model="filter.orderBy" />
+    <FilterBased
+      :categories="categories"
+      :specialities="specialities"
+      v-model="filter"
+      class="mt-4"
+      @submit="onSubmit"
+    />
+    <SortDoctorsMobile v-model="filter.orderBy" @sort="onSubmit" />
   </aside>
 </template>
 
@@ -37,16 +43,26 @@ export default class FilterMobile extends Vue {
   })
   readonly value!: Object
 
+  @Prop()
+  categories!: any[]
+
+  @Prop()
+  specialities!: any[]
+
   get filter() {
     return this.value
   }
 
   set filter(val) {
-    this.$emit('input', val)
+    // this.$emit('input', val)
   }
 
+  // onChange() {
+  //   this.$emit('input', this.filter)
+  // }
+
   onSubmit() {
-    this.$emit('filter', this.filter)
+    this.$emit('input', this.filter)
   }
 }
 </script>

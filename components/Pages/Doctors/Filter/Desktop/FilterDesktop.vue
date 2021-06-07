@@ -9,8 +9,18 @@
   <aside class="filter-wrapper">
     <form @submit.prevent="onSubmit">
       <FilterByName v-model="filter.query" />
-      <FilterBySpecialty v-model="filter.specialty" class="mt-7" />
-      <FilterBySickness v-model="filter.sickness" class="mt-7" />
+      <FilterBySpecialty
+        v-model="filter.specialty"
+        @input="onChange"
+        :specialities="specialities"
+        class="mt-7"
+      />
+      <FilterBySickness
+        v-model="filter.sickness"
+        @input="onChange"
+        :categories="categories"
+        class="mt-7"
+      />
     </form>
   </aside>
 </template>
@@ -42,7 +52,15 @@ export default class FilterDesktop extends Vue {
   set filter(val) {
     this.$emit('input', val)
   }
+  @Prop()
+  categories!: any[]
 
+  @Prop()
+  specialities!: any[]
+
+  onChange() {
+    this.$emit('input', this.filter)
+  }
   onSubmit() {
     this.$emit('filter', this.filter)
   }

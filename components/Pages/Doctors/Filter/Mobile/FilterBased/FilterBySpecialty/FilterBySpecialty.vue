@@ -128,11 +128,19 @@
           </template>
         </v-text-field>
 
-        <SpecialtiesCheckBox v-model="selected" :query="query" />
+        <SpecialtiesCheckBox
+          :items="specialities"
+          v-model="selected"
+          :query="query"
+        />
       </div>
       <div class="footer">
-        <v-btn class="cancel" text @click="visibleFilter = false">انصراف</v-btn>
-        <v-btn class="confirm" depressed :disabled="selected.length === 0"
+        <v-btn class="cancel" text @click="onCancle">انصراف</v-btn>
+        <v-btn
+          class="confirm"
+          depressed
+          @click="submit"
+          :disabled="selected.length === 0"
           >تایید و اعمال فیلتر</v-btn
         >
       </div>
@@ -155,15 +163,9 @@ export default class FilterBySpecialty extends Vue {
     required: true,
   })
   readonly value!: Array<String | Number>
-
-  get selected() {
-    return this.value
-  }
-
-  set selected(val) {
-    this.$emit('input', val)
-  }
-
+  selected: any[] = []
+  @Prop()
+  specialities!: any[]
   visibleFilter = false
   query = null
 
@@ -181,6 +183,22 @@ export default class FilterBySpecialty extends Vue {
         }
       }
     }
+  }
+  @Watch('value')
+  onValueChange() {
+    this.selected = this.value
+  }
+
+  mounted() {
+    this.selected = this.value
+  }
+  onCancle() {
+    this.visibleFilter = false
+    this.selected = this.value
+  }
+  submit() {
+    this.$emit('input', this.selected)
+    this.visibleFilter = false
   }
 }
 </script>

@@ -9,25 +9,28 @@
 
 <template>
   <div class="doctors-list">
-    <div class="doctors" v-if="loading">
+    <!-- <div class="doctors" v-if="loading">
       <AppSkeleton
         section="Doctor"
         v-for="(item, index) in 10"
         :key="index"
         class="mt-6"
       />
-    </div>
+    </div> -->
 
-    <div class="doctors" v-if="!loading">
+    <div class="doctors" ref="doctorWrapper">
       <Doctor
         v-for="(doctor, index) in doctors"
         :key="index"
         class="mt-6"
         :doctor="doctor"
       />
+      <div class="no-result" v-if="doctors.length == 0">
+        نتیجه ای جهت نمایش یافت نشد
+      </div>
     </div>
 
-    <div class="pagination-wrapper" v-if="!loading">
+    <div class="pagination-wrapper" v-if="total">
       <v-pagination
         v-model="page"
         :length="total"
@@ -40,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 
 @Component({
@@ -83,6 +86,12 @@ export default class DoctorsList extends Vue {
   }
   set page(val) {
     this.$emit('pageCurrent', val)
+  }
+
+  @Watch('loading')
+  onLoadingChange(val: boolean) {
+    // if (val) this.$loader.show(this.$refs.doctorWrapper)
+    // else this.$loader.destroy()
   }
 }
 </script>

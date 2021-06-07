@@ -35,7 +35,11 @@
         dense
       />
     </div>
-    <SpecialtiesCheckBox v-model="selected" :query="query" />
+    <SpecialtiesCheckBox
+      v-model="selected"
+      :query="query"
+      :items="categories"
+    />
   </FilterCard>
 </template>
 
@@ -64,6 +68,9 @@ export default class FilterBySickness extends Vue {
   set selected(val) {
     this.$emit('input', val)
   }
+
+  @Prop()
+  categories!: any[]
 
   query = null
 }

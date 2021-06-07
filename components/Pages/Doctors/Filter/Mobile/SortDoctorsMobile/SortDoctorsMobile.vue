@@ -56,29 +56,32 @@ export default class SortDoctorsMobile extends Vue {
   sortOptions = [
     {
       label: 'فرقی نمی‌کند',
-      value: 'NONE',
+      value: 0,
     },
     {
       label: 'در دسترس',
-      value: 'AVAILABLE',
+      value: 1,
     },
     {
       label: 'بیشترین تماس',
-      value: 'MOST_CALLS',
+      value: 2,
     },
     {
       label: 'بیشترین سابقه',
-      value: 'MOST_EXPERIENCE',
+      value: 3,
     },
   ]
 
   get selectedText() {
-    const selected = this.sortOptions.find(item => item.value === this.orderBy)
+    const selected = this.sortOptions.find(
+      (item) => item.value === this.orderBy
+    )
     return selected?.label
   }
 
   onSort(sort: String) {
     this.orderBy = sort
+    this.$emit('sort')
   }
 }
 </script>

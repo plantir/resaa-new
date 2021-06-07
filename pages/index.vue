@@ -51,6 +51,7 @@ import { Doctor } from '../models/Doctor'
 Component.registerHooks(['fetch', 'head'])
 
 @Component({
+  scrollToTop: true,
   components: {
     SectionIntro,
     SectionSearch,

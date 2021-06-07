@@ -26,13 +26,7 @@
 </style>
 
 <template>
-  <div
-    class="sort-item"
-    :class="{
-      active: active === true,
-    }"
-    @click="onClick"
-  >
+  <div class="sort-item" :class="{ active: active === true }" @click="onClick">
     {{ sort.label }}
   </div>
 </template>

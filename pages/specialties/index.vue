@@ -27,6 +27,7 @@ import TopSpecialties from '@/components/Pages/Specialties/TopSpecialties/TopSpe
 import TagList from '@/components/Pages/Specialties/TagList/TagList.vue'
 Component.registerHooks(['fetch'])
 @Component({
+  // scrollToTop: true,
   components: {
     SearchDcotor,
     TopSpecialties,

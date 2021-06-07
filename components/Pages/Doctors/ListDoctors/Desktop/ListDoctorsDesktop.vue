@@ -7,7 +7,7 @@
 
 <template>
   <div class="list-doctors-wrapper">
-    <SortDoctors @click="onSort" />
+    <SortDoctors @sort="onSort" />
     <DoctorsList
       :doctors="doctors"
       :loading="loading"

@@ -1,6 +1,7 @@
 <style lang="scss" scoped>
-main.doctors-main {
+.doctors-main {
   margin-top: 30px;
+  min-height: 400px;
 }
 .container {
   padding: 0 24px;
@@ -8,11 +9,16 @@ main.doctors-main {
 </style>
 
 <template>
-  <main class="doctors-main">
+  <section class="doctors-main" ref="wrapper">
     <v-container>
-      <div class="d-flex flex-wrap">
+      <div class="d-flex flex-wrap" v-if="doctors">
         <template v-if="$device.isMobileOrTablet">
-          <FilterMobile v-model="filter" />
+          <FilterMobile
+            v-model="filter"
+            :categories="categories"
+            :specialities="specialities"
+            @input="onFilterChange"
+          />
           <ListDoctorsMobile
             @sort="onSort"
             :doctors="doctors"
@@ -23,7 +29,12 @@ main.doctors-main {
           />
         </template>
         <template v-else>
-          <FilterDesktop v-model="filter" />
+          <FilterDesktop
+            v-model="filter"
+            @input="onFilterChange"
+            :categories="categories"
+            :specialities="specialities"
+          />
           <ListDoctorsDesktop
             @sort="onSort"
             :doctors="doctors"
@@ -35,7 +46,7 @@ main.doctors-main {
         </template>
       </div>
     </v-container>
-  </main>
+  </section>
 </template>
 
 <script lang="ts">
@@ -61,8 +72,9 @@ export default class DoctorsPage extends Vue {
   limit: number = 10
   page: number = 1
   query = null
-  doctors: any = []
+  doctors: any = null
   totalItems: number = 0
+  timeout: any = null
   loading = false
   filter = {
     query: null,
@@ -70,7 +82,8 @@ export default class DoctorsPage extends Vue {
     sickness: [],
     orderBy: 0,
   }
-
+  categories = []
+  specialities = []
   seo = {
     title: 'پزشکان و متخصصان سامانه رسا',
   }
@@ -87,32 +100,60 @@ export default class DoctorsPage extends Vue {
       ],
     }
   }
-  @Watch('filter', { deep: true })
-  async updateFilters() {
-    this.getDoctors()
-  }
+  // @Watch('filter', { deep: true })
+  // async updateFilters(newval: any, oldval: any) {
+  //   console.log(newval)
+  //   console.log(oldval)
+  //   if (JSON.stringify(newval) == JSON.stringify(oldval)) return
+  //   clearTimeout(this.timeout)
+  //   this.timeout = setTimeout(() => {
+  //     this.getDoctors()
+  //   }, 1000)
+  // }
   get offset() {
     return (this.page - 1) * this.limit
   }
   get paginationLength() {
-    return Math.ceil(this.totalItems / this.limit) || 10
+    return Math.ceil(this.totalItems / this.limit)
   }
 
   onSort(sort: any) {
+    console.log(sort)
     this.filter.orderBy = sort
+    this.onFilterChange()
   }
-  async mounted() {
-    await this.getDoctors()
+
+  async fetch() {
+    try {
+      await this.getDoctors()
+      await this.getCategories()
+      await this.getSpecialities()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  onFilterChange() {
+    clearTimeout(this.timeout)
+    this.timeout = setTimeout(() => {
+      this.getDoctors()
+    }, 200)
   }
 
   async pageChange(page: number) {
     this.page = page
-    this.getDoctors()
+    await this.getDoctors()
+    if (process.browser) {
+      this.$vuetify.goTo(0, { duration: 400 })
+    }
   }
 
   async getDoctors() {
+    let loader: any
+    if (process.client) {
+      loader = this.$loader.show('.doctors-main')
+    }
     try {
-      this.loading = true
       let { result } = await this.$service.doctors.query({
         limit: this.limit,
         offset: this.offset,
@@ -125,10 +166,26 @@ export default class DoctorsPage extends Vue {
       })
       this.doctors = result.doctors
       this.totalItems = result.doctorsTotalCount
-      this.loading = false
     } catch (error) {
       console.log('DoctorsPage -> getDoctors -> error', error)
     }
+    if (process.client && loader) {
+      loader.hide()
+    }
+  }
+
+  async getCategories() {
+    try {
+      let { result } = await this.$service.doctors.MedicalSpecialties()
+      this.categories = result.medicalSpecialties
+    } catch (error) {}
+  }
+
+  async getSpecialities() {
+    try {
+      let { result } = await this.$service.doctors.MedicalSpecialties()
+      this.specialities = result.medicalSpecialties
+    } catch (error) {}
   }
 }
 </script>

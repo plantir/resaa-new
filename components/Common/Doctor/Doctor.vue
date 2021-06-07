@@ -185,9 +185,8 @@
             </span>
           </nuxt-link>
         </h2>
-
         <OnlineStatus
-          :status="doctor.available || doctor.isCurrentlyAvailable"
+          :status="Boolean(doctor.available || doctor.isCurrentlyAvailable)"
         />
       </div>
 

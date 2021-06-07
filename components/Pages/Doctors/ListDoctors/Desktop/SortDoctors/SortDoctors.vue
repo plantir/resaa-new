@@ -68,7 +68,7 @@ export default class SortDoctors extends Vue {
 
   onSort(sort: Number) {
     this.sort = sort
-    this.$emit('click', sort)
+    this.$emit('sort', sort)
   }
 }
 </script>
