@@ -58,7 +58,7 @@
         <CardSpecialtie
           v-for="(item, index) in data"
           :key="index"
-          :title="item.title"
+          :item="item"
         />
       </div>
     </div>

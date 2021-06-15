@@ -1,14 +1,22 @@
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+section {
+  display: flex;
+  align-items: center;
+}
+</style>
 
 <template>
-  <nuxt-link to="/patient/profile" class="left-header d-flex align-center">
-    <div class="full-name ml-4">
-      {{ fullName }}
-    </div>
-    <v-avatar>
-      <img src="/images/icons/ic_account_circle.svg" :alt="fullName" />
-    </v-avatar>
-  </nuxt-link>
+  <section>
+    <v-btn class="resaa-btn ml-4" to="/charge">افزایش اعتبار</v-btn>
+    <nuxt-link to="/patient/profile" class="left-header d-flex align-center">
+      <div class="full-name ml-4">
+        {{ fullName }}
+      </div>
+      <v-avatar>
+        <img src="/images/icons/ic_account_circle.svg" :alt="fullName" />
+      </v-avatar>
+    </nuxt-link>
+  </section>
 </template>
 
 <script lang="ts">
@@ -22,6 +30,7 @@ import Icon from '@/components/Common/Icon/Icon.vue'
 })
 export default class UserMenuNotLoggedIn extends Vue {
   get fullName() {
+    debugger
     if (this.$auth.user && this.$auth.user.phoneNumber) {
       let fullName = this.$auth.user.phoneNumber
       if (this.$auth.user?.firstName && this.$auth.user?.lastName) {
@@ -30,7 +39,7 @@ export default class UserMenuNotLoggedIn extends Vue {
       return fullName
     } else {
       let info = this.$storage.getUniversal('profile')
-      let fullName = info.phoneNumber
+      let fullName = info?.phoneNumber
 
       if (info?.firstName && info?.lastName) {
         fullName = `${info?.firstName} ${info?.lastName}`

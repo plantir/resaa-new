@@ -84,14 +84,11 @@ export default class SectionSearch extends Vue {
       type: 2,
       query: keyword,
     })
-    let [
-      { result: result1 },
-      { result: result2 },
-      { result: result3 },
-    ] = await Promise.all([doctorQuery, specialitiesService, categoriesService])
+    let [{ result: result1 }, { result: result2 }, { result: result3 }] =
+      await Promise.all([doctorQuery, specialitiesService, categoriesService])
     this.searchResult.doctors = result1.doctors
-    this.searchResult.specialities = result2.doctors
-    this.searchResult.categories = result3.doctors
+    this.searchResult.specialities = result2.categories
+    this.searchResult.categories = result3.categories
     this.hasResult = true
     // try {
     //   const { result } = await this.$service.doctors.query({

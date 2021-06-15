@@ -25,11 +25,11 @@
 </style>
 
 <template>
-  <nuxt-link to="/" class="card-specialtie">
+  <nuxt-link :to="link" class="card-specialtie">
     <v-card class="d-flex flex-column align-center justify-center">
       <!-- <Icon fileName="ic_pregnancy.png" /> -->
       <v-icon size="56"> la-stethoscope </v-icon>
-      <h2 class="mt-2">{{ title }}</h2>
+      <h2 class="mt-2">{{ item.title }}</h2>
     </v-card>
   </nuxt-link>
 </template>
@@ -46,8 +46,12 @@ import Icon from '@/components/Common/Icon/Icon.vue'
 export default class CardSpecialtie extends Vue {
   @Prop({
     required: true,
-    type: String,
+    type: Object,
   })
-  readonly title!: String
+  readonly item!: any
+
+  get link() {
+    return `/categories/${this.item.id}/${this.item.englishTitle}`
+  }
 }
 </script>

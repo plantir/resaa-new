@@ -8,7 +8,7 @@
 <template>
   <aside class="filter-wrapper">
     <form @submit.prevent="onSubmit">
-      <FilterByName v-model="filter.query" />
+      <FilterByName @input="onChange" v-model="filter.query" />
       <FilterBySpecialty
         v-model="filter.specialty"
         @input="onChange"

@@ -62,7 +62,7 @@ export default class SpecialtiesPage extends Vue {
         query: this.search,
       })
       this.topSpecialties = []
-      result.doctors.map((items: any) => {
+      result.categories.map((items: any) => {
         this.topSpecialties.push(items)
       })
     } catch (error) {
