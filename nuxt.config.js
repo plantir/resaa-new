@@ -105,6 +105,16 @@ export default {
     title: 'رسا سامانه سلامت ایرانیان',
     meta: [
       { charset: 'utf-8' },
+      ...(process.env.NO_INDEX == 'true'
+        ? [
+            {
+              hid: 'robots',
+              name: 'robots',
+              property: 'robots',
+              content: 'noindex,nofollow',
+            },
+          ]
+        : []),
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
