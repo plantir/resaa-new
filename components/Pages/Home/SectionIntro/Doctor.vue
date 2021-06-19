@@ -73,13 +73,13 @@
         :src="`/api/${doctor.imagePath}`"
         :alt="doctor.fullNameWithTitle"
       /> -->
-      <!-- <v-img
+      <v-img
         height="190px"
         :src="`/api/${doctor.imagePath}`"
         :alt="doctor.fullNameWithTitle"
       >
-      </v-img> -->
-      <img :src="`/api/${doctor.imagePath}`" :alt="doctor.fullNameWithTitle" />
+      </v-img>
+      <!-- <img :src="`/api/${doctor.imagePath}`" :alt="doctor.fullNameWithTitle" /> -->
     </div>
 
     <div class="bottom">

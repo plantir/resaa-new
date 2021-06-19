@@ -82,11 +82,9 @@ export default class HomePage extends Vue {
     return this.$auth.loggedIn
   }
   async fetch() {
-    // console.log('object')
-    this.pageInfo = await this.$service.metadata.getMetadata('home')
-    // console.log(this.pageInfo)
-  }
-  async mounted() {
+    try {
+      this.pageInfo = await this.$service.metadata.getMetadata('home')
+    } catch (error) {}
     try {
       this.loadingSuggestionDoctors = true
       const { result } = await this.$service.doctors.chosenDoctors()

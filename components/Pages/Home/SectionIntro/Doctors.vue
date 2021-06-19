@@ -85,7 +85,6 @@ export default class Doctors extends Vue {
     spaceBetween: 15,
     slidesPerView: 2,
     slidesPerGroup: 1,
-    loop: true,
     grabCursor: true,
     autoplay: {
       delay: 10000,

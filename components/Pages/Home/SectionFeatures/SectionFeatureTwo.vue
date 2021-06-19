@@ -152,7 +152,9 @@
     <div class="features">
       <div class="feature">
         <div class="image">
-          <Icon fileName="ic_find_doctor.png" />
+          <div>
+            <Icon :size="300" fileName="ic_find_doctor.png" />
+          </div>
         </div>
         <h3 class="title-item">پیدا کردن پزشک یا روان‌شناس</h3>
         <p class="desc">
@@ -162,20 +164,26 @@
           <li>
             <nuxt-link to="/doctors" class="d-flex align-center">
               <span class="label">مشاهده لیست پزشکان</span>
-              <Icon fileName="ic_link_left.png" class="mr-1" />
+              <div>
+                <Icon :size="18" fileName="ic_link_left.png" class="mr-1" />
+              </div>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link to="/doctors" class="d-flex align-center">
               <span class="label">مشاهده لیست روان‌شناسان</span>
-              <Icon fileName="ic_link_left.png" class="mr-1" />
+              <div>
+                <Icon :size="18" fileName="ic_link_left.png" class="mr-1" />
+              </div>
             </nuxt-link>
           </li>
         </ul>
       </div>
       <div class="feature">
         <div class="image img-mobile-margin">
-          <Icon fileName="ic_buy_credit2.png" />
+          <div>
+            <Icon :size="300" fileName="ic_buy_credit2.png" />
+          </div>
         </div>
         <h3 class="title-item">
           {{
@@ -198,7 +206,9 @@
       </div>
       <div class="feature">
         <div class="image">
-          <Icon fileName="img_direct_call.png" />
+          <div>
+            <Icon :size="300" fileName="img_direct_call.png" />
+          </div>
         </div>
         <h3 class="title-item">
           {{

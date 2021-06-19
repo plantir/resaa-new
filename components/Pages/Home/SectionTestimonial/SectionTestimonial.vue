@@ -115,7 +115,7 @@ export default class SectionTestimonial extends Vue {
     spaceBetween: 10,
     slidesPerView: 3,
     slidesPerGroup: 1,
-    loop: true,
+    loop: false,
     pagination: {
       el: '.swiper-pagination',
     },

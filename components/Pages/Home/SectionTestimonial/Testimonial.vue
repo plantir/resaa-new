@@ -70,15 +70,15 @@
     }
   }
 
-  .avatar {
+  .v-avatar {
     margin-top: 50px;
-    img {
-      width: 65px;
-      height: 65px;
-      border-radius: 100%;
-      padding: 2px;
-      border: 1px solid #9ee7db;
-    }
+    border: 1px solid #9ee7db;
+    padding: 2px;
+    // img {
+    //   width: 65px;
+    //   height: 65px;
+    //   border-radius: 100%;
+    // }
   }
   .author {
     color: #212121;
@@ -99,7 +99,9 @@
       </div>
     </div>
     <div class="avatar d-flex flex-column">
-      <img src="/images/home/doctors/1.png" alt />
+      <v-avatar size="70">
+        <v-img src="/images/home/doctors/1.png" alt />
+      </v-avatar>
     </div>
     <div class="author">
       {{ content.author }}

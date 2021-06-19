@@ -413,6 +413,11 @@ export default {
   },
   cache: true,
   render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      },
+    },
     static: {
       maxAge: '1y',
       setHeaders(res, path) {

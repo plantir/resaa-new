@@ -33,7 +33,7 @@
 
       <SearchForm class="mt-6" :loading="loading" @submit="onSubmit" />
       <div class="empty" v-if="!hasResult">
-        <img src="/images/home/skills.png" />
+        <v-img height="500px" src="/images/home/skills.png" />
       </div>
     </v-container>
     <template v-if="hasResult">
