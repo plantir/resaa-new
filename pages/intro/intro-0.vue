@@ -15,9 +15,7 @@
     </div>
 
     <div class="footer d-flex flex-column">
-      <div class="desc mb-2">
-        کار با رسا خیلی ساده است!
-      </div>
+      <div class="desc mb-2">کار با رسا خیلی ساده است!</div>
 
       <v-btn @click="onClick" class="resaa-btn">بریم ببینیم</v-btn>
     </div>

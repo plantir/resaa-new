@@ -9,7 +9,7 @@
     min-height: 800px;
   }
   .doctor-bg {
-    background: url('/images/home/intro_doctor_mobile.png') no-repeat;
+    background: url('/images/home/intro_doctor_mobile.webp') no-repeat;
     position: absolute;
     width: 240px;
     height: 244px;

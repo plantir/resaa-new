@@ -13,7 +13,7 @@ section {
         {{ fullName }}
       </div>
       <v-avatar>
-        <img src="/images/icons/ic_account_circle.svg" :alt="fullName" />
+        <v-img src="/images/icons/ic_account_circle.svg" :alt="fullName" />
       </v-avatar>
     </nuxt-link>
   </section>

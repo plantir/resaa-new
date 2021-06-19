@@ -304,7 +304,7 @@ export default {
     treeShake: true,
     customVariables: ['~/assets/styles/setting/_variables.scss'],
     defaultAssets: {
-      icons: 'md',
+      icons: 'mdiSvg',
       font: undefined,
     },
     lang: {

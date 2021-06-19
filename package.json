@@ -40,6 +40,7 @@
     "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
+    "@mdi/js": "^5.9.55",
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxt/typescript-runtime": "^0.4.0",
     "@nuxt/vue-app": "^2.12.2",

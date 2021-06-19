@@ -364,7 +364,7 @@ section {
         <div class="mobilereverse">
           <span>عدم پاسخگویی</span>
         </div>
-        <img src="/images/time-table/unavailable-icon.png" />
+        <v-img src="/images/time-table/unavailable-icon.png" />
         <span class="mobilehide">عدم پاسخگویی</span>
         <span class="space-betwen">:</span>
         <span class="timesheet" v-if="!daynotaccess">-</span>

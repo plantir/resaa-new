@@ -5,7 +5,7 @@
     <v-list dense nav class="py-0">
       <v-list-item two-line>
         <v-list-item-avatar>
-          <img src="/icon.png" />
+          <v-img src="/icon.png" />
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title>رسا سامانه سلامت ایرانیان</v-list-item-title>

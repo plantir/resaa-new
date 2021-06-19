@@ -6,7 +6,7 @@ img {
 </style>
 
 <template>
-  <img src="/images/logo.png" />
+  <v-img src="/images/logo.png" />
 </template>
 
 <script lang="ts">

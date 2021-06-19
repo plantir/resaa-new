@@ -66,7 +66,7 @@
 
     <nuxt-link :to="avatarLink">
       <v-avatar size="30">
-        <img src="/images/icons/ic_account_circle.svg" />
+        <v-img src="/images/icons/ic_account_circle.svg" />
       </v-avatar>
     </nuxt-link>
 
