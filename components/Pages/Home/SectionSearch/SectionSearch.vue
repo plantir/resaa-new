@@ -12,12 +12,14 @@
   }
   .empty {
     padding: 40px 0;
+    width: 100%;
     @include media(sm) {
       padding: 80px 0 66px;
       width: 450px;
     }
     @include media(md) {
       width: 550px;
+      min-height: 500px;
     }
     img {
       width: 100%;
@@ -33,7 +35,7 @@
 
       <SearchForm class="mt-6" :loading="loading" @submit="onSubmit" />
       <div class="empty" v-if="!hasResult">
-        <v-img height="500px" src="/images/home/skills.webp" />
+        <v-img src="/images/home/skills.webp" />
       </div>
     </v-container>
     <template v-if="hasResult">

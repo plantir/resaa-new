@@ -133,7 +133,7 @@ footer {
                 src="/images/footer/e-namad.png"
                 alt
                 @click="enamadClick"
-                style="cursor:pointer"
+                style="cursor: pointer"
                 id="1p93aagdwcp8JwYd"
               />
             </div>
@@ -214,7 +214,10 @@ footer {
     </v-container>
     <div class="copy-right d-flex justify-center align-center">
       <div class="icon-footer">
-        <Icon fileName="footer.png" />
+        <div>
+          <img src="/images/icons/footer.png" alt="" />
+          <!-- <Icon fileName="footer.png" /> -->
+        </div>
       </div>
       <v-container>
         <p>

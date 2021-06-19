@@ -32,6 +32,7 @@
   }
   .empty {
     padding: 40px 0 54px;
+    width: 100%;
     @include media(sm) {
       padding: 80px 0 66px;
       width: 450px;

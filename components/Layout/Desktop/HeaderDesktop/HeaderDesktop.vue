@@ -18,6 +18,9 @@
       height: 70px;
     }
   }
+  .logo {
+    width: 95px;
+  }
   .container {
     padding: 0;
   }
