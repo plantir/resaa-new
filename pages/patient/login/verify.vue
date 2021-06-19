@@ -89,7 +89,6 @@ export default class LoginPage extends Vue {
         ...resProfile.profile,
         userId: userId,
       }
-      // console.log('LoginPage -> onSubmit -> payloadProfile', payloadProfile)
 
       this.$storage.setUniversal('profile', payloadProfile)
 

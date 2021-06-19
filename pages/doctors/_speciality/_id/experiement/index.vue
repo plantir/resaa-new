@@ -33,7 +33,6 @@ export default class CallPage extends Vue {
   async fetch() {
     let { result } = await this.$service.doctors.get(this.$route.params.id)
     this.doctor = result.doctor
-    console.log(this.doctor)
   }
 }
 </script>

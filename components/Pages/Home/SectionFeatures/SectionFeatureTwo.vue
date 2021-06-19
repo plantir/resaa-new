@@ -182,7 +182,7 @@
       <div class="feature">
         <div class="image img-mobile-margin">
           <div>
-            <Icon :size="300" fileName="ic_buy_credit2.png" />
+            <Icon :size="300" fileName="ic_buy_credit2.webp" />
           </div>
         </div>
         <h3 class="title-item">
@@ -207,7 +207,7 @@
       <div class="feature">
         <div class="image">
           <div>
-            <Icon :size="300" fileName="img_direct_call.png" />
+            <Icon :size="300" fileName="img_direct_call.webp" />
           </div>
         </div>
         <h3 class="title-item">

@@ -27,7 +27,7 @@ export default class YourComponent extends Vue {
   schema!: any
   og: any = {}
   description!: any
-  doctor!: any
+  doctor: any = {}
   asyncData() {
     return { title: null, doctor: null }
   }

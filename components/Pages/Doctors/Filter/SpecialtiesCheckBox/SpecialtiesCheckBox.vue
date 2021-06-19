@@ -268,7 +268,6 @@ export default class SpecialtiesCheckBox extends Vue {
   async getSpecialties() {
     try {
       const data = await this.$axios.get('/Rubika/Doctors/MedicalSpecialties')
-      // console.log('SpecialtiesCheckBox -> getSpecialties -> data', data)
     } catch (error) {}
   }
 

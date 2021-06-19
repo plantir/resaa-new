@@ -13,7 +13,6 @@ export default class extends Vue {
 
   mounted() {
     this.reqId = String(this.$route.query.chargeRequestId)
-    // console.log('extends -> mounted -> this.$route', this.$route)
   }
 }
 </script>

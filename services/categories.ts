@@ -8,4 +8,7 @@ export default class CategoryService {
   RelatedDoctors(id: string, params: any) {
     return this.$axios.$get(`/categories/${id}/RelatedDoctors`, { params })
   }
+  active() {
+    return this.$axios.$get(`/categories/active?type=1&offset=0`)
+  }
 }

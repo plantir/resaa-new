@@ -53,7 +53,15 @@
 
     <!-- rate-call -->
     <div
-      class="rate-call d-flex justify-space-between align-center flex-column flex-sm-row px-4 py-6"
+      class="
+        rate-call
+        d-flex
+        justify-space-between
+        align-center
+        flex-column flex-sm-row
+        px-4
+        py-6
+      "
     >
       <div class="desc font-weight-bold mb-5 mb-sm-0">
         نظر خود را در ارتباط با این تماس ثبت کنید.
@@ -77,7 +85,6 @@ export default class HistoryTestItem extends Vue {
     let rate = await this.$dialog.show({
       component: DialogRate,
     })
-    // console.log(rate)
   }
 }
 </script>

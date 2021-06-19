@@ -34,6 +34,7 @@
     "nuxt": "^2.0.0",
     "nuxt-gmaps": "^1.2.4",
     "nuxt-property-decorator": "^2.7.2",
+    "nuxt-purgecss": "^1.0.0",
     "swiper": "^5.4.1",
     "vrwebdesign-nuxt": "^2.x",
     "vue-awesome-swiper": "^4.1.1"

@@ -109,7 +109,6 @@ export default class Doctors extends Vue {
 
   mounted() {
     this.swiper.slideTo(4, 1000, false)
-    console.log(this.doctors)
   }
 }
 </script>

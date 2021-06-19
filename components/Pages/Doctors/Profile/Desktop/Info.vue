@@ -252,7 +252,6 @@ export default class component_name extends Vue {
   }
 
   showWorkplace(item: any, index: number) {
-    console.log(item)
     this.$dialog.show({
       component: doctorAddress,
       scope: {

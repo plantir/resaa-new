@@ -67,7 +67,6 @@ export default class ChargePage extends Vue {
         denominationId: form.denomination.id,
         callbackUrl: process.env.BANK_RETURN_URL,
       })
-      console.log(result)
       this.invoice = result
       this.loading = false
     } catch (error) {

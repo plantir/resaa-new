@@ -42,8 +42,6 @@ export default class SearchResult extends Vue {
   readonly result!: object
 
   @Watch('result', { deep: true })
-  onResultChange() {
-    console.log(this.result)
-  }
+  onResultChange() {}
 }
 </script>

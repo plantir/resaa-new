@@ -102,8 +102,6 @@ export default class DoctorsPage extends Vue {
   }
   // @Watch('filter', { deep: true })
   // async updateFilters(newval: any, oldval: any) {
-  //   console.log(newval)
-  //   console.log(oldval)
   //   if (JSON.stringify(newval) == JSON.stringify(oldval)) return
   //   clearTimeout(this.timeout)
   //   this.timeout = setTimeout(() => {
@@ -118,7 +116,6 @@ export default class DoctorsPage extends Vue {
   }
 
   onSort(sort: any) {
-    console.log(sort)
     this.filter.orderBy = sort
     this.onFilterChange()
   }
@@ -176,8 +173,8 @@ export default class DoctorsPage extends Vue {
 
   async getCategories() {
     try {
-      let { result } = await this.$service.doctors.MedicalSpecialties()
-      this.categories = result.medicalSpecialties
+      let { result } = await this.$service.categories.active()
+      this.categories = result.categories
     } catch (error) {}
   }
 

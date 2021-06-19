@@ -84,9 +84,7 @@ export default class PackagesMobile extends Vue {
     this.swiper.slideTo(1, 1000)
   }
   setActive(index: any) {
-    console.log(index)
     this.isActive = index
-    console.log(this.isActive)
   }
   swiperOptions = {
     centeredSlides: true,
