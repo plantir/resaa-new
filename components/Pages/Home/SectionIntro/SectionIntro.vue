@@ -17,7 +17,7 @@
     top: -40px;
     z-index: 1;
     @include media(sm) {
-      background: url('/images/home/intro_doctor_desktop.png') no-repeat;
+      background: url('/images/home/intro_doctor_desktop.webp') no-repeat;
       width: 640px;
       height: 649px;
       left: 50px;
@@ -25,7 +25,7 @@
     }
   }
   .bg {
-    background: url('/images/home/img_phone.png') no-repeat;
+    background: url('/images/home/img_phone.webp') no-repeat;
     width: 100%;
     height: 1019px;
     position: absolute;

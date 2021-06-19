@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="image-wrapper">
-        <v-img src="/images/home/social.png" max-height="100%"></v-img>
+        <v-img src="/images/home/social.webp" max-height="100%"></v-img>
       </div>
     </div>
   </section>

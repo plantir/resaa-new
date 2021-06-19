@@ -85,7 +85,7 @@
       </swiper>
     </div>
     <!-- <div class="empty" v-else>
-      <img src="/images/home/skills.png" />
+      <img src="/images/home/skills.webp" />
     </div> -->
   </div>
 </template>

@@ -72,7 +72,7 @@
       <!-- <nuxt-link class="view-all" :to="link"> مشاهده همه </nuxt-link> -->
     </div>
     <!-- <div class="empty mt-5" v-else>
-      <img src="/images/home/skills.png" />
+      <img src="/images/home/skills.webp" />
     </div> -->
   </div>
 </template>

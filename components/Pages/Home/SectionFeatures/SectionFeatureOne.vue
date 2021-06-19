@@ -88,7 +88,7 @@ section {
       margin-right: 100px;
       position: relative;
       .bg {
-        background: url(/images/home/img_phone_rotated.png) no-repeat;
+        background: url(/images/home/img_phone_rotated.webp) no-repeat;
         width: 537px;
         height: 849px;
         top: -120px;
