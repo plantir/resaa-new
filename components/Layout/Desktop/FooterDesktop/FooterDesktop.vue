@@ -215,7 +215,7 @@ footer {
     <div class="copy-right d-flex justify-center align-center">
       <div class="icon-footer">
         <div>
-          <img src="/images/icons/footer.png" alt="" />
+          <img src="/images/icons/footer.png" width="96" height="51" alt="" />
           <!-- <Icon fileName="footer.png" /> -->
         </div>
       </div>

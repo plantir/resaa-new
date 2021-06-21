@@ -51,8 +51,8 @@
     <div class="logo">
       <nuxt-link to="/">
         <v-img
-          height="25"
-          width="60"
+          height="25px"
+          width="60px"
           src="/images/logo.png"
           alt="رسا"
           contain

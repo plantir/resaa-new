@@ -1,17 +1,18 @@
 <style lang="scss" scoped>
-img {
-  height: 45px;
-  width: auto;
-}
 </style>
 
 <template>
-  <v-img width="90px" src="/images/logo.png" />
+  <v-img :width="width" src="/images/logo.png" />
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
-export default class Logo extends Vue {}
+export default class Logo extends Vue {
+  @Prop({
+    default: '90px',
+  })
+  width!: string
+}
 </script>
