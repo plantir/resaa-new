@@ -27,8 +27,8 @@
 </style>
 
 <template>
-  <nuxt-link class="tag" to="">
-    {{ tag }}
+  <nuxt-link class="tag" :to="link">
+    {{ tag.title }}
   </nuxt-link>
 </template>
 
@@ -38,9 +38,15 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 @Component
 export default class Tag extends Vue {
   @Prop({
-    type: String,
+    type: Object,
     required: true,
   })
-  readonly tag!: String
+  readonly tag!: any
+
+  get link() {
+    let title: string = this.tag.description || ''
+    title = title.toLowerCase().replace(/ /g, '-')
+    return `/categories/${title}/${this.tag.id}`
+  }
 }
 </script>

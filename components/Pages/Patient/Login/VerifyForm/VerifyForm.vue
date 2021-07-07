@@ -70,7 +70,9 @@
   <div class="auth-form" ref="wrapper">
     <v-card class="d-flex flex-column">
       <div class="icon mt-10 d-flex justify-center">
-        <Icon fileName="ic_password.svg" />
+        <div>
+          <Icon :size="128" fileName="ic_password.svg" />
+        </div>
       </div>
       <form class="form" @submit.prevent="onSubmit">
         <p class="desc font-weight-medium">

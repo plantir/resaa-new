@@ -132,7 +132,7 @@ export default {
    ** Global CSS
    */
   css: [
-    'animate.css/animate.css',
+    // 'animate.css/animate.css',
     '~/assets/styles/main.scss',
     'vrwebdesign-nuxt/assets/style/main.scss',
     'swiper/css/swiper.css',

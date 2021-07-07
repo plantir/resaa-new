@@ -2,14 +2,14 @@
 <style lang="scss" scoped>
 .bg {
   @include media(1024) {
-    background: url('/images/auth/verify_bg.jpg') no-repeat;
-    background-position: 20% 98%;
+    background: url('/images/auth/bg.png') no-repeat;
+    background-position: 50% 100%;
   }
   @include media(1280) {
-    background-position: 10% 70%;
+    background-position: 40% 100%;
   }
   @include media(1440) {
-    background-position: 0 70%;
+    background-position: 0 100%;
   }
 }
 </style>
@@ -39,9 +39,7 @@ import { Vue, Component } from 'vue-property-decorator'
     MenuMobile: () =>
       import('@/components/Layout/Mobile/MenuMobile/MenuMobile.vue'),
     HeaderLogin: () =>
-      import(
-        '@/components/Layout/Desktop/PatientLoginHeader/PatientLoginHeader.vue'
-      ),
+      import('@/components/Layout/Desktop/HeaderDesktop/HeaderDesktop.vue'),
   },
 })
 export default class DefaultLayout extends Vue {

@@ -6,14 +6,11 @@
   max-width: 150px;
   margin: 0 10px;
   direction: rtl;
-  padding: 0 8px 5px 8px;
+  padding: 0 4px 5px 4px;
   min-width: 150px;
-  @include media(sm) {
-    min-width: 190px;
-  }
   .image {
-    margin-top: 8px;
-    height: 190px;
+    margin-top: 4px;
+    // height: 190px;
     img {
       // max-width: 132px;
       width: 100%;
@@ -74,8 +71,9 @@
         :alt="doctor.fullNameWithTitle"
       /> -->
       <v-img
-        height="190px"
-        :src="`/api/${doctor.imagePath}`"
+        height="150px"
+        width="150px"
+        :src="`/api/${doctor.imagePath}?imageSize=2`"
         :alt="doctor.fullNameWithTitle"
       >
       </v-img>

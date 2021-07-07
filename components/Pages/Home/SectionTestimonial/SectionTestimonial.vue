@@ -83,8 +83,8 @@
 
     <div class="testimonials" v-if="!loading">
       <swiper ref="swiper" :options="swiperOptions">
-        <swiper-slide v-for="(testimonial, index) in testimonial" :key="index">
-          <Testimonial :content="testimonial" />
+        <swiper-slide v-for="(item, index) in items" :key="index">
+          <Testimonial :content="item" />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -93,7 +93,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import Testimonial from './Testimonial.vue'
 
 @Component({
@@ -108,7 +108,13 @@ export default class SectionTestimonial extends Vue {
   })
   title!: String
 
-  loading = true
+  @Prop()
+  items!: any[]
+
+  @Prop({
+    default: true,
+  })
+  loading!: boolean
   testimonial: Array<object> = []
   swiperOptions = {
     centeredSlides: true,
@@ -137,11 +143,11 @@ export default class SectionTestimonial extends Vue {
   get swiper() {
     return (this.$refs.swiper as any).$swiper
   }
-
-  async mounted() {
-    this.swiper.slideTo(2, 1000)
-    this.testimonial = await this.$service.testimonials.getTestimonials()
-    this.loading = false
+  @Watch('loading')
+  onLoadingChange(val: boolean) {
+    if (val == false) {
+      this.swiper.slideTo(2, 1000)
+    }
   }
 }
 </script>

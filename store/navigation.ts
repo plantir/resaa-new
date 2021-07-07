@@ -11,7 +11,7 @@ export default class Index extends VuexModule {
       link: '/',
       internalLink: true,
       newTab: false,
-      icon: 'apps',
+      icon: 'la-home',
     },
     {
       label: 'تخصص‌ها',

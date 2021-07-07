@@ -18,6 +18,15 @@
     z-index: 1;
     @include media(sm) {
       background: url('/images/home/intro_doctor_desktop.webp') no-repeat;
+      background-size: 100%;
+      width: 340px;
+      height: 344px;
+      left: 0px;
+      top: 40px;
+      z-index: 1;
+    }
+    @include media(lg) {
+      background: url('/images/home/intro_doctor_desktop.webp') no-repeat;
       width: 640px;
       height: 649px;
       left: 50px;

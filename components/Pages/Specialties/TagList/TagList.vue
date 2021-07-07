@@ -28,7 +28,7 @@
     <div class="tag-list" v-if="tags.length">
       <div class="main-title text-center">سایر تخصص‌ها و بیماری‌ها</div>
       <div class="tags">
-        <Tag v-for="(item, index) in tags" :key="index" :tag="item.title" />
+        <Tag v-for="(item, index) in tags" :key="index" :tag="item" />
       </div>
     </div>
   </v-container>

@@ -51,7 +51,9 @@ export default class CardSpecialtie extends Vue {
   readonly item!: any
 
   get link() {
-    return `/categories/${this.item.id}/${this.item.englishTitle}`
+    let title: string = this.item.englishTitle || this.item.description || ''
+    title = title.toLowerCase().replace(/ /g, '-')
+    return `/categories/${title}/${this.item.id}`
   }
 }
 </script>

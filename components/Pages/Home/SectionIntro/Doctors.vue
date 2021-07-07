@@ -4,12 +4,13 @@
   margin-top: -30px;
   @include media(sm) {
     padding: 10px 0;
-    margin-top: 15px;
+    margin-top: 50px;
   }
   .swiper-slide {
     display: flex;
     justify-content: center;
-    padding: 5px 0px;
+    padding: 5px 5px;
+    width: 160px;
   }
 
   .swiper-container {
@@ -82,8 +83,8 @@ import { RelatedDoctor } from '~/models/Doctor'
 export default class Doctors extends Vue {
   swiperOptions = {
     centeredSlides: this.$device.isMobile,
-    spaceBetween: 15,
-    slidesPerView: 2,
+    spaceBetween: 5,
+    slidesPerView: 'auto',
     slidesPerGroup: 1,
     grabCursor: true,
     autoplay: {
@@ -91,21 +92,23 @@ export default class Doctors extends Vue {
       disableOnInteraction: false,
     },
 
-    breakpoints: {
-      640: {
-        slidesPerView: 3,
-      },
-      1024: {
-        slidesPerView: 4,
-      },
-      1280: {
-        slidesPerView: 6,
-        spaceBetween: 150,
-      },
-      1785: {
-        slidesPerView: 8,
-      },
-    },
+    // breakpoints: {
+    //   0: {
+    //     slidesPerView: 2,
+    //   },
+    //   640: {
+    //     slidesPerView: 3,
+    //   },
+    //   1024: {
+    //     slidesPerView: 4,
+    //   },
+    //   1280: {
+    //     slidesPerView: 6,
+    //   },
+    //   1560: {
+    //     slidesPerView: 8,
+    //   },
+    // },
   }
   @Prop()
   doctors!: RelatedDoctor[]

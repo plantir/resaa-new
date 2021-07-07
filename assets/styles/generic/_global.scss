@@ -1,4 +1,4 @@
-body:not(.page-home) {
+body:not(.page-home):not(.page-login) {
   .main-header {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
   }

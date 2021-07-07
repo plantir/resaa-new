@@ -59,7 +59,9 @@
   <div class="auth-form" ref="wrapper">
     <v-card class="d-flex flex-column">
       <div class="icon mt-10 d-flex justify-center">
-        <Icon fileName="ic_mobile_number.png" />
+        <div>
+          <Icon :size="128" fileName="ic_mobile_number.png" />
+        </div>
       </div>
       <form class="form" @submit.prevent="onSubmit">
         <p class="desc">برای ورود به رسا، شماره موبایل خود را وارد کنید.</p>

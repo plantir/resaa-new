@@ -16,7 +16,7 @@
 
     <v-col v-if="!loading" cols="6" class="right">
       <div class="wrapper py-3">
-        <!-- <Post :post="this.post[0]" :hasDescription="true" heightImage="300px" /> -->
+        <Post :post="this.post[0]" :hasDescription="true" heightImage="300px" />
       </div>
     </v-col>
     <v-col v-if="!loading" cols="6">

@@ -7,7 +7,7 @@
 </style>
 
 <template>
-  <FilterCard title="جستجو" :hasCollapse="false">
+  <FilterCard title="جستجو" :showMore="false" :hasCollapse="false">
     <div class="px-4">
       <v-text-field
         v-model="query"

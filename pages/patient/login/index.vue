@@ -14,7 +14,7 @@
     }
     .form-wrapper {
       display: flex;
-      height: calc(100vh - 114px);
+      height: calc(100vh - 126px);
       margin-top: 32px;
       @include media(sm) {
         justify-content: center;

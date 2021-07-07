@@ -23,7 +23,7 @@
     </div>
     <div>
       <SectionFeatures :doctors="doctors" />
-      <SectionTestimonial />
+      <SectionTestimonial :items="testimonials" :loading="testimonialLoading" />
     </div>
     <SectionWeblog :posts="posts" v-if="posts.length" />
     <SedctionSocial />
@@ -60,6 +60,8 @@ export default class HomePage extends Vue {
   doctors: Doctor[] | undefined = []
   suggestionDoctors: Doctor[] = []
   posts: any = []
+  testimonials: any = []
+  testimonialLoading = true
   loadingDoctors = false
   loadingSuggestionDoctors = false
   pageInfo = {}
@@ -86,6 +88,7 @@ export default class HomePage extends Vue {
     } catch (error) {
       this.loadingSuggestionDoctors = false
     }
+
     try {
       this.loadingDoctors = true
       const { result } = await this.$service.doctors.getRelatedDoctors(1141, {
@@ -97,9 +100,13 @@ export default class HomePage extends Vue {
       this.loadingDoctors = false
     }
     try {
-      this.posts = await this.$service.weblog.getPosts()
-    } catch (error) {}
+      this.testimonials = await this.$service.testimonials.getTestimonials()
+      this.testimonialLoading = false
+    } catch (error) {
+      this.testimonialLoading = false
+    }
     try {
+      this.posts = await this.$service.weblog.getPosts()
     } catch (error) {}
   }
 }

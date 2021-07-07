@@ -16,6 +16,7 @@ section {
     @include media(sm) {
       padding-right: 29px;
     }
+
     .main-title {
       text-align: center;
       @include media(sm) {
@@ -87,6 +88,7 @@ section {
       flex: 0 0 500px;
       margin-right: 100px;
       position: relative;
+      margin-top: -30px;
       .bg {
         background: url(/images/home/img_phone_rotated.webp) no-repeat;
         width: 537px;
@@ -95,7 +97,7 @@ section {
         position: absolute;
         transform: scale(0.75);
         @include media(xl) {
-          top: -180px;
+          top: -150px;
         }
       }
     }
