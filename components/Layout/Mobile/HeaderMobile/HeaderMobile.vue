@@ -43,8 +43,7 @@
     color="white"
     dense
     dark
-    elevate-on-scroll
-    :fixed="scrolled"
+    :fixed="isFixedMenu"
     clipped-left
   >
     <v-app-bar-nav-icon @click="$emit('toggleNavbar')"></v-app-bar-nav-icon>
@@ -82,6 +81,9 @@ import { Component, Vue } from 'vue-property-decorator'
 import Refferal from '@/components/Common/Referral/Index.vue'
 @Component
 export default class HeaderMobile extends Vue {
+  limitPosition = 48
+  scrolled = false
+  lastPosition = 0
   get avatarLink() {
     if (this.$auth.loggedIn) {
       return '/patient/profile'
@@ -89,11 +91,9 @@ export default class HeaderMobile extends Vue {
       return '/patient/login'
     }
   }
-
-  limitPosition = 48
-  scrolled = false
-  lastPosition = 0
-
+  get isFixedMenu() {
+    return this.$route.name != 'index' || this.scrolled ? true : false
+  }
   handleScroll() {
     if (
       this.lastPosition < window.scrollY &&

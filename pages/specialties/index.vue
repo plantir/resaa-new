@@ -1,5 +1,9 @@
 <style lang="scss" scoped>
 main {
+  margin-top: 30px;
+  @include media(md) {
+    margin-top: 0;
+  }
   .top-specialties {
     margin-top: 20px;
     @include media(sm) {
