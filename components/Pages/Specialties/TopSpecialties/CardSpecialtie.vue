@@ -53,7 +53,11 @@ export default class CardSpecialtie extends Vue {
   get link() {
     let title: string = this.item.englishTitle || this.item.description || ''
     title = title.toLowerCase().replace(/ /g, '-')
-    return `/categories/${title}/${this.item.id}`
+    if (this.item.englishTitle) {
+      return `/categories/${title}/${this.item.id}`
+    } else {
+      return `/doctors/${title}`
+    }
   }
 }
 </script>

@@ -46,7 +46,7 @@ export default class Tag extends Vue {
   get link() {
     let title: string = this.tag.description || ''
     title = title.toLowerCase().replace(/ /g, '-')
-    return `/categories/${title}/${this.tag.id}`
+    return `/doctors/${title}`
   }
 }
 </script>
