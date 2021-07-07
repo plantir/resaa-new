@@ -43,6 +43,7 @@
     color="white"
     dense
     dark
+    elevate-on-scroll
     :fixed="scrolled"
     clipped-left
   >
@@ -89,7 +90,7 @@ export default class HeaderMobile extends Vue {
     }
   }
 
-  limitPosition = 300
+  limitPosition = 48
   scrolled = false
   lastPosition = 0
 
@@ -108,7 +109,7 @@ export default class HeaderMobile extends Vue {
     }
 
     this.lastPosition = window.scrollY
-    this.scrolled = window.scrollY > 250
+    this.scrolled = window.scrollY > 48
   }
 
   mounted() {

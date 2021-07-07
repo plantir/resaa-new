@@ -6,7 +6,7 @@
       v-if="$device.isMobileOrTablet"
     />
     <HeaderDesktop v-else />
-    <v-content>
+    <v-content id="content">
       <nuxt />
     </v-content>
     <FooterDesktop />

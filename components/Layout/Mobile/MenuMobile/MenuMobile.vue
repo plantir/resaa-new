@@ -1,4 +1,12 @@
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.v-list-item a {
+  display: flex;
+  color: rgba(0, 0, 0, 0.87);
+  .v-list-item__icon {
+    margin-left: 12px;
+  }
+}
+</style>
 
 <template>
   <v-navigation-drawer v-model="drawer" :right="true" app fixed>
@@ -15,20 +23,25 @@
       <v-divider></v-divider>
       <v-subheader inset>منوی اصلی</v-subheader>
       <template v-for="(item, index) in $store.state.navigation.items">
-        <v-list-item
-          :key="index"
-          link
-          :href="item.link"
-          :target="item.internalLink ? '_self' : '_blank'"
-          v-if="!item.child"
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+        <v-list-item :key="index" v-if="!item.child">
+          <nuxt-link :to="item.link" v-if="item.internalLink">
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.label }}</v-list-item-title>
-          </v-list-item-content>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.label }}</v-list-item-title>
+            </v-list-item-content>
+          </nuxt-link>
+          <a v-else :href="item.link" target="_blank">
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>{{ item.label }}</v-list-item-title>
+            </v-list-item-content>
+          </a>
         </v-list-item>
         <v-list-group :prepend-icon="item.icon" :key="index" v-else>
           <template v-slot:activator>

@@ -8,9 +8,9 @@
     >
       {{ menu.label }}
     </nuxt-link>
-    <a v-else :href="menu.link" :target="menu.newTab ? '_blank' : '_self'">{{
-      menu.label
-    }}</a>
+    <a v-else :href="menu.link" :target="menu.newTab ? '_blank' : '_self'">
+      {{ menu.label }}
+    </a>
   </li>
 </template>
 
