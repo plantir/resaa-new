@@ -80,7 +80,6 @@
       >
         <slot />
       </div>
-
       <div
         v-if="cardBodyHeight === maxHeight && !collapse"
         class="show-all d-flex justify-center"

@@ -11,7 +11,7 @@
 <template>
   <section class="doctors-main" ref="wrapper">
     <v-container>
-      <div class="d-flex flex-wrap" v-if="doctors">
+      <div class="d-flex flex-wrap">
         <template v-if="$device.isMobileOrTablet">
           <FilterMobile
             v-model="filter"

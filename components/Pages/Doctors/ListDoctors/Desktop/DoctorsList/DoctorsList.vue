@@ -25,7 +25,7 @@
         class="mt-6"
         :doctor="doctor"
       />
-      <div class="no-result" v-if="doctors.length == 0">
+      <div class="no-result" v-if="doctors && doctors.length == 0">
         نتیجه ای جهت نمایش یافت نشد
       </div>
     </div>
