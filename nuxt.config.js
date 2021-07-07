@@ -137,6 +137,7 @@ export default {
     'vrwebdesign-nuxt/assets/style/main.scss',
     'swiper/css/swiper.css',
     'vrwebdesign-nuxt/assets/style/fonts/_iransans.scss',
+    'vrwebdesign-nuxt/assets/style/fonts/_lineawesome.scss',
   ],
   /*
    ** Plugins to load before mounting the App
