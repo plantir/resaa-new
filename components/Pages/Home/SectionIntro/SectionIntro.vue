@@ -101,18 +101,13 @@
     <div class="intro-text">
       <v-container>
         <div class="right">
-          <!-- {{ pageInfo }} -->
-          <h1 v-html="pageInfo.h1">
-            با پزشک یا روان شناس مد نظرتان <br />
-            <span>مستقیما</span> صحبت کنید.
-          </h1>
-          <p class="text-justify mt-3">
-            <!-- رسا یا رسانه سلامت ایرانیان یک بستر مخابراتی بین شما و تمام پزشک‌ها
-            و روانشناس‌های عضو آن است. از طریق رسا می‌توانید با هزینه کمتر، رقت
-            و آمد کمتر و سرعت بیشتر با هر پزشک یا روانشناسی که بخواهید مستقیما
-            صحبت کنید. -->
-            {{ pageInfo.description }}
-          </p>
+          <template v-if="pageInfo.h1">
+            <h1 v-html="pageInfo.h1"></h1>
+            <p class="text-justify mt-3">
+              {{ pageInfo.description }}
+            </p>
+          </template>
+          <v-skeleton-loader type="article" v-else> </v-skeleton-loader>
         </div>
         <v-btn class="resaa-btn" color="primary" x-large @click="onDoctors">
           مشاهده لیست پزشکان

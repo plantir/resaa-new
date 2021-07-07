@@ -16,7 +16,7 @@
 
     <v-col v-if="!loading" cols="6" class="right">
       <div class="wrapper py-3">
-        <Post :post="this.post[0]" heightImage="300px" />
+        <!-- <Post :post="this.post[0]" :hasDescription="true" heightImage="300px" /> -->
       </div>
     </v-col>
     <v-col v-if="!loading" cols="6">
@@ -72,14 +72,14 @@ export default class WeblogDesktop extends Vue {
   })
   readonly posts!: Array<Object>
   get post() {
-    return this.posts.map((items: any) => {
+    return this.posts.map((post: any) => {
       return {
-        title: items.title.rendered,
-        link: items.link,
-        description: items.excerpt.rendered,
-        content: items.content.rendered,
-        image: items._embedded['wp:featuredmedia']
-          ? items._embedded['wp:featuredmedia']['0'].source_url
+        title: post.title.rendered,
+        link: post.link,
+        description: post.excerpt.rendered,
+        content: post.content.rendered,
+        image: post._embedded['wp:featuredmedia']
+          ? post._embedded['wp:featuredmedia']['0'].source_url
           : '',
       }
     })

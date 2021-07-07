@@ -52,7 +52,7 @@
       </swiper-slide>
     </swiper>
     <swiper :options="swiperOptions" v-show="loading">
-      <swiper-slide v-for="index in 15" :key="index">
+      <swiper-slide v-for="index in 8" :key="index">
         <AppSkeleton section="DoctorSwiper" />
       </swiper-slide>
     </swiper>
@@ -116,6 +116,9 @@ export default class Doctors extends Vue {
   })
   readonly loading!: Boolean
 
+  get swiper() {
+    return (this.$refs.swiper as any)?.$swiper
+  }
   onShowNext() {
     this.swiper.slideNext(1000)
   }
@@ -124,9 +127,6 @@ export default class Doctors extends Vue {
     this.swiper.slidePrev(1000)
   }
 
-  get swiper() {
-    return (this.$refs.swiper as any).$swiper
-  }
   mounted() {
     this.swiper.slideTo(4, 1000, false)
   }

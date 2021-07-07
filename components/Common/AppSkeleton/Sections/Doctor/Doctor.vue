@@ -181,7 +181,10 @@
           </div>
 
           <div
-            class="view-profile v-skeleton-loader__button v-skeleton-loader__bone"
+            class="
+              view-profile
+              v-skeleton-loader__button v-skeleton-loader__bone
+            "
           ></div>
         </div>
       </div>

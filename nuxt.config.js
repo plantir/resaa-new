@@ -1,4 +1,3 @@
-import 'vrwebdesign-nuxt/modules/nuxt-i18n'
 import colors from 'vuetify/es5/util/colors'
 import webpack from 'webpack'
 import { version } from './package.json'
