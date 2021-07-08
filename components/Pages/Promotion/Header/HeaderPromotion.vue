@@ -50,6 +50,7 @@
 
 <template>
   <div class="header d-flex flex-column align-center justify-center">
+    {{ backgroundImage }}
     <v-img
       width="100%"
       height="100%"
@@ -71,10 +72,11 @@ export default class HeaderPromotion extends Vue {
   category!: any
 
   get backgroundImage() {
-    // return '/images/promotion/header-bg.png'
-    return '/api/' + this.$device.isDesktop
+    let prefix = '/api/'
+    let imageUrl = this.$device.isDesktop
       ? this.category.backgroundImagePath
       : this.category.mobileBackgroundImagePath
+    return prefix + imageUrl
   }
 }
 </script>
