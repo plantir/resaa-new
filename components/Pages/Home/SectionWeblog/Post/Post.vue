@@ -81,7 +81,11 @@
           <h3>
             <a :href="post.link" target="_blank">{{ post.title }}</a>
           </h3>
-          <p v-if="hasDescription" class="desc mt-3" v-html="post.description">
+          <p
+            v-if="hasDescription"
+            class="desc mt-3"
+            v-sanitize="post.description"
+          >
             <!-- آیا می‌دانید با وجود نارسایی‌های تخمدان امکان بارداری وجود دارد؟
             بسیاری از بانوان می‌پندارند اگر دچار اختلال های مربوط به تخمدان و
             رحم باشند دیگر قادر نخواهند بود که صاحب فرزند شوند. در حالی که با
@@ -128,7 +132,9 @@ export default class Post extends Vue {
     default: '200px',
   })
   readonly heightImage!: String
-
+  // get html() {
+  //   // return this.$sanatize(this.post.description)
+  // }
   get calculateReadTime() {
     if (process.browser) {
       var span = document.createElement('span')

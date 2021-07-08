@@ -195,7 +195,12 @@ section {
       </div>
       <div class="left">
         <div class="bg"></div>
-        <Doctor v-for="doctor in top3" :doctor="doctor" :key="doctor.id" />
+        <Doctor
+          v-for="doctor in top3"
+          size="big"
+          :doctor="doctor"
+          :key="doctor.id"
+        />
       </div>
     </div>
   </section>

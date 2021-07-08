@@ -36,6 +36,7 @@
     "nuxt-property-decorator": "^2.7.2",
     "nuxt-purgecss": "^1.0.0",
     "swiper": "^5.4.1",
+    "v-sanitize": "^0.0.4",
     "vrwebdesign-nuxt": "^2.x",
     "vue-awesome-swiper": "^4.1.1"
   },

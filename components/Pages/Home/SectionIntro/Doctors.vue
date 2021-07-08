@@ -53,7 +53,7 @@
       </swiper-slide>
     </swiper>
     <swiper :options="swiperOptions" v-show="loading">
-      <swiper-slide v-for="index in 8" :key="index">
+      <swiper-slide v-for="index in 16" :key="index">
         <AppSkeleton section="DoctorSwiper" />
       </swiper-slide>
     </swiper>

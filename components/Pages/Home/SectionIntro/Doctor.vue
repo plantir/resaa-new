@@ -8,6 +8,7 @@
   direction: rtl;
   padding: 0 4px 5px 4px;
   min-width: 150px;
+
   .image {
     margin-top: 4px;
     // height: 190px;
@@ -19,6 +20,11 @@
         min-width: 188px;
       }
       border-radius: 6px;
+    }
+  }
+  &.big {
+    .image {
+      height: 212px;
     }
   }
   .bottom {
@@ -63,7 +69,7 @@
 </style>
 
 <template>
-  <nuxt-link class="doctor" :to="doctorLink">
+  <nuxt-link class="doctor" :class="size" :to="doctorLink">
     <div class="image">
       <!-- <ImageLoader
         height="190px"
@@ -71,9 +77,9 @@
         :alt="doctor.fullNameWithTitle"
       /> -->
       <v-img
-        height="150px"
-        width="150px"
-        :src="`/api/${doctor.imagePath}?imageSize=2`"
+        :height="size == 'big' ? '' : '150px'"
+        :width="size == 'big' ? '100%' : '150px'"
+        :src="`/api/${doctor.imagePath}${size == 'big' ? '' : '?imageSize=2'}`"
         :alt="doctor.fullNameWithTitle"
       >
       </v-img>
@@ -98,6 +104,10 @@ export default class Doctor extends Vue {
     required: true,
   })
   readonly doctor!: RelatedDoctor
+  @Prop({
+    default: 'small',
+  })
+  readonly size!: string
 
   get doctorLink() {
     return `/doctors/${(this.doctor.specialtyEnglishTitle || '')

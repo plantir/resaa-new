@@ -68,16 +68,14 @@ export default class PromotionPage extends Vue {
     return {
       title: this.title,
       __dangerouslyDisableSanitizers: ['script'],
-      // link: [
-      //   {
-      //     rel: 'canonical',
-      //     href: `${
-      //       process.env.SITE_URL
-      //     }/categories/${this.category.englishTitle
-      //       .toLowerCase()
-      //       .replace(/ /g, '-')}/${this.category.id}`,
-      //   },
-      // ],
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.SITE_URL}/categories/${this.category.englishTitle
+            .toLowerCase()
+            .replace(/ /g, '-')}/${this.category.id}`,
+        },
+      ],
       script: [
         {
           innerHTML: JSON.stringify(this.main_schema),

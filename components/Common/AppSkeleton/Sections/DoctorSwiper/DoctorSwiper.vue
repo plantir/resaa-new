@@ -8,15 +8,15 @@
   direction: rtl;
   padding: 0 8px 5px 8px;
   @include media(sm) {
-    min-width: 190px;
+    min-width: 150px;
   }
   .image {
     padding-top: 8px;
     .v-skeleton-loader__avatar {
       width: 148px;
-      height: 190px;
+      height: 150px;
       @include media(sm) {
-        min-width: 188px;
+        min-width: 150px;
       }
       border-radius: 6px;
     }
