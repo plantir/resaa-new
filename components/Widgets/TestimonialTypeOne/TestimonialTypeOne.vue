@@ -13,7 +13,7 @@
   <v-card class="testimonial-type-one">
     <div class="main-title">چگونه دیگران از رسا سود بردند</div>
     <div class="items">
-      <Testimonial v-for="(item, index) in items" :key="index" />
+      <Testimonial v-for="(item, index) in items" :item="item" :key="index" />
     </div>
   </v-card>
 </template>
