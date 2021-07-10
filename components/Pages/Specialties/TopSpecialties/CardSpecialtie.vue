@@ -17,9 +17,8 @@
   }
   h2 {
     font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0 8px;
+    text-align: center;
   }
 }
 </style>

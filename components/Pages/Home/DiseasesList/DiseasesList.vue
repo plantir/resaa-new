@@ -33,9 +33,11 @@
   }
   h2 {
     font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0 8px;
+    text-align: center;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
     @include media(sm) {
       font-size: 16px;
     }
