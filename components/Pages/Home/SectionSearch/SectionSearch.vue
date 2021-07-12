@@ -13,6 +13,7 @@
   .empty {
     padding: 40px 0;
     width: 100%;
+    min-height: 300px;
     @include media(sm) {
       padding: 80px 0 66px;
       width: 450px;

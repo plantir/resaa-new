@@ -1,5 +1,5 @@
 <template>
-  <v-img :width="width" :src="src" :alt="fileName" />
+  <v-img :width="width" :height="height" :src="src" :alt="fileName" />
 </template>
 
 <script lang="ts">
@@ -14,12 +14,24 @@ export default class Icon extends Vue {
   })
   size!: string | number
 
+  @Prop({
+    default: '1:1',
+  })
+  ratio!: string
+
   get width() {
     if (this.size.toString().includes('px')) {
       return this.size
     }
     return this.size + 'px'
   }
+
+  get height() {
+    let [w, h] = this.ratio.split(':')
+    let size = (+h / +w) * +this.size
+    return size + 'px'
+  }
+
   get src() {
     return `/images/icons/${this.fileName}`
   }

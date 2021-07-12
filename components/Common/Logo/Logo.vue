@@ -2,7 +2,7 @@
 </style>
 
 <template>
-  <v-img :width="width" src="/images/logo.png" />
+  <v-img :width="width" :height="height" src="/images/logo.png" />
 </template>
 
 <script lang="ts">
@@ -14,5 +14,9 @@ export default class Logo extends Vue {
     default: '90px',
   })
   width!: string
+  @Prop({
+    default: '50px',
+  })
+  height!: string
 }
 </script>
