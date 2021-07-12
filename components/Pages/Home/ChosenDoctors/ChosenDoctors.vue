@@ -30,11 +30,11 @@
       <div class="wrapper-title">
         {{ title }}
       </div>
-      <!-- <swiper ref="swiper" :options="swiperOptions" v-show="!loading">
+      <swiper ref="swiper" :options="swiperOptions" v-show="!loading">
         <swiper-slide v-for="doctor in doctors" :key="doctor.subscriberNumber">
           <Doctor :doctor="doctor" />
         </swiper-slide>
-      </swiper> -->
+      </swiper>
       <swiper :options="swiperOptions" v-show="loading">
         <swiper-slide v-for="index in 15" :key="index">
           <AppSkeleton section="DoctorSwiper" />

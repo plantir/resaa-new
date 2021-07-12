@@ -88,7 +88,6 @@ export default class PromotionDoctorListMobile extends Vue {
 
   @Watch('page')
   onPageChange() {
-    debugger
     this.$emit('pageChange', this.page)
   }
 }

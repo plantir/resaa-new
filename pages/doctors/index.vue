@@ -80,7 +80,7 @@ export default class DoctorsPage extends Vue {
     query: null,
     specialty: [],
     sickness: [],
-    orderBy: 0,
+    orderBy: 1,
   }
   categories = []
   specialities = []

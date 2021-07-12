@@ -55,10 +55,6 @@ export default class SortDoctorsMobile extends Vue {
 
   sortOptions = [
     {
-      label: 'فرقی نمی‌کند',
-      value: 0,
-    },
-    {
       label: 'در دسترس',
       value: 1,
     },

@@ -6,14 +6,10 @@ require('dotenv').config({})
 
 export default {
   mode: 'universal',
-  ssr: true,
   server: {
     port: process.env.PORT || 3000,
     host: process.env.HOST || '0.0.0.0', // default: localhost
   },
-  // router: {
-  //   middleware: 'nuxti18n',
-  // },
   router: {
     scrollBehavior: function(to, from, savedPosition) {
       if (from.name == 'apartments') {
@@ -361,9 +357,8 @@ export default {
       },
     },
     maxChunkSize: 360000,
-    optimizeCSS: true,
+    // optimizeCSS: true,
     watch: ['services', 'enums'],
-    // extractCSS: true,
     plugins: [
       new webpack.DefinePlugin({
         'process.VERSION': version,
@@ -418,13 +413,13 @@ export default {
         return ['script', 'style', 'font'].includes(type)
       },
     },
-    static: {
-      maxAge: '1y',
-      setHeaders(res, path) {
-        if (path.includes('sw.js')) {
-          res.setHeader('Cache-Control', `public, max-age=${15 * 60}`)
-        }
-      },
-    },
+    // static: {
+    //   maxAge: '1y',
+    //   setHeaders(res, path) {
+    //     if (path.includes('sw.js')) {
+    //       res.setHeader('Cache-Control', `public, max-age=${15 * 60}`)
+    //     }
+    //   },
+    // },
   },
 }

@@ -113,7 +113,6 @@ export default class PromotionDoctorListDesktop extends Vue {
   }
   @Watch('page')
   onPageChange() {
-    debugger
     this.$emit('pageChange', this.page)
   }
 }

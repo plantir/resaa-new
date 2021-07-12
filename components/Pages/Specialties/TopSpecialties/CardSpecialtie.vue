@@ -6,9 +6,9 @@
     @include media(sm) {
       width: 128px;
       height: 128px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      // white-space: nowrap;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
     }
     @include media(xl) {
       width: 200px;

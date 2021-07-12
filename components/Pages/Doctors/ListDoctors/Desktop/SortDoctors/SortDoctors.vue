@@ -46,12 +46,8 @@ import SortItem from './SortItem.vue'
   },
 })
 export default class SortDoctors extends Vue {
-  sort: Number = 0
+  sort: Number = 1
   sortOptions = [
-    {
-      label: 'فرقی نمی‌کند',
-      value: 0,
-    },
     {
       label: 'در دسترس',
       value: 1,
