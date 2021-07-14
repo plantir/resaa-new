@@ -1,8 +1,9 @@
-import webpack from 'webpack'
 import colors from 'vuetify/es5/util/colors'
-require('dotenv').config({})
+import webpack from 'webpack'
 import { version } from './package.json'
-import 'vrwebdesign-nuxt/modules/nuxt-i18n'
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
+require('dotenv').config({})
+
 export default {
   mode: 'universal',
   server: {
@@ -10,7 +11,70 @@ export default {
     host: process.env.HOST || '0.0.0.0', // default: localhost
   },
   router: {
-    // middleware: 'nuxti18n'
+    scrollBehavior: function(to, from, savedPosition) {
+      if (from.name == 'apartments') {
+        localStorage.setItem(
+          'savedPosition',
+          document.scrollingElement.scrollTop
+        )
+      } else if (to.name !== 'apartments') {
+        localStorage.removeItem('savedPosition')
+      }
+      let position = false
+
+      // if no children detected and scrollToTop is not explicitly disabled
+      if (
+        to.matched.length < 2 &&
+        to.matched.every(
+          r => r.components.default.options.scrollToTop !== false
+        )
+      ) {
+        // scroll to the top of the page
+        position = { x: 0, y: 0 }
+      } else if (
+        to.matched.some(r => r.components.default.options.scrollToTop)
+      ) {
+        // if one of the children has scrollToTop option set to true
+        position = { x: 0, y: 0 }
+      }
+
+      // savedPosition is only available for popstate navigations (back button)
+      if (savedPosition) {
+        position = savedPosition
+      }
+      if (to.name == 'apartments') {
+        let y = localStorage.getItem('savedPosition')
+        position = { x: 0, y: +y || 0 }
+      }
+      return new Promise(resolve => {
+        // wait for the out transition to complete (if necessary)
+        window.$nuxt.$once('triggerScroll', () => {
+          // coords will be used if no selector is provided,
+          // or if the selector didn't match any element.
+          if (to.hash) {
+            let hash = to.hash
+            // CSS.escape() is not supported with IE and Edge.
+            if (
+              typeof window.CSS !== 'undefined' &&
+              typeof window.CSS.escape !== 'undefined'
+            ) {
+              hash = '#' + window.CSS.escape(hash.substr(1))
+            }
+            try {
+              if (document.querySelector(hash)) {
+                // scroll to anchor by returning the selector
+                position = { selector: hash }
+              }
+            } catch (e) {
+              console.warn(
+                'Failed to save scroll position. Please add CSS.escape() polyfill (https://github.com/mathiasbynens/CSS.escape).'
+              )
+            }
+          }
+          resolve(position)
+        })
+      })
+    },
   },
   robots: [
     {
@@ -64,8 +128,9 @@ export default {
    ** Global CSS
    */
   css: [
-    'vrwebdesign-nuxt/assets/style/main.scss',
+    // 'animate.css/animate.css',
     '~/assets/styles/main.scss',
+    'vrwebdesign-nuxt/assets/style/main.scss',
     'swiper/css/swiper.css',
     'vrwebdesign-nuxt/assets/style/fonts/_iransans.scss',
     'vrwebdesign-nuxt/assets/style/fonts/_lineawesome.scss',
@@ -91,6 +156,7 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
+    // 'nuxt-purgecss',
     // '@nuxtjs/google-analytics',
     // '@nuxtjs/gtm'
   ],
@@ -104,6 +170,7 @@ export default {
     // '@nuxtjs/recaptcha',
     // Doc: https://github.com/nuxt-community/sentry-module
     // '@nuxtjs/sentry',
+    '@nuxtjs/universal-storage',
     // Doc: https://github.com/nuxt-community/sitemap-module
     '@nuxtjs/sitemap',
     // Doc: https://github.com/nuxt-community/robots-module#readme
@@ -118,10 +185,10 @@ export default {
     '@nuxtjs/device',
     // Doc: https://github.com/nuxt-community/auth-module
     '@nuxtjs/auth',
-    // Doc: https://github.com/nuxt-community/universal-storage-module
-    '@nuxtjs/universal-storage',
     // Doc: https://github.com/vrwebdesign/vrwebdesign-nuxt
+
     ['nuxt-gmaps', { key: process.env.GOOGLE_MAP_APIKEY }],
+
     'vrwebdesign-nuxt/modules/nuxt-client-init',
     'vrwebdesign-nuxt/modules/nuxt-global',
     'vrwebdesign-nuxt/modules/nuxt-badge',
@@ -138,7 +205,6 @@ export default {
     'vrwebdesign-nuxt/modules/nuxt-navbar',
     'vrwebdesign-nuxt/modules/nuxt-form-generator',
     'vrwebdesign-nuxt/modules/nuxt-data-grid',
-    'vrwebdesign-nuxt/modules/nuxt-file-upload',
   ],
   sentry: {},
   googleAnalytics: {
@@ -175,7 +241,13 @@ export default {
         },
         tokenRequired: true,
         autoFetchUser: false,
-        tokenType: 'Bearer',
+        tokenType: 'bearer',
+      },
+    },
+    cookie: {
+      prefix: 'auth.',
+      options: {
+        expires: 30,
       },
     },
   },
@@ -185,7 +257,8 @@ export default {
    */
   axios: {
     proxy: true, // Can be also an object with default options
-    prefix: '/api/',
+    prefix: '/api',
+    port: process.env.PORT,
   },
   proxy: {
     '/api/Mobile/': {
@@ -251,18 +324,15 @@ export default {
       },
     },
   },
-  i18n: {
-    seo: false,
-    strategy: 'no_prefix',
-    locales: [
-      { code: 'en', iso: 'en-US', file: 'en.js' },
-      { code: 'fa', iso: 'fa-IR', file: 'fa.js' },
-    ],
-    lazy: true,
-    langDir: 'locales/',
-    baseUrl: process.env.BASE_URL,
-    defaultLocale: 'fa',
-  },
+  // i18n: {
+  //   seo: false,
+  //   strategy: 'no_prefix',
+  //   locales: [{ code: 'fa', iso: 'fa-IR', file: 'fa.js' }],
+  //   lazy: true,
+  //   langDir: 'locales/',
+  //   baseUrl: process.env.BASE_URL,
+  //   defaultLocale: 'fa',
+  // },
   watch: ['services', 'enums'],
   /*
    ** Build configuration
@@ -273,7 +343,20 @@ export default {
      */
     transpile: ['vrwebdesign-nuxt/modules/nuxt-dialog'],
     watch: ['services', 'enums'],
-    // extractCSS: true,
+    // extractCSS: process.env.NODE_ENV === 'production',
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|scss|vue)$/,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      },
+    },
+    maxChunkSize: 360000,
     plugins: [
       new webpack.DefinePlugin({
         'process.VERSION': version,
@@ -314,7 +397,15 @@ export default {
           },
         ],
       })
+
       //   '@/modules/vue-class-component'
+    },
+  },
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      },
     },
   },
 }
