@@ -343,20 +343,20 @@ export default {
      */
     transpile: ['vrwebdesign-nuxt/modules/nuxt-dialog'],
     watch: ['services', 'enums'],
-    extractCSS: process.env.NODE_ENV === 'production',
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.(css|scss|vue)$/,
-            chunks: 'all',
-            enforce: true,
-          },
-        },
-      },
-    },
-    maxChunkSize: 360000,
+    // extractCSS: process.env.NODE_ENV === 'production',
+    // optimization: {
+    //   splitChunks: {
+    //     cacheGroups: {
+    //       styles: {
+    //         name: 'styles',
+    //         test: /\.(css|scss|vue)$/,
+    //         chunks: 'all',
+    //         enforce: true,
+    //       },
+    //     },
+    //   },
+    // },
+    // maxChunkSize: 360000,
     plugins: [
       new webpack.DefinePlugin({
         'process.VERSION': version,

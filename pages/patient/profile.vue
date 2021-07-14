@@ -2,6 +2,7 @@
 
 <template>
   <v-container class="mt-5">
+    <v-btn color="error" @click="logout">خروج</v-btn>
     <v-row>
       <v-col cols="12" sm="12" xs="12">
         <ProfileProgress
@@ -91,6 +92,10 @@ export default class profile extends Vue {
 
   mounted() {
     this.getProfile()
+  }
+
+  logout() {
+    this.$auth.logout()
   }
 }
 </script>
