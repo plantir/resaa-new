@@ -153,7 +153,7 @@
       <div class="feature">
         <div class="image">
           <div>
-            <Icon :size="300" fileName="ic_find_doctor.png" />
+            <Icon :ratio="'5:4'" :size="300" fileName="ic_find_doctor.png" />
           </div>
         </div>
         <h3 class="title-item">پیدا کردن پزشک یا روان‌شناس</h3>
@@ -182,7 +182,7 @@
       <div class="feature">
         <div class="image img-mobile-margin">
           <div>
-            <Icon :size="300" fileName="ic_buy_credit2.webp" />
+            <Icon :ratio="'5:4'" :size="300" fileName="ic_buy_credit2.webp" />
           </div>
         </div>
         <h3 class="title-item">
@@ -207,7 +207,7 @@
       <div class="feature">
         <div class="image">
           <div>
-            <Icon :size="300" fileName="img_direct_call.webp" />
+            <Icon :ratio="'5:4'" :size="300" fileName="img_direct_call.webp" />
           </div>
         </div>
         <h3 class="title-item">

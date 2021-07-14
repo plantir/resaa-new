@@ -129,7 +129,8 @@ footer {
           <div class="box enamad">
             <div class="box-content">
               <v-img
-                width="100px"
+                width="100"
+                height="100"
                 src="/images/footer/e-namad.png"
                 alt
                 @click="enamadClick"
