@@ -62,8 +62,8 @@ export default class HomePage extends Vue {
   posts: any = []
   testimonials: any = []
   testimonialLoading = true
-  loadingDoctors = false
-  loadingSuggestionDoctors = false
+  loadingDoctors = true
+  loadingSuggestionDoctors = true
   pageInfo = {}
   public head() {
     return {
@@ -77,6 +77,14 @@ export default class HomePage extends Vue {
     return this.$auth.loggedIn
   }
   async fetch() {
+    if (!this.$isServer) {
+      this.fetchClient()
+    } else {
+      await this.fetchServer()
+    }
+  }
+
+  fetchClient() {
     this.$service.metadata.getMetadata('home').then((res) => {
       this.pageInfo = res
     })
@@ -116,6 +124,28 @@ export default class HomePage extends Vue {
     this.$service.weblog.getPosts().then((data) => {
       this.posts = data
     })
+  }
+  async fetchServer() {
+    try {
+      let [meta, chosen_doctors, suggest_doctors, testimonials, posts] =
+        await Promise.all([
+          this.$service.metadata.getMetadata('home'),
+          this.$service.doctors.chosenDoctors(),
+          this.$service.doctors.getRelatedDoctors(1141, {
+            limit: 12,
+          }),
+          this.$service.testimonials.getTestimonials(),
+          this.$service.weblog.getPosts(),
+        ])
+      this.pageInfo = meta
+      this.suggestionDoctors = chosen_doctors.result.doctors
+      this.doctors = suggest_doctors.result.relatedDoctors
+      this.testimonials = testimonials
+      this.posts = posts
+    } catch (error) {}
+    this.loadingSuggestionDoctors = false
+    this.loadingDoctors = false
+    this.testimonialLoading = false
   }
 }
 </script>
