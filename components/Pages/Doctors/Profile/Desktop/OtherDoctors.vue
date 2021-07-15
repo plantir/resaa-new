@@ -181,7 +181,7 @@
   </section>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component, Prop, Watch, Emit, Ref } from 'nuxt-property-decorator'
 import RecommendationDoctorCompoent from '~/components/Common/Doctor/Recommendation.vue'
 import { Doctor } from '~/models/Doctor'
 @Component({

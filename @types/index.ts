@@ -1,4 +1,3 @@
-import { Profile } from '@/models/Auth'
 import AuthService from '@/services/auth'
 import ChargeService from '@/services/charge'
 import ProfileService from '@/services/profile'

@@ -30,7 +30,7 @@
   </main>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 import SectionIntro from '@/components/Pages/Home/SectionIntro/SectionIntro.vue'
 import SectionSearch from '@/components/Pages/Home/SectionSearch/SectionSearch.vue'
 import SectionFeatures from '@/components/Pages/Home/SectionFeatures/SectionFeatures.vue'

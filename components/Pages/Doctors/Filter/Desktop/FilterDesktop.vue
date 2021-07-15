@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import FilterByName from './FilterByName/FilterByName.vue'
 import FilterBySpecialty from './FilterBySpecialty/FilterBySpecialty.vue'
 import FilterBySickness from './FilterBySickness/FilterBySickness.vue'

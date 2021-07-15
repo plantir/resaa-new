@@ -77,7 +77,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import Refferal from '@/components/Common/Referral/Index.vue'
 @Component
 export default class HeaderMobile extends Vue {

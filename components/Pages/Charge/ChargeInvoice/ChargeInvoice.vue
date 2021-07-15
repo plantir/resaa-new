@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import HeaderCharge from '../HeaderCharge/HeaderCharge.vue'
 import InvoiceDetails from './InvoiceDetails.vue'
 import ChargeHelpBlock from '../ChargeHelpBlock/ChargeHelpBlock.vue'

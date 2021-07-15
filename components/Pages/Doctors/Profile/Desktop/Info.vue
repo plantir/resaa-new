@@ -225,7 +225,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 import { Doctor } from '~/models/Doctor'
 import doctorAddress from '@/components/Common/Doctor/ClinicAddressDialog.vue'
 @Component

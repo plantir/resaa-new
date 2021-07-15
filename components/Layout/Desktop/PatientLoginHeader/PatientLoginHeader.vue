@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 import Logo from '@/components/Common/Logo/Logo.vue'
 
 import UserMenuLoggedIn from '../HeaderDesktop/UserMenu/UserMenuLoggedIn.vue'

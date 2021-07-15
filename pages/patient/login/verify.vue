@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 import VerifyForm from '@/components/Pages/Patient/Login/VerifyForm/VerifyForm.vue'
 import BottomBackground from '@/components/Common/BottomBackground/BottomBackground.vue'
 import { ReqLogin } from '@/models/Auth'

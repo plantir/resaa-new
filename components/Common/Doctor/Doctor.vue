@@ -248,7 +248,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import Icon from '@/components/Common/Icon/Icon.vue'
 import OnlineStatus from '@/components/Common/OnlineStatus/OnlineStatus.vue'
 

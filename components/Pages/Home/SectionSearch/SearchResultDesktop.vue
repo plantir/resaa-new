@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'nuxt-property-decorator'
 import SearchResultItem from './SearchResultItemDesktop.vue'
 @Component({
   components: {

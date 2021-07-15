@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import ChargeInfo from './ChargeInfo/ChargeInfo.vue'
 import FormCall from './FormCall/FormCall.vue'
 import InfoDoctor from '@/components/Pages/Doctors/Profile/Desktop/Info.vue'

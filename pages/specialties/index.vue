@@ -25,7 +25,7 @@ main {
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import SearchDcotor from '@/components/Pages/Specialties/SearchDcotor/SearchDcotor.vue'
 import TopSpecialties from '@/components/Pages/Specialties/TopSpecialties/TopSpecialties.vue'
 import TagList from '@/components/Pages/Specialties/TagList/TagList.vue'

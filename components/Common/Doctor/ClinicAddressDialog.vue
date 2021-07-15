@@ -80,7 +80,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 
 @Component({})
 export default class ReferralComponent extends Vue {

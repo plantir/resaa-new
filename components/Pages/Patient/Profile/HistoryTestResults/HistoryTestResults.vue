@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import HistoryTestItem from './HistoryTestItem.vue'
 // import DialogRate from '../CallHistory/DialogRate.vue'
 

@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import Package from '../Package/Package.vue'
 import Icon from '@/components/Common/Icon/Icon.vue'
 @Component({

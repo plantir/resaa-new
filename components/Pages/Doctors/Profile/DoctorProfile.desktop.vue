@@ -29,7 +29,7 @@
   </v-container>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component, Prop, Watch, Emit, Ref } from 'nuxt-property-decorator'
 import InfoDoctor from './Desktop/Info.vue'
 import MedicalRecords from './Desktop/MedicalRecords.vue'
 import DoctorServices from './Desktop/DoctorServices.vue'

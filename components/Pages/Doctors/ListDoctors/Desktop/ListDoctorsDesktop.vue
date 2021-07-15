@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import SortDoctors from './SortDoctors/SortDoctors.vue'
 import DoctorsList from './DoctorsList/DoctorsList.vue'
 

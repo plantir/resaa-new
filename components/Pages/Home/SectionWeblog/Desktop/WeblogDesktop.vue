@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 // import AppSkeleton from '@/components/Common/AppSkeleton/AppSkeleton.vue'
 import Post from '../Post/Post.vue'
 

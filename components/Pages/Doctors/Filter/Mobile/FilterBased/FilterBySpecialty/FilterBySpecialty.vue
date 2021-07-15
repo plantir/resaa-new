@@ -149,7 +149,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'nuxt-property-decorator'
 import SpecialtiesCheckBox from '../../../SpecialtiesCheckBox/SpecialtiesCheckBox.vue'
 
 @Component({

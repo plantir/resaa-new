@@ -1,4 +1,27 @@
 <style lang="scss" scoped>
+.navigation {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 99;
+  pointer-events: none;
+  &.open {
+    pointer-events: initial;
+  }
+  // right: -206px;
+}
+
+.v-list {
+  transform: translateX(220px);
+  transition: transform 0.2s ease-in-out;
+  width: 220px;
+  height: 100%;
+}
+.open {
+  .v-list {
+    transform: translateX(0);
+  }
+}
 .v-list-item a {
   display: flex;
   color: rgba(0, 0, 0, 0.87);
@@ -9,7 +32,9 @@
 </style>
 
 <template>
-  <v-navigation-drawer v-model="drawer" :right="true" app fixed>
+  <section class="navigation" :class="{ open: drawer }">
+    <div class="backdrop" v-if="drawer" @click="drawer = false"></div>
+    <!-- <v-navigation-drawer v-model="drawer" :right="true" app fixed> -->
     <v-list dense nav class="py-0">
       <v-list-item two-line>
         <v-list-item-avatar>
@@ -59,11 +84,12 @@
         </v-list-group>
       </template>
     </v-list>
-  </v-navigation-drawer>
+    <!-- </v-navigation-drawer> -->
+  </section>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class MenuMobile extends Vue {
@@ -80,11 +106,5 @@ export default class MenuMobile extends Vue {
   set drawer(val) {
     this.$emit('input', val)
   }
-
-  items = [
-    { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-    { title: 'Photos', icon: 'mdi-image' },
-    { title: 'About', icon: 'mdi-help-box' },
-  ]
 }
 </script>

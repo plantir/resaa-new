@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import FilterByName from './FilterByName/FilterByName.vue'
 import FilterBased from './FilterBased/FilterBased.vue'
 import SortDoctorsMobile from './SortDoctorsMobile/SortDoctorsMobile.vue'

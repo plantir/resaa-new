@@ -77,7 +77,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import DialogRate from '../CallHistory/DialogRate.vue'
 @Component
 export default class HistoryTestItem extends Vue {

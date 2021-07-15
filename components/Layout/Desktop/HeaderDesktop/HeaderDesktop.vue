@@ -87,7 +87,7 @@ import MainMenu from './MainMenu/MainMenu.vue'
 import UserMenuLoggedIn from './UserMenu/UserMenuLoggedIn.vue'
 import UserMenuNotLoggedIn from './UserMenu/UserMenuNotLoggedIn.vue'
 import Refferal from '@/components/Common/Referral/Index.vue'
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component, Prop, Watch, Emit, Ref } from 'nuxt-property-decorator'
 @Component({
   components: {
     Logo,

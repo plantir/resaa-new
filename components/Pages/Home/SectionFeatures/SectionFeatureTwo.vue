@@ -234,7 +234,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import Icon from '@/components/Common/Icon/Icon.vue'
 
 @Component({

@@ -68,7 +68,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import Doctor from '@/components/Common/Doctor/Doctor.vue'
 
 @Component({

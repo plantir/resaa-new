@@ -510,7 +510,7 @@ section {
   </section>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Watch, Emit, Ref } from 'vue-property-decorator'
+import { Vue, Component, Prop, Watch, Emit, Ref } from 'nuxt-property-decorator'
 import sun from '~/assets/svg/sun.svg?inline'
 import moon from '~/assets/svg/moon.svg?inline'
 import close from '~/assets/svg/close_circle.svg?inline'

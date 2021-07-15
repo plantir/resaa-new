@@ -29,7 +29,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'nuxt-property-decorator'
 import ChargeForm from '@/components/Pages/Charge/ChargeForm/ChargeForm.vue'
 import ChargeInvoice from '@/components/Pages/Charge/ChargeInvoice/ChargeInvoice.vue'
 import BottomBackground from '@/components/Common/BottomBackground/BottomBackground.vue'

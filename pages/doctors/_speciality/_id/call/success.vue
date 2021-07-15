@@ -67,7 +67,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import CardTimer from '@/components/Common/CardTimer/CardTimer.vue'
 import Faq from '@/components/Common/Faq/Faq.vue'
 import BottomBackground from '@/components/Common/BottomBackground/BottomBackground.vue'

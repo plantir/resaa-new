@@ -134,7 +134,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import HeaderCharge from '../HeaderCharge/HeaderCharge.vue'
 import ToggleDoctor from './ToggleDoctor.vue'
 import DenominationSelect from './DenominationSelect.vue'

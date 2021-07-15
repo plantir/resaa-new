@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import PersonalInformation from '@/components/Pages/Patient/Profile/PersonalInformation/PersonalInformation.vue'
 import DialogEditPersonalInformation from '@/components/Pages/Patient/Profile/PersonalInformation/DialogEditPersonalInformation.vue'
 import ProfileProgress from '@/components/Pages/Patient/Profile/ProfileProgress/ProfileProgress.vue'

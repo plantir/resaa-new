@@ -69,7 +69,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch } from 'nuxt-property-decorator'
 import Icon from '@/components/Common/Icon/Icon.vue'
 import Doctor from './Doctor.vue'
 import { RelatedDoctor } from '~/models/Doctor'
