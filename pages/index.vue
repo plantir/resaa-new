@@ -77,37 +77,45 @@ export default class HomePage extends Vue {
     return this.$auth.loggedIn
   }
   async fetch() {
-    try {
-      this.pageInfo = await this.$service.metadata.getMetadata('home')
-    } catch (error) {}
-    try {
-      this.loadingSuggestionDoctors = true
-      const { result } = await this.$service.doctors.chosenDoctors()
-      this.suggestionDoctors = result.doctors
-      this.loadingSuggestionDoctors = false
-    } catch (error) {
-      this.loadingSuggestionDoctors = false
-    }
-
-    try {
-      this.loadingDoctors = true
-      const { result } = await this.$service.doctors.getRelatedDoctors(1141, {
+    this.$service.metadata.getMetadata('home').then((res) => {
+      this.pageInfo = res
+    })
+    this.loadingSuggestionDoctors = true
+    this.$service.doctors
+      .chosenDoctors()
+      .then((res) => {
+        this.suggestionDoctors = res.result.doctors
+        this.loadingSuggestionDoctors = false
+      })
+      .catch((err) => {
+        this.loadingSuggestionDoctors = false
+      })
+    this.loadingDoctors = true
+    this.$service.doctors
+      .getRelatedDoctors(1141, {
         limit: 12,
       })
-      this.doctors = result.relatedDoctors
-      this.loadingDoctors = false
-    } catch (error) {
-      this.loadingDoctors = false
-    }
-    try {
-      this.testimonials = await this.$service.testimonials.getTestimonials()
-      this.testimonialLoading = false
-    } catch (error) {
-      this.testimonialLoading = false
-    }
-    try {
-      this.posts = await this.$service.weblog.getPosts()
-    } catch (error) {}
+      .then((data) => {
+        this.doctors = data.result.relatedDoctors
+        this.loadingDoctors = false
+      })
+      .catch((err) => {
+        this.loadingDoctors = false
+      })
+
+    this.$service.testimonials
+      .getTestimonials()
+      .then((data) => {
+        this.testimonials = data
+        this.testimonialLoading = false
+      })
+      .catch((err) => {
+        this.testimonialLoading = false
+      })
+
+    this.$service.weblog.getPosts().then((data) => {
+      this.posts = data
+    })
   }
 }
 </script>
