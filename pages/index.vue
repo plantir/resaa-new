@@ -142,7 +142,9 @@ export default class HomePage extends Vue {
       this.doctors = suggest_doctors.result.relatedDoctors
       this.testimonials = testimonials
       this.posts = posts
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
     this.loadingSuggestionDoctors = false
     this.loadingDoctors = false
     this.testimonialLoading = false
