@@ -35,17 +35,13 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 import VerifyForm from '@/components/Pages/Patient/Login/VerifyForm/VerifyForm.vue'
 import BottomBackground from '@/components/Common/BottomBackground/BottomBackground.vue'
 import { ReqLogin } from '@/models/Auth'
 import decodeToken from '@/utils/jwtDecode'
-import { getModule } from 'vuex-module-decorators'
-
-Component.registerHooks(['fetch', 'head'])
 
 @Component({
-  middleware: 'guest',
   layout: 'patientLogin',
   components: {
     VerifyForm,
