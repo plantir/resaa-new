@@ -83,7 +83,9 @@ export default class HomePage extends Vue {
       await this.fetchServer()
     }
   }
-
+  async mounted() {
+    this.posts = await this.$service.weblog.getPosts()
+  }
   fetchClient() {
     this.$service.metadata.getMetadata('home').then((res) => {
       this.pageInfo = res
@@ -125,9 +127,10 @@ export default class HomePage extends Vue {
       this.posts = data
     })
   }
+
   async fetchServer() {
     try {
-      let [meta, chosen_doctors, suggest_doctors, testimonials, posts] =
+      let [meta, chosen_doctors, suggest_doctors, testimonials] =
         await Promise.all([
           this.$service.metadata.getMetadata('home'),
           this.$service.doctors.chosenDoctors(),
@@ -135,13 +138,11 @@ export default class HomePage extends Vue {
             limit: 12,
           }),
           this.$service.testimonials.getTestimonials(),
-          this.$service.weblog.getPosts(),
         ])
       this.pageInfo = meta
       this.suggestionDoctors = chosen_doctors.result.doctors
       this.doctors = suggest_doctors.result.relatedDoctors
       this.testimonials = testimonials
-      this.posts = posts
     } catch (error) {
       console.log(error)
     }
